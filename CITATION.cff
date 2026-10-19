@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Please cite this repository when using its code or numerical results."
+type: software
+title: "Physical AI, Together: Companion Code and Numerical Results"
+authors:
+  - family-names: Heydari Shahna
+    given-names: Mehdi
+repository-code: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"

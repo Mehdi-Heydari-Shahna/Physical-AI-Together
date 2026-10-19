@@ -1,0 +1,8 @@
+name: physical-ai-together
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.12
+  - git
+  - gh
