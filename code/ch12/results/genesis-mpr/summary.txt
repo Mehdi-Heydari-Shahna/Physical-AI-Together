@@ -1,0 +1,74 @@
+[record]
+  backend = genesis-mpr
+  adapter = cart.genesis
+  options = settings = mujoco-mpr
+  version of genesis-world = 1.4.4
+  version of quadrants = 1.3.3
+  version of torch = 2.14.1
+  version of mujoco = 3.16.0
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  MJCF text of Section 11.1, SHA-256 = ed63fb3f13056da6
+  time step [s] = 0.001
+  steps per period = 100
+  settings = mujoco-mpr
+  precision = 64
+  links, joints, degrees of freedom = 5, 6, 6
+  link masses [kg] = 0, 80, 5, 5, 0.1
+  rigid options: integrator, constraint solver, cone, iterations, tolerance = implicitfast, Newton, elliptic, 100, 1e-08
+  rigid options: MuJoCo compatibility, impratio, contact time constant [s], contact pruning, contact resolution, GJK = True, 1.0, 0.02, None, convex, False
+  ground mesh: vertices, faces = 342, 680
+  friction of the ground and the wheels = 0.25, 0.25, 0.25
+  actuators: wheel force range [N m], tool gain, bias, force range = -40 to 40; 1000, -1000 -20, -100 to 100
+  state precision = float64
+  one step at 1 m/s from 5 m: the entity's DOF position x less the joint coordinate x [m] = -0.001
+  one step at 1 m/s from 5 m: the chassis link's position x less that of the joint coordinates [m] = -0.001
+  time per step, in the comparison [ms] = 1
+  wall time of the run [s] = 93
+[port checks]
+  wheel loads at rest [N] = 442.53 + 441.35 = 883.881; weight 883.881
+  penetration at rest [mm] = 0.233
+  one period at 1 m/s from 5 m: dp [m] = -7.86e-08
+  steps per period, adapter = 100, counted
+  one period at 1 m/s from 0.5 m and from 15 m: dp [m] = -7.47e-08, -7.46e-08
+  capacity: braking on firm ground from 4 m/s [m/s^2] = 2.45
+  encoder less cart speed at 2 m/s^2 [mm/s] = 1.16
+  crest, braking at 0.5 from 2.12 m/s at 20 m: steps with a wheel unloaded, of steps on the crest; load difference from the rigid cart's = 292 of 658; 1.55e+04 %
+  crest, the same: deepest an axle on the crest comes below the wheel's radius [mm] = 809
+  verdicts: loads, timing, friction, crest = pass, pass, pass, fail
+[the run of Chapter 3, period by period]
+  periods = 220
+  end of period: median, 90th percentile (nearest rank) [m] = 0.000163, 0.000301
+  end of period: largest [m], period = 0.108, 66
+  periods at rest at 24.5 m: end differences from, to [m] = 0.000163, 0.000163
+  braking at 2 m/s^2 (period 40): dp, dl [m]; end difference [m] = -0.000101, 0.0002; 0.000301
+  accelerating at 2 m/s^2 from rest (period 1): dp, dl [m] = 0.0001, -6.12e-05
+  tool folded: largest position difference within a period [m], period = 0.00621, 63
+  tool folded: largest speed difference within a period [m/s], period = 0.121, 68
+  within period: largest speed difference [m/s], period = 0.121, 68
+  tool unfolds: period, reach difference at the end [m], largest reach [m] = 201, -0.000378, 0.79962
+  axle: acceleration less command, tool folded, over 1 ms: largest, period, at p = 24.6, 68, 22.28
+  axle: acceleration less command, tool folded, over one step: largest, period = 24.6, 68
+  axle: periods with the tool folded above 0.05 m/s^2 = 14 of 201
+  largest change of a wheel's load in one step, tool folded [N], period = 6.04e+03, 67
+  speed signal: acceleration less command over 1 ms, tool folded: largest, period = 24.6, 68
+  braking claims of the exact run's labels: available on the simulated ground = 220 of 220
+  smallest margin of a label [m/s^2], period, label = 0.232, 65, 0.5
+  against MuJoCo 3.16.0 (Section 11.1): end differences less MuJoCo's, median, largest [m], period = 1.9e-05, 0.108, 66
+  against MuJoCo 3.16.0: at that period, dp, dv, dl less MuJoCo's = 0.00624, 0.108, -7.45e-05
+[the cases of Section 10.4]
+  differences with tolerance 0 = 26 of 26
+  differences with tolerance 0.001 = 6 of 26
+  largest difference of a component, component = 0.0815, v
+  cases with a difference above 1 mm = from (21, 1.5, 0.8) under (2, 0); from (21, 1.5, 0.8) under (2, 0.8); from (21, 1.5, 0.8) under (0, 0); from (21, 1.5, 0.8) under (0, 0.8); from (21, 1.5, 0.8) under (-0.5, 0); from (21, 1.5, 0.8) under (-0.5, 0.8)
+[the configuration of Chapter 3]
+  declarations of robot, world and control vs model: problems = 0
+  alarms = 1
+  first alarm [s] = 0.1
+  distance that raised it, in the norm of the state = 7.79e-10
+  restarts = 0
+  least clearance [m] = 25
+  largest |p| over the run [m] = 2.26e-07
+  largest reach over the run [m] = 4.69e-08
+  tool operation = dropped after an overload at 20 s
+[check] against the shipped summary: all as shipped

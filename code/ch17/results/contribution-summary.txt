@@ -1,0 +1,55 @@
+[registration]
+  reader.full-reverse = role control; contract 1.0; registered
+  reader.early-window = role demand; contract 1.0; registered
+[the check suite]
+  reader.full-reverse = 13 passed, 0 failed, 0 not applicable
+  reader.early-window = 13 passed, 0 failed, 0 not applicable
+[the world of Chapter 3]
+  C6: lead times in periods at which the operation begins on time; not = 21; 20, 19, 18
+  full-reverse: lead times in periods at which the operation begins on time; not = 21, 20, 19; 18
+  C6, the schedule of Chapter 3: begun; the back-away from period; periods in the work zone after the announcement = 200; 180; 55
+  early-window, the schedule of Chapter 3: begun; the back-away from period; periods in the work zone after the announcement = 200; 170; 45
+[the family]
+  worlds; valid; unreliable surveys = 100; 95; 19
+  valid worlds: lead times of 31 periods or more; 21 to 30; 19 or 20; 18 or fewer = 66; 14; 1; 14
+  valid worlds: onsets that slip later; earlier; not = 12; 13; 70
+[C6]
+  valid worlds: the operation on time = 69 of 95 (73 %; 62.5 to 81.3 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.5 to 2.1; range 0.1 to 2.7; n = 26)
+  valid worlds: the operation never begun = 0 of 95
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 8.9; range 8.4 to 9.2; n = 95)
+  valid worlds: time in the work zone [s] = 13.0 s (95 % interval 12.5 to 13.2; range 10.6 to 16.1; n = 95)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 5; 5; 2; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+[full-reverse]
+  valid worlds: the operation on time = 69 of 95 (73 %; 62.5 to 81.3 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.5 to 2.1; range 0.1 to 2.2; n = 26)
+  valid worlds: the operation never begun = 0 of 95
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 8.9; range 8.4 to 9.2; n = 95)
+  valid worlds: time in the work zone [s] = 13.0 s (95 % interval 12.5 to 13.2; range 10.6 to 16.1; n = 95)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 5; 5; 2; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+[early-window]
+  valid worlds: the operation on time = 71 of 95 (75 %; 64.7 to 83.1 %)
+  valid worlds: the operation late, by [s] = 6.3 s (95 % interval 4.2 to 6.3; range 2.1 to 6.4; n = 24)
+  valid worlds: the operation never begun = 0 of 95
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 8.9; range 8.4 to 9.2; n = 95)
+  valid worlds: time in the work zone [s] = 12.2 s (95 % interval 11.7 to 12.9; range 9.6 to 18.3; n = 95)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 5; 5; 2; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+[the hypotheses]
+  F1 (the certificate): supported; cases; exceptions = yes; 95; none
+  E1 (the certificate): supported; cases; exceptions = yes; 95; none
+  F2 (the shorter lead time): supported; cases; exceptions = yes; 1; none
+  F3 (no loss): supported; cases; exceptions = yes; 95; none
+  F4 (later preparation): supported; cases; exceptions = no; 58; world 16101: delays 0, 0; periods in the work zone more: 0; world 16102: delays 0, 0; periods in the work zone more: 0; world 16105: delays 0, 0; periods in the work zone more: 0; world 16106: delays 0, 0; periods in the work zone more: 0; world 16110: delays 0, 0; periods in the work zone more: 0; world 16111: delays 0, 0; periods in the work zone more: 0; and 52 more
+  E2 (an earlier onset): supported; cases; exceptions = yes; 11; none
+  E3 (the price): supported; cases; exceptions = yes; 47; none
+  E4 (a window that cannot be met): supported; cases; exceptions = no; 11; world 16101 (lead 27): begun 218 against 218; world 16102 (lead 28): begun 235 against 235; world 16128 (lead 27): begun 213 against 213; world 16140 (lead 30): begun 205 against 205
+  E5 (the approach unchanged): supported; cases; exceptions = yes; 100; none
+[paired with C6]
+  full-reverse: the operation begun earlier; later; in the same period as C6 (valid worlds) = 1; 0; 94
+  full-reverse: periods in the work zone less C6's: value (valid worlds) = 0 (95)
+  early-window: the operation begun earlier; later; in the same period as C6 (valid worlds) = 11; 24; 60
+  early-window: periods in the work zone less C6's: value (valid worlds) = -10 (66), -9 (1), -7 (2), -6 (3), -5 (1), -2 (1), 10 (1), 14 (3), 15 (2), 16 (2), 17 (2), 18 (1), 20 (2), 29 (5), 30 (3)
+[check] 45 values: all as expected

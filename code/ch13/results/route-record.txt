@@ -1,0 +1,35 @@
+Record of the experiment of Section 13.2: the Husky A300 under the governor of Chapter 10, in the yard of Section 13.1
+
+model and asset provenance
+  the model, the drive controller, the drivers and the declared contacts of Section 13.1 (record.txt), unchanged
+simulator and solver
+  MuJoCo 3.16.0, NumPy and Python 2.5.3, 3.13.17; the settings of Section 13.1
+time steps
+  simulator 0.0005 s; drive controller, estimator and feedback at 50 Hz; governor every 0.2 s; the crossing with the map repeated at 1 and 0.25 ms
+modules
+  allovi core and contract 0.1.0, 1.0 (../ch10); control package husky.route-speed, proposal husky.cruise, predictors husky.fixed, husky.reactive, husky.map and husky.forecast, robot husky.robot, world husky.yard, evaluator husky.metrics (husky/governed.py)
+actuators and sensors
+  the drive controller's velocity command, from the feedback of husky/follow.py, gains 2, 1.5, 3, 0.2, 4
+  gyro (ours): bias, noise, seed; calibration 0.004, 0.001, 13; 2
+  encoders exact; the estimator with sideslip of husky/estimate.py
+frames and units
+  SI units; route coordinates s and d, positive to the left; the state (s, u, d, e), norm max(|s|, |u| * 0.5 s, |d| / 2, |e| * 2 m)
+uncertainty bounds
+  grounds and labels: 0.8, 0.6, 0.35; 4, 3.53, 2.06; 0.6; 0.8
+  the shower: 20, 10; 0.15; 0.883
+  the measurement-error bound VARPI (ours): 0.05 m
+  the estimate's bounds (ours): 0.05, 0.1, 0.1, 0.025
+  the feedback's bounds (ours, measured): 0.02, 0.15, 0.06, 0.04
+  the funnel: 0.07, 0.25, 0.16, 0.065
+constraints
+  the dock and the lane of Section 13.1, two families with a reserve each; the lane keeps the robot 0.1 m from the pallets; reserve floor of the dock 0.1 m; the lane's reserve, the same for every plan, 0.0586 m; the commanded speed at most 1 m/s, the task's limit, which no reserve keeps; the robot's speed, by the funnel's bound, at most 1.25 m/s
+terminal behaviour
+  the stop at the label of each period's region, then rest; after an alarm, the stop at the global capability, and a restart from rest
+training and evaluation split
+  none: nothing learns in Section 13.2
+seeds
+  the gyro's noise, PCG64, seed 13; seeds 1 to 20 in a repetition
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+guarantee status
+  conditional: the test is sound for the declared bounds, the labels and VARPI; the bounds are measured in simulation, not proved

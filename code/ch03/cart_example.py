@@ -2,7 +2,7 @@
 """
 The smallest complete example of ALLOVI: a cart approaching a wall.
 
-Physical AI, Together, Chapter 3.
+Physical AI, Together, Chapter 3; Chapter 4 uses the same runs.
 
 A cart moves on a line towards a wall. The ground limits every acceleration
 towards the start, which brakes a forward motion or drives the cart
@@ -29,18 +29,22 @@ of no return.
 Usage
     python3 cart_example.py            # all runs; writes results/
     python3 cart_example.py --check    # also checks every simulation result
-                                       # quoted in Chapter 3
+                                       # quoted in Chapters 3 and 4
     python3 cart_example.py --period 32
                                        # prints the candidates of one period
                                        # of the forecasting run
+    python3 cart_example.py --global-braking 0.4
+                                       # Exercise 3.1: the runs of Section 3.2
+                                       # with another declared global
+                                       # capability; prints, writes no file
 
 Outputs, in results/ next to this file
     trace-<configuration>.csv     one row per period: governor's view
     plot-<configuration>.csv      one row per period: signals of the plan
-                                  executed in that period (Figures 3.2, 3.3)
+                                  executed in that period (Figures 3.2, 3.4)
     track-persisting.csv          the motion of the persisting run, sampled
                                   every 0.01 s, and the motion predicted by
-                                  its last committed plan (Figure 3.4)
+                                  its last committed plan (Figure 3.5)
     candidates-k<period>.csv      the candidates of selected periods of the
                                   forecasting run
     summary.txt                   the numbers quoted in the chapter
@@ -55,8 +59,14 @@ import os
 from fractions import Fraction as Fr
 
 # ----------------------------------------------------------------------------
-# Parameters (Table 3.1 of the chapter)
+# Parameters (Table S3.1 of the supplement)
 # ----------------------------------------------------------------------------
+# Chapters 7 to 10, 16 and 17 reuse these names, the segments, the plans and
+# the functions of the generator, through cart.model.ce in Chapter 10; the
+# ones that a contribution may reuse are documented, with examples, in
+# ../ch10/templates/HELPERS.md. Every function reads these parameters when it
+# is called: the scripts of Chapters 7, 16 and 17 set RAMP to the ramp of each
+# of their worlds while they run it, and Exercise 3.1 sets B_GLOBAL.
 T = Fr(1, 10)          # period of the governor [s]
 U_MAX = Fr(2)          # command bound |u| <= 2 m/s^2
 WALL = Fr(25)          # position of the wall [m]; constraint p + l <= 25 m
@@ -108,6 +118,23 @@ class Segment:
 
     If every world consistent with the label realizes the command exactly,
     the funnel is the single trajectory computed here.
+
+    Arguments: the position p0 [m] of the front bumper, from the start and
+    positive towards the wall, the velocity v0 [m/s] and the command u
+    [m/s^2], exact numbers (fractions.Fraction or int). Attributes: u, p0
+    and v0; p1 and v1, the state at the end of the period, T = 0.1 s later,
+    if the command is realized; lo and hi, the least and the largest
+    position within the period, the region of the segment to which a label
+    refers. With exact arguments every attribute is exact. A segment does
+    not check itself: certified(beta) says whether a label certifies it.
+    Chapters 7 to 10, 16 and 17 use it through cart.model.ce
+    (../ch10/templates/HELPERS.md).
+
+    >>> seg = Segment(Fr(24), Fr(1), Fr(-2))   # braking at 2 m/s^2 from 1 m/s
+    >>> seg.p1, seg.v1, seg.lo, seg.hi
+    (Fraction(2409, 100), Fraction(4, 5), Fraction(24, 1), Fraction(2409, 100))
+    >>> seg.certified(Fr(2)), seg.certified(Fr(1, 2))
+    (True, False)
     """
 
     __slots__ = ("u", "p0", "v0", "p1", "v1", "lo", "hi")
@@ -191,7 +218,30 @@ class Plan:
     """Labelled plan: pairs (segment, label), numbered from 0, executed in
     periods j0, j0+1, ..., followed by the rest segment at p_rest. Every
     segment of the plan, its rest segment included, has the operation mode
-    ell: 0 with the tool folded, ELL_UNFOLDED with the tool unfolded."""
+    ell: 0 with the tool folded, ELL_UNFOLDED with the tool unfolded.
+
+    Arguments: j0, the period in which pair 0 is executed; pairs, a list of
+    (Segment, label), a label being the braking [m/s^2] assumed on the
+    region of its segment; p_rest [m], where the plan holds the cart at rest
+    after its last pair; ell [m], the reach of the tool. The test, profile(),
+    relies on two conditions that it does not check and that whoever builds
+    a plan must ensure: each segment starts where the one before it ends,
+    and the last pair brings the cart to rest at p_rest (a plan without
+    pairs starts at rest at p_rest). The plans of brake_to_rest, recovery
+    and generate meet both. Levels and clearances are in metres; an entry
+    that the test does not certify is NEG_INF, which in this file is None,
+    not the float('-inf') of the core (cart.constant-command converts it).
+
+    >>> class Firm:                       # every label: firm ground, 2 m/s^2
+    ...     def label(self, k, j, segment):
+    ...         return Fr(2)
+    >>> pairs, p_rest = brake_to_rest(Firm(), 0, 1, Fr(24), Fr(1))
+    >>> plan = Plan(1, pairs, p_rest)
+    >>> len(plan.pairs), p_rest, plan.head_command(), plan.reserve()
+    (5, Fraction(97, 4), Fraction(-2, 1), Fraction(3, 4))
+    >>> plan.profile()[0], plan.shift().j0, len(plan.shift().pairs)
+    (Fraction(3, 4), 2, 4)
+    """
 
     def __init__(self, j0, pairs, p_rest, ell=Fr(0)):
         self.j0, self.pairs, self.p_rest = j0, pairs, p_rest
@@ -243,15 +293,41 @@ def level_at(profile, n):
 # ----------------------------------------------------------------------------
 # The control method: candidate generator
 # ----------------------------------------------------------------------------
+def braking_rates():
+    """The rates of braking that the recovery continuation tries, strongest
+    first: the values that a label can take, 2 and 0.5 m/s^2 and the global
+    capability (0.5 m/s^2 unless --global-braking declares another)."""
+    return sorted({B_FIRM, B_RAMP, B_GLOBAL}, reverse=True)
+
+
 def braking_step(pred, k, j, p, v):
     """Strongest braking certified under the label of its own segment.
     Braking a forward motion accelerates the cart towards the start and is
     limited by the label; braking a backward motion accelerates it towards
-    the wall and is realized up to the command bound."""
+    the wall and is realized up to the command bound.
+
+    pred is any object with a method label(k, j, segment) that returns the
+    label [m/s^2] issued during period k for the segment in period j: a
+    Predictor, or cart.control._Labels around a labelling map. From (p, v)
+    [m, m/s] at the start of period j, it returns (segment, label): for
+    v >= 0, braking at the first rate of braking_rates(), strongest first,
+    capped at v/T so that the cart stops within the period, that the label
+    of its own segment certifies; for v < 0, the command min(2, -v/T) m/s^2
+    towards the wall. It raises AssertionError if not even the global
+    capability is certified, which labels at least as informative as the
+    global capability (Assumption 4.3) exclude.
+
+    >>> class Ramp:                       # every label: the ramp, 0.5 m/s^2
+    ...     def label(self, k, j, segment):
+    ...         return Fr(1, 2)
+    >>> seg, label = braking_step(Ramp(), 0, 1, Fr(24), Fr(1))
+    >>> seg.u, label
+    (Fraction(-1, 2), Fraction(1, 2))
+    """
     if v < 0:
         seg = Segment(p, v, min(U_MAX, -v / T))
         return seg, pred.label(k, j, seg)
-    for b_try in (B_FIRM, B_RAMP):
+    for b_try in braking_rates():
         u = -min(b_try, v / T)
         seg = Segment(p, v, u)
         beta = pred.label(k, j, seg)
@@ -261,8 +337,25 @@ def braking_step(pred, k, j, p, v):
 
 
 def backward_step(pred, k, j, p, v):
-    """Strongest backward drive certified under the label of its segment."""
-    for b_try in (B_FIRM, B_RAMP):
+    """Strongest backward drive certified under the label of its segment.
+
+    From (p, v) [m, m/s] at the start of period j, it returns (segment,
+    label) for the command -b [m/s^2], with b the first rate of
+    braking_rates(), strongest first, that the label of its own segment
+    certifies; pred and k as for braking_step. The generator calls it from
+    rest or during a backward drive (v <= 0). With v > 0 the command brakes
+    the forward motion instead, and a rate that would reverse the motion
+    within the period is not certified; if no rate is, it raises
+    AssertionError.
+
+    >>> class Ramp:
+    ...     def label(self, k, j, segment):
+    ...         return Fr(1, 2)
+    >>> seg, label = backward_step(Ramp(), 0, 1, Fr(49, 2), Fr(0))
+    >>> seg.u, seg.p1, seg.v1
+    (Fraction(-1, 2), Fraction(9799, 400), Fraction(-1, 20))
+    """
+    for b_try in braking_rates():
         seg = Segment(p, v, -b_try)
         beta = pred.label(k, j, seg)
         if seg.certified(beta):
@@ -271,7 +364,25 @@ def backward_step(pred, k, j, p, v):
 
 
 def brake_to_rest(pred, k, j, p, v):
-    """Maximal certified braking to standstill, starting in period j."""
+    """Maximal certified braking to standstill, starting in period j.
+
+    Repeats braking_step from (p, v) [m, m/s], one period at a time, until
+    the cart is at rest, and returns (pairs, p_rest): the list of (segment,
+    label), the first starting at (p, v) and each where the one before it
+    ends, and the position [m] at which the last brings the cart to rest;
+    no pairs if v == 0. pred and k as for braking_step. Plan(j, pairs,
+    p_rest, ell) then meets the two conditions on which the test relies
+    (see Plan); whether the test certifies it depends on its clearance.
+
+    >>> class Ramp:
+    ...     def label(self, k, j, segment):
+    ...         return Fr(1, 2)
+    >>> pairs, p_rest = brake_to_rest(Ramp(), 0, 1, Fr(24), Fr(1))
+    >>> len(pairs), p_rest
+    (20, Fraction(25, 1))
+    >>> Plan(1, pairs, p_rest).profile()[0] is NEG_INF   # at rest at the wall
+    True
+    """
     pairs = []
     while v != 0:
         seg, beta = braking_step(pred, k, j, p, v)
@@ -288,6 +399,9 @@ def recovery(pred, k, j, p, v, target):
     backs away: the strongest certified backward command for m periods, then
     maximal braking, with the smallest m that comes to rest at or before the
     target.
+
+    Returns (pairs, p_rest) as brake_to_rest does; pred and k as for
+    braking_step; target [m] is 25 m less the required reserve, or None.
     """
     pairs, p = brake_to_rest(pred, k, j, p, v)
     j += len(pairs)
@@ -311,7 +425,15 @@ def generate(pred, k, xhat, u_q, fallback, target, ell):
     continuation, and the recovery continuation alone with ambition 0. Every
     segment of every candidate has the operation mode ell: 0 until the
     operation begins, ELL_UNFOLDED from the onset period on once the demand
-    is met."""
+    is met.
+
+    Arguments: pred and k as for braking_step; xhat, the initial set, a
+    single state (p, v) [m, m/s]; u_q, the proposed command [m/s^2]
+    (proposed_command); fallback, the shifted plan in force, a Plan; target
+    as for recovery; ell [m]. Returns a list of (Plan, ambition) in the
+    order of evaluation, ambitions ALPHAS and then 0, each plan starting at
+    xhat in period k + 1; cart.constant-command wraps each pair in an
+    allovi.Candidate."""
     p, v = xhat
     u_fb = fallback.head_command()
     cands = []
@@ -350,7 +472,20 @@ def proposed_command(q, xhat):
     """Physical meaning of the proposal, applied by the generator to the
     initial set: 'accelerate' is a command of +2 m/s^2; 'hold' is the command
     that brings the cart to rest within one period if braking of 2 m/s^2
-    allows it (firm ground assumed), and zero at rest."""
+    allows it (firm ground assumed), and zero at rest.
+
+    xhat is the initial set, a single state (p, v) [m, m/s]; the command is
+    in m/s^2. Every proposal other than 'accelerate' is read as 'hold'
+    (Section S10.9.4); the benchmark's package bench.constant-command of
+    Chapter 16 adds 'retreat'.
+
+    >>> proposed_command("accelerate", (Fr(10), Fr(1)))
+    Fraction(2, 1)
+    >>> proposed_command("hold", (Fr(24), Fr(1)))
+    Fraction(-2, 1)
+    >>> proposed_command("hold", (Fr(24), Fr(0)))
+    Fraction(0, 1)
+    """
     if q == "accelerate":
         return U_MAX
     v = xhat[1]
@@ -388,9 +523,11 @@ def realize(p, v, u):
     ground allows on the whole segment. Otherwise the command brakes harder
     than the ground allows somewhere on the segment; this happens only for
     forward motion in this example (Section 3.3), and the motion is then
-    computed in floating point, with the ramp crossing found exactly and the
-    brakes holding the cart once it stops."""
+    computed in floating point, with the ramp crossing found exactly and a
+    forward motion braked to standstill held there until the period ends
+    (Section 3.1)."""
     seg = Segment(p, v, u)
+    assert v * seg.v1 >= 0, "an executed segment never reverses (Section 4.2)"
     if u >= 0 or -u <= b_min(seg.lo, seg.hi):
         return seg.p1, seg.v1, True
     pf, vf = true_motion(float(p), float(v), float(u), float(T))
@@ -401,9 +538,9 @@ def true_motion(pf, vf, uf, left):
     """State after 'left' seconds under the constant command uf from
     (pf, vf) in the true world, in floating point. Accelerations towards
     the wall are realized as commanded; braking a forward motion is realized
-    at min(-uf, b(p)), with the ramp crossing found exactly and the brakes
-    holding the cart once it stops. Used for motion under an invalid label
-    and for sampling the motion of the persisting run (Figure 3.4)."""
+    at min(-uf, b(p)), with the ramp crossing found exactly; a forward motion
+    braked to standstill stays there for the rest of the interval (Section 3.1). Used for motion under an invalid label and for sampling the motion
+    of the persisting run (Figure 3.5)."""
     if uf >= 0:
         return pf + vf * left + 0.5 * uf * left * left, vf + uf * left
     assert vf > 0, "only forward braking occurs under an invalid label here"
@@ -462,6 +599,7 @@ def run(kind, t_announce=T_ANNOUNCE, t_onset=T_ONSET, t_end=T_END,
     ell_op, k_met, overload = Fr(0), None, False   # operation mode offered
     req_prev, onset_prev = EPS_MIN, 0
     rows, kept = [], {}
+    n_reversing = 0                  # candidate segments whose motion reverses
     for k in range(k_end):
         # --- period k: the control method executes the head of the plan ----
         u_exec = plan.head_command()
@@ -491,6 +629,8 @@ def run(kind, t_announce=T_ANNOUNCE, t_onset=T_ONSET, t_end=T_END,
         fallback = plan.shift()
         fb_prof = prof[1:] if len(prof) > 1 else prof
         cands = generate(pred, k, xhat, u_q, fallback, target, ell_op)
+        n_reversing += sum(1 for c in cands for seg, _ in c[0].pairs
+                           if seg.v0 * seg.v1 < 0)
         profiles = [c[0].profile() for c in cands]
         sel = select(cands, profiles, fb_prof, req, onset)
         if sel == 0:
@@ -520,14 +660,15 @@ def run(kind, t_announce=T_ANNOUNCE, t_onset=T_ONSET, t_end=T_END,
         if alarm:
             rows.append(dict(k=k + 1, t=(k + 1) * T, p=p1, v=v1, final=True))
             return rows, kept, dict(alarm_k=k + 1, k_met=k_met, kd=kd,
-                                    overload=overload, state=(p1, v1))
+                                    overload=overload, state=(p1, v1),
+                                    reversing=n_reversing)
         pred.observe(min(p, p1), max(p, p1), p1)
         p, v = p1, v1
         plan, prof = new_plan, new_prof
         req_prev, onset_prev = req, onset   # onset pair of the new plan
     rows.append(dict(k=k_end, t=k_end * T, p=p, v=v, final=True))
     return rows, kept, dict(alarm_k=None, k_met=k_met, kd=kd,
-                            overload=overload)
+                            overload=overload, reversing=n_reversing)
 
 
 def direct_execution(t_end=Fr(12)):
@@ -553,9 +694,14 @@ def direct_execution(t_end=Fr(12)):
 
 
 def continue_after_alarm(state):
-    """Response to a label alarm: restart with the fixed predictor and a plan
-    labelled by the global capability and certified on the measured state,
-    if one exists; otherwise maximal braking without a guarantee. Returns
+    """Response to a label alarm (Section 4.3.2): maximal braking without a
+    guarantee, and a restart with the fixed predictor once a plan labelled by
+    the global capability is certified on every state that maximal braking
+    can reach. Braking at exactly 0.5 m/s^2, which the global capability
+    admits, keeps p + v^2/(2 * 0.5) constant, so such a plan can exist only
+    when the measured state can stop before the floor at that rate; in the
+    persisting run it cannot, at the alarm or later (restart_gap_after_alarm
+    in facts_of_persisting). Returns
     whether a certified restart exists and the motion until standstill,
     integrated with 2000 steps per second in the true world."""
     pf, vf = state
@@ -607,7 +753,7 @@ def plan_motion(plan, t):
 
 
 def alarm_track(rows, info, after):
-    """Motion of a run that ends in a label alarm, for Figure 3.4: the
+    """Motion of a run that ends in a label alarm, for Figure 3.5: the
     realized motion every 0.01 s of each period before the alarm and at the
     instant the front reaches the ramp, then the motion after the alarm
     every 0.01 s and at standstill. From the start of the period of the
@@ -687,6 +833,7 @@ def facts_of_persisting(rows, info, certified, after):
     x_end = body[first_mod + 1]          # start of the first modified period
     f["acceleration_ends"] = (f"{r(x_end['p'], 2)} m, {r(x_end['v'], 1)} m/s "
                               f"at {r(x_end['t'], 1)} s")
+    f["reversing_candidate_segments"] = str(info["reversing"])   # Section 4.2
 
     def invalid(seg, beta):
         return beta > b_min(seg.lo, seg.hi)
@@ -739,6 +886,14 @@ def facts_of_persisting(rows, info, certified, after):
                               f"{float(WALL - EPS_MIN) - pa:.2f} m available")
     t_a = float(info["alarm_k"] * T)
     motion = [(t_a, pa, va)] + [(t_a + t, p, v) for t, p, v in after]
+    # a restart plan certified under the global capability needs the
+    # stopping distance at 0.5 m/s^2 to fit before the floor; under maximal
+    # braking on the ramp both distances shrink equally (Section 4.3.2)
+    gaps = [v * v / (2 * float(B_GLOBAL)) - (float(WALL - EPS_MIN) - p)
+            for _, p, v in motion if p <= float(WALL - EPS_MIN)]
+    lo, hi = f"{min(gaps):.2f}", f"{max(gaps):.2f}"
+    f["restart_gap_after_alarm"] = (f"{lo} m throughout" if lo == hi
+                                    else f"{lo} to {hi} m")
     t_w, v_w = first_reach(motion, float(WALL))
     f["wall_reached"] = f"{t_w:.2f} s at {v_w:.2f} m/s"
     t_f, v_f = first_reach(motion, float(WALL - EPS_MIN))
@@ -871,6 +1026,7 @@ def facts_of_run(name, rows, kept, info):
     f = {}
     k_arr = next(x["k"] for x in rows if x["p"] >= WORK_ZONE)
     f["arrival_s"] = r(k_arr * T, 1)
+    f["reversing_candidate_segments"] = str(info["reversing"])   # Section 4.2
     upto = [x for x in rows if x["k"] < k_arr]
     n1 = sum(1 for x in upto if x["alpha"] == 1)
     nq = sum(1 for x in upto if x["alpha"] == Fr(1, 4))
@@ -944,7 +1100,8 @@ def facts_of_run(name, rows, kept, info):
 
 
 def facts_of_candidates(kept):
-    """The numbers that Section 3.1 quotes about periods 31, 32 and 179."""
+    """The numbers that Sections 3.1, 3.2 and 4.2 quote about periods 31,
+    32, 140 and 179 of the forecasting run."""
     f = {}
     rec31 = kept[31]
     f["k31_selected_rest"] = r(rec31["cands"][rec31["sel"] - 1][0].p_rest, 2)
@@ -960,6 +1117,17 @@ def facts_of_candidates(kept):
     f["k32_selected"] = f"{rec['sel']} (ambition {fmt(rec['cands'][rec['sel'] - 1][1])})"
     sel = rec["cands"][rec["sel"] - 1][0]
     f["k32_selected_reserve"] = fmt(sel.reserve())
+    # the selected plan as a certified plan (Section 4.2)
+    cmds = [seg.u for seg, _ in sel.pairs]
+    labs = [beta for _, beta in sel.pairs]
+    f["k32_selected_pairs"] = (
+        f"{len(sel.pairs)}: head {fmt(cmds[0])} label {fmt(labs[0])}, "
+        f"{cmds[1:].count(Fr(-2))} at -2 label 2, "
+        f"{cmds[1:].count(Fr(-1, 2))} at -0.5 label 0.5")
+    assert all(b == (2 if u == -2 or i == 0 else Fr(1, 2))
+               for i, (u, b) in enumerate(zip(cmds, labs)))
+    f["k32_selected_profile"] = ",".join(sorted(
+        {fmt(e) for e in rec["profiles"][rec["sel"] - 1]}))
     h = sel.pairs[0][0]
     f["ex31_head_end"] = f"{fmt(h.p1)},{fmt(h.v1)}"
     n2 = sum(1 for seg, _ in sel.pairs[1:] if seg.u == -2)
@@ -992,6 +1160,7 @@ def facts_of_candidates(kept):
     seg_on = first[0].pairs[onset][0]
     f["k179_ambition1"] = (f"onset level {fmt(level_at(prof1, onset))},"
                            f"at the onset {fmt(seg_on.p0)}")
+    f["k179_ambition1_level_and_onset_pair"] = f"{fmt(prof1[0])},{onset}"
     f["k179_other_blends"] = ",".join(fmt(level_at(p, onset)) for p in rec["profiles"][1:5])
     first_back = next(i for i, (seg, _) in enumerate(first[0].pairs) if seg.u < 0)
     f["k179_backaway_start_periods"] = (
@@ -1001,7 +1170,7 @@ def facts_of_candidates(kept):
     return f
 
 
-EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
+EXPECTED = {   # every simulation result quoted in Chapters 3 and 4, as in the text
     "forecasting": {
         "arrival_s": "8.6", "counts_1_quarter_0": "32,4,50,86",
         "load": "53/86 = 0.62", "accepted_first": "32",
@@ -1024,6 +1193,7 @@ EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
         "full_acceleration_periods": "1-32",
         "max_p_plus_ell": "24.5", "alarm_checks": "220",
         "recoverable_at_every_boundary": "True",
+        "reversing_candidate_segments": "0",
     },
     "fixed": {
         "arrival_s": "9.9", "counts_1_quarter_0": "22,1,76,99",
@@ -1037,6 +1207,10 @@ EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
         "onset_state": "23.695,0.00", "met_at_onset": "True",
         "unfolded_from_s": "20.1", "backaway_fallbacks": "14 of 20",
         "commands_of_partial_blends": "0.125",
+        "reversing_candidate_segments": "0",
+    },
+    "reactive": {
+        "reversing_candidate_segments": "0",
     },
     "persisting": {
         "accepted_unchanged": "35",
@@ -1060,9 +1234,11 @@ EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
                  "initial set 20.09 m, 4.2 m/s",
         "alarm_difference": "0.34 mm, 0.032 m/s",
         "certified_restart": "False; needs 17.91 m, 4.41 m available",
+        "restart_gap_after_alarm": "13.50 m throughout",
         "wall_reached": "6.25 s at 3.61 m/s",
         "floor_lost": "6.12 s at 3.67 m/s",
         "stops_at": "38.00 m at 13.46 s",
+        "reversing_candidate_segments": "0",
     },
     "candidates": {
         "k31_selected_rest": "21.95", "k32_state": "9.61,6.2",
@@ -1072,6 +1248,10 @@ EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
         "k32_rests": "27.66,26.135,24.75,23.505,21.95,21.95",
         "k32_levels": "-inf,-inf,-inf,1.49,3.05,3.05",
         "k32_selected": "4 (ambition 0.25)", "k32_selected_reserve": "1.495",
+        "k32_selected_pairs":
+            "61: head -1 label 2, 22 at -2 label 2, 38 at -0.5 label 0.5",
+        "k32_selected_profile": "1.49",
+        "k179_ambition1_level_and_onset_pair": "0.5,20",
         "ex31_head_end": "10.875,6.3",
         "ex31_after_firm_braking": "22 periods,19.895,1.9",
         "ex31_trial_segment": "20.075,label 0.5,period 56",
@@ -1092,8 +1272,112 @@ EXPECTED = {   # every simulation result quoted in Chapter 3, as in the text
         "lead_time_reactive": "2.1 s met, 2 s not met",
         "lead_time_forecasting": "2.1 s met, 2 s not met",
         "direct_execution": "9.75 m/s at 5.0 s",
+        "reversing_in_lead_time_runs": "0",
     },
 }
+
+# ----------------------------------------------------------------------------
+# Exercise 3.1: another declared global capability
+# ----------------------------------------------------------------------------
+def behaviour(rows):
+    """What the cart does in a run, period by period: state, executed command
+    and mode, committed ambition. The labels are left out, so two runs that
+    differ only in the label of a resting cart count as the same."""
+    return [(x["k"], x["p"], x["v"], x.get("u"), x.get("ell"), x.get("alpha"))
+            for x in rows]
+
+
+def exercise(b_global):
+    """The three runs of Section 3.2 with the global capability declared as
+    braking of at least b_global everywhere, the world unchanged. Prints the
+    quantities of Table 3.3, the back-away and the shortest lead time at
+    which the demand is met, and compares the runs with one another and with
+    the declared 0.5 m/s^2; writes no file. A run that ends in a label alarm
+    reports the alarm and where maximal braking in the true world brings the
+    cart to rest."""
+    global B_GLOBAL
+    default_forecasting = behaviour(run("forecasting")[0])
+    B_GLOBAL = b_global
+    valid = b_global <= B_RAMP
+    print(f"declared global capability: braking of at least {fmt(b_global)} m/s^2 "
+          f"everywhere; the ramp allows {fmt(B_RAMP)}, so it is "
+          f"{'valid' if valid else 'invalid on the ramp'}")
+    seen = {}
+    k0 = period(T_ANNOUNCE)
+    for kind in ("fixed", "reactive", "forecasting"):
+        rows, _, info = run(kind)
+        seen[kind] = behaviour(rows)
+        body = [x for x in rows if not x.get("final")]
+        print(f"[{kind}]")
+        if info["alarm_k"] is not None:
+            pa, va = (float(z) for z in info["state"])
+            ka = info["alarm_k"] - 1
+            print(f"  label alarm at {r(info['alarm_k'] * T, 1)} s, the end of "
+                  f"period {ka}: measured {pa:.4f} m, {va:.4f} m/s; executed "
+                  f"command {fmt(body[ka]['u'])} with the label {fmt(body[ka]['beta'])}")
+            restart = pa + va * va / (2 * float(B_GLOBAL)) <= float(WALL - EPS_MIN)
+            print(f"  a restart plan labelled by the declared global capability is "
+                  f"certified: {restart}" + ("" if valid else
+                                             "; the declared bound is invalid on the "
+                                             "ramp, so no certificate under it "
+                                             "guarantees anything"))
+            stop = stop_position_true(pa, va)
+            print(f"  maximal braking in the true world brings the front to rest "
+                  f"at {stop:.2f} m" + (f", {stop - float(WALL):.2f} m beyond the "
+                                         f"wall" if stop > float(WALL) else ""))
+            continue
+        k_arr = next((x["k"] for x in body if x["p"] >= WORK_ZONE), None)
+        if k_arr is None:
+            print("  never in the work zone")
+            continue
+        upto = [x for x in body if x["k"] < k_arr]
+        n1 = sum(1 for x in upto if x["alpha"] == 1)
+        first_mod = next(x["k"] for x in body if x["alpha"] < 1)
+        load = sum(1 - x["alpha"] for x in upto) / len(upto)
+        t_ramp, v_ramp = crossing(rows, RAMP)
+        k_stop = next(x["k"] for x in body if x["k"] > k_arr and x["v"] == 0)
+        back = next((x["k"] for x in body
+                     if x["k"] >= k0 and x["v"] == 0 and x["u"] < 0), None)
+        kd = info["kd"]
+        print(f"  proposals accepted unchanged before arrival: {n1}; acceptance "
+              f"ends at {r(body[first_mod + 1]['p'], 2)} m, "
+              f"{r(body[first_mod + 1]['v'], 2)} m/s")
+        print(f"  highest speed {r(max(x['v'] for x in body), 2)} m/s; on reaching "
+              f"the ramp {r(v_ramp, 3)} m/s at {r(t_ramp, 2)} s")
+        print(f"  arrival in the work zone {r(k_arr * T, 1)} s; mean intervention "
+              f"before arrival {r(load, 2)}")
+        print(f"  at rest at {r(body[k_stop]['p'], 3)} m at {r(k_stop * T, 1)} s; "
+              f"smallest reserve committed {r(min(x['reserve'] for x in body), 3)} m; "
+              f"label alarms {sum(x['alarm'] for x in body)}")
+        if back is not None:
+            n_back = next(x["k"] for x in body
+                          if x["k"] > back and x["v"] == 0 and x["u"] == 0) - back
+            print(f"  back-away from {r(back * T, 1)} s, {n_back} periods; at the "
+                  f"onset at {r(body[kd]['p'], 3)} m; demand met at its onset: "
+                  f"{info['k_met'] == kd}")
+            # shortest lead time at which the demand is met: from the
+            # back-away's length plus one period, downwards to the first
+            # lead time at which it is not met
+            na, met = n_back + 2, None
+            while na > 1:
+                _, _, li = run(kind, t_announce=T_ONSET - (na - 1) * T)
+                if li["k_met"] != li["kd"]:
+                    break
+                na, met = na - 1, True
+            print(f"  shortest lead time at which the demand is met: "
+                  f"{fmt(na * T) + ' s' if met else 'longer than ' + fmt((n_back + 1) * T) + ' s'}"
+                  f"; {fmt((na - 1) * T)} s: not met")
+        top = max(max(x["p"], y["p"]) + x["ell"] for x, y in zip(body, rows[1:]))
+        print(f"  largest p + l: {fmt(top)} m")
+    print("[comparison]")
+    same = seen["reactive"] == seen["fixed"]
+    first = next((a[0] for a, b in zip(seen["reactive"], seen["fixed"]) if a != b),
+                 None)
+    print(f"  reactive run identical to the fixed run: {same}"
+          + ("" if same else f"; they first differ in period {first}"))
+    print(f"  forecasting run identical to the run with 0.5 m/s^2 declared: "
+          f"{seen['forecasting'] == default_forecasting}")
+    B_GLOBAL = Fr(1, 2)
 
 
 def main():
@@ -1101,8 +1385,19 @@ def main():
     ap.add_argument("--period", type=int, action="append", default=[],
                     help="print the candidates of this period (forecasting run)")
     ap.add_argument("--check", action="store_true",
-                    help="check every simulation result quoted in Chapter 3")
+                    help="check every simulation result quoted in Chapters 3 and 4")
+    ap.add_argument("--global-braking", type=Fr, metavar="B",
+                    help="Exercise 3.1: declare the global capability as braking of "
+                         "at least B m/s^2 (e.g. 0.4), run Section 3.2 and print; "
+                         "writes no file")
     args = ap.parse_args()
+    if args.global_braking is not None:
+        if args.check or args.period:
+            ap.error("--global-braking is used alone")
+        if not 0 < args.global_braking <= U_MAX:
+            ap.error("B must lie in (0, 2]")
+        exercise(args.global_braking)
+        return
     here = os.path.dirname(os.path.abspath(__file__))
     out = os.path.join(here, "results")
     os.makedirs(out, exist_ok=True)
@@ -1130,12 +1425,15 @@ def main():
         "ramp_speed_wall_limit": r(math.sqrt(2 * 0.5 * 5), 3),
     }
     # shortest lead time at which the operation begins at its onset
+    n_rev = 0
     for kind in ("fixed", "reactive", "forecasting"):
         res = []
         for na in (21, 20):
             _, _, info = run(kind, t_announce=T_ONSET - na * T)
             res.append(f"{fmt(na * T)} s {'met' if info['k_met'] == info['kd'] else 'not met'}")
+            n_rev += info["reversing"]
         facts["comparison"][f"lead_time_{kind}"] = ", ".join(res)
+    facts["comparison"]["reversing_in_lead_time_runs"] = str(n_rev)   # Section 4.2
     t_hit, v_hit = direct_execution()
     facts["comparison"]["direct_execution"] = f"{r(v_hit, 2)} m/s at {r(t_hit, 1)} s"
     # the persisting predictor (Section 3.3): the run stops at the alarm

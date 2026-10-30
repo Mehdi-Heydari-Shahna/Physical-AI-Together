@@ -1,0 +1,36 @@
+New entries of the record of the experiment (Section 12.3), for the configuration of Section 11.1 and the faithful ports
+
+numerical validation
+  time step: halving the time step twice: a value of the comparison of Section 11.1.4 is resolved at 1 ms if neither halving changes it by more than its tolerance (1 um, 1 um/s, 0.005 m/s^2), once the integrator's error u h T/2 in the position at the end of a period, which the record predicts, is set apart, and a rate read over one step is judged by its change over that step, its jump; otherwise the record reports it as unresolved at 1 ms, with its values at the three steps
+  constraint solver: a tolerance 10^4 times tighter with ten times the iterations, or no warm start, changes no period's error by more than 1 nm; no step ends at the iteration limit
+  collision detection: every contact of a wheel with the ground agrees with the exact geometry of the ground and the wheels, as MuJoCo compiled them (MuJoCo, and MuJoCo's C library inside Newton) or as the text gives them (Genesis), to within 1 um in distance and 1e-4 rad in normal
+  friction: neither halving of the time step changes the braking that the drive loop sustains by more than 0.005 m/s^2, or the encoders' creep by more than 1 um/s
+  limits: neither halving of the time step changes the tool's reach at the end of period 201, or its largest reach against the stop, by more than 1 um
+  estimation: in every period, the position at the end lies within what the speed signal allows over the period, to within 1 um (the test of Section 11.2.3, which a signal that is the rate of the position passes)
+  arithmetic: in single precision, one period at 1 m/s from 5 m ends within 1 um of what the spacing of the representable positions predicts
+  collision algorithms: MuJoCo 3.16.0, its native pipeline (GJK and EPA), the default; Newton 1.7.0 on MuJoCo's C library, the same; Newton 1.7.0 on MuJoCo Warp, MuJoCo Warp's own; Genesis 1.4.4, GJK, which the port sets (its default is MPR)
+  unresolved at 1 ms, MuJoCo 3.16.0, values at 1, 0.5, 0.25 ms: the speed within a period outside period 201, largest [m/s] = 0.000347, 0.000345, 0.000347; the tool's reach at the end of period 201, short of the stop [m] = 0.000205, 0.000645, 0.000888
+  unresolved at 1 ms, Newton 1.7.0 on MuJoCo's C library, values at 1, 0.5, 0.25 ms: the end of a period, 90th percentile, less u h T/2 [m] = 0.000215, 0.000215, 0.000222; braking at 2 m/s^2, period 40, the end less u h T/2 [m] = 0.000203, 0.000202, 0.000202; the speed within a period outside period 201, largest [m/s] = 0.000347, 0.000344, 0.000347; the tool's reach at the end of period 201, short of the stop [m] = 0.000205, 0.000645, 0.000888; the tool's largest reach beyond the end of its stroke, against the stop [m] = 4.96e-05, 4.91e-05, 4.81e-05
+  unresolved at 1 ms, Newton 1.7.0 on MuJoCo Warp, values at 1, 0.5, 0.25 ms: the end of a period, 90th percentile, less u h T/2 [m] = 0.000215, 0.000215, 0.000222; braking at 2 m/s^2, period 40, the end less u h T/2 [m] = 0.000203, 0.000202, 0.000202; the speed within a period outside period 201, largest [m/s] = 0.000346, 0.000344, 0.000347; the axle's disturbance over 1 ms, tool folded, largest [m/s^2] = 0.0343, 0.0319, 0.0416; the axle's disturbance over one step, tool folded, largest [m/s^2] = 0.0343, 0.0332, 0.139; the tool's reach at the end of period 201, short of the stop [m] = 0.000205, 0.000645, 0.000888; the tool's largest reach beyond the end of its stroke, against the stop [m] = 4.96e-05, 4.91e-05, 4.81e-05
+  unresolved at 1 ms, Genesis 1.4.4, the options of the text, values at 1, 0.5, 0.25 ms: the speed within a period outside period 201, largest [m/s] = 0.000347, 0.000345, 0.000347; the tool's reach at the end of period 201, short of the stop [m] = 0.000378, 0.00078, 0.000964
+  the tool's last approach: extrapolated from 0.5 and 0.25 ms at first order, 1.13 to 1.15 mm short of the stop in MuJoCo and in Genesis; the tool's equation integrated directly, 1.15 mm
+  outcomes: results/numerics/validation.txt
+failures
+  F1: a wheel sinks into the crest of the ground; Genesis 1.4.4, MPR collision detection (its default)
+  F2: the state stops being a number while the cart settles at rest; Newton 1.7.0, Featherstone, Newton's contacts with the importer's defaults
+  F3: the state stops being a number while the cart settles at rest; Newton 1.7.0, semi-implicit solver, Newton's contacts with the importer's defaults
+  F4: a wheel loses its load on the crest; Newton 1.7.0 on MuJoCo's C library, the importer's hull of 64 vertices
+  F5: the contacts on the crest are computed differently, and in one period the disturbance of the front axle exceeds the bound; Newton 1.7.0 on MuJoCo's C library, Newton's gap of 0.1 m
+  F6: the drive loop sustains almost no braking; Newton 1.7.0, XPBD with Newton's contacts and the importer's defaults
+  F7: too little braking, and a wheel loses its load on the crest; Genesis 1.4.4 with its own defaults
+  F8: the contacts on the crest are wrong by up to a millimetre in distance, the loads there by a sixth, and the disturbance exceeds the bound; MuJoCo 3.16.0, the libccd pipeline (MPR) instead of the native one
+  F9: a wheel leaves the ground on the crest while the cart rolls freely at 3 m/s; MuJoCo 3.16.0
+  F10: the MJCF importer fails on the mesh of the ground, written in the text; mujoco-usd-converter 0.6.1 (Isaac Sim 6.2.0) and 0.8.0
+  F11: the reported speed is not the rate of the position; Isaac Sim 6.2.0, PhysX (Section 11.2)
+  F12: the loads at rest exceed the weight, and on the crest a wheel reports no load in single steps; Isaac Sim 6.2.0, PhysX (Section 11.2)
+  F13: the encoders' reading of the speed changes with the time step; Isaac Sim 6.2.0, PhysX (Section 11.2)
+  reproductions and signatures: results/numerics/failures.txt
+acceptable numerical variation of a reproduction
+  a second run, the same environment: every value identical, bit for bit
+  a new environment from the requirements files, the same kind of machine: every value identical, bit for bit
+  another machine or operating system: every quoted value equal at its quoted precision, or within one unit of its last digit; and every period's error vector within 1 nm of the shipped one in double precision (about thirty times the largest change that the perturbations of the constraint solver produce, a choice) and within two spacings of the representable positions in single precision (the difference that the emulation of Newton in Section 12.2.2 left), the spacing taken at the farthest position of the run

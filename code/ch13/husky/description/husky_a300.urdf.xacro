@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  The Husky A300 of Chapter 13: Clearpath's platform description, as its own
+  macros assemble it, with outdoor wheels on all four corners, the four-wheel
+  differential (skid-steer) drive, and the front and rear bumpers. The
+  platform controllers (ros2_control) are left out: the simulator adapters of
+  Chapter 13 implement the A300's controller themselves (husky/drive.py).
+
+  Expanded by husky/asset.py with xacro into husky_a300.urdf, beside this file.
+-->
+<robot name="husky_a300" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find clearpath_platform_description)/urdf/common.urdf.xacro"/>
+  <xacro:include filename="$(find clearpath_platform_description)/urdf/a300/a300.urdf.xacro"/>
+  <xacro:include filename="$(find clearpath_platform_description)/urdf/a300/attachments/bumper.urdf.xacro"/>
+
+  <xacro:a300 control="diff_4wd" front_wheels="outdoor" rear_wheels="outdoor"/>
+
+  <xacro:bumper name="front_bumper" parent_link="front_bumper_mount">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:bumper>
+  <xacro:bumper name="rear_bumper" parent_link="rear_bumper_mount">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:bumper>
+</robot>

@@ -1,0 +1,53 @@
+[checks]
+  reference = 13 passed, 0 failed, 0 not applicable
+  survey-0.2 = 12 passed, 1 failed, 0 not applicable
+  eager = 13 passed, 0 failed, 0 not applicable
+  forgets-the-tool = 12 passed, 1 failed, 0 not applicable
+  forgets-the-tool-eager = 12 passed, 1 failed, 0 not applicable
+  generous = 12 passed, 1 failed, 0 not applicable
+  generous-eager = 12 passed, 1 failed, 0 not applicable
+  margin-0.25 = 13 passed, 0 failed, 0 not applicable
+  margin-0.1 = 12 passed, 1 failed, 0 not applicable
+[failed checks]
+  reference = none
+  survey-0.2 = executed labels valid: 1 failed; first: period 55: label 2
+  eager = none
+  forgets-the-tool = true reserve at least the level in force: 18 failed; first: period 202: level 1.3 in force, true reserve 0.5
+  forgets-the-tool-eager = true reserve at least the level in force: 18 failed; first: period 202: level 1.1 in force, true reserve 0.49125
+  generous = own test refuses plans that brake beyond their labels: 12 failed; first: from 20 m at 2 m/s, braking at 0.501 m/s^2 under labels of 0.5 m/s^2 is certified at 1 m; it plans rest at 23.9922 m, and in a world braking at 0.5 m/s^2 the cart cannot stop before 24 m
+  generous-eager = own test refuses plans that brake beyond their labels: 12 failed; first: from 20 m at 2 m/s, braking at 0.501 m/s^2 under labels of 0.5 m/s^2 is certified at 1 m; it plans rest at 23.9922 m, and in a world braking at 0.5 m/s^2 the cart cannot stop before 24 m
+  margin-0.25 = none
+  margin-0.1 = executed labels valid: 1 failed; first: period 55: label 2
+[reference]
+  checks = 13
+  labels examined = 124276
+  rows compared with a second run = 1760
+  executed labels examined by the oracle = 220
+  own test: plans tried = 16
+[what the records show]
+  forgets the tool, eager: first period in which the tool passes the wall = 210, 6.8 ms after its start
+  forgets the tool, eager: periods from the first failed check to the violation = 8
+  forgets the tool, naive: committed in period 202 = level 1.3 m; reason: clearance 0.5 m at the rest point 23.7 m
+  forgets the tool, naive: decision columns that differ from the reference = level, onset_level; from period 200
+  generous: records identical to those of the reference = yes
+  generous, naive: candidates that brake beyond their labels; least excess = 48; 0.03125 m/s^2
+  generous, eager: candidates that brake beyond their labels = 0
+[arrival; tool unfolds; least clearance; alarms]
+  reference = 8.6 s; 20.1 s; 0.5 m; none
+  survey-0.2 = 8.4 s; 20.1 s; 0.52 m; 5.6 s
+  eager = 8.6 s; 20.1 s; 0.5 m; none
+  forgets-the-tool = 8.6 s; 20.1 s; 0.5 m; none
+  forgets-the-tool-eager = 8.6 s; 20.1 s; -0.29625 m; none
+  generous = 8.6 s; 20.1 s; 0.5 m; none
+  generous-eager = 8.6 s; 20.1 s; 0.5 m; none
+  margin-0.25 = 8.6 s; 20.1 s; 0.5 m; none
+  margin-0.1 = 8.6 s; 20.1 s; 0.545 m; 5.6 s
+[templates]
+  templates = 8
+  roles = 8
+  conforming = 8
+  roles_covered = yes
+[the path of a contribution]
+  --module examples/eager.py = proposal example.eager: 13 passed, 0 failed, 0 not applicable; as the case eager: yes
+  --module examples/survey_margin.py = capability example.survey-margin: 13 passed, 0 failed, 0 not applicable; as the case margin-0.25: yes
+[check] 45 values quoted in Section 10.3: all as quoted

@@ -1,0 +1,28 @@
+Record of the experiment of Section 13.3: the Husky A300 of Section 13.2 with one module substituted, or one assumption changed, at a time
+
+model and asset provenance
+  the model, the drive controller, the drivers and the declared contacts of Section 13.1 (record.txt); with the payload, 51.5 kg in a box of half sizes 0.2, 0.15 and 0.05 m, centred 0.3 m above the ground, 131.5 kg in all (ours, after the manual's payload)
+simulator and solver
+  MuJoCo 3.16.0, NumPy and Python 2.5.3, 3.13.17; the settings of Section 13.1
+time steps
+  simulator 0.0005 s; drive controller, estimator and feedback at 50 Hz; governor every 0.2 s; the crossing with pure pursuit at 0.5 m repeated at 1 and 0.25 ms
+modules
+  the reference of Section 13.2 (route-record.txt): control package husky.route-speed, proposal husky.cruise, predictor husky.map, the estimator with sideslip; substitutes (husky/variants.py): husky.route-speed-pursuit at look-aheads of 0.5, 0.75, 1 and 1.5 m, at 0.5 m with the stops and the crossings with the predictors of Section 13.2, at 1.5 m with the stops on the dry grounds; husky.hurry; and husky.careful over 300 periods
+actuators and sensors
+  as in Section 13.2; the drivers' torque limit at 30, 25, 20, 15, 13 and 10 N m in the stops on asphalt and at 20, 15, 12 and 10 N m in the crossing; the estimator's readings late by 0, 1, 2, 3 and 5 updates of 20 ms, and by 2 and 5 with the compensation; the torques recorded at every step of the simulator
+frames and units
+  as in Section 13.2
+uncertainty bounds
+  the bounds and labels of Section 13.2, unchanged in every run; the wet grass's true friction 0.35, 0.3, 0.25, 0.22, 0.2, 0.19, 0.18, 0.17, 0.16 and 0.15, in force from the start, under the map's label
+constraints
+  as in Section 13.2
+terminal behaviour
+  as in Section 13.2
+training and evaluation split
+  none: nothing learns in Section 13.3
+seeds
+  the gyro's noise, PCG64, seed 13; seeds 1 to 20 with pure pursuit at 0.5 m
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+guarantee status
+  that of Section 13.2 for the reference, for husky.hurry, whose plans are the reference's, and for pure pursuit at 0.5 m, which passed the same tests; for the other runs that kept every bound, the evidence of one crossing; for the others, the summary names the stated assumptions that the runs found broken, and there is no guarantee

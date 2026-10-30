@@ -1,0 +1,49 @@
+Record of the experiment of Section 13.1 in Isaac Sim: the Husky A300 with PhysX
+
+model and asset provenance
+  clearpath_common, https://github.com/clearpathrobotics/clearpath_common, commit 78e3677412f1fed881f6436cdaf404f04f28ee4f (19 October 2026), clearpath_platform_description and clearpath_control 2.9.18, BSD 3-Clause
+  the URDF of husky/asset.py (corrected track), imported with isaacsim.asset.importer.urdf: merge_fixed_joints True, fix_base False, collision_type Convex Hull, joint_drive_type None, joint_target_type None
+  masses set from the description: none differed; inertias with the link's principal axes
+simulator and solver
+  Isaac Sim 6.2.0-rc.14, Kit 110.4.0+feature.386251.187cf21b.gl, omni.physx-110.4.4
+  the scene as in Chapter 11 (CPU dynamics, MBP broadphase, patch friction, no CCD, no stabilization), the solver of each setup; the articulation with no sleeping, no stabilization threshold, 32 position iterations and the setup's velocity iterations, no self-collision, no damping of the links
+  setups (name: wheels' colliders, ground, solver, contact offset, velocity iterations, time step, and what else the setup changes):
+    cylinder-box-tgs: wheels' colliders cylinder, ground box, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms (version 2's setup)
+    cylinder-plane-tgs: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms (the default)
+    sphere-plane-tgs: wheels' colliders sphere, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    convex-plane-tgs: wheels' colliders convex, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    sphere-box-tgs: wheels' colliders sphere, ground box, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    convex-box-tgs: wheels' colliders convex, ground box, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    cylinder-box-tgs-offset-2mm: wheels' colliders cylinder, ground box, solver TGS, contact offset 0.002 m, velocity iterations 1, time step 0.5 ms
+    cylinder-plane-pgs: wheels' colliders cylinder, ground plane, solver PGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    sphere-plane-pgs: wheels' colliders sphere, ground plane, solver PGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms
+    cylinder-plane-tgs-4-velocity-iterations: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 4, time step 0.5 ms
+    cylinder-plane-tgs-dt-0.25ms: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.25 ms
+    cylinder-plane-tgs-dt-1ms: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 1 ms
+    cylinder-plane-tgs-600hz: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 1.667 ms (the time step of a reply in the NVIDIA developer forum, 'Wheeled robot incorrect behavior', 2023)
+    cylinder-plane-pgs-600hz: wheels' colliders cylinder, ground plane, solver PGS, contact offset 0.02 m, velocity iterations 1, time step 1.667 ms (the same, with PGS)
+    cylinder-plane-tgs-correlation-0.01mm: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms, friction correlation distance 0.01 mm (friction anchors kept from step to step only while they part by less than 0.01 mm along the normal, which on a rolling wheel drops them after a turn of about 0.011 rad, where PhysX's test of the normals drops them after 0.045 rad)
+    cylinder-plane-tgs-compliant: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms, compliant contacts of stiffness 400000 N/m and damping 4000 N s/m (at each of the eight points, a penetration at rest of 0.25 mm (MuJoCo's: 0.23 mm), near critical damping)
+    cylinder-plane-tgs-wheel-inertia-x2: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms, the wheels' inertia about their axles 2 times the description's (it raises the contact's effective mass along the wheel and leaves it across: a test of the two-row law of PhysX's friction, not a model of the robot; never added to the full runs)
+    cylinder-plane-tgs-wheel-inertia-x8: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms, the wheels' inertia about their axles 8 times the description's (it raises the contact's effective mass along the wheel and leaves it across: a test of the two-row law of PhysX's friction, not a model of the robot; never added to the full runs)
+    cylinder-plane-tgs-wheel-inertia-x32: wheels' colliders cylinder, ground plane, solver TGS, contact offset 0.02 m, velocity iterations 1, time step 0.5 ms, the wheels' inertia about their axles 32 times the description's (it raises the contact's effective mass along the wheel and leaves it across: a test of the two-row law of PhysX's friction, not a model of the robot; never added to the full runs; at 32 times the effective masses along and across the wheel are about equal)
+  screened: cylinder-box-tgs, cylinder-plane-tgs, sphere-plane-tgs, convex-plane-tgs, sphere-box-tgs, convex-box-tgs, cylinder-box-tgs-offset-2mm, cylinder-plane-pgs, sphere-plane-pgs, cylinder-plane-tgs-4-velocity-iterations, cylinder-plane-tgs-dt-0.25ms, cylinder-plane-tgs-dt-1ms, cylinder-plane-tgs-600hz, cylinder-plane-pgs-600hz, cylinder-plane-tgs-correlation-0.01mm, cylinder-plane-tgs-compliant, cylinder-plane-tgs-wheel-inertia-x2, cylinder-plane-tgs-wheel-inertia-x8, cylinder-plane-tgs-wheel-inertia-x32; run in full: cylinder-plane-tgs, cylinder-plane-pgs, sphere-plane-tgs
+  script, command line: isaac_husky.py, version 5; (none)
+time steps
+  the setup's; the drive controller at 50 Hz; the drivers' integral loop at every step
+actuators and sensors
+  PhysX angular velocity drives, damping the drivers' gain per degree, maximum force the limit; 40, 0.1, 30
+  wheels' positions unwrapped from PhysX's wrap at +-2 pi; loads and contacts at rest averaged over 0.5 s; the drivers' torque as PhysX reports the joints' torques and from the drive law with the velocities after each step; PhysX's friction data at the anchors against the slip there, their sign from the momentum of a sideways slide
+  references: the Coulomb steady state (husky/coulomb.py, by iteratively reweighted least squares) and, under TGS, the two-row law of PhysX's patch friction (TwoRowModel, from the description's masses), both quasi-static, for the contacts at rest and the rims measured
+  what the script printed, with Python's warnings, in console.txt
+frames and units
+  SI units; world z up; base x forward, y left
+uncertainty bounds
+  frictions of the grounds: asphalt 0.8, gravel 0.6, wet grass 0.35
+  validity of a diagnostic (valid, or marginal, up to): in motion, the base's excursion from its height at rest 2 (10) mm and its tilt 1 (3) deg; at rest, after settling, the base 1 (5) mm from the height of touching round wheels, the spread of its height 0.5 (2) mm and its tilt 0.2 (1) deg; beyond, INVALID, and not run in full
+constraints, terminal behaviour, split, seeds
+  as in results/record.txt of husky_mujoco.py
+hardware
+  Windows 11, AMD64; GPU NVIDIA GeForce RTX 4060 Laptop GPU, 596.08
+guarantee status
+  none: diagnostics only

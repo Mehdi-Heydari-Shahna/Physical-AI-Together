@@ -1,0 +1,28 @@
+Record of the experiment of Section 14.1: the Komatsu PC138US-8 as a documented model
+
+model and asset provenance
+  published (excavator/published.py): Komatsu's brochure CEN00183-06 (2014), the Australian web page (the arm cylinder's rod), the gravitational parameters identified by Ferlibas and Ghabcheloo (SICFP'21), the tipping lines and tool forces of ISO 10567:2007 and ISO 6015:2006 (sample pages)
+  ours: the boom foot's x, the bucket's radius, the arm's inner and the bucket's limits, the cylinders' dead lengths and two rods, the boom cylinders' angle, the bucket's constant lever, the masses' split, the parts' centres of mass and boxes
+  fitted: the boom foot's height, the boom's range and the arm's outer limit (working range); the arm cylinder's triangle (stroke, ISO arm force); the upper structure's centre of mass (the tipping-limited ratings of the rows at 3 and 0 m; the rows at 6.1 and -3 m test it, their columns as the book's author read the printed table)
+simulator and solver
+  MuJoCo 3.16.0; NumPy, SciPy and Python 2.5.3, 1.18.1, 3.13.17; 0.001; implicitfast; elliptic; contacts' softness (MuJoCo's defaults) solref, solimp 0.02, 1; 0.9, 0.95, 0.001, 0.5, 2
+time steps
+  1 ms; the extrapolated forces after 3 s; the onset runs settle 2 s without a load, raise the load's weight at the lift point over 5 s and hold it 24 s; tipped if the undercarriage then leans more than 0.1 deg
+actuators and sensors
+  the front rigid in its pose for the static checks; otherwise torque actuators at the swing, boom, arm and bucket joints, unlimited and not used in Section 14.1; no sensors
+frames and units
+  SI units; the upper structure's x along the boom, z up, the origin on the ground on the swing axis
+uncertainty bounds
+  none: the model is nominal; Section 14.1 compares it with the brochure
+constraints
+  the brochure's ratings, at most 75 % of the tipping load and 87 % of the hydraulic capacity (SAE J/ISO 10567)
+terminal behaviour
+  none: Section 14.1 measures limits
+training and evaluation split
+  none: nothing learns in Section 14.1
+seeds
+  0, for the starts of the working range's optimisation
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  none: a documented model, compared with published ratings; not a validation against the machine

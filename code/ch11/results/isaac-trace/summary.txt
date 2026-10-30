@@ -1,0 +1,65 @@
+# Section 11.2, follow-up: traces in Isaac Sim; 407 s so far
+[record]
+  Isaac Sim = 6.2.0-rc.14
+  extension omni.physx = omni.physx-110.4.4
+  settings of Section 11.2 = timestep = 0.001, solver = TGS, position_iterations = 32, velocity_iterations = 1, gpu_dynamics = False, broadphase = MBP, friction_type = patch, contact_offset = 0.02, rest_offset = 0.0, damping = 0.0, aux_mass = 0.001, aux_inertia = 1e-06
+  single-precision spacing of positions at 5 m and at 25 m [m] = 4.77e-07, 1.91e-06
+  so the rate of the position resolves, over one step and over 10 steps, at 25 m [m/s] = about 1.9e-03 and 3.8e-04
+[traces]
+  one period at 1 m/s from 5 m, no lead-in, three periods = p after the first period less 5.1 m 0.000707 m; mean reported speed over it 1 m/s; largest jump of the reported speed in one step 0.000552 m/s; reported speed less rate of the position, largest over one step 0.0082, over 10 steps 0.00728 m/s; total load from 774 to 1.02e+03 N, mean 884 N; steps with a wheel unloaded 0 of 301
+  at rest on the firm ground at 5 m, after 1 s = largest jump of the reported speed in one step 4.28e-05 m/s; reported speed less rate of the position, largest over one step 3.85e-05, over 10 steps 4.33e-06 m/s; total load from 867 to 910 N, mean 884 N; steps with a wheel unloaded 0 of 200
+  at rest on the slope at 24.5 m, after 1 s = largest jump of the reported speed in one step 3.42e-05 m/s; reported speed less rate of the position, largest over one step 1.77e-05, over 10 steps 3.51e-06 m/s; total load from 851 to 891 N, mean 872 N; steps with a wheel unloaded 0 of 500
+  braking at 2 m/s^2 from 4 m/s at 8 m = largest jump of the reported speed in one step 0.00275 m/s; reported speed less rate of the position, largest over one step 0.015, over 10 steps 0.0058 m/s; total load from 742 to 1.01e+03 N, mean 883 N; steps with a wheel unloaded 0 of 501
+  period 83 of the run of Chapter 3, with its lead-in = largest jump of the reported speed in one step 0.0011 m/s; reported speed less rate of the position, largest over one step 0.0212, over 10 steps 0.0188 m/s; total load from 809 to 932 N, mean 872 N; steps with a wheel unloaded 0 of 101
+  period 49 of the run of Chapter 3, with its lead-in = largest jump of the reported speed in one step 0.00259 m/s; reported speed less rate of the position, largest over one step 0.0294, over 10 steps 0.021 m/s; total load from 809 to 964 N, mean 884 N; steps with a wheel unloaded 0 of 101
+[variants]
+[comparison: settings of Section 11.2]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.00017, 0.000758, 0.00189, 49
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 41, 31, 1; 0.00128, 83
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000429, 0.028, 97
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 195 of 201; 0.794; 3.02
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.00107, 0.0018
+  against the shipped run = largest difference of dp, dv or dl from the shipped run [m]: 4.5e-12
+  status = done
+[comparison: no velocity iteration]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.000174, 0.000958, 0.00253, 91
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 37, 21, 1; 0.00127, 83
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000475, 0.0283, 192
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 201 of 201; 1.47; 4.41
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.0011, 0.0021
+  status = done
+[comparison: four velocity iterations]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.000166, 0.000833, 0.00272, 84
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 36, 23, 1; 0.00125, 83
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000457, 0.0282, 71
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 183 of 201; 0.919; 3.9
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.00106, 0.00227
+  status = done
+[comparison: 64 position iterations]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.000232, 0.00242, 0.00378, 82
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 70, 68, 38; 0.00342, 82
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000651, 0.0582, 57
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 191 of 201; 1.58; 5.4
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.00254, 0.00356
+  status = done
+[comparison: PGS solver]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.000164, 0.000276, 0.00153, 201
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 0, 0, 0; 2.27e-06, 45
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000199, 0.000844, 198
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 72 of 201; 0.0408; 0.745
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.000245, 0.0004
+  status = done
+[comparison: contact offset 2 mm]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.00017, 0.000758, 0.00189, 49
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 41, 31, 1; 0.00128, 83
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000429, 0.028, 97
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 195 of 201; 0.794; 3.02
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.00107, 0.0018
+  status = done
+[comparison: filtered loads]
+  end of period: median, 90th percentile (nearest rank), largest [m], period = 0.000194, 0.000758, 0.00162, 68
+  end position beyond the reported speed by more than 0.01, 0.1, 1 mm: periods; largest [m], period = 46, 34, 1; 0.00132, 83
+  reported speed less rate of the position over 10 steps: median, largest [m/s], period = 0.000456, 0.0278, 57
+  reported speed of the axle less command, tool folded, over 1 ms or a step: periods above 0.05 m/s^2; median; largest [m/s^2] = 195 of 201; 0.877; 3.04
+  start of a period: largest |dp| + |dl| [m], largest |dv| [m/s] = 0.00108, 0.00232
+  status = done

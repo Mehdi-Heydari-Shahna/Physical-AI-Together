@@ -1,0 +1,64 @@
+[record]
+  MuJoCo = 3.16.0
+  NumPy, SciPy, Python = 2.5.3, 1.18.1, 3.13.17
+  time step [s]; integrator; friction cone = 0.001; implicitfast; elliptic
+  bodies, joints, actuators = 6, 5, 4
+  mass [kg] = 13480
+  contacts with the ground: spheres at x, y [m] = +-1.44, +-0.995
+  contacts' softness, MuJoCo's defaults: solref; solimp = 0.02, 1; 0.9, 0.95, 0.001, 0.5, 2
+[what is published]
+  operating weight [kg]; counterweight [kg]; bucket [kg] (brochure CEN00183-06) = 13480; 3250; 399
+  the web page's operating weight, without its configuration [kg] = 14700
+  boom, arm [m]; track gauge, length on ground [m] = 4.6, 2.5; 1.99, 2.88
+  cylinders: boom, arm, bucket: number x bore x stroke [mm] = 2 x 105 x 1055, 1 x 110 x 1175, 1 x 95 x 885
+  relief pressure, implement [MPa]; pump's largest flow [L/min] = 34.8; 241.5
+  ISO bucket and arm forces [kN] = 93.2, 61.8
+  working range: reach, at ground, depth, height [m] = 8.3, 8.18, 5.48, 9.34
+  lifting table: entries at a fixed reach; in the rows of the fit (3 and 0 m); limited by tipping there; at the maximum reach, not compared = 18; 12; 8; 8
+[the front]
+  fitted: boom foot height [m]; boom range [deg]; arm's outer limit [deg] = 1.38910; -46.1821, 83.2024; -14.2481
+  the fit's residuals, reach, at ground, depth, height [mm] = 2e-07, 2e-07, 7e-08, 2e-07
+  stored values reproduced (5 digits) = True
+  the model's working range: reach, at ground, depth, height [m] = 8.3000, 8.1800, 5.4800, 9.3400
+  arm cylinder: arms a, c [m]; offset [deg]; largest lever [m] = 2.2474, 0.6634; 18.235; 0.6634
+  arm cylinder: stored values reproduced (4 digits) = True
+  boom cylinders: arms a, c [m]; offset [deg]; levers at the boom's lowest, level, highest [m] = 2.0907, 0.5837; -66.182; 0.268, 0.578, 0.238
+  bucket cylinder's constant lever [m] = 0.3967
+[the masses]
+  parts [kg]: undercarriage, upper structure, counterweight, boom, arm, bucket = 4950, 3041, 3250, 1180, 660, 399
+  total [kg] = 13480
+  fitted: the upper structure's centre of mass behind the swing axis [m]; rms of the logarithms = 0.76134; 0.0203
+  stored value reproduced (5 digits) = True
+  tipping-limited entries: the model's rating less the brochure's, smallest, largest = -2.7 %, +3.4 %
+  the same, entry by entry (hook, reach, over) = 0 m 3 m side +1.2 %; 0 m 4.6 m front +1.9 %; 0 m 4.6 m side -1.6 %; 0 m 6.1 m front +3.4 %; 0 m 6.1 m side -0.2 %; 3 m 4.6 m side -2.7 %; 3 m 6.1 m front +1.9 %; 3 m 6.1 m side -1.8 %
+  with a 750 kg attachment: |(pi_s3, pi_s4)|, |(pi_s5, pi_s6)| [kg m], model = 2537, 8851
+  the same identified (Table 1) [kg m]; the model less them = 2756, 8378; -8.0 %, +5.6 %
+[the lifting table]
+  hook 6.1 m, reach 4.6 m, over the front (a row of the test): model [kg], limited by; brochure [kg]; difference = 3606, hydraulic boom; 3060*; +17.8 %
+  hook 6.1 m, reach 4.6 m, over the side (a row of the test): model [kg], limited by; brochure [kg]; difference = 3094, tipping; 3060*; +1.1 %
+  hook 3 m, reach 6.1 m, over the front: model [kg], limited by; brochure [kg]; difference = 2934, tipping; 2880; +1.9 %
+  hook 3 m, reach 6.1 m, over the side: model [kg], limited by; brochure [kg]; difference = 1797, tipping; 1830; -1.8 %
+  hook 3 m, reach 4.6 m, over the front: model [kg], limited by; brochure [kg]; difference = 4376, hydraulic arm; 4320*; +1.3 %
+  hook 3 m, reach 4.6 m, over the side: model [kg], limited by; brochure [kg]; difference = 2909, tipping; 2990; -2.7 %
+  hook 3 m, reach 3 m, over the front: model [kg], limited by; brochure [kg]; difference = 5109, hydraulic arm; 5770*; -11.5 %
+  hook 3 m, reach 3 m, over the side: model [kg], limited by; brochure [kg]; difference = 5109, hydraulic arm; 5770*; -11.5 %
+  hook 0 m, reach 6.1 m, over the front: model [kg], limited by; brochure [kg]; difference = 2780, tipping; 2690; +3.4 %
+  hook 0 m, reach 6.1 m, over the side: model [kg], limited by; brochure [kg]; difference = 1657, tipping; 1660; -0.2 %
+  hook 0 m, reach 4.6 m, over the front: model [kg], limited by; brochure [kg]; difference = 4343, tipping; 4260; +1.9 %
+  hook 0 m, reach 4.6 m, over the side: model [kg], limited by; brochure [kg]; difference = 2559, tipping; 2600; -1.6 %
+  hook 0 m, reach 3 m, over the front: model [kg], limited by; brochure [kg]; difference = 2609, hydraulic arm; 5630*; -53.7 %
+  hook 0 m, reach 3 m, over the side: model [kg], limited by; brochure [kg]; difference = 2609, hydraulic arm; 4840; -46.1 %
+  hook -3 m, reach 4.6 m, over the front (a row of the test): model [kg], limited by; brochure [kg]; difference = 4359, tipping; 4180; +4.3 %
+  hook -3 m, reach 4.6 m, over the side (a row of the test): model [kg], limited by; brochure [kg]; difference = 2573, tipping; 2540; +1.3 %
+  hook -3 m, reach 3 m, over the front (a row of the test): model [kg], limited by; brochure [kg]; difference = 6726, hydraulic boom; 6040*; +11.3 %
+  hook -3 m, reach 3 m, over the side (a row of the test): model [kg], limited by; brochure [kg]; difference = 5039, tipping; 4820; +4.5 %
+  rows of the fit: entries where the model's hydraulic limit lies more than 5 % below the brochure's rating = hook 3 m reach 3 m front; hook 3 m reach 3 m side; hook 0 m reach 3 m front; hook 0 m reach 3 m side
+  rows of the test: the entries that the brochure's tipping limits, the model less the brochure: smallest, largest = +1.3 %, +4.5 %
+  the maximum-reach column, whose reach the brochure does not give: hook [m]: over the front, over the side [kg] = 6.1: 1690*, 1690*; 3: 1580*, 1370; 0: 1940*, 1290; -3: 3000, 1850
+  hook 0 m: 87 % of the model's hydraulic capacity at reaches of 3.0 and 3.7 m [kg] = 2609, 7306
+[the simulated machine]
+  hook 0 m, reach 4.6 m, over the front: the settled forces extrapolated to zero; tips over, the load raised slowly; the static tipping load [kg] = 5789.6; 5789.5; 5790.0
+  hook 0 m, reach 4.6 m, over the side: the settled forces extrapolated to zero; tips over, the load raised slowly; the static tipping load [kg] = 3410.8; 3410.7; 3411.3
+  the 8 tipping-limited entries: largest difference of the extrapolated forces from the static model's = 0.027 %
+  the 8 tipping-limited entries: tips over from, as a fraction of the static tipping load, the load raised slowly: least, largest = 0.9996, 0.9999
+[check] 55 values, among them every value that Section 14.1 quotes: all as expected

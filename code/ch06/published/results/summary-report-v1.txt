@@ -1,0 +1,114 @@
+Results of the published algorithms on the governed cart (report.py); protocol: PROTOCOL.md
+[table]
+  SAC, M = arrived 60 of 60; arrival 10.11 s; arrival_range 9.7 to 10.5 s; mean_intervention 0.496; largest_position_all 24.476 m
+  SAC, L = arrived 56 of 60; arrival 16.71 s; arrival_range 13.0 to 20.0 s; mean_intervention 0.004; largest_position_all 24.477 m
+  TD-MPC2, M = status not run
+  TD-MPC2, L = status not run
+  diffusion policy, demonstrations = status not run
+[SAC, M]
+  arrived = 60 of 60
+  arrival = 10.11 s
+  arrival_range = 9.7 to 10.5 s
+  mean_intervention = 0.496
+  fallbacks = 0.00
+  alarms = 0
+  steps_outside_funnel = 0
+  max_position = 24.476 m
+  at_rest_after_arrival = 60 of 60
+  committed_in_full = 49.4 %
+  passed_unchanged = 49.4 %
+  passed_unchanged_count = 2996 of 6066
+  proposals_at_largest_acceleration = 0.0 %
+  mean_intervention_by_seed = 0.499, 0.509, 0.480
+  training_episodes = 120
+  training_alarms = 0
+  training_steps_outside_funnel = 0
+  training_max_position = 24.475 m
+  training_arrived = 117 of 120
+  training_at_rest_after_arrival = 117 of 117
+  training_periods_before_arrival = 13569
+  training_intervention_first_10 = 0.399
+  training_intervention_last_10 = 0.492
+  largest_position_all = 24.476 m
+  operation_timeliness = not applicable (the task of Chapter 6 has no operation)
+  seeds = 1,2,3
+[SAC, L]
+  arrived = 56 of 60
+  arrival = 16.71 s
+  arrival_range = 13.0 to 20.0 s
+  mean_intervention = 0.004
+  fallbacks = 0.00
+  alarms = 0
+  steps_outside_funnel = 0
+  max_position = 24.475 m
+  at_rest_after_arrival = 56 of 56
+  committed_in_full = 99.6 %
+  passed_unchanged = 99.6 %
+  passed_unchanged_count = 10115 of 10156
+  proposals_at_largest_acceleration = 0.0 %
+  mean_intervention_by_seed = 0.000, 0.007, 0.005
+  training_episodes = 3000
+  training_alarms = 0
+  training_steps_outside_funnel = 0
+  training_max_position = 24.477 m
+  training_arrived = 2458 of 3000
+  training_at_rest_after_arrival = 2458 of 2458
+  training_periods_before_arrival = 490384
+  training_intervention_first_10 = 0.399
+  training_intervention_last_10 = 0.005
+  largest_position_all = 24.477 m
+  operation_timeliness = not applicable (the task of Chapter 6 has no operation)
+  seeds = 1,2,3
+[H1]
+  SAC = runs 3120; alarms 0; steps_outside_funnel 0; arrived_not_at_rest 0; runs_beyond_floor 0; largest_position 24.477 m; verdict supported
+  TD-MPC2 = not run
+  diffusion policy = not run
+  all methods = runs 3120; alarms 0; steps_outside_funnel 0; arrived_not_at_rest 0; runs_beyond_floor 0; largest_position 24.477 m; verdict supported
+[primary]
+  P1 = SAC, M against off-policy learner, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds 10.110 s against 9.648 s; sign test p = 0.0000, Holm-adjusted 0.0000; decision: later
+  P2 = SAC, M against off-policy learner, intervention: lower in 0 of the worlds, higher in 20, the same in 0; mean over the worlds 0.496 against 0.041; sign test p = 0.0000, Holm-adjusted 0.0000; decision: higher
+  P3 = SAC, L against off-policy learner, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds not every run arrived s against 9.648 s; sign test p = 0.0000, Holm-adjusted 0.0000; decision: later
+  P4 = SAC, L against off-policy learner, intervention: lower in 20 of the worlds, higher in 0, the same in 0; mean over the worlds 0.004 against 0.041; sign test p = 0.0000, Holm-adjusted 0.0000; decision: lower
+  P5 = TD-MPC2, M against planner, arrival: not run
+  P6 = TD-MPC2, L against planner, arrival: not run
+  P7 = diffusion policy, demonstrations against chunk imitator, arrival: not run
+  P8 = diffusion policy, demonstrations against chunk imitator, intervention: not run
+[secondary]
+  S1 = SAC, M against rule, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds 10.110 s against 9.545 s; sign test p = 0.0000 (uncorrected); decision: later
+  S2 = SAC, M against braking curve, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds 10.110 s against 9.555 s; sign test p = 0.0000 (uncorrected); decision: later
+  S3 = SAC, M against expert planner, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds 10.110 s against 9.660 s; sign test p = 0.0000 (uncorrected); decision: later
+  S4 = SAC, M against rule, intervention: lower in 20 of the worlds, higher in 0, the same in 0; mean over the worlds 0.496 against 0.656; sign test p = 0.0000 (uncorrected); decision: lower
+  S5 = SAC, M against braking curve, intervention: lower in 0 of the worlds, higher in 20, the same in 0; mean over the worlds 0.496 against 0.246; sign test p = 0.0000 (uncorrected); decision: higher
+  S6 = SAC, L against rule, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds not every run arrived s against 9.545 s; sign test p = 0.0000 (uncorrected); decision: later
+  S7 = SAC, L against braking curve, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds not every run arrived s against 9.555 s; sign test p = 0.0000 (uncorrected); decision: later
+  S8 = SAC, L against expert planner, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds not every run arrived s against 9.660 s; sign test p = 0.0000 (uncorrected); decision: later
+  S9 = SAC, L against rule, intervention: lower in 20 of the worlds, higher in 0, the same in 0; mean over the worlds 0.004 against 0.656; sign test p = 0.0000 (uncorrected); decision: lower
+  S10 = SAC, L against braking curve, intervention: lower in 20 of the worlds, higher in 0, the same in 0; mean over the worlds 0.004 against 0.246; sign test p = 0.0000 (uncorrected); decision: lower
+  S11 = TD-MPC2, M against rule, arrival: not run
+  S12 = TD-MPC2, M against braking curve, arrival: not run
+  S13 = TD-MPC2, M against expert planner, arrival: not run
+  S14 = TD-MPC2, M against rule, intervention: not run
+  S15 = TD-MPC2, M against braking curve, intervention: not run
+  S16 = TD-MPC2, L against rule, arrival: not run
+  S17 = TD-MPC2, L against braking curve, arrival: not run
+  S18 = TD-MPC2, L against expert planner, arrival: not run
+  S19 = TD-MPC2, L against rule, intervention: not run
+  S20 = TD-MPC2, L against braking curve, intervention: not run
+  S21 = diffusion policy, demonstrations against rule, arrival: not run
+  S22 = diffusion policy, demonstrations against braking curve, arrival: not run
+  S23 = diffusion policy, demonstrations against expert planner, arrival: not run
+  S24 = diffusion policy, demonstrations against expert planner, intervention: not run
+  S25 = TD-MPC2, M against off-policy learner, intervention: not run
+  S26 = TD-MPC2, M against SAC, M, arrival: not run
+  S27 = TD-MPC2, M against SAC, M, intervention: not run
+  S28 = TD-MPC2, L against off-policy learner, intervention: not run
+  S29 = TD-MPC2, L against SAC, L, arrival: not run
+  S30 = TD-MPC2, L against SAC, L, intervention: not run
+  S31 = SAC, L against SAC, M, arrival: earlier in 0 of the worlds, later in 20, the same in 0; mean over the worlds not every run arrived s against 10.110 s; sign test p = 0.0000 (uncorrected); decision: later
+  S32 = SAC, L against SAC, M, intervention: lower in 20 of the worlds, higher in 0, the same in 0; mean over the worlds 0.004 against 0.496; sign test p = 0.0000 (uncorrected); decision: lower
+  S33 = TD-MPC2, L against TD-MPC2, M, arrival: not run
+  S34 = TD-MPC2, L against TD-MPC2, M, intervention: not run
+[record]
+  SAC = seeds 1,2,3; python 3.11.18; packages stable-baselines3 2.9.2, torch 2.8.0+cpu, gymnasium 1.3.0, numpy 2.2.6, cloudpickle 3.1.2; commit not applicable; gpu ['NVIDIA GeForce RTX 4060 Laptop GPU, 596.08, 8188 MiB']; cpu Intel64 Family 6 Model 186 Stepping 2, GenuineIntel; wall clock seed 1: {'training': 4491.2, 'evaluation': {'M': 39.1, 'L': 40.1}}, seed 2: {'training': 14665.5, 'evaluation': {'M': 69.3, 'L': 75.0}}, seed 3: {'training': 5486.4, 'evaluation': {'M': 40.5, 'L': 38.3}}; inference seed 1: {'M': 'median 0.49 ms, largest 2.81 ms, 2343 calls', 'L': 'median 0.44 ms, largest 2.70 ms, 3443 calls'}, seed 2: {'M': 'median 0.91 ms, largest 2.76 ms, 2333 calls', 'L': 'median 0.86 ms, largest 1.93 ms, 4102 calls'}, seed 3: {'M': 'median 0.55 ms, largest 1.75 ms, 2352 calls', 'L': 'median 0.41 ms, largest 1.38 ms, 3537 calls'}
+  TD-MPC2 = not run
+  diffusion policy = not run

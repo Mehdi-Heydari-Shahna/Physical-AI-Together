@@ -1,0 +1,168 @@
+[qp_certificate]
+  budget = 0.115 m/s^2, proved; largest value 0.1146 m/s^2
+  ratio_to_linear = 0.917 = 92 %
+  polynomial_degree = 4
+[ccm_certificate]
+  lyapunov_equation = A_K'M + MA_K + 4M = 0
+  rho = 8
+  levels = tube 0.025, bounds 0.025313
+  exact_extents = 0.01266 m, 0.03580 m/s, 0.10125 m/s^2
+  bounds_used = 0.013 m, 0.036 m/s, 0.10125 m/s^2
+  launch_box_V_over_phi = 0.221
+  inside_tube_of_5_1 = 0.805
+  handover_offset = 0.019418
+[mpc_certificate]
+  decay_per_period = 38378/46875 = 0.81873067 (lower bound of exp(-0.2))
+  initial_scale = 0.00453 = 0.181 phi
+  head_budget = 0.0334 m/s^2; accelerate 1.967
+  periods_to_half_tube = 3
+  scale_after_20_periods = 0.985 phi
+  transition_error_bound = 2.1e-23
+  scales_in_figure = 0.181,0.330,0.451,0.632,0.865
+  scales_in_figure_percent = 18, 33, 45, 63, 86
+[tube_package]
+  tube_extents = 19 mm, 49 mm/s
+  budget = 0.125 m/s^2
+  ramp_braking = 0.375
+  firm_braking_and_acceleration = 1.875
+  handover_speed = 0.05
+  handover_offset = 0.02989
+[tube_fixed]
+  arrival_s = 11.2
+  rest = 24.467 m, at rest from 12.7 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.516
+  largest_feedback_input = 0.0613 m/s^2
+  least_braking_margin = 0.064 m/s^2
+  vmax = 3.89 m/s
+  ramp_entry = 1.81 m/s at 7.75 s
+  strongest_reference_braking_on_ramp = 0.375
+  final_level = 0.5
+  largest_ratio_to_funnel = 0.516
+[tube_forecasting]
+  arrival_s = 9.2
+  rest = 24.468 m, at rest from 10.7 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.516
+  largest_feedback_input = 0.0613 m/s^2
+  least_braking_margin = 0.064 m/s^2
+  vmax = 6.20 m/s
+  ramp_entry = 1.77 m/s at 5.83 s
+  strongest_reference_braking_on_ramp = 0.375
+  final_level = 0.5
+  largest_ratio_to_funnel = 0.516
+[tube_robustness]
+  runs = 6 runs, 0 alarms, 0 steps outside a funnel
+[qp_package]
+  tube_extents = 19 mm, 49 mm/s
+  budget = 0.115 m/s^2
+  ramp_braking = 0.385
+  firm_braking_and_acceleration = 1.885
+  handover_speed = 0.05
+  handover_offset = 0.02989
+[qp_fixed]
+  arrival_s = 11.0
+  rest = 24.471 m, at rest from 12.5 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.571
+  largest_feedback_input = 0.0580 m/s^2
+  least_braking_margin = 0.058 m/s^2
+  vmax = 3.91 m/s
+  ramp_entry = 1.86 m/s at 7.69 s
+  strongest_reference_braking_on_ramp = 0.385
+  final_level = 0.5
+  largest_ratio_to_funnel = 0.571
+[qp_forecasting]
+  arrival_s = 9.1
+  rest = 24.459 m, at rest from 10.6 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.571
+  largest_feedback_input = 0.0580 m/s^2
+  least_braking_margin = 0.058 m/s^2
+  vmax = 6.23 m/s
+  ramp_entry = 1.80 m/s at 5.81 s
+  strongest_reference_braking_on_ramp = 0.385
+  final_level = 0.51
+  largest_ratio_to_funnel = 0.571
+[qp_robustness]
+  runs = 6 runs, 0 alarms, 0 steps outside a funnel
+[ccm_package]
+  tube_extents = 13 mm, 36 mm/s
+  budget = 0.10125 m/s^2
+  ramp_braking = 0.39875
+  firm_braking_and_acceleration = 1.89875
+  handover_speed = 0.04
+  handover_offset = 0.019418
+[ccm_fixed]
+  arrival_s = 10.9
+  rest = 24.482 m, at rest from 12.4 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.655
+  largest_feedback_input = 0.0613 m/s^2
+  least_braking_margin = 0.040 m/s^2
+  vmax = 4.00 m/s
+  ramp_entry = 1.84 m/s at 7.61 s
+  strongest_reference_braking_on_ramp = 0.39875
+  final_level = 0.5
+  largest_ratio_to_funnel = 0.655
+[ccm_forecasting]
+  arrival_s = 9.1
+  rest = 24.478 m, at rest from 10.7 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.655
+  largest_feedback_input = 0.0613 m/s^2
+  least_braking_margin = 0.040 m/s^2
+  vmax = 6.27 m/s
+  ramp_entry = 1.81 m/s at 5.81 s
+  strongest_reference_braking_on_ramp = 0.39875
+  final_level = 0.5
+  largest_ratio_to_funnel = 0.655
+[ccm_robustness]
+  runs = 6 runs, 0 alarms, 0 steps outside a funnel
+[mpc_package]
+  bounds_steady = 13 mm, 36 mm/s
+  budget_steady = 0.10125 m/s^2
+  ramp_braking_steady = 0.39875
+  handover_speed = 0.04
+  handover_offset_steady = 0.019418 m
+[mpc_fixed]
+  arrival_s = 10.8
+  rest = 24.458 m, at rest from 12.4 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.321
+  largest_feedback_input = 0.0315 m/s^2
+  least_braking_margin = 0.014 m/s^2
+  vmax = 4.01 m/s
+  ramp_entry = 1.92 m/s at 7.51 s
+  strongest_reference_braking_on_ramp = 0.454317
+  final_level = 0.53
+  largest_ratio_to_funnel = 0.995
+[mpc_forecasting]
+  arrival_s = 9.0
+  rest = 24.442 m, at rest from 10.4 s
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.321
+  largest_feedback_input = 0.0315 m/s^2
+  least_braking_margin = 0.014 m/s^2
+  vmax = 6.31 m/s
+  ramp_entry = 1.91 m/s at 5.71 s
+  strongest_reference_braking_on_ramp = 0.454317
+  final_level = 0.55
+  largest_ratio_to_funnel = 0.995
+[mpc_robustness]
+  runs = 6 runs, 0 alarms, 0 steps outside a funnel
+[comparison]
+  share_of_funnel = tube 52 %, qp 57 %, ccm 65 %, mpc 99.5 %
+  earlier_than_tube_s = qp 0.2, 0.1; ccm 0.3, 0.1; mpc 0.4, 0.2
+  rest_closer_than_tube_mm = qp 4, -9; ccm 15, 10; mpc -9, -26
+  reserve_above_floor_m = tube 0, 0; qp 0, 0.01; ccm 0, 0; mpc 0.03, 0.05
+  recovered_of_chapter3_delay_s = fixed 0.4 of 1.3; forecasting 0.2 of 0.6
+[check] 111 quoted values: all as quoted

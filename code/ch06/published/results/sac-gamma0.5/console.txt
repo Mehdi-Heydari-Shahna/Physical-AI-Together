@@ -1,0 +1,9 @@
+[SAC, sac-gamma0.5, seed 1, budget M] arrived = 20 of 20; arrival = 9.81 s; arrival_range = 9.3 to 10.2 s; mean_intervention = 0.602; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 1, budget L] arrived = 20 of 20; arrival = 9.51 s; arrival_range = 9.0 to 9.9 s; mean_intervention = 0.481; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 1] 95838 environment steps; training 2691 s
+[SAC, sac-gamma0.5, seed 2, budget M] arrived = 20 of 20; arrival = 9.88 s; arrival_range = 9.4 to 10.3 s; mean_intervention = 0.601; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 2, budget L] arrived = 20 of 20; arrival = 9.52 s; arrival_range = 9.0 to 9.9 s; mean_intervention = 0.480; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 2] 96332 environment steps; training 2845 s
+[SAC, sac-gamma0.5, seed 3, budget M] arrived = 20 of 20; arrival = 9.82 s; arrival_range = 9.3 to 10.2 s; mean_intervention = 0.590; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 3, budget L] arrived = 20 of 20; arrival = 9.52 s; arrival_range = 9.0 to 10.0 s; mean_intervention = 0.474; alarms = 0; largest_position_all = 24.476 m
+[SAC, sac-gamma0.5, seed 3] 96428 environment steps; training 4514 s

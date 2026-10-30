@@ -1,0 +1,95 @@
+[certificate]
+  lyapunov_matrix_M = -10.104,-2.76,-0.78; det 0.26352
+  closed_loop_poles = -2 +- 2.0000i
+  levels = funnel 0.031056 = 5/161, bounds 1/32; ratio 0.99379
+  exact_extents = 0.01868 m, 0.04870 m/s, 0.12500 m/s^2
+  funnel_extents = 0.01856 m, 0.04840 m/s, 0.12422 m/s^2
+  bounds_used = 0.019 m, 0.049 m/s, 0.125 m/s^2
+  reference_limits = accelerate 1.875, brake 1.875 under label 2, 0.375 under label 0.5
+  rest_braking = 0.45
+  largest_decrease_rate_for_P = 1.6414
+  handover_offset = 0.02989 m; stop within 0.01089 m
+  launch_box_in_tube = half-widths 0.00025 m, 0.005 m/s; V/phi 0.178
+  time_constant_and_damping = 0.5 s; damping ratio squared 0.5
+  disturbance_as_slope = 0.51 %
+  bound_set_larger_by = 0.6 %
+[fixed]
+  arrival_s = 11.2
+  rest = 24.467 m, at rest from 12.7 s
+  alarms = 0
+  max_position = 24.467 m
+  largest_tube_ratio = 0.516
+  largest_feedback_input = 0.0613 m/s^2
+  steps_outside_funnel = 0
+  least_braking_margin = 0.064 m/s^2
+  ambition_1_and_0_before_arrival = 20,90,112
+  load = 13/16 = 0.81
+  hold_accepted_from_s = 12.5
+  executed_segments = launch 1,rest 25,track 124
+  vmax = 3.89 m/s
+  first_braking_reference = 2.2 s at 4.15 m
+  ramp_entry = 1.81 m/s at 7.75 s
+  final_plan_rest_set = 24.446 to 24.49489 m, level 0.5
+[forecasting]
+  arrival_s = 9.2
+  rest = 24.468 m, at rest from 10.7 s
+  alarms = 0
+  max_position = 24.468 m
+  largest_tube_ratio = 0.516
+  largest_feedback_input = 0.0613 m/s^2
+  steps_outside_funnel = 0
+  least_braking_margin = 0.064 m/s^2
+  ambition_1_and_0_before_arrival = 33,57,92
+  load = 117/184 = 0.64
+  hold_accepted_from_s = 10.5
+  executed_segments = launch 1,rest 45,track 104
+  vmax = 6.20 m/s
+  first_braking_reference = 3.4 s at 10.25 m
+  ramp_entry = 1.77 m/s at 5.83 s
+  final_plan_rest_set = 24.449125 to 24.498015 m, level 0.5
+[plan_k1]
+  pairs = 3
+  head = track 1.875 from 0.01 m, 0.2 m/s, label 2
+  continuation = 1 at -1.875 label 2; 1 at -1.5 label 2
+  handover = 0.08125 m, 0.05 m/s, period 4
+  rest_set = 0.06225 to 0.11114 m
+  reserve = 24.88886
+  level_above_floor = 24.38
+  profile = 24.88
+  initial_set = 0.00975,0.01025,0.195,0.205
+  candidate_ambitions = 1,0.75,0.5,0.25,0,0
+  candidate_levels = 24.88,24.9,24.92,24.93,24.94,24.94
+  fallback_level = 24.94
+  selected = 1
+[plan_k33]
+  pairs = 71
+  head = track -0.9375 from 10.25 m, 6.2 m/s, label 2
+  continuation = 23 at -1.875 label 2; 46 at -0.375 label 0.5; 1 at -0.1875 label 0.5
+  handover = 24.24 m, 0.05 m/s, period 104
+  rest_set = 24.221 to 24.26989 m
+  reserve = 0.73011
+  level_above_floor = 0.23
+  profile = 0.73
+  initial_set = 10.25,6.2
+  label_switch = pair 24, period 58, from 19.950312 m at 1.79375 m/s
+  candidate_ambitions = 1,0.75,0.5,0.25,0,0
+  candidate_levels = -inf,-inf,-inf,0.73,2.03,2.03
+  fallback_level = 2.03
+  selected = 4
+[robustness]
+  runs = 6
+  alarms = 0
+  steps_outside_funnel = 0
+  largest_tube_ratio = 0.570
+  largest_tube_ratio_worst_signal = 0.570
+[undisturbed]
+  forecasting = arrival 9.2 s; at rest at 24.471 m
+  fixed = arrival 11.2 s; at rest at 24.467 m
+[comparison]
+  forecasting_later_and_short = 0.6 s later, 32 mm further from the wall
+  fixed_later_and_short = 1.3 s later, 28 mm further from the wall
+  forecast_gain = 2 s, against 1.3 s
+[chapter3_package]
+  realized_at_0.2s = 0.010093 m, 0.202070 m/s
+  difference = 0.093 mm, 2.07 mm/s
+[check] 58 quoted values: all as quoted

@@ -1,0 +1,61 @@
+[comparison with chapter 8]
+  runs = 13
+  files_compared = 26
+  files_identical = 26
+  decision_rows = 3010
+  candidate_rows = 20176
+  events_recorded = 0
+  periods_braking_beyond_the_ground = alarm-bias-0.2: 1, alarm-bias-0.2-global: 1, alarm-bias-0.35: 1, alarm-bias-0.35-global: 1; the other 9 runs: 0
+[forecasting run of chapter 3]
+  arrival_in_work_zone = 8.6 s
+  time_in_work_zone = 10.9 s
+  tool_unfolds = 20.1 s
+  least_clearance = 0.5 m
+  alarms = 0
+[survey biased by 0.2 m]
+  alarm_at = 5.6 s
+  restart_committed_at = 9.9 s
+  tool_unfolds = 20.1 s
+[registered modules]
+  control = cart.constant-command
+  proposal = cart.naive
+  capability = cart.fixed, cart.forecasting, cart.persisting, cart.reactive, cart.survey
+  demand = cart.task-plan
+  robot = cart.robot
+  world = cart.track
+  task = cart.operation
+  evaluator = cart.metrics
+[what the registry refuses]
+  missing_method = NoRestart: missing method restart()
+  millimetres = refusal: actuation, world vs robot: u_a: unit 'mm/s^2' differs from 'm/s^2'
+  capability_space = refusal: capability predictor issues labels of 'friction coefficient', the test accepts 'cart.braking'
+[defaults for a failing capability predictor]
+  strict = period 0: labels raised TimeoutError('labels not ready before the deadline')
+  operation_events = 220
+  first_event = period 0, labels: TimeoutError: labels not ready before the deadline
+  decisions_as_with_fixed_predictor = yes
+  arrival_in_work_zone = 9.9 s
+  arrival_with_fixed_predictor = 9.9 s
+  least_clearance = 0.505 m
+[simulator adapter without the correction]
+  files_compared = 8
+  files_differing = 4
+  differing = decisions-alarm-bias-0.2.csv, trace-alarm-bias-0.2.csv, trace-alarm-bias-0.35.csv, trace-alarm-bias-0.35-global.csv
+  rest_point_beyond_the_exact_one = alarm-bias-0.2: 1.7e-15 m, alarm-bias-0.2-global: 1.7e-15 m, alarm-bias-0.35: 1.8e-15 m, alarm-bias-0.35-global: 1.8e-15 m
+  first difference, decisions-alarm-bias-0.2.csv = k=98: level 0.51 instead of 0.52, onset_level 0.51 instead of 0.52
+  first difference, trace-alarm-bias-0.2.csv = k=98, candidate 1: level 0.51 instead of 0.52, onset_level 0.51 instead of 0.52
+  first difference, trace-alarm-bias-0.35.csv = k=140, candidate 1: onset_level 1.38 instead of 1.39
+  first difference, trace-alarm-bias-0.35-global.csv = k=140, candidate 1: onset_level 1.38 instead of 1.39
+[exact states of the alarm runs against chapter 8]
+  alarm-bias-0.2 = 42 instants, by at most 1.7e-15 m; velocities differing: 0
+  alarm-bias-0.2-global = 165 instants, by at most 1.7e-15 m; velocities differing: 0
+  alarm-bias-0.35 = 45 instants, by at most 1.8e-15 m; velocities differing: 0
+  alarm-bias-0.35-global = 45 instants, by at most 1.8e-15 m; velocities differing: 0
+[the interfaces]
+  roles = 8
+  methods_of_the_roles = 19
+  methods_of_the_control_package = 9
+  methods_of_plans_level_and_capability_spaces = 6
+  records = 4
+  contract_version = 1.1
+[check] 45 values quoted in Sections 10.1 and 10.2: all as quoted

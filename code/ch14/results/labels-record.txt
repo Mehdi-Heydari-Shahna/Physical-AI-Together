@@ -1,0 +1,29 @@
+Record of the experiment of Section 14.2: labels, reserves and demands for the UR5e and the heavy-duty mobile manipulator
+
+model and asset provenance
+  the UR5e of Section 14.1 (UR's description, release 3.6.0, mapped by arm/model.py), its payload a box of 0.1 m hanging from the flange, its mass and centre of mass declared
+  the synthetic mobile manipulator of Section 14.1 (hdmm/model.py), every number ours; its actuators' limits, labels, floors and lift ours (hdmm/labels.py, labels_demand.py)
+simulator and solver
+  MuJoCo 3.16.0; NumPy, PyYAML and Python 2.5.3, 6.0.3, 3.13.17; the UR5e at 0.5 ms with implicitfast, the post's contact with MuJoCo's defaults, solref; solimp 0.02, 1; 0.9, 0.95, 0.001, 0.5, 2; the mobile manipulator at 1 ms with implicitfast and elliptic cones, the ground's friction 1.5, its contacts' solref; solimp; ratio of frictional to normal impedance 0.02, 1; 0.9, 0.95, 0.001, 0.5, 2; 20, so that nothing slides; that ratio also at 5, 10, 50 and 1 for comparison, and for the base's creep the labels' least friction, 0.5 and 0.3
+time steps
+  the UR5e's stops: 0.5 ms, the controller at 1 kHz; the mobile manipulator with its arm held: 1 ms, settled 2.5 s, the deceleration raised over 5 s, with the actuators' rise (braking from cruising and from the drive, stopping from the top speed and with no plateau) or at once, held at least 4 s after; through a turn: 1 ms, settled 2 s, at the turn's speed from 0.5 s before its entry, through it or braking in it from the middle of its entry, arc or exit or from where the test binds, or at rest in it for 0.5 s and driving off from where the test binds, held 2 s after; its lift: 1 ms, settled 2 s, the lift over 4 s along a cosine profile, held 2 s, or, with the base braking from an onset with the actuators' rise, onsets 0 to 6 every 0.1 and 3.2 to 4.4 every 0.02 s from the lift's start, held until 2.6 s after the last
+actuators and sensors
+  UR5e: torque at the joints, limited to 150 and 28 N m; the labels use 0.9 of each limit; the controller of Section 14.1
+  mobile manipulator: brakes and drive [m/s^2], top speed [m/s], the rise of the base's acceleration along a half-cosine [s] 4, 1.5; 3; 0.6; the turns' transitions [m], their angle [deg], and the braking and the driving off in a turn [m/s^2] 3; 90; 0.5, 0.5; the arm's torque limits, slew, lift, tilt [kN m], and the factor on the torque that the base's motion adds 8, 30, 12; 1.2; in every simulated run the arm held or moved by position servos without limits, stiffness and damping 2e+06, 100000, their targets offset by the torque that holds the planned pose under gravity alone, the base's motion not fed forward (and, for comparison in a lift, not offset); in a turn the base held in its own frame, every body feeling that frame's forces and torques; no sensors: the state from the simulator
+frames and units
+  SI units; the UR5e's angles those of tool0 about the base's axis; the mobile manipulator's x forward, y left, z up, the ground at z = 0
+uncertainty bounds
+  UR5e: the declared payload, mass [kg]; centre of mass [m]; the box's centre [m] 4.05 to 4.95; 0.025 to 0.075; 0.05; the global capability, mass [kg]; centre of mass [m] 0 to 5; 0 to 0.1
+  mobile manipulator: the declared payload [kg]; friction; the global capability's payload [kg] and friction 243 to 297; 0.5; 0 to 300, 0.3
+constraints
+  UR5e: no contact with the post, the clearance's floor 0.01 m, its levels' grid 0.001 m; mobile manipulator: the zero-moment point inside the rectangle of the wheels' contacts and the front-most point behind a stop line, their floors [m], the allowance that both reserves keep for what the rigid model leaves out [m] and the levels' grid [m] 0.1, 0.1; 0.005; 0.01
+terminal behaviour
+  UR5e: the base joint's stop at the label, the other joints holding the carry pose, then rest there; mobile manipulator: braking within the braking limit to rest with the arm held, or, during a lift, while the lift finishes, in a turn or its transitions at the braking in a turn, then rest on the brakes; from rest in a turn, driving off at the driving in a turn
+training and evaluation split
+  none: nothing learns in Section 14.2
+seeds
+  none: no random numbers
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  none: Section 14.2 states the labels, the reserves and the demand and checks them in the simulator; no plan is certified or governed

@@ -1,0 +1,25 @@
+[record]
+  part = newton
+  hardware = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  version of newton = 1.7.0
+  version of warp-lang = 1.18.0
+  version of mujoco = 3.15.0
+  version of mujoco-warp = 3.15.0
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  time of the part [s] = 200
+[collision detection]
+  MuJoCo's C library inside Newton, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 2.78e-17, 1.9e-12, 3.55e-15
+  MuJoCo's C library inside Newton, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2800; 8.05e-16, 2.07e-11, 1.78e-14
+  MuJoCo's C library inside Newton, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 3.61e-16, 8.26e-12, 1.07e-14
+  verdict = pass
+[arithmetic]
+  MuJoCo's C library: one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -7.15e-06, 4.05e-05, -5.48e-05
+  predicted from the spacing of single precision [m] = -7.25e-06, 4.04e-05, -5.49e-05
+[failures]
+  F2: featherstone: steps until the state stops being a number = 2587
+  F3: semi-implicit: steps until the state stops being a number = 23
+  F4: the importer's hull: steps with a wheel unloaded, of steps on the crest; deepest below the wheel's radius [mm] = 3 of 1213; 1.44
+  F5: Newton's gap: period 36, axle disturbance [m/s^2]; period 59, difference from MuJoCo [m] = 0.0881; 7.16e-05
+  F6: XPBD: braking on firm ground from 4 m/s [m/s^2] = 0.0684
+[check] against the shipped summary and per-period files: all as shipped

@@ -1,8 +1,26 @@
 cff-version: 1.2.0
-message: "Please cite this repository when using its code or numerical results."
+message: >-
+  If you use this code or its results, please cite the book, and the release
+  of the code (or the commit) that you used.
+title: "Physical AI, Together: code and data"
 type: software
-title: "Physical AI, Together: Companion Code and Numerical Results"
 authors:
-  - family-names: Heydari Shahna
-    given-names: Mehdi
+  - family-names: "Heydari Shahna"
+    given-names: "Mehdi"
+version: "v1.0"
+license: MIT
 repository-code: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
+url: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
+keywords:
+  - physical AI
+  - anticipatory control
+  - viability
+  - robotics
+  - ALLOVI
+preferred-citation:
+  type: book
+  title: "Physical AI, Together: The ALLOVI Governor: Contracts and Conditional Guarantees"
+  authors:
+    - family-names: "Heydari Shahna"
+      given-names: "Mehdi"
+  year: 2026

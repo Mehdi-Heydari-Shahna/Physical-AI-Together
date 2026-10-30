@@ -1,0 +1,11 @@
+# The SAC job (train_sac.py): CPU is enough. Python 3.11, 3.12 or 3.13.
+# Install torch first, then the rest:
+#   pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-sac.txt
+# (stable-baselines3 2.9.2 requires torch >= 2.8, gymnasium >= 0.29.1 and < 2.0,
+# numpy >= 1.20 and < 3.0, and cloudpickle: setup.py of release v2.9.2.)
+torch==2.8.0
+stable-baselines3==2.9.2
+gymnasium==1.3.0
+numpy==2.2.6
+cloudpickle==3.1.2

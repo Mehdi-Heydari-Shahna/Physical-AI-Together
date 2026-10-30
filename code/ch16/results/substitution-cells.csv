@@ -1,0 +1,25 @@
+package,method,index_package,index_method,arrival,earliest,latest,intervention
+tube,rule,0,0,9.545,9.1,10.0,0.656
+tube,braking curve,0,1,9.555,9.0,10.0,0.246
+tube,expert planner,0,2,9.660,9.2,10.1,0.203
+tube,off-policy learner,0,3,9.648,9.1,10.2,0.041
+tube,planner,0,4,9.717,9.1,10.3,0.138
+tube,chunk imitator,0,5,9.750,9.1,10.3,0.139
+qp,rule,1,0,9.445,9.0,9.9,0.653
+qp,braking curve,1,1,9.490,9.0,9.9,0.246
+qp,expert planner,1,2,9.585,9.1,10.0,0.199
+qp,off-policy learner,1,3,9.540,9.0,10.1,0.041
+qp,planner,1,4,9.635,9.1,10.2,0.130
+qp,chunk imitator,1,5,9.695,9.2,10.1,0.143
+ccm,rule,2,0,9.330,8.9,9.7,0.650
+ccm,braking curve,2,1,9.380,8.8,9.7,0.648
+ccm,expert planner,2,2,9.605,9.1,10.0,0.588
+ccm,off-policy learner,2,3,9.402,8.9,9.9,0.076
+ccm,planner,2,4,9.850,9.1,10.5,0.492
+ccm,chunk imitator,2,5,9.635,8.9,10.1,0.544
+mpc,rule,3,0,9.250,8.8,9.7,0.644
+mpc,braking curve,3,1,9.240,8.8,9.6,0.265
+mpc,expert planner,3,2,9.455,8.9,9.9,0.209
+mpc,off-policy learner,3,3,9.338,8.8,9.9,0.042
+mpc,planner,3,4,9.550,9.1,10.1,0.145
+mpc,chunk imitator,3,5,9.535,9.0,10.0,0.134

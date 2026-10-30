@@ -1,5 +1,6 @@
 [fixed]
   arrival_s = 9.9
+  reversing_candidate_segments = 0
   counts_1_quarter_0 = 22,1,76,99
   load = 307/396 = 0.78
   accepted_first = 22
@@ -36,6 +37,7 @@
   full_acceleration_periods = 1-22
 [reactive]
   arrival_s = 9.9
+  reversing_candidate_segments = 0
   counts_1_quarter_0 = 22,1,76,99
   load = 307/396 = 0.78
   accepted_first = 22
@@ -72,6 +74,7 @@
   full_acceleration_periods = 1-22
 [forecasting]
   arrival_s = 8.6
+  reversing_candidate_segments = 0
   counts_1_quarter_0 = 32,4,50,86
   load = 53/86 = 0.62
   accepted_first = 32
@@ -118,6 +121,8 @@
   k32_levels = -inf,-inf,-inf,1.49,3.05,3.05
   k32_selected = 4 (ambition 0.25)
   k32_selected_reserve = 1.495
+  k32_selected_pairs = 61: head -1 label 2, 22 at -2 label 2, 38 at -0.5 label 0.5
+  k32_selected_profile = 1.49
   ex31_head_end = 10.875,6.3
   ex31_after_firm_braking = 22 periods,19.895,1.9
   ex31_trial_segment = 20.075,label 0.5,period 56
@@ -128,6 +133,7 @@
   backaway_maneuver = 16 at -0.5, 4 at 2, 20 periods, rest 23.7
   backaway_after_drive = 0.64 m,0.8 m/s
   k179_ambition1 = onset level 1.29,at the onset 23.71
+  k179_ambition1_level_and_onset_pair = 0.5,20
   k179_other_blends = 1.26,1.26,1.26,1.26
   k179_backaway_start_periods = ambition 1: 181, alone: 180
   k179_alone_and_fallback = 1.3,1.3,selected 6
@@ -139,10 +145,12 @@
   lead_time_fixed = 2.1 s met, 2 s not met
   lead_time_reactive = 2.1 s met, 2 s not met
   lead_time_forecasting = 2.1 s met, 2 s not met
+  reversing_in_lead_time_runs = 0
   direct_execution = 9.75 m/s at 5.0 s
 [persisting]
   accepted_unchanged = 35
   acceleration_ends = 12.25 m, 7.0 m/s at 3.6 s
+  reversing_candidate_segments = 0
   first_invalid_plan_committed_s = 3.2
   invalid_labels_in_every_later_plan = True
   min_level = 0.50
@@ -161,7 +169,8 @@
   alarm = 5.0 s; measured 20.0903 m, 4.2320 m/s; initial set 20.09 m, 4.2 m/s
   alarm_difference = 0.34 mm, 0.032 m/s
   certified_restart = False; needs 17.91 m, 4.41 m available
+  restart_gap_after_alarm = 13.50 m throughout
   wall_reached = 6.25 s at 3.61 m/s
   floor_lost = 6.12 s at 3.67 m/s
   stops_at = 38.00 m at 13.46 s
-[check] 110 quoted values: all as quoted
+[check] 119 quoted values: all as quoted

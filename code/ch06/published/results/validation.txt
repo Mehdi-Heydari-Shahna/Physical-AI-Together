@@ -1,0 +1,99 @@
+Validation of code/ch06/published/cart_env.py against code/ch06/results/ (written by test_cart_env.py)
+python 3.13.17; gymnasium not installed (local stand-in for Box); numpy 2.5.3; full validation
+
+[1. Table 6.3 (tab:learning-runs) through the environment]
+  row; column = value through cart_env (value in ../results/summary.txt, line)
+  Rule; Runs arrived = 20 of 20 (20 of 20, summary.txt line 2)
+  Rule; Mean arrival = 9.55 s (9.55 s, summary.txt line 3)
+  Rule; Earliest, latest = 9.1 to 10.0 s (9.1 to 10.0 s, summary.txt line 4)
+  Rule; Mean intervention = 0.656 (0.656, summary.txt line 5)
+  Rule; Largest position = 24.474 m (24.474 m, summary.txt line 16)
+  Braking curve, by hand; Runs arrived = 20 of 20 (20 of 20, summary.txt line 18)
+  Braking curve, by hand; Mean arrival = 9.56 s (9.56 s, summary.txt line 19)
+  Braking curve, by hand; Earliest, latest = 9.0 to 10.0 s (9.0 to 10.0 s, summary.txt line 20)
+  Braking curve, by hand; Mean intervention = 0.246 (0.246, summary.txt line 21)
+  Braking curve, by hand; Largest position = 24.473 m (24.473 m, summary.txt line 32)
+  Expert planner, the demonstrator; Runs arrived = 20 of 20 (20 of 20, summary.txt line 34)
+  Expert planner, the demonstrator; Mean arrival = 9.66 s (9.66 s, summary.txt line 35)
+  Expert planner, the demonstrator; Earliest, latest = 9.2 to 10.1 s (9.2 to 10.1 s, summary.txt line 36)
+  Expert planner, the demonstrator; Mean intervention = 0.203 (0.203, summary.txt line 37)
+  Expert planner, the demonstrator; Largest position = 24.471 m (24.471 m, summary.txt line 48)
+  Off-policy learner; Runs arrived = 60 of 60 (60 of 60, summary.txt line 50)
+  Off-policy learner; Mean arrival = 9.65 s (9.65 s, summary.txt line 51)
+  Off-policy learner; Earliest, latest = 9.1 to 10.2 s (9.1 to 10.2 s, summary.txt line 52)
+  Off-policy learner; Mean intervention = 0.041 (0.041, summary.txt line 53)
+  Off-policy learner; Largest position = 24.474 m (24.474 m, summary.txt line 71)
+  Planner with a learned model; Runs arrived = 60 of 60 (60 of 60, summary.txt line 80)
+  Planner with a learned model; Mean arrival = 9.72 s (9.72 s, summary.txt line 81)
+  Planner with a learned model; Earliest, latest = 9.1 to 10.3 s (9.1 to 10.3 s, summary.txt line 82)
+  Planner with a learned model; Mean intervention = 0.138 (0.138, summary.txt line 83)
+  Planner with a learned model; Largest position = 24.474 m (24.474 m, summary.txt line 101)
+  Chunk imitator; Runs arrived = 60 of 60 (60 of 60, summary.txt line 105)
+  Chunk imitator; Mean arrival = 9.75 s (9.75 s, summary.txt line 106)
+  Chunk imitator; Earliest, latest = 9.1 to 10.3 s (9.1 to 10.3 s, summary.txt line 107)
+  Chunk imitator; Mean intervention = 0.139 (0.139, summary.txt line 108)
+  Chunk imitator; Largest position = 24.475 m (24.475 m, summary.txt line 126)
+  Off-policy learner with the contraction metric; Runs arrived = 60 of 60 (60 of 60, summary.txt line 132)
+  Off-policy learner with the contraction metric; Mean arrival = 9.40 s (9.40 s, summary.txt line 133)
+  Off-policy learner with the contraction metric; Earliest, latest = 8.9 to 9.9 s (8.9 to 9.9 s, summary.txt line 134)
+  Off-policy learner with the contraction metric; Mean intervention = 0.076 (0.076, summary.txt line 135)
+  Off-policy learner with the contraction metric; Largest position = 24.484 m (24.484 m, summary.txt line 153)
+  Off-policy learner, 30 % of proposals late; Runs arrived = 20 of 20 (20 of 20, summary.txt line 157)
+  Off-policy learner, 30 % of proposals late; Mean arrival = 11.62 s (11.62 s, summary.txt line 158)
+  Off-policy learner, 30 % of proposals late; Earliest, latest = 10.2 to 17.4 s (10.2 to 17.4 s, summary.txt line 159)
+  Off-policy learner, 30 % of proposals late; Mean intervention = 0.310 (0.310, summary.txt line 160)
+  Off-policy learner, 30 % of proposals late; Largest position = 24.474 m (24.474 m, summary.txt line 177)
+  Chunk imitator, new chunks two periods late; Runs arrived = 20 of 20 (20 of 20, summary.txt line 179)
+  Chunk imitator, new chunks two periods late; Mean arrival = 10.01 s (10.01 s, summary.txt line 180)
+  Chunk imitator, new chunks two periods late; Earliest, latest = 9.5 to 10.4 s (9.5 to 10.4 s, summary.txt line 181)
+  Chunk imitator, new chunks two periods late; Mean intervention = 0.187 (0.187, summary.txt line 182)
+  Chunk imitator, new chunks two periods late; Largest position = 24.474 m (24.474 m, summary.txt line 199)
+
+[1. every value of the same groups of summary.txt]
+  189 values of 9 groups compared with summary.txt: all equal
+  340 evaluation runs and 440 training episodes compared, row by row, with evaluation.csv and training.csv: all equal
+
+[2. the paths that the libraries use]
+  after_arrival='terminate', the run after arrival finished by the environment: 6 trained policies, 240 training episodes and 120 evaluation runs compared, row by row, with the same files: all equal
+  protocol.ChunkPolicy serving the chunk imitator's inferences: 60 evaluation runs equal to the imitator's own: yes
+  float32 actions, as the libraries give them (off-policy learner and planner, seed 1; references normalized by 1.875 m/s^2): 40 evaluation runs equal to those with exact proposals: yes
+
+[3. random proposals]
+  150 episodes, 28669 periods (28248 returned to the policy); a plan committed in every period: yes
+  alarms 0; steps outside a funnel 0; largest position 24.476 m (floor 24.5 m); arrived 84, of which at rest 84
+  ends: arrival 26, at rest 58, not arrived by 20 s 66
+  episodes with a problem: 0
+  Gymnasium API: as required
+    schedule [1000, 1001]: reset(seed=123) twice, reset(), reset(options={'world': 1005}) give the worlds 1000, 1000, 1001, 1005
+    action space Box([-1.], [1.], (1,), float32); observation space shape (9,)
+    rewards: the rule, the braking curve and seeded random proposals in the worlds 1000 to 1002, each run with reward='registered' and reward='time': 9 of 9 runs the same under both (1258 periods); periods whose reward differs from its formula: 0
+    gymnasium is not installed: the local stand-in for Box was used, and gymnasium's checker was not run
+    Stable-Baselines3 is not installed: its checker was not run
+
+[timing]
+  rule / tube / seed 0 / continue: 27.5 s
+  braking curve / tube / seed 0 / continue: 27.7 s
+  expert planner / tube / seed 0 / continue: 27.0 s
+  off-policy learner / tube / seed 1 / continue: 167.4 s
+  off-policy learner / tube / seed 2 / continue: 177.5 s
+  off-policy learner / tube / seed 3 / continue: 160.2 s
+  planner / tube / seed 1 / continue: 147.3 s
+  planner / tube / seed 2 / continue: 161.4 s
+  planner / tube / seed 3 / continue: 138.7 s
+  chunk imitator / tube / seed 1 / continue: 64.5 s
+  chunk imitator / tube / seed 2 / continue: 69.2 s
+  chunk imitator / tube / seed 3 / continue: 67.8 s
+  off-policy learner / ccm / seed 1 / continue: 154.3 s
+  off-policy learner / ccm / seed 2 / continue: 139.0 s
+  off-policy learner / ccm / seed 3 / continue: 159.8 s
+  off-policy learner, missed deadlines / tube / seed 1 / continue: 119.6 s
+  chunk imitator, latency 2 / tube / seed 1 / continue: 39.0 s
+  off-policy learner / tube / seed 1 / terminate: 160.3 s
+  off-policy learner / tube / seed 2 / terminate: 148.9 s
+  off-policy learner / tube / seed 3 / terminate: 93.8 s
+  planner / tube / seed 1 / terminate: 73.6 s
+  planner / tube / seed 2 / terminate: 73.3 s
+  planner / tube / seed 3 / terminate: 76.8 s
+  total 1357 s with 2 processes
+
+[check] all as in code/ch06/results

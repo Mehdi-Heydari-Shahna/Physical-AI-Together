@@ -1,0 +1,40 @@
+[F2, the full reverse in the family]
+  valid worlds with a lead time of 19 or 20 periods: world (slip) = 16179 (-6)
+  of these, without a slip (F2's subset in the family) = 0
+  world 16179, the full reverse begins earlier than C6: lead; slip; the forecast onset; the true onset; begun, the full reverse and C6; overloads, C6 = 20; -6; 216; 210; 216, 237; 210 216
+[F4, the full reverse in the worlds without a slip and a lead time of 21 periods or more]
+  worlds of F4's subset = 58
+  the period in which the governor first commits an ambition below 1 after the announcement, the full reverse less C6: value (worlds) = 0 (58)
+  the period in which the cart first moves backwards after the announcement, the full reverse less C6: value (worlds) = 0 (58)
+  worlds in which the governor commits the full reverse; periods in which it does, least and most = 58; 14 and 14
+  its first commitment, less the period in which C6 first commits an ambition below 1: value (worlds) = 1 (58)
+  worlds in which an executed command differs from C6's before the operation begins = 0
+[E4, the early window in the worlds without a slip and a lead time of 21 to 30 periods]
+  worlds of E4's subset = 11
+  world 16101: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 27; 208; 212, 23.6800; 218, 218
+  world 16102: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 28; 225; 228, 23.6962; 235, 235
+  world 16111: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 24; 214; 217, 23.9913; 266, 224
+  world 16117: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 22; 195; 198, 24.1363; 247, 205
+  world 16118: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 22; 198; 201, 24.1537; 250, 208
+  world 16122: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 26; 222; 226, 23.8412; 253, 232
+  world 16128: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 27; 203; 207, 23.6988; 213, 213
+  world 16140: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 30; 195; 196, 23.6975; 205, 205
+  world 16150: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 22; 203; 206, 24.1525; 255, 213
+  world 16180: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 23; 229; 232, 24.0300; 281, 239
+  world 16184: lead; the early window's onset; the cart first at rest after the announcement, period and place [m]; begun, the early window and C6 = 26; 218; 222, 23.7650; 249, 228
+  first at rest at or before 23.7 m: worlds; their lead times; on time = 4; 27, 28, 27, 30; 4
+  first at rest beyond 23.7 m: worlds; their lead times; on time = 7; 24, 22, 22, 26, 22, 23, 26; 0
+[the early window's late runs]
+  valid worlds in which the early window begins the operation later than C6, by lead time: 20 or fewer; 21 to 26; 27 or more = 15; 9; 0
+  of these, C6 on time = 0; 9; 0
+  those with a lead time of 21 to 26 periods: world (lead, slip) = 16103 (22, 2), 16111 (24, 0), 16117 (22, 0), 16118 (22, 0), 16122 (26, 0), 16150 (22, 0), 16174 (21, 1), 16180 (23, 0), 16184 (26, 0)
+  in every world in which it begins later, overloads of the early window; of C6: value (worlds) = 1; 0 (2), 2; 0 (7), 3; 1 (13), 3; 2 (1), 4; 2 (1)
+  in every world in which it begins later, the delay of the early window less C6's, in periods: value (worlds) = 21 (3), 42 (21)
+[the worlds that are not valid]
+  world 16107 (survey error +0.47 m): the alarm; the restart; the operation begun; the least true clearance [m] = C6: 58, 98, 230, 0.5100; full-reverse: 58, 98, 230, 0.5100; early-window: 58, 98, 272, 0.5100
+  world 16116 (survey error +0.50 m): the alarm; the restart; the operation begun; the least true clearance [m] = C6: 50, none, never, 0.4800; full-reverse: 50, none, never, 0.4800; early-window: 50, none, never, 0.4800
+  world 16120 (survey error +0.44 m): the alarm; the restart; the operation begun; the least true clearance [m] = C6: 58, none, never, 0.4800; full-reverse: 58, none, never, 0.4800; early-window: 58, none, never, 0.4800
+  world 16144 (survey error +0.59 m): the alarm; the restart; the operation begun; the least true clearance [m] = C6: 56, none, never, 0.4900; full-reverse: 56, none, never, 0.4900; early-window: 56, none, never, 0.4900
+  world 16197 (survey error +0.57 m): the alarm; the restart; the operation begun; the least true clearance [m] = C6: 53, 103, 222, 0.5281; full-reverse: 53, 103, 222, 0.5281; early-window: 53, 103, 222, 0.5350
+  worlds whose least true clearance fell below the floor, by configuration; runs with a violation = C6: 16116, 16120, 16144; full-reverse: 16116, 16120, 16144; early-window: 16116, 16120, 16144; 0
+[check] 34 values: all as expected

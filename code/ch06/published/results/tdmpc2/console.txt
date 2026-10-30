@@ -1,0 +1,24 @@
+Episode length: 200
+Discount factor: 0.975
+Buffer capacity: 200,000
+Storage required: 0.01 GB
+Using CUDA:0 memory for storage.
+[TD-MPC2 seed 1, budget M] arrived = 0 of 20; arrival = none; arrival_range = none; mean_intervention = 0.000; alarms = 0; largest_position_all = 24.472 m
+[TD-MPC2 seed 1, budget L] arrived = 1 of 20; arrival = 19.80 s; arrival_range = 19.8 to 19.8 s; mean_intervention = 0.132; alarms = 0; largest_position_all = 24.476 m
+[TD-MPC2 seed 1] 184021 environment steps, 184020 updates; training 47756 s
+Episode length: 200
+Discount factor: 0.975
+Buffer capacity: 200,000
+Storage required: 0.01 GB
+Using CUDA:0 memory for storage.
+[TD-MPC2 seed 2, budget M] arrived = 0 of 20; arrival = none; arrival_range = none; mean_intervention = 0.011; alarms = 0; largest_position_all = 24.474 m
+[TD-MPC2 seed 2, budget L] arrived = 0 of 20; arrival = none; arrival_range = none; mean_intervention = 0.000; alarms = 0; largest_position_all = 24.477 m
+[TD-MPC2 seed 2] 175539 environment steps, 175538 updates; training 27030 s
+Episode length: 200
+Discount factor: 0.975
+Buffer capacity: 200,000
+Storage required: 0.01 GB
+Using CUDA:0 memory for storage.
+[TD-MPC2 seed 3, budget M] arrived = 0 of 20; arrival = none; arrival_range = none; mean_intervention = 0.003; alarms = 0; largest_position_all = 24.476 m
+[TD-MPC2 seed 3, budget L] arrived = 2 of 20; arrival = 11.65 s; arrival_range = 11.6 to 11.7 s; mean_intervention = 0.023; alarms = 0; largest_position_all = 24.476 m
+[TD-MPC2 seed 3] 180652 environment steps, 180651 updates; training 25479 s

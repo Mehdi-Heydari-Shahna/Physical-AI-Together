@@ -1,0 +1,149 @@
+Numerical validation of the declared experiment (Section 12.3): each check changes the numerical model and leaves the physical model as it is.
+
+[time step]
+  criterion = halving the time step twice: a value of the comparison of Section 11.1.4 is resolved at 1 ms if neither halving changes it by more than its tolerance (1 um, 1 um/s, 0.005 m/s^2), once the integrator's error u h T/2 in the position at the end of a period, which the record predicts, is set apart, and a rate read over one step is judged by its change over that step, its jump; otherwise the record reports it as unresolved at 1 ms, with its values at the three steps
+  MuJoCo 3.16.0: end of period, median; 90th percentile; largest [m], at 1, 0.5, 0.25 ms = 0.000163, 0.000163, 0.000163; 0.00026, 0.000252, 0.000228; 0.000388, 0.000651, 0.000894
+  MuJoCo 3.16.0: accelerating from rest (period 1), dp [m] = 0.000102, 5.21e-05, 2.71e-05
+  MuJoCo 3.16.0: axle, tool folded, largest disturbance over 1 ms, period; over one step, period [m/s^2] = 0.0339, 65, 0.0339, 65; 0.0315, 65, 0.0329, 65; 0.0307, 65, 0.0328, 65
+  MuJoCo 3.16.0: axle, tool folded, periods above the bound = 0; 0; 0
+  MuJoCo 3.16.0: braking at 2 m/s^2 (period 40), end [m] = 0.000303, 0.000253, 0.000228
+  MuJoCo 3.16.0: less the integrator's u h T/2: end of period, median; 90th percentile [m] = 0.000163, 0.000163, 0.000163; 0.000215, 0.000215, 0.000215
+  MuJoCo 3.16.0: less the integrator's u h T/2: accelerating from rest (period 1), dp; braking at 2 m/s^2 (period 40), end [m] = 2.16e-06, 2.14e-06, 2.14e-06; 0.000203, 0.000203, 0.000203
+  MuJoCo 3.16.0: speed within a period outside period 201: largest [m/s], period = 0.000347, 57; 0.000345, 57; 0.000347, 57
+  MuJoCo 3.16.0 (Section 11.1): the jump of the speed signal against the axle in one step, at the crest [m/s] = 4.93e-05, 4.94e-05, 4.94e-05; read over one step [m/s^2] = 0.0493, 0.0987, 0.197
+  MuJoCo 3.16.0: resolved at 1 ms = the end of a period, median, less u h T/2; the end of a period, 90th percentile, less u h T/2; accelerating from rest, period 1, dp less u h T/2; braking at 2 m/s^2, period 40, the end less u h T/2; the axle's disturbance over 1 ms, tool folded, largest; the axle's disturbance over one step, tool folded, largest; the jump of the speed signal at the crest, in one step
+  MuJoCo 3.16.0: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the speed within a period outside period 201, largest [m/s]: 0.000347, 0.000345, 0.000347; 2.68e-06
+  Newton 1.7.0 on MuJoCo's C library: end of period, median; 90th percentile; largest [m], at 1, 0.5, 0.25 ms = 0.000163, 0.000162, 0.000162; 0.00026, 0.000251, 0.000229; 0.000388, 0.000656, 0.000888
+  Newton 1.7.0 on MuJoCo's C library: accelerating from rest (period 1), dp [m] = 0.000102, 5.22e-05, 2.72e-05
+  Newton 1.7.0 on MuJoCo's C library: axle, tool folded, largest disturbance over 1 ms, period; over one step, period [m/s^2] = 0.0339, 65, 0.0339, 65; 0.0316, 65, 0.033, 65; 0.031, 65, 0.033, 65
+  Newton 1.7.0 on MuJoCo's C library: axle, tool folded, periods above the bound = 0; 0; 0
+  Newton 1.7.0 on MuJoCo's C library: against MuJoCo at the same step: median, largest [m], period; periods above 1 um = 9.43e-07, 4.19e-06, 198, 67; 8.81e-07, 4.99e-06, 201, 75; 1.92e-06, 4.35e-05, 83, 122
+  Newton 1.7.0 on MuJoCo's C library: braking at 2 m/s^2 (period 40), end [m] = 0.000303, 0.000252, 0.000227
+  Newton 1.7.0 on MuJoCo's C library: less the integrator's u h T/2: end of period, median; 90th percentile [m] = 0.000162, 0.000162, 0.000162; 0.000215, 0.000215, 0.000222
+  Newton 1.7.0 on MuJoCo's C library: less the integrator's u h T/2: accelerating from rest (period 1), dp; braking at 2 m/s^2 (period 40), end [m] = 2.17e-06, 2.16e-06, 2.15e-06; 0.000203, 0.000202, 0.000202
+  Newton 1.7.0 on MuJoCo's C library: speed within a period outside period 201: largest [m/s], period = 0.000347, 57; 0.000344, 57; 0.000347, 57
+  Newton 1.7.0 on MuJoCo's C library: resolved at 1 ms = the end of a period, median, less u h T/2; accelerating from rest, period 1, dp less u h T/2; the axle's disturbance over 1 ms, tool folded, largest; the axle's disturbance over one step, tool folded, largest
+  Newton 1.7.0 on MuJoCo's C library: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the end of a period, 90th percentile, less u h T/2 [m]: 0.000215, 0.000215, 0.000222; 7.5e-06; braking at 2 m/s^2, period 40, the end less u h T/2 [m]: 0.000203, 0.000202, 0.000202; 1.48e-06; the speed within a period outside period 201, largest [m/s]: 0.000347, 0.000344, 0.000347; 2.78e-06
+  Newton 1.7.0 on MuJoCo Warp: end of period, median; 90th percentile; largest [m], at 1, 0.5, 0.25 ms = 0.000163, 0.000162, 0.000162; 0.00026, 0.000251, 0.000229; 0.000387, 0.000656, 0.000888
+  Newton 1.7.0 on MuJoCo Warp: accelerating from rest (period 1), dp [m] = 0.000102, 5.21e-05, 2.71e-05
+  Newton 1.7.0 on MuJoCo Warp: axle, tool folded, largest disturbance over 1 ms, period; over one step, period [m/s^2] = 0.0343, 65, 0.0343, 65; 0.0319, 65, 0.0332, 65; 0.0416, 65, 0.139, 65
+  Newton 1.7.0 on MuJoCo Warp: axle, tool folded, periods above the bound = 0; 0; 1 (65)
+  Newton 1.7.0 on MuJoCo Warp: against MuJoCo at the same step: median, largest [m], period; periods above 1 um = 1.08e-06, 4.14e-06, 198, 153; 1.05e-06, 5.01e-06, 201, 150; 1.9e-06, 4.35e-05, 83, 199
+  Newton 1.7.0 on MuJoCo Warp: braking at 2 m/s^2 (period 40), end [m] = 0.000303, 0.000252, 0.000227
+  Newton 1.7.0 on MuJoCo Warp: less the integrator's u h T/2: end of period, median; 90th percentile [m] = 0.000162, 0.000162, 0.000162; 0.000215, 0.000215, 0.000222
+  Newton 1.7.0 on MuJoCo Warp: less the integrator's u h T/2: accelerating from rest (period 1), dp; braking at 2 m/s^2 (period 40), end [m] = 2.17e-06, 2.14e-06, 2.13e-06; 0.000203, 0.000202, 0.000202
+  Newton 1.7.0 on MuJoCo Warp: speed within a period outside period 201: largest [m/s], period = 0.000346, 57; 0.000344, 57; 0.000347, 57
+  Newton 1.7.0 on MuJoCo Warp: resolved at 1 ms = the end of a period, median, less u h T/2; accelerating from rest, period 1, dp less u h T/2
+  Newton 1.7.0 on MuJoCo Warp: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the end of a period, 90th percentile, less u h T/2 [m]: 0.000215, 0.000215, 0.000222; 7.06e-06; braking at 2 m/s^2, period 40, the end less u h T/2 [m]: 0.000203, 0.000202, 0.000202; 1.48e-06; the speed within a period outside period 201, largest [m/s]: 0.000346, 0.000344, 0.000347; 2.94e-06; the axle's disturbance over 1 ms, tool folded, largest [m/s^2]: 0.0343, 0.0319, 0.0416; 0.00966; the axle's disturbance over one step, tool folded, largest [m/s^2]: 0.0343, 0.0332, 0.139; 0.105
+  Genesis 1.4.4, the options of the text: end of period, median; 90th percentile; largest [m], at 1, 0.5, 0.25 ms = 0.000163, 0.000163, 0.000163; 0.00026, 0.000252, 0.000228; 0.000477, 0.000787, 0.00097
+  Genesis 1.4.4, the options of the text: accelerating from rest (period 1), dp [m] = 0.000102, 5.21e-05, 2.71e-05
+  Genesis 1.4.4, the options of the text: axle, tool folded, largest disturbance over 1 ms, period; over one step, period [m/s^2] = 0.0339, 65, 0.0339, 65; 0.0315, 65, 0.0329, 65; 0.0307, 65, 0.0328, 65
+  Genesis 1.4.4, the options of the text: axle, tool folded, periods above the bound = 0; 0; 0
+  Genesis 1.4.4, the options of the text: against MuJoCo at the same step: median, largest [m], period; periods above 1 um = 8.68e-11, 0.000174, 201, 1; 8.51e-11, 0.000135, 201, 1; 8.41e-11, 7.61e-05, 201, 1
+  Genesis 1.4.4, the options of the text: braking at 2 m/s^2 (period 40), end [m] = 0.000303, 0.000253, 0.000228
+  Genesis 1.4.4, the options of the text: less the integrator's u h T/2: end of period, median; 90th percentile [m] = 0.000163, 0.000163, 0.000163; 0.000215, 0.000215, 0.000215
+  Genesis 1.4.4, the options of the text: less the integrator's u h T/2: accelerating from rest (period 1), dp; braking at 2 m/s^2 (period 40), end [m] = 2.16e-06, 2.14e-06, 2.14e-06; 0.000203, 0.000203, 0.000203
+  Genesis 1.4.4, the options of the text: speed within a period outside period 201: largest [m/s], period = 0.000347, 57; 0.000345, 57; 0.000347, 57
+  Genesis 1.4.4, the options of the text: resolved at 1 ms = the end of a period, median, less u h T/2; the end of a period, 90th percentile, less u h T/2; accelerating from rest, period 1, dp less u h T/2; braking at 2 m/s^2, period 40, the end less u h T/2; the axle's disturbance over 1 ms, tool folded, largest; the axle's disturbance over one step, tool folded, largest
+  Genesis 1.4.4, the options of the text: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the speed within a period outside period 201, largest [m/s]: 0.000347, 0.000345, 0.000347; 2.68e-06
+
+[constraint solver]
+  criterion = a tolerance 10^4 times tighter with ten times the iterations, or no warm start, changes no period's error by more than 1 nm; no step ends at the iteration limit
+  mujoco: the record's settings: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  mujoco: tolerance 1e-12, 1000 iterations: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 3.97e-15, 3.35e-11, 59; 0, 0
+  mujoco: tolerance 1e-12, 1000 iterations: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  mujoco: no warm start: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 3.99e-15, 3.35e-11, 59; 0, 0
+  mujoco: no warm start: steps; most iterations in a step; steps at the iteration limit = 36000; 5; 0
+  mujoco: tolerance 1e-6: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 4.03e-13, 4.89e-08, 196; 1, 0
+  mujoco: tolerance 1e-6: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  mujoco: islands off: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 0, 0, 0; 0, 0
+  mujoco: islands off: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  mujoco: the conjugate-gradient solver: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 6.17e-08, 2.34e-06, 196; 219, 2
+  mujoco: the conjugate-gradient solver: steps; most iterations in a step; steps at the iteration limit = 36000; 74; 0
+
+[collision detection]
+  criterion = every contact of a wheel with the ground agrees with the exact geometry of the ground and the wheels, as MuJoCo compiled them (MuJoCo, and MuJoCo's C library inside Newton) or as the text gives them (Genesis), to within 1 um in distance and 1e-4 rad in normal
+  mujoco: native pipeline, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 2.78e-17, 1.35e-12, 4.44e-15
+  mujoco: native pipeline, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2802; 7.63e-16, 2.08e-11, 1.78e-14
+  mujoco: native pipeline, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 3.61e-16, 8.29e-12, 7.13e-15
+  mujoco: native pipeline: verdict = pass
+  mujoco: native pipeline: crest, braking at the label: least penetration [mm], steps with a wheel without contact, load difference from the rigid cart's [%] = 0.0845, 0, 1.96
+  mujoco: native pipeline: port checks: loads at rest less the weight [%]; one period at 1 m/s from 5 m, dp [m]; braking on firm ground from 4 m/s [m/s^2]; verdicts = -7.58e-12; -5.19e-07; 2.45; pass, pass, pass, pass
+  mujoco: libccd pipeline, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 1.73e-12, 3.41e-07, 9.97e-05
+  mujoco: libccd pipeline, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2802; 0.000955, 0.00102, 0.000119
+  mujoco: libccd pipeline, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 4.99e-11, 5.72e-06, 0.000116
+  mujoco: libccd pipeline: verdict = fail
+  mujoco: libccd pipeline: crest, braking at the label: least penetration [mm], steps with a wheel without contact, load difference from the rigid cart's [%] = 0.0682, 0, 18.1
+  mujoco: libccd pipeline: port checks: loads at rest less the weight [%]; one period at 1 m/s from 5 m, dp [m]; braking on firm ground from 4 m/s [m/s^2]; verdicts = 2.18e-10; -7.86e-08; 2.45; pass, pass, pass, pass
+  mujoco: libccd pipeline: against the native pipeline: median, largest [m], period; periods above 1 um = 5.22e-06, 6.38e-05, 62; 122
+  mujoco: libccd pipeline: axle, tool folded: largest disturbance [m/s^2]; periods above the bound = 0.232; 13: 56 to 68
+  mujoco: libccd pipeline, ccd_tolerance 1e-08, 1000 iterations: axle, tool folded: largest disturbance [m/s^2] = 0.229
+  mujoco: libccd pipeline, ccd_tolerance 1e-10, 1000 iterations: axle, tool folded: largest disturbance [m/s^2] = 0.229
+  mujoco: multiple contacts off: against the record's settings: identical in every period = yes
+  newton: MuJoCo's C library inside Newton, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 2.78e-17, 1.9e-12, 3.55e-15
+  newton: MuJoCo's C library inside Newton, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2800; 8.05e-16, 2.07e-11, 1.78e-14
+  newton: MuJoCo's C library inside Newton, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 3.61e-16, 8.26e-12, 1.07e-14
+  newton: verdict = pass
+  genesis: GJK, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.39e-08, 3.43e-09, 6.97e-09
+  genesis: GJK, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2800; 1.95e-07, 3.02e-05, 3.02e-06
+  genesis: GJK, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.87e-08, 3e-08, 9.82e-09
+  genesis: GJK: verdict = pass
+  genesis: MPR, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.39e-08, 3.44e-09, 9.97e-05
+  genesis: MPR, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 1335; 0.903, 1.41, 0.377
+  genesis: MPR, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.87e-08, 3e-08, 0.000116
+  genesis: MPR: verdict = fail
+
+[collision detection over the crest, contact by contact]
+  mujoco-native: contacts; beyond 1 um, 0.1 mm in distance; largest [m] = 2802; 0, 0; 7.63e-16
+  mujoco-libccd: contacts; beyond 1 um, 0.1 mm in distance; largest [m] = 2802; 165, 95; 0.000955
+  genesis-gjk: contacts; beyond 1 um, 0.1 mm in distance; largest [m] = 2800; 0, 0; 1.95e-07
+  genesis-mpr: contacts; beyond 1 um, 0.1 mm in distance; largest [m] = 1335; 985, 979; 0.903
+
+[friction]
+  criterion = neither halving of the time step changes the braking that the drive loop sustains by more than 0.005 m/s^2, or the encoders' creep by more than 1 um/s
+  mujoco: braking on firm ground from 4 m/s, at 1, 0.5, 0.25 ms [m/s^2] = 2.45, 2.45, 2.45
+  mujoco: encoders less the cart's speed at 2 m/s^2, at 1, 0.5, 0.25 ms [mm/s] = 2.05, 2.05, 2.05
+  mujoco: verdict = pass
+
+[limits]
+  criterion = neither halving of the time step changes the tool's reach at the end of period 201, or its largest reach against the stop, by more than 1 um
+  MuJoCo 3.16.0: the tool's reach at the end of period 201, short of the stop, at 1, 0.5, 0.25 ms [m] = 0.000205, 0.000645, 0.000888
+  MuJoCo 3.16.0: extrapolated from 0.5 and 0.25 ms, first order [m] = 0.00113
+  MuJoCo 3.16.0: largest reach against the stop, at 1, 0.5, 0.25 ms [m] = 0.8000499, 0.8000498, 0.8000498
+  MuJoCo 3.16.0: resolved at 1 ms = the tool's largest reach beyond the end of its stroke, against the stop
+  MuJoCo 3.16.0: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the tool's reach at the end of period 201, short of the stop [m]: 0.000205, 0.000645, 0.000888; 0.00044
+  Newton 1.7.0 on MuJoCo's C library: the tool's reach at the end of period 201, short of the stop, at 1, 0.5, 0.25 ms [m] = 0.000205, 0.000645, 0.000888
+  Newton 1.7.0 on MuJoCo's C library: extrapolated from 0.5 and 0.25 ms, first order [m] = 0.00113
+  Newton 1.7.0 on MuJoCo's C library: largest reach against the stop, at 1, 0.5, 0.25 ms [m] = 0.8000496, 0.8000491, 0.8000481
+  Newton 1.7.0 on MuJoCo's C library: resolved at 1 ms = none
+  Newton 1.7.0 on MuJoCo's C library: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the tool's reach at the end of period 201, short of the stop [m]: 0.000205, 0.000645, 0.000888; 0.00044; the tool's largest reach beyond the end of its stroke, against the stop [m]: 4.96e-05, 4.91e-05, 4.81e-05; 1.01e-06
+  Newton 1.7.0 on MuJoCo Warp: the tool's reach at the end of period 201, short of the stop, at 1, 0.5, 0.25 ms [m] = 0.000205, 0.000645, 0.000888
+  Newton 1.7.0 on MuJoCo Warp: extrapolated from 0.5 and 0.25 ms, first order [m] = 0.00113
+  Newton 1.7.0 on MuJoCo Warp: largest reach against the stop, at 1, 0.5, 0.25 ms [m] = 0.8000496, 0.8000491, 0.8000481
+  Newton 1.7.0 on MuJoCo Warp: resolved at 1 ms = none
+  Newton 1.7.0 on MuJoCo Warp: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the tool's reach at the end of period 201, short of the stop [m]: 0.000205, 0.000645, 0.000888; 0.00044; the tool's largest reach beyond the end of its stroke, against the stop [m]: 4.96e-05, 4.91e-05, 4.81e-05; 1.01e-06
+  Genesis 1.4.4, the options of the text: the tool's reach at the end of period 201, short of the stop, at 1, 0.5, 0.25 ms [m] = 0.000378, 0.00078, 0.000964
+  Genesis 1.4.4, the options of the text: extrapolated from 0.5 and 0.25 ms, first order [m] = 0.00115
+  Genesis 1.4.4, the options of the text: largest reach against the stop, at 1, 0.5, 0.25 ms [m] = 0.8000499, 0.8000498, 0.8000498
+  Genesis 1.4.4, the options of the text: resolved at 1 ms = the tool's largest reach beyond the end of its stroke, against the stop
+  Genesis 1.4.4, the options of the text: unresolved at 1 ms: values at 1, 0.5, 0.25 ms; larger change of a halving = the tool's reach at the end of period 201, short of the stop [m]: 0.000378, 0.00078, 0.000964; 0.000402
+  mujoco: the tool's last approach, Euler, at 1, 0.5, 0.25, 0.125 ms: short of the stop [m] = 0.00202, 0.00158, 0.00136, 0.00125
+  mujoco: the tool's equation integrated directly (RK4, 1 us): short of the stop [m] = 0.00115
+  mujoco: the same, to four digits [m] = 0.001145
+
+[estimation]
+  criterion = in every period, the position at the end lies within what the speed signal allows over the period, to within 1 um (the test of Section 11.2.3, which a signal that is the rate of the position passes)
+  MuJoCo 3.16.0: periods beyond the speed signal by more than 1 um; largest [m], at 1, 0.5, 0.25 ms = 0, 0; 0, 0; 0, 0
+  Newton 1.7.0 on MuJoCo's C library: periods beyond the speed signal by more than 1 um; largest [m], at 1, 0.5, 0.25 ms = 13, 3.81e-06; 5, 2.54e-06; 49, 4.28e-05
+  Newton 1.7.0 on MuJoCo Warp: periods beyond the speed signal by more than 1 um; largest [m], at 1, 0.5, 0.25 ms = 13, 3.75e-06; 6, 2.47e-06; 50, 4.28e-05
+  Genesis 1.4.4, the options of the text: periods beyond the speed signal by more than 1 um; largest [m], at 1, 0.5, 0.25 ms = 0, 0; 0, 0; 0, 0
+  Newton 1.7.0, XPBD: periods beyond the speed signal by more than 1 um, 10 um; largest [m], at 1 ms = 6, 5; 5.77e-05
+  Isaac Sim 6.2.0 (Section 11.2): periods beyond the speed signal by more than 1 um, 10 um; largest [m], at 1 ms = 43, 41; 0.00128
+
+[arithmetic]
+  criterion = in single precision, one period at 1 m/s from 5 m ends within 1 um of what the spacing of the representable positions predicts
+  mujoco: one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -5.19e-07, -5.19e-07, -5.19e-07
+  newton: MuJoCo's C library: one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -7.15e-06, 4.05e-05, -5.48e-05
+  newton: predicted from the spacing of single precision [m] = -7.25e-06, 4.04e-05, -5.49e-05
+  genesis: the options of the text, double precision: one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -5.19e-07, -5.19e-07, -5.19e-07
+

@@ -1,0 +1,11 @@
+[record]
+  variant = mujoco-3.15.0
+  what = MuJoCo itself through the per-period comparison of Section 11.1, at 1 ms
+  version of mujoco = 3.15.0
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  time of the comparison [s] = 3
+[the run of Chapter 3, period by period]
+  periods = 220
+  end of period: median, largest [m], period = 0.000163, 0.000388, 201
+[check] against the shipped summary: all as shipped

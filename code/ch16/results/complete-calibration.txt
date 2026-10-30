@@ -1,0 +1,6 @@
+[calibration]
+  worlds = 100 (44001 to 44100); unreliable surveys = 18
+  m = ceil((n + 1)(1 - 0.05)) = 96
+  offset = 0.20 m (the 96th smallest score)
+  scores above the offset = 3
+  largest score = 0.51 m; smallest = -0.59 m

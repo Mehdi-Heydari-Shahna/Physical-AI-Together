@@ -1,0 +1,16 @@
+# The TD-MPC2 job (train_tdmpc2.py): an NVIDIA GPU. Python 3.11.
+# The versions are those of docker/environment.yaml of github.com/nicklashansen/tdmpc2
+# at commit 332f19e4aba4bffe2dc736f45ea7f7bdc585903a, the commit that the script
+# checks, restricted to what the agent and the buffer import (no DMControl, no logging).
+# Install torch for the machine's CUDA first, for example for an RTX 50 series GPU:
+#   pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+# and for older GPUs the default wheel (pip install torch==2.7.1); then:
+#   pip install -r requirements-tdmpc2.txt
+torch==2.7.1
+tensordict==0.8.3
+torchrl==0.8.1
+hydra-core==1.3.2
+omegaconf==2.3.0
+numpy==1.24.4
+termcolor==2.4.0
+gymnasium==0.29.1

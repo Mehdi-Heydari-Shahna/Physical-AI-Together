@@ -1,0 +1,62 @@
+Comparisons of Section 12.2: per period, the difference of two error vectors (dp, dv, dl), each the end state of the period less the nominal motion from the state at which the period began, in the norm of the state; each period starts afresh, so these are errors over one period, not whole runs
+
+[mujoco-3.15.0 less mujoco-3.16.0]
+  changes = the solver's release: MuJoCo 3.15.0 for 3.16.0
+  from = results/layers/mujoco-3.15.0/agreement.csv; results/layers/mujoco-3.16.0/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 1.66e-16, 7.83e-12, 61
+  periods with a difference above 1 um, 1 mm = 0, 0
+[newton-mujoco-c less mujoco-3.15.0]
+  changes = the engine: Newton around the same MuJoCo, with four changes (Table 12.4): multiple contact points off, and its parameters, its state before every step and the state that the port reads in single precision
+  from = results/newton-mujoco-c/agreement.csv; results/layers/mujoco-3.15.0/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 9.43e-07, 4.19e-06, 198
+  periods with a difference above 1 um, 1 mm = 67, 0
+[newton-mujoco-warp less newton-mujoco-c]
+  changes = the solver's implementation: MuJoCo Warp, in single precision, for MuJoCo's C library
+  from = results/newton-mujoco-warp/agreement.csv; results/newton-mujoco-c/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 9.97e-07, 2.38e-06, 46
+  periods with a difference above 1 um, 1 mm = 35, 0
+[genesis less mujoco-3.16.0]
+  changes = engine and solver: Genesis's reimplementation of MuJoCo's, in double precision
+  from = results/genesis/agreement.csv; results/layers/mujoco-3.16.0/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 8.68e-11, 0.000174, 201
+  periods with a difference above 1 um, 1 mm = 1, 0
+[genesis-f32 less genesis]
+  changes = the arithmetic: single for double precision
+  from = results/layers/genesis-f32/agreement.csv; results/genesis/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 1.12e-06, 7.49e-06, 35
+  periods with a difference above 1 um, 1 mm = 153, 0
+[newton-xpbd less newton-mujoco-c]
+  changes = the solver: XPBD, with Newton's contacts
+  from = results/newton-xpbd/agreement.csv; results/newton-mujoco-c/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 0.000423, 0.00338, 199
+  periods with a difference above 1 um, 1 mm = 220, 49
+[genesis-defaults less genesis]
+  changes = the solver's settings: Genesis's own defaults
+  from = results/genesis-defaults/agreement.csv; results/genesis/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 0.000968, 0.00921, 201
+  periods with a difference above 1 um, 1 mm = 220, 103
+[newton-mujoco-c-hull64 less newton-mujoco-c]
+  changes = a mistake: the importer's hull, which changes the ground
+  from = results/newton-mujoco-c-hull64/agreement.csv; results/newton-mujoco-c/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 4.55e-09, 0.000571, 64
+  periods with a difference above 1 um, 1 mm = 14, 0
+[newton-mujoco-c-gap less newton-mujoco-c]
+  changes = a mistake: Newton's gap, which changes the computation of the contacts
+  from = results/newton-mujoco-c-gap/agreement.csv; results/newton-mujoco-c/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 7.77e-07, 7.13e-05, 59
+  periods with a difference above 1 um, 1 mm = 71, 0
+[genesis-mpr less genesis]
+  changes = a mistake: Genesis's MPR, which changes the computation of the contacts and fails on the crest
+  from = results/genesis-mpr/agreement.csv; results/genesis/agreement.csv
+  periods compared = 220
+  median, largest [m], period = 1.86e-05, 0.108, 66
+  periods with a difference above 1 um, 1 mm = 122, 13

@@ -1,0 +1,22 @@
+=== the MJCF importer
+Traceback (most recent call last):
+  File "C:\Users\<user>\Downloads\isaac-book-run\isaac-sim-kit-v1\code\ch11\isaac_cart.py", line 146, in group
+    fn(out)
+  File "C:\Users\<user>\Downloads\isaac-book-run\isaac-sim-kit-v1\code\ch11\isaac_cart.py", line 1034, in import_facts
+    usd = MJCFImporter(config).import_mjcf()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:/users/<user>/appdata/local/miniforge3/envs/isaac_book62/lib/site-packages/isaacsim/exts/isaacsim.asset.importer.mjcf/pip_prebundle/isaacsim/asset/importer/mjcf/impl/converter.py", line 140, in import_mjcf
+    asset: Sdf.AssetPath = self.converter.convert(mjcf_path, usdex_path)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\<user>\AppData\Local\miniforge3\envs\isaac_book62\Lib\site-packages\mujoco_usd_converter\_impl\convert.py", line 109, in convert
+    convert_meshes(data)
+  File "C:\Users\<user>\AppData\Local\miniforge3\envs\isaac_book62\Lib\site-packages\mujoco_usd_converter\_impl\mesh.py", line 35, in convert_meshes
+    convert_mesh(mesh_prim, mesh, data)
+  File "C:\Users\<user>\AppData\Local\miniforge3\envs\isaac_book62\Lib\site-packages\mujoco_usd_converter\_impl\mesh.py", line 52, in convert_mesh
+    raise Tf.RaiseRuntimeError(f"Mesh {mesh.name} has no file")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:/users/<user>/appdata/local/miniforge3/envs/isaac_book62/lib/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+187cf21b.wx64.r.cp312/pxr/Tf/__init__.py", line 203, in RaiseRuntimeError
+    _RaiseRuntimeError(msg, codeInfo[0], codeInfo[1], codeInfo[2], codeInfo[3])
+pxr.Tf.ErrorException: 
+	Error in 'mujoco_usd_converter._impl.mesh.convert_mesh' at line 52 in file C:\Users\<user>\AppData\Local\miniforge3\envs\isaac_book62\Lib\site-packages\mujoco_usd_converter\_impl\mesh.py : 'Python runtime error: Mesh ground has no file'
+

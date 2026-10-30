@@ -1,0 +1,57 @@
+[A5, world 16063]
+  the announcement; the forecast onset; the true onset; the onset after the first postponement = 198; 218; 213; 218
+  the cart at rest at the announcement, C6; C7; C8 [m] = 24.4800; 24.4950; 24.4950
+  the level of the plan in force in the postponed onset's period, C6; C7; C8 [m] = 1.31; 1.29; 1.29
+  the operation begun, C6; C7; C8 = 218; 239; 239
+[A6, the planner's timing]
+  valid worlds in which C11 spends one or two periods less in the work zone than C6 = 16: 16006, 16009, 16010, 16011, 16012, 16017, 16022, 16023, 16026, 16031, 16047, 16066, 16078, 16079, 16092, 16095
+  the period in which the cart first moves backwards after the announcement, C6 less C11: value (worlds) = 1 (13), 2 (3)
+  the cart at rest at the start of the period in which the operation begins, C11; C6 (worlds) = 16; 1
+  C6's front at or before 23.7 m at the start of that period (worlds) = 16
+[A6, short lead times]
+  valid worlds with a lead time of 18 periods or fewer in which C6 spends three or more periods longer in the work zone and begins the operation with C11 = 16002, 16020, 16083
+  world 16002: lead; slip; overloads; begun, C6 and C11 = 14; 0; 204; 225, 225
+  world 16002: C6 at rest in the work zone at [m], from period, to period; C11 at rest at [m] from period = 24.0075, 207, 213; 23.6950, 211
+  world 16020: lead; slip; overloads; begun, C6 and C11 = 14; -7; 195 202; 223, 223
+  world 16020: C6 at rest in the work zone at [m], from period, to period; C11 at rest at [m] from period = 24.0087, 205, 211; 23.6962, 209
+  world 16083: lead; slip; overloads; begun, C6 and C11 = 13; 0; 205; 226, 226
+  world 16083: C6 at rest in the work zone at [m], from period, to period; C11 at rest at [m] from period = 24.0000, 208, 214; 23.6500, 213
+[A6, world 16070]
+  the announcement; the forecast onset; the true onset; the lead time = 191; 202; 212; 11
+  C6: the requirement's onset pair from the period before the forecast onset to the period before the true onset = 0
+  C6: at rest in the work zone at [m], from period, to period = 24.2000, 205, 218
+  C6: the level of the plan in force in the true onset's period [m]; overloads = 0.80; 212
+  the operation begun, C6; C11; C13; C14 = 233; 212; 212; 212
+  periods in the work zone, C6; C11 = 141; 121
+[A6, the planner under ALLOVI]
+  valid worlds in which C14 spends two periods longer in the work zone than C11 = 8: 16009, 16010, 16023, 16026, 16031, 16079, 16092, 16095
+  valid worlds: periods in which the planner proposes 'retreat' and the governor commits an ambition below 1 (C14): value (worlds) = 9 (1), 11 (1), 12 (2), 13 (2), 14 (3), 15 (77), 16 (8)
+  in those worlds, the period in which the cart first moves backwards after the announcement, C14 less C11: value (worlds) = 0 (8)
+  in those worlds, periods of rest beyond 23.7 m after the first backward motion, C14; C11: value (worlds) = 1 (8); 0 (8)
+[the worlds that are not valid]
+  world 16042 (survey error +0.42 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 8 of 10; 8; 8; 0.5000
+  world 16043 (survey error +0.50 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 1 of 10; 1; 1; 1.2500
+  world 16059 (survey error +0.50 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 8 of 10; 8; 8; 0.5281
+  world 16064 (survey error +0.44 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 9 of 10; 8; 8; 0.5000
+  world 16077 (survey error +0.54 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 10 of 10; 10; 2; 0.4500
+  world 16100 (survey error +0.49 m): survey configurations with an invalid executed label; with an alarm; restarted; the least true clearance among them [m] = 1 of 10; 1; 1; 1.2000
+  runs with an invalid executed label and no alarm = C15 world 16064
+  C15 world 16064: the period; the segment's positions [m]; the true ramp's start [m]; the command and the label [m/s^2]; the end of its funnel and the measured state = 56; 19.6900 to 19.9000; 19.90; -2, 2; (19.9000, 2.0000) and (19.9000, 2.0000)
+[the substitution grid]
+  tube: the declared braking on the ramp; rounded to 1/1000 [m/s^2] = 0.375; 0.375
+  tube, braking curve: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1911; 0; 0; 0.246
+  tube, expert planner: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1932; 0; 0; 0.203
+  qp: the declared braking on the ramp; rounded to 1/1000 [m/s^2] = 0.385; 0.385
+  qp, braking curve: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1898; 0; 0; 0.246
+  qp, expert planner: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1917; 0; 0; 0.199
+  ccm: the declared braking on the ramp; rounded to 1/1000 [m/s^2] = 0.39875; 0.399
+  ccm, braking curve: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1876; 755; 0; 0.648
+  ccm, expert planner: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1921; 792; 0; 0.588
+  mpc: the declared braking on the ramp; rounded to 1/1000 [m/s^2] = 0.39875; 0.399
+  mpc, braking curve: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1848; 729; 586; 0.265
+  mpc, expert planner: periods before arrival; asking for more braking than declared on the ramp; of these, committed in full; mean intervention = 1891; 764; 689; 0.209
+  without ccm (an exclusion after the run), B2: the ranges of the packages' and of the methods' mean arrival [s] = 0.251, 0.247
+  without ccm (an exclusion after the run), B3: the packages from earliest to latest, by method = rule: mpc < qp < tube; braking curve: mpc < qp < tube; expert planner: mpc < qp < tube; off-policy learner: mpc < qp < tube; planner: mpc < qp < tube; chunk imitator: mpc < qp < tube
+  without ccm (an exclusion after the run), B4, reference: the ranges of the methods' and of the packages' mean intervention = 0.609, 0.004
+  without ccm (an exclusion after the run), B4, sequence: the ranges of the methods' and of the packages' mean intervention = 0.066, 0.005
+[check] 49 values: all as expected

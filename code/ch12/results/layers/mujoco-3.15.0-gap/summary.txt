@@ -1,0 +1,22 @@
+[record]
+  variant = mujoco-3.15.0-gap
+  what = MuJoCo itself, the contacts with and without a gap of 0.1 m on every geom
+  version of mujoco = 3.15.0
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  options: ccd_tolerance, ccd_iterations = 1e-06, 35
+[the firm ground, 1 m/s from 5 m, 0.3 s]
+  steps = 301
+  steps in which the gap changes which contacts act = 0
+  inactive contacts with the gap, most in a step = 0
+  constraint rows that the gap adds, most in a step = 0
+  largest change of a contact that acts: position [m], normal, distance [m] = 3.99e-06, 8.39e-09, 2.41e-09
+[the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m, 1.4 s]
+  steps = 1401
+  steps in which the gap changes which contacts act = 0
+  inactive contacts with the gap, most in a step = 0
+  constraint rows that the gap adds, most in a step = 0
+  largest change of a contact that acts: position [m], normal, distance [m] = 0.000226, 0.0015, 9.53e-07
+[the motion]
+  three periods at 1 m/s from 5 m, with the gap less without: dp [m], dv [m/s], dl [m] = 2.93e-07, 1.55e-06, 2.98e-12
+[check] against the shipped summary: all as shipped

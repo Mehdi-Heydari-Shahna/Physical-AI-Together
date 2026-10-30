@@ -1,0 +1,53 @@
+[record]
+  part = mujoco
+  hardware = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  version of mujoco = 3.16.0
+  version of numpy = 2.5.3
+  Python = 3.13.16
+  the record's settings, again: equal to the shipped run of Section 11.1 at its nine digits = yes
+  time of the part [s] = 49
+[constraint solver]
+  the record's settings: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  tolerance 1e-12, 1000 iterations: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 3.97e-15, 3.35e-11, 59; 0, 0
+  tolerance 1e-12, 1000 iterations: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  no warm start: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 3.99e-15, 3.35e-11, 59; 0, 0
+  no warm start: steps; most iterations in a step; steps at the iteration limit = 36000; 5; 0
+  tolerance 1e-6: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 4.03e-13, 4.89e-08, 196; 1, 0
+  tolerance 1e-6: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  islands off: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 0, 0, 0; 0, 0
+  islands off: steps; most iterations in a step; steps at the iteration limit = 36000; 3; 0
+  the conjugate-gradient solver: against the record's settings: median, largest [m], period; periods above 1 nm, 1 um = 6.17e-08, 2.34e-06, 196; 219, 2
+  the conjugate-gradient solver: steps; most iterations in a step; steps at the iteration limit = 36000; 74; 0
+[collision detection]
+  native pipeline, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 2.78e-17, 1.35e-12, 4.44e-15
+  native pipeline, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2802; 7.63e-16, 2.08e-11, 1.78e-14
+  native pipeline, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 3.61e-16, 8.29e-12, 7.13e-15
+  native pipeline: verdict = pass
+  native pipeline: crest, braking at the label: least penetration [mm], steps with a wheel without contact, load difference from the rigid cart's [%] = 0.0845, 0, 1.96
+  native pipeline: port checks: loads at rest less the weight [%]; one period at 1 m/s from 5 m, dp [m]; braking on firm ground from 4 m/s [m/s^2]; verdicts = -7.58e-12; -5.19e-07; 2.45; pass, pass, pass, pass
+  libccd pipeline, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 1.73e-12, 3.41e-07, 9.97e-05
+  libccd pipeline, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2802; 0.000955, 0.00102, 0.000119
+  libccd pipeline, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 602; 4.99e-11, 5.72e-06, 0.000116
+  libccd pipeline: verdict = fail
+  libccd pipeline: crest, braking at the label: least penetration [mm], steps with a wheel without contact, load difference from the rigid cart's [%] = 0.0682, 0, 18.1
+  libccd pipeline: port checks: loads at rest less the weight [%]; one period at 1 m/s from 5 m, dp [m]; braking on firm ground from 4 m/s [m/s^2]; verdicts = 2.18e-10; -7.86e-08; 2.45; pass, pass, pass, pass
+  libccd pipeline: against the native pipeline: median, largest [m], period; periods above 1 um = 5.22e-06, 6.38e-05, 62; 122
+  libccd pipeline: axle, tool folded: largest disturbance [m/s^2]; periods above the bound = 0.232; 13: 56 to 68
+  libccd pipeline, ccd_tolerance 1e-08, 1000 iterations: axle, tool folded: largest disturbance [m/s^2] = 0.229
+  libccd pipeline, ccd_tolerance 1e-10, 1000 iterations: axle, tool folded: largest disturbance [m/s^2] = 0.229
+  multiple contacts off: against the record's settings: identical in every period = yes
+[friction]
+  braking on firm ground from 4 m/s, at 1, 0.5, 0.25 ms [m/s^2] = 2.45, 2.45, 2.45
+  encoders less the cart's speed at 2 m/s^2, at 1, 0.5, 0.25 ms [mm/s] = 2.05, 2.05, 2.05
+  verdict = pass
+[limits]
+  the tool's last approach, Euler, at 1, 0.5, 0.25, 0.125 ms: short of the stop [m] = 0.00202, 0.00158, 0.00136, 0.00125
+  the tool's equation integrated directly (RK4, 1 us): short of the stop [m] = 0.00115
+  the same, to four digits [m] = 0.001145
+[arithmetic]
+  one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -5.19e-07, -5.19e-07, -5.19e-07
+[failures]
+  F8: crest, braking at the label: load difference from the rigid cart's [%] = 18.1
+  F9: crest, rolling freely from 3 m/s: steps with a wheel without contact, at 1, 0.5, 0.25 ms = 39, 76, 155
+  F9: the same, as time [ms] = 39, 38, 38.75
+[check] against the shipped summary and per-period files: all as shipped

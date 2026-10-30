@@ -1,0 +1,18 @@
+Record of the experiment of Section 12.1: genesis-mpr
+
+model and asset provenance
+  the MJCF text of Section 11.1 (../ch11/results/cart.xml), SHA-256 ed63fb3f13056da6..., read by the simulator's own importer
+simulator and solver
+  genesis-world 1.4.4, quadrants 1.3.3, torch 2.14.1, mujoco 3.16.0, numpy 2.5.4; Python 3.12.3; adapter cart.genesis, settings = mujoco-mpr
+time steps
+  0.001 s; governor period 0.1 s = 100 steps, counted; drive loop at every step
+actuators and sensors
+  the drive loop of Section 11.1; wheel torques and the tool's servo target; the wheels' loads from the simulator's contact forces
+frames and units
+  as in Section 11.1: SI units, x towards the wall, z up; state (p, v, l)
+uncertainty bounds, constraints, terminal behaviour, training split, seeds
+  as in Section 11.1
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  first alarm at 0.1 s; restarts 0; least clearance 25 m

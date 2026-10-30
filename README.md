@@ -1,65 +1,78 @@
-# Physical AI, Together
+# Physical AI, Together: code and data
 
-**Certified Control and Learning for Robotics**
+This repository holds the code and data of the book *Physical AI, Together: The ALLOVI Governor: Contracts and Conditional Guarantees* by Mehdi Heydari Shahna, with the book's online supplement. Every number that the book quotes from a computation is produced by a script here, and the results that it quotes are shipped in each chapter's `results/` folder. Most scripts have a `--check` option that compares what they compute with the values that the book quotes.
 
-Companion code and numerical results for the book by Mehdi Heydari Shahna.
+The book's file paths, such as `code/ch03/cart_example.py`, are paths in this repository.
 
-## Available material
+## Contents
 
-| Chapter | Example | Code and results |
-| --- | --- | --- |
-| 3 | The smallest complete example: a cart approaching a wall | [Implementation and instructions](code/ch03/README.md), [numerical results](code/ch03/results/) |
+| Folder | Chapter of the book | What it needs |
+|---|---|---|
+| `code/ch03` | 3. The smallest complete example | Python 3.8 or later, no other packages |
+| `code/ch05` | 5. How a control researcher contributes | Python 3.8 or later, no other packages |
+| `code/ch06` | 6. How a learning researcher contributes | Python 3.8 or later, no other packages; `published/` trains the published SAC, TD-MPC2 and Diffusion Policy through the same adapters (PyTorch, and an NVIDIA GPU for TD-MPC2 and Diffusion Policy; see its README) |
+| `code/ch07` | 7. Predicting capability and demand | Python 3.8 or later, no other packages |
+| `code/ch08` | 8. The ALLOVI governor | Python 3.8 or later, no other packages |
+| `code/ch09` | 9. What the complete system can guarantee | Python 3.8 or later, no other packages |
+| `code/ch10` | 10. An architecture researchers can extend: the package `allovi`, the cart's modules, templates and the check suite | Python 3.8 or later, no other packages |
+| `code/ch11` | 11. MuJoCo and Isaac Sim workflows | MuJoCo 3.16.0 (`requirements.txt`); Isaac Sim 6.2.0 and an NVIDIA GPU for Section 11.2 |
+| `code/ch12` | 12. Newton, Genesis and numerical credibility | one environment per simulator (`requirements-newton.txt`, `requirements-genesis.txt`); the support matrix needs Python only |
+| `code/ch13` | 13. Wheeled robots and the Husky | MuJoCo 3.16.0 and NumPy (`requirements.txt`); Isaac Sim 6.2.0 for `isaac_husky.py` |
+| `code/ch14` | 14. Arms and heavy-duty mobile manipulators | MuJoCo 3.16.0, NumPy, PyYAML and SciPy (`requirements.txt`) |
+| `code/ch15` | 15. A governed quadruped, and legged robots beyond it | MuJoCo 3.16.0, NumPy and SciPy (`requirements.txt`); for the humanoid, a checkout of [Team-Impedance-Control](https://github.com/Mehdi-Heydari-Shahna/Team-Impedance-Control) |
+| `code/ch16` | 16. Comparisons that identify the contribution | Python 3.8 or later, no other packages; the complete case of the cart in MuJoCo needs MuJoCo 3.16.0 and NumPy |
+| `code/ch17` | 17. Contributions and independent verification | Python 3.8 or later, no other packages |
+| `code/render` | The videos and stills of the MuJoCo runs (Chapters 1, 11 and 13 to 15), and their path-traced versions (`render/cycles`, Blender Cycles on a GPU) | Pillow, SciPy, EGL and ffmpeg besides each chapter's requirements; Blender 4.2 or later for `render/cycles` |
+| `docs` | The online supplement (PDF) | |
 
-The cart example implements the five ALLOVI modules and the viability governor. It compares fixed, reactive and forecasting capability predictors, then examines a persisting predictor whose capability labels become invalid. These are deterministic simulations of the stated cart model.
+Chapters 1, 2, 4 and 18 have no code of their own. Each folder's `README.md` says what its scripts compute, how long they take, what they write into `results/`, and with which versions the shipped results were produced. `code/NUMBERING.md` lists the few files that cite the book's sections, tables and figures by an earlier numbering, with the current number of each item.
 
-## Reproduce Chapter 3
+## Running a chapter
 
-Python 3.12 is the reference environment. The numerical example uses only the Python standard library.
+Get a copy of the repository:
 
-From the repository root:
-
-```text
-python code/ch03/cart_example.py --check
+```
+git clone https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git
+cd Physical-AI-Together
 ```
 
-The command regenerates the files in `code/ch03/results/` and checks 110 reported numerical values. The final line should be:
+The examples of Chapters 3 to 10, 16 and 17 run with Python alone:
 
-```text
-[check] 110 quoted values: all as quoted
+```
+cd code/ch03
+python3 cart_example.py            # writes results/
+python3 cart_example.py --check    # also compares every value with the book
 ```
 
-To inspect the candidates considered in period 32:
+The simulator chapters use one virtual environment each:
 
-```text
-python code/ch03/cart_example.py --period 32
+```
+cd code/ch13
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python husky_mujoco.py --check
 ```
 
-See the [Chapter 3 README](code/ch03/README.md) for configurations, output columns and units. Numerical agreement with the supplied outputs is a reproducibility check; the general guarantees depend on their stated mathematical assumptions.
+On Windows, write `python` for `python3` and `.venv\Scripts\python` for `.venv/bin/python`. With Miniforge, `conda env create -f environment.yml` and `conda activate physical-ai-together` give Python 3.12, which is all that the Python-only chapters need, with Git and the GitHub CLI.
 
-## Miniforge environment
+The results that the book quotes are shipped in each chapter's `results/` folder, so they can be read and checked without running anything. Scripts that need a GPU (Isaac Sim in Chapters 11 and 13, the published learners in `code/ch06/published`, and `code/render/cycles`) say so in their folder's README; the results of the Isaac Sim runs and of the published learners are shipped.
 
-```text
-conda env create -f environment.yml
-conda activate physical-ai-together
-python code/ch03/cart_example.py --check
-```
+## The robots' descriptions
 
-The environment also includes Git and the GitHub CLI for publishing updates.
+The Husky A300, the UR5e and the Go2 are built from their makers' published descriptions. The files that the scripts need are copied into this repository, unchanged, with their licences (`THIRD_PARTY_NOTICES.md`). The videos and some stills draw the makers' visual meshes, which are not copied: they are read from checkouts of the makers' repositories, at the commits that `code/render/README.md` lists.
 
-## Repository layout
+## Videos
 
-```text
-code/
-  ch03/
-    cart_example.py
-    README.md
-    results/
-environment.yml
-CITATION.cff
-```
+The videos of the simulated runs in Chapters 13 to 15 are not stored in the repository's history, for their size. They are attached to the release [v1.0](https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together/releases/tag/v1.0), and the book links to them from their figures: `husky-map.mp4` (Chapter 13), `ur5e-stops.mp4` and `hdmm-reference.mp4` (Chapter 14), `go2-pushed.mp4` and `apollo-carry.mp4` (Chapter 15). `excavator-onset.mp4` shows the excavator of `code/ch14`, which the book does not report. The scripts that draw them are in `code/render` and in the chapters' folders.
 
-Additional chapter folders will be added under `code/`. Book text and illustration sources are maintained separately. This repository currently provides the numerical code and data for Chapter 3.
+## The supplement
 
-## Citation
+`docs/Physical_AI_Together_supplement.pdf` is the book's online supplement: detailed run records, provenance, release-specific software instructions, diagnostic tables and implementation examples (its chapters, sections, tables and figures are numbered with an `S`, Chapter S13 extending Chapter 13). The instructor's manual, with the solutions of the book's exercises, is distributed to instructors separately.
 
-Citation metadata is provided in [CITATION.cff](CITATION.cff).
+## Reproducibility, releases and citation
+
+`REPRODUCING.md` says how to reproduce every chapter's results from a fresh copy and how to report a reproduction; `CONTRIBUTING.md` says how to contribute a module, and `code/ch10/templates/HELPERS.md` documents the helpers of the cart's code that a contribution may reuse. `code/RELEASES.md` states how an experiment is identified across versions of this code. `CITATION.cff` gives the citation of the book and its code. Cite the release that produced the results you use, v1.0 for the book's version of 31 October 2026, or the commit.
+
+## Licence
+
+The code and the results written for the book are under the MIT License (`LICENSE`). The files of others that this repository contains keep their own licences (`THIRD_PARTY_NOTICES.md`). The online supplement in `docs/` is not under the MIT License: copyright Mehdi Heydari Shahna, all rights reserved.

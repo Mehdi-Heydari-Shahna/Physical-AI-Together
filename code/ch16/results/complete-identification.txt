@@ -1,0 +1,24 @@
+[identification]
+  worlds = 40 (43001 to 43040)
+  runs = 280; periods = 89737; time steps = 8973700
+  periods in which the tool unfolds = 400
+  governed runs with an alarm, a violation = 0, 0
+  least number of contacts at a period's end = 2
+[largest observed]
+  w = 0.0469991
+  d = 4.28044e-08
+  n_p = 0.00125394
+  n_v = 0.0024166
+  n_l = 0.000509461
+  l_err = 0.000213356
+  J = 0
+[bounds: 1.25 times the largest, rounded up]
+  w_bar = 0.06
+  d_bar = 1e-07
+  J = 0.0
+  varpi_p = 0.0016
+  varpi_v = 0.0031
+  varpi_l = 0.0007
+  e_l = 0.0003
+[certificate tube] phi = 0.0535196, iota = 0, w_tot = 0.0852, rho^100 = 0.852035
+[certificate mpc] phi = 0.0430419, iota = 0, w_tot = 0.0852, rho^100 = 0.819387

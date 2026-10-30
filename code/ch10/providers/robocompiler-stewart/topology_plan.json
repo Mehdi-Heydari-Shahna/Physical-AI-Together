@@ -1,0 +1,298 @@
+{
+  "input_sha256": "6d3b6e1bb1784f65e844ffb91cca6a6e908c698c3bd896bcd87617c4aea56232",
+  "physical_bodies": 21,
+  "physical_joints": 25,
+  "physical_cycles": 5,
+  "tree_edges": [
+    "leg_0_length",
+    "leg_0_u_x",
+    "leg_0_u_y",
+    "leg_1_length",
+    "leg_1_u_x",
+    "leg_1_u_y",
+    "leg_2_length",
+    "leg_2_u_x",
+    "leg_2_u_y",
+    "leg_3_length",
+    "leg_3_u_x",
+    "leg_3_u_y",
+    "leg_4_length",
+    "leg_4_u_x",
+    "leg_4_u_y",
+    "leg_5_length",
+    "leg_5_u_x",
+    "leg_5_u_y",
+    "payload_mount",
+    "cut_0"
+  ],
+  "chord_edges": [
+    "cut_1",
+    "cut_2",
+    "cut_3",
+    "cut_4",
+    "cut_5"
+  ],
+  "policy": "scalar-first Kruskal; spherical lexical tie-break; only spherical chords supported",
+  "preferred_spherical_tree": null,
+  "physical_tree_coordinates": 21,
+  "augmented_coordinates": 36,
+  "augmented_residual_rows": 30,
+  "point_residual_rows": 15,
+  "declared_actuators": 6,
+  "dimensional_mobility": 6,
+  "numerical_rank_status": "not_checked_until_a_configuration_is_supplied",
+  "generated_massless_frames": 2,
+  "cycles": [
+    {
+      "chord": "cut_1",
+      "tree_path": [
+        {
+          "joint_id": "leg_1_length",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_1_u_y",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_1_u_x",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_0_u_x",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_u_y",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_length",
+          "sign": 1
+        },
+        {
+          "joint_id": "cut_0",
+          "sign": 1
+        }
+      ],
+      "passive_tree_support": [
+        "leg_1_u_y",
+        "leg_1_u_x",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z"
+      ],
+      "auxiliary_coordinates": 3,
+      "scalar_augmented_residuals": 6
+    },
+    {
+      "chord": "cut_2",
+      "tree_path": [
+        {
+          "joint_id": "leg_2_length",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_2_u_y",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_2_u_x",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_0_u_x",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_u_y",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_length",
+          "sign": 1
+        },
+        {
+          "joint_id": "cut_0",
+          "sign": 1
+        }
+      ],
+      "passive_tree_support": [
+        "leg_2_u_y",
+        "leg_2_u_x",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z"
+      ],
+      "auxiliary_coordinates": 3,
+      "scalar_augmented_residuals": 6
+    },
+    {
+      "chord": "cut_3",
+      "tree_path": [
+        {
+          "joint_id": "leg_3_length",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_3_u_y",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_3_u_x",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_0_u_x",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_u_y",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_length",
+          "sign": 1
+        },
+        {
+          "joint_id": "cut_0",
+          "sign": 1
+        }
+      ],
+      "passive_tree_support": [
+        "leg_3_u_y",
+        "leg_3_u_x",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z"
+      ],
+      "auxiliary_coordinates": 3,
+      "scalar_augmented_residuals": 6
+    },
+    {
+      "chord": "cut_4",
+      "tree_path": [
+        {
+          "joint_id": "leg_4_length",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_4_u_y",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_4_u_x",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_0_u_x",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_u_y",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_length",
+          "sign": 1
+        },
+        {
+          "joint_id": "cut_0",
+          "sign": 1
+        }
+      ],
+      "passive_tree_support": [
+        "leg_4_u_y",
+        "leg_4_u_x",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z"
+      ],
+      "auxiliary_coordinates": 3,
+      "scalar_augmented_residuals": 6
+    },
+    {
+      "chord": "cut_5",
+      "tree_path": [
+        {
+          "joint_id": "leg_5_length",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_5_u_y",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_5_u_x",
+          "sign": -1
+        },
+        {
+          "joint_id": "leg_0_u_x",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_u_y",
+          "sign": 1
+        },
+        {
+          "joint_id": "leg_0_length",
+          "sign": 1
+        },
+        {
+          "joint_id": "cut_0",
+          "sign": 1
+        }
+      ],
+      "passive_tree_support": [
+        "leg_5_u_y",
+        "leg_5_u_x",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z"
+      ],
+      "auxiliary_coordinates": 3,
+      "scalar_augmented_residuals": 6
+    }
+  ],
+  "candidate_modules": [
+    {
+      "chords": [
+        "cut_1",
+        "cut_2",
+        "cut_3",
+        "cut_4",
+        "cut_5"
+      ],
+      "shared_passive_support": [
+        "__cut_0_chart_x",
+        "__cut_0_chart_y",
+        "__cut_0_chart_z",
+        "leg_0_u_x",
+        "leg_0_u_y",
+        "leg_1_u_x",
+        "leg_1_u_y",
+        "leg_2_u_x",
+        "leg_2_u_y",
+        "leg_3_u_x",
+        "leg_3_u_y",
+        "leg_4_u_x",
+        "leg_4_u_y",
+        "leg_5_u_x",
+        "leg_5_u_y"
+      ]
+    }
+  ],
+  "generated_model_sha256": "cc62adeb2c92cbf9f1d4e93b50cea95fa1cf946060ace877306eaed6556d3e4e",
+  "manual_tree_labels_in_input": 0,
+  "manual_closure_functions_in_input": 0
+}

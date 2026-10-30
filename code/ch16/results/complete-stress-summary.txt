@@ -1,0 +1,13 @@
+[stress tests]
+  S1 tube: runs 30; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 3 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.046; least clearance 0.533 m; on time 12; arrived 30
+  S1 mpc: runs 30; violations 0; runs with an alarm 30; restarts 47; invalid executed labels in 3 runs; periods with a departure 15854 (w 6074, tube 144); largest |w| 2583.065; least clearance 0.485 m; on time 2; arrived 30
+  S2 tube: runs 30; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 3 runs; periods with a departure 395 (w 371, tube 0); largest |w| 0.837; least clearance 0.533 m; on time 12; arrived 30
+  S2 mpc: runs 30; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 3 runs; periods with a departure 820 (w 793, tube 0); largest |w| 0.898; least clearance 0.521 m; on time 12; arrived 30
+  S3 tube: runs 30; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 30 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.055; least clearance 0.533 m; on time 12; arrived 30
+  S3 mpc: runs 30; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 30 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.057; least clearance 0.522 m; on time 12; arrived 30
+  S4 tube: runs 10; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 1 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.046; least clearance 0.533 m; on time 3; arrived 10; plans late 0; evaluations cut in 2395 periods; late proposals 805; least slack 11.8 ms
+  S4 mpc: runs 10; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 1 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.049; least clearance 0.522 m; on time 3; arrived 10; plans late 1; evaluations cut in 2396 periods; late proposals 804; least slack -11.4 ms
+  S5 tube: runs 10; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 1 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.046; least clearance 0.533 m; on time 3; arrived 10; plans late 30; evaluations cut in 687 periods; late proposals 804; least slack -45.0 ms
+  S5 mpc: runs 10; violations 0; runs with an alarm 0; restarts 0; invalid executed labels in 1 runs; periods with a departure 0 (w 0, tube 0); largest |w| 0.048; least clearance 0.522 m; on time 3; arrived 10; plans late 33; evaluations cut in 651 periods; late proposals 807; least slack -43.3 ms
+  H7 (S4: no plan late and no violation): FAILED
+  H8 (S5: no violation and no alarm, plans late or not): supported

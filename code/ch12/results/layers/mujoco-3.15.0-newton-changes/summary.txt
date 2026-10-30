@@ -1,0 +1,48 @@
+[record]
+  variant = mujoco-3.15.0-newton-changes
+  what = MuJoCo itself with the changes that Newton makes around it, one at a time and together, through the per-period comparison of Section 11.1, at 1 ms
+  version of mujoco = 3.15.0
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  time of the five comparisons [s] = 14
+[multiple contacts off]
+  variant = mujoco-3.15.0-multiccd-off
+  against MuJoCo 3.15.0: median, largest [m], period = 0, 0, 0
+  against MuJoCo 3.15.0: periods with a difference above 1 um = 0
+  against MuJoCo 3.15.0: identical in every period = yes
+  against Newton on MuJoCo's C library: median, largest [m], period = 9.43e-07, 4.19e-06, 198
+  against Newton on MuJoCo's C library: periods with a difference above 1 um = 67
+  against Newton on MuJoCo's C library: identical in every period = no
+[parameters in single precision]
+  variant = mujoco-3.15.0-f32-parameters
+  against MuJoCo 3.15.0: median, largest [m], period = 3.24e-09, 3.04e-08, 32
+  against MuJoCo 3.15.0: periods with a difference above 1 um = 0
+  against MuJoCo 3.15.0: identical in every period = no
+  against Newton on MuJoCo's C library: median, largest [m], period = 9.43e-07, 4.19e-06, 198
+  against Newton on MuJoCo's C library: periods with a difference above 1 um = 66
+  against Newton on MuJoCo's C library: identical in every period = no
+[state in single precision before every step]
+  variant = mujoco-3.15.0-f32-state
+  against MuJoCo 3.15.0: median, largest [m], period = 1.06e-06, 5.52e-06, 99
+  against MuJoCo 3.15.0: periods with a difference above 1 um = 145
+  against MuJoCo 3.15.0: identical in every period = no
+  against Newton on MuJoCo's C library: median, largest [m], period = 1.22e-07, 3.98e-06, 190
+  against Newton on MuJoCo's C library: periods with a difference above 1 um = 20
+  against Newton on MuJoCo's C library: identical in every period = no
+[readout in single precision]
+  variant = mujoco-3.15.0-f32-readout
+  against MuJoCo 3.15.0: median, largest [m], period = 7.81e-07, 1.75e-06, 89
+  against MuJoCo 3.15.0: periods with a difference above 1 um = 35
+  against MuJoCo 3.15.0: identical in every period = no
+  against Newton on MuJoCo's C library: median, largest [m], period = 1.61e-07, 3.84e-06, 68
+  against Newton on MuJoCo's C library: periods with a difference above 1 um = 71
+  against Newton on MuJoCo's C library: identical in every period = no
+[all four]
+  variant = mujoco-3.15.0-newton-changes
+  against MuJoCo 3.15.0: median, largest [m], period = 9.32e-07, 5.83e-06, 99
+  against MuJoCo 3.15.0: periods with a difference above 1 um = 65
+  against MuJoCo 3.15.0: identical in every period = no
+  against Newton on MuJoCo's C library: median, largest [m], period = 1.02e-08, 3.81e-06, 190
+  against Newton on MuJoCo's C library: periods with a difference above 1 um = 21
+  against Newton on MuJoCo's C library: identical in every period = no
+[check] against the shipped summary: all as shipped

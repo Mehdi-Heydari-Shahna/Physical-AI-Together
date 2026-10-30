@@ -1,0 +1,5 @@
+[the run without the beam's reference following the pelvis]
+  completed; simulated time [s]; failure; when [s]; its phase = False; 42.61; girder lost (pose error > 0.15 m); 40.11; carry1-step-r
+  the actuators at their torque limits before it, each from [s] (phase) = l_wrist_roll 33.51 (carry1-step-l); r_hip_ie 34.37 (carry1-step-l); r_wrist_roll 36.54 (carry1-shift); l_ankle_ie 39.15 (carry1-step-r); l_hip_ie 39.40 (carry1-step-r); l_ankle_pd 39.99 (carry1-step-r); l_knee_fe 39.99 (carry1-step-r); l_hip_fe 40.04 (carry1-step-r); l_hip_aa 40.09 (carry1-step-r); r_ankle_pd 40.09 (carry1-step-r); r_hip_fe 40.09 (carry1-step-r); r_knee_fe 40.09 (carry1-step-r); r_ankle_ie 40.10 (carry1-step-r)
+  of them: the wrists' (of all wrists' actuators); the legs' (of all legs') = 2 of 6; 11 of 12
+[check] 3 values: all as expected

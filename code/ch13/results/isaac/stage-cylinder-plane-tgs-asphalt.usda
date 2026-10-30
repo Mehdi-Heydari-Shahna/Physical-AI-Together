@@ -1,0 +1,376 @@
+#usda 1.0
+
+def Camera "OmniverseKit_Persp" (
+    prepend apiSchemas = ["OmniRtxCameraAutoExposureAPI_1", "OmniRtxCameraExposureAPI_1"]
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (0.01, 10000000)
+    float focalLength = 18.147562
+    float focusDistance = 400
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -8.660254037844386)
+    float3 xformOp:rotateXYZ = (54.73561, -6.3611094e-15, 135)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (5, 5, 5)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def Camera "OmniverseKit_Front" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, -1.2722219e-14, 90)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (5, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def Camera "OmniverseKit_Top" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (1.2722219e-14, -7.016709e-15, -90)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 5)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+def Camera "OmniverseKit_Right" (
+    customData = {
+        dictionary omni = {
+            dictionary kit = {
+                bool hide_in_stage_window = 1
+                bool no_delete = 1
+            }
+        }
+    }
+    hide_in_stage_window = true
+    kind = "component"
+    no_delete = true
+)
+{
+    float2 clippingRange = (1, 10000000)
+    float horizontalAperture = 50
+    custom uniform vector3d omni:kit:centerOfInterest = (0, 0, -5)
+    token projection = "orthographic"
+    float verticalAperture = 50
+    float3 xformOp:rotateXYZ = (90, 7.06225e-31, -1.2722219e-14)
+    float3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, -5, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
+}
+
+over "Render"
+{
+    over "OmniverseKit"
+    {
+        over "HydraTextures"
+        {
+            over "omni_kit_widget_viewport_ViewportTexture_0"
+            {
+                custom uint64 viewPickingId = 16637400363856224320
+                custom int viewportHandle = 0
+            }
+        }
+    }
+}
+
+over "husky_a300" (
+    variants = {
+        string Physics = "physx"
+    }
+)
+{
+    double3 xformOp:translate = (0, 0, 0.13697)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+
+    over "Geometry"
+    {
+        over "base_link" (
+            prepend apiSchemas = ["PhysicsMassAPI", "PhysxArticulationAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (0.41768396, 0.102216385, -0.31618962)
+            point3f physics:centerOfMass = (0, 0, 0.1147795)
+            float3 physics:diagonalInertia = (1.1408911, 4.6217346, 5.1478233)
+            float physics:mass = 70
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (1.007676, 0.00005243628, -0.0004080186)
+            bool physxArticulation:enabledSelfCollisions = 0
+            float physxArticulation:sleepThreshold = 0
+            int physxArticulation:solverPositionIterationCount = 32
+            int physxArticulation:solverVelocityIterationCount = 1
+            float physxArticulation:stabilizationThreshold = 0
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, -3.1547934e-8, 1.1223063e-7, 0.000088937115)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (11.937836, 0.00092566, -0.001001434)
+            token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "front_left_wheel_link" (
+                prepend apiSchemas = ["PhysicsMassAPI", "MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                rel material:binding:physics = </World/Looks/ground_material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                vector3f physics:angularVelocity = (0.3551499, 351.9013, -0.3162118)
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.03407251, 0.019758025)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (1, 0, 0, 0)
+                vector3f physics:velocity = (1.0090847, -0.0007356543, 0.001198026)
+                float physxContactReport:threshold = 0
+                float physxRigidBody:angularDamping = 0
+                float physxRigidBody:linearDamping = 0
+                quatf xformOp:orient = (-0.056552045, -0.00008867398, 0.9983997, -0.0000050610643)
+                double3 xformOp:translate = (0.2559499740600586, 0.2829456926556304, 0.02912992238227277)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["MaterialBindingAPI", "PhysxCollisionAPI"]
+                )
+                {
+                    rel material:binding:physics = </World/Looks/ground_material> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                    float physxCollision:contactOffset = 0.02
+                    float physxCollision:restOffset = 0
+                }
+            }
+
+            over "rear_left_wheel_link" (
+                prepend apiSchemas = ["PhysicsMassAPI", "MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                rel material:binding:physics = </World/Looks/ground_material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                vector3f physics:angularVelocity = (0.3554448, 350.2423, -0.3162117)
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.03407251, 0.019758025)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (1, 0, 0, 0)
+                vector3f physics:velocity = (1.0090841, 0.0020898427, 0.002110776)
+                float physxContactReport:threshold = 0
+                float physxRigidBody:angularDamping = 0
+                float physxRigidBody:linearDamping = 0
+                quatf xformOp:orient = (-0.057729814, -0.00008866796, 0.99833226, -0.000005165809)
+                double3 xformOp:translate = (-0.25605010986328125, 0.28285452735144645, 0.02913002669040113)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["MaterialBindingAPI", "PhysxCollisionAPI"]
+                )
+                {
+                    rel material:binding:physics = </World/Looks/ground_material> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                    float physxCollision:contactOffset = 0.02
+                    float physxCollision:restOffset = 0
+                }
+            }
+
+            over "front_right_wheel_link" (
+                prepend apiSchemas = ["PhysicsMassAPI", "MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                rel material:binding:physics = </World/Looks/ground_material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                vector3f physics:angularVelocity = (0.35536912, 350.66815, -0.31621173)
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.03407251, 0.019758025)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (1, 0, 0, 0)
+                vector3f physics:velocity = (1.0059623, -0.0007362072, -0.002926813)
+                float physxContactReport:threshold = 0
+                float physxRigidBody:angularDamping = 0
+                float physxRigidBody:linearDamping = 0
+                quatf xformOp:orient = (-0.05868616, -0.00008866298, 0.9982765, -0.0000052508612)
+                double3 xformOp:translate = (0.25605010986328125, -0.28285446751397103, 0.02912995218459516)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["MaterialBindingAPI", "PhysxCollisionAPI"]
+                )
+                {
+                    rel material:binding:physics = </World/Looks/ground_material> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                    float physxCollision:contactOffset = 0.02
+                    float physxCollision:restOffset = 0
+                }
+            }
+
+            over "rear_right_wheel_link" (
+                prepend apiSchemas = ["PhysicsMassAPI", "MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+            )
+            {
+                rel material:binding:physics = </World/Looks/ground_material> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                vector3f physics:angularVelocity = (0.35540113, 350.488, -0.31621173)
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.03407251, 0.019758025)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (1, 0, 0, 0)
+                vector3f physics:velocity = (1.0059618, 0.0020892897, -0.0020140633)
+                float physxContactReport:threshold = 0
+                float physxRigidBody:angularDamping = 0
+                float physxRigidBody:linearDamping = 0
+                quatf xformOp:orient = (-0.05864426, -0.0000886632, 0.9982789, -0.0000052471364)
+                double3 xformOp:translate = (-0.2559499740600586, -0.282945632818155, 0.02913007139388471)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["MaterialBindingAPI", "PhysxCollisionAPI"]
+                )
+                {
+                    rel material:binding:physics = </World/Looks/ground_material> (
+                        bindMaterialAs = "weakerThanDescendants"
+                    )
+                    float physxCollision:contactOffset = 0.02
+                    float physxCollision:restOffset = 0
+                }
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        over "front_left_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+            float drive:angular:physics:damping = 0.6981317
+            float drive:angular:physics:maxForce = 30
+            float drive:angular:physics:stiffness = 0
+            float drive:angular:physics:targetVelocity = 0
+            uniform token drive:angular:physics:type = "force"
+            float state:angular:physics:position = -173.51614
+            float state:angular:physics:velocity = 351.79895
+        }
+
+        over "front_right_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+            float drive:angular:physics:damping = 0.6981317
+            float drive:angular:physics:maxForce = 30
+            float drive:angular:physics:stiffness = 0
+            float drive:angular:physics:targetVelocity = 0
+            uniform token drive:angular:physics:type = "force"
+            float state:angular:physics:position = -173.27121
+            float state:angular:physics:velocity = 350.56592
+        }
+
+        over "rear_left_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+            float drive:angular:physics:damping = 0.6981317
+            float drive:angular:physics:maxForce = 30
+            float drive:angular:physics:stiffness = 0
+            float drive:angular:physics:targetVelocity = 0
+            uniform token drive:angular:physics:type = "force"
+            float state:angular:physics:position = -173.38098
+            float state:angular:physics:velocity = 350.14008
+        }
+
+        over "rear_right_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+        )
+        {
+            float drive:angular:physics:damping = 0.6981317
+            float drive:angular:physics:maxForce = 30
+            float drive:angular:physics:stiffness = 0
+            float drive:angular:physics:targetVelocity = 0
+            uniform token drive:angular:physics:type = "force"
+            float state:angular:physics:position = -173.27603
+            float state:angular:physics:velocity = 350.38565
+        }
+    }
+}
+
+def "World"
+{
+    def "Looks"
+    {
+        def Material "ground_material" (
+            prepend apiSchemas = ["PhysicsMaterialAPI"]
+        )
+        {
+            float physics:dynamicFriction = 0.8
+            float physics:restitution = 0
+            float physics:staticFriction = 0.8
+        }
+    }
+
+    def PhysicsScene "physicsScene" (
+        prepend apiSchemas = ["NewtonSceneAPI", "PhysxSceneAPI"]
+    )
+    {
+        vector3f physics:gravityDirection = (0, 0, -1)
+        float physics:gravityMagnitude = 9.81
+        uniform token physxScene:broadphaseType = "MBP"
+        bool physxScene:enableCCD = 0
+        bool physxScene:enableGPUDynamics = 0
+        bool physxScene:enableStabilization = 0
+        uniform token physxScene:solverType = "TGS"
+        uint physxScene:timeStepsPerSecond = 2000
+    }
+
+    def Plane "ground" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+    )
+    {
+        uniform token axis = "Z"
+        double length = 80
+        rel material:binding:physics = </World/Looks/ground_material> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float physxCollision:contactOffset = 0.02
+        float physxCollision:restOffset = 0
+        uniform token purpose = "guide"
+        double width = 80
+    }
+}
+

@@ -1,0 +1,94 @@
+[back-away of Chapter 3]
+  commands = 16 at -0.5, 4 at 2
+  pairs = 20
+  rest = 23.7 m
+  levels_from_pairs_0_1_16_19_20 = 0.5, 0.5, 1.14, 1.29, 1.3
+  exact_reserve_from_pairs_1_2_16 = 0.5025, 0.51, 1.14
+  restoration_pairs = 20
+  sufficient_lead_time = 21 periods (N0 = 0)
+  same_with_the_fixed_predictor = yes
+[rate form for the back-away]
+  largest_rate_on_the_grid = 0
+  largest_rate_without_the_grid = 0.0025 m per period
+  restoration_pairs_from_that_rate = 320
+  lead_time_from_that_rate = 321 periods
+[full reverse]
+  commands = 18 at -0.5, 4 at 2, 1 at 1
+  pairs = 23
+  rest = 23.485 m
+  level = 0.5
+  position_at_start_of_pair_18 = 23.69 m
+  speed_at_start_of_pair_18 = -0.9 m/s
+  level_from_pair_17 = 1.22
+  level_from_pair_18 = 1.31
+  restoration_pairs = 18
+  lead_time = 19 periods
+  rest_farther_back_than_back_away = 0.215 m
+  periods_fewer_than_back_away = 2
+[lower bound for every governor]
+  reserve_at_announcement = 0.5 m
+  reserve_to_restore = 0.8 m
+  reserve_gain_in_j_periods = 0.0025 j^2 m
+  commitment_delay_periods = 1
+  smallest_lead_time = 19 periods
+  smallest_lead_time_seconds = 1.9 s
+  gain_with_one_period_less = 0.7225
+  bound_at_one_period_less = 1.2225
+  bound_at_smallest = 1.31
+[governor runs]
+  lead_times_run = 1 to 24 periods, with each generator
+  chapter3_generator_lead_21 = met, level 1.3 m at the onset
+  chapter3_generator_lead_20 = overload, level 1.29 m at the onset
+  with_full_reverse_lead_19 = met, level 1.3 m at the onset
+  with_full_reverse_lead_18 = overload, level 1.22 m at the onset
+  smallest_lead_time_chapter3_generator = 21 periods
+  smallest_lead_time_with_full_reverse = 19 periods
+  announcement_for_lead_21 = 17.9 s
+  announcement_for_lead_19 = 18.1 s
+[requirement missing in one period]
+  demand = announced in period 140 for period 200 (60 periods ahead)
+  periods_tried = 140 to 199
+  overload_if_missing_in = periods 179 to 194
+  met_if_missing_in = 140 to 178, 195 to 199
+  level_at_onset_when_overloaded = 0.91 to 1.29 m
+[retention on the runs of Chapter 8]
+  runs = 9
+  periods_checked = 650
+  violations = 0
+  periods_chapter3 = 60
+  periods_forecast-informed = 60
+  periods_reactive-preparation = 21
+  periods_fixed-conservatism = 199
+  periods_forecast-early = 60
+  periods_forecast-late = 70
+  periods_budget-one-candidate = 60
+  periods_budget-stall = 60
+  periods_budget-no-evaluation = 60
+[proposition 9.16]
+  continuation_periods_at_most = 36
+  last_braking_period_adds_at_most = 0.0025
+  rejection_threshold = 12.24875
+  next_head_if_initial_run_ended_at_11_53 = 12.21914
+  contradiction = yes
+  v_squared_at_end_of_initial_run_more_than = 46.12
+  v_squared_at_ramp_more_than = 12.24
+  stops_beyond = 32.24
+[example 9.17]
+  after_acceleration = 12.25 m, 7 m/s after 35 periods
+  pairs = 70
+  planned_rest = 24.5 m
+  first_period_reaching_the_ramp = 49
+  true_horizon_at_least = 69
+  v_squared_at_ramp = 18
+  speed_at_ramp = 4.24 m/s
+  stop = 38 m
+[exercise 9.1]
+  measured_rest_0.6 = 24.495
+  true_rest_0.6 = 25.095
+  beyond_wall_0.6 = 0.095
+  true_front_at_unfolding_0.6 = 24.295
+  tool_tip_beyond_wall_0.6 = yes
+  true_rest_0.4 = 24.895
+  past_the_floor_0.4 = 0.395
+  inside_the_constraint_0.4 = yes
+[check] 73 values quoted in Chapter 9: all as quoted

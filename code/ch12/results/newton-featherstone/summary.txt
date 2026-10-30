@@ -1,0 +1,17 @@
+[record]
+  backend = newton-featherstone
+  adapter = cart.newton
+  options = solver = featherstone, device = cpu
+  state precision = float32
+  version of newton = 1.7.0
+  version of warp-lang = 1.18.0
+  version of mujoco = 3.15.0
+  version of mujoco-warp = 3.15.0
+  version of numpy = 2.5.4
+  version of scipy = 1.18.1
+[port checks]
+  building and settling at rest failed = StateNotFinite: the state is not a number after 2587 steps
+  verdicts: loads, timing, friction, crest = fail, fail, fail, fail
+[the run of Chapter 3, period by period]
+  not run = the cart fails the port checks of loads or timing
+[check] against the shipped summary: all as shipped

@@ -1,0 +1,36 @@
+[    0.0 s] isaac_husky.py version 5; command line: (none)
+[    0.0 s] results in results\isaac
+[    0.0 s] record
+[    0.1 s] the import
+[    2.1 s] screen on asphalt, mu 0.8
+[    2.1 s]   screen: cylinder-box-tgs
+[  101.9 s]   screen: cylinder-plane-tgs
+[  172.4 s]   screen: sphere-plane-tgs
+[  240.9 s]   screen: convex-plane-tgs
+[  329.3 s]   screen: sphere-box-tgs
+[  391.7 s]   screen: convex-box-tgs
+[  467.9 s]   screen: cylinder-box-tgs-offset-2mm
+[  554.8 s]   screen: cylinder-plane-pgs
+[  634.6 s]   screen: sphere-plane-pgs
+[  706.2 s]   screen: cylinder-plane-tgs-4-velocity-iterations
+[  788.1 s]   screen: cylinder-plane-tgs-dt-0.25ms
+[  991.2 s]   screen: cylinder-plane-tgs-dt-1ms
+[ 1025.1 s]   screen: cylinder-plane-tgs-600hz
+[ 1047.4 s]   screen: cylinder-plane-pgs-600hz
+[ 1065.6 s]   screen: cylinder-plane-tgs-correlation-0.01mm
+[ 1128.0 s]   screen: cylinder-plane-tgs-compliant
+[ 1199.3 s]   screen: cylinder-plane-tgs-wheel-inertia-x2
+[ 1258.0 s]   screen: cylinder-plane-tgs-wheel-inertia-x8
+[ 1319.8 s]   screen: cylinder-plane-tgs-wheel-inertia-x32
+[ 1389.4 s] cylinder-plane-tgs: asphalt, mu 0.8
+[ 1551.3 s] cylinder-plane-tgs: gravel, mu 0.6
+[ 1674.9 s] cylinder-plane-tgs: wet grass, mu 0.35
+[ 1807.3 s] cylinder-plane-pgs: asphalt, mu 0.8
+[ 1965.0 s] cylinder-plane-pgs: gravel, mu 0.6
+[ 2101.8 s] cylinder-plane-pgs: wet grass, mu 0.35
+[ 2302.8 s] sphere-plane-tgs: asphalt, mu 0.8
+[ 2562.3 s] sphere-plane-tgs: gravel, mu 0.6
+[ 2733.4 s] sphere-plane-tgs: wet grass, mu 0.35
+[ 2918.3 s] time steps: cylinder-plane-tgs
+[ 3996.3 s] validity
+[ 3996.3 s] done; 0 step(s) failed; 0 of PhysX's data or of the two-row law unavailable (errors.txt); 10 marginal or invalid diagnostic(s); results in results\isaac

@@ -1,0 +1,9 @@
+# Section 12.1, Genesis: the releases with which the results in results/genesis*
+# were produced (Python 3.12.3, Linux x86-64, on the CPU); the complete
+# environment is listed in results/environment-genesis.txt. PyTorch came from
+# PyPI (its CUDA build, run on the CPU).
+genesis-world==1.4.4
+quadrants==1.3.3
+torch==2.14.1
+mujoco==3.16.0
+numpy==2.5.4

@@ -1,0 +1,202 @@
+{
+  "method": "diffusion policy",
+  "seed": 2,
+  "smoke": false,
+  "config": {
+    "horizon": 8,
+    "n_obs_steps": 1,
+    "n_action_steps": 4,
+    "num_inference_steps": 100,
+    "obs_as_global_cond": true,
+    "oa_step_convention": true,
+    "unet": {
+      "diffusion_step_embed_dim": 256,
+      "down_dims": [
+        256,
+        512,
+        1024
+      ],
+      "kernel_size": 5,
+      "n_groups": 8,
+      "cond_predict_scale": true
+    },
+    "ddpm": {
+      "num_train_timesteps": 100,
+      "beta_start": 0.0001,
+      "beta_end": 0.02,
+      "beta_schedule": "squaredcos_cap_v2",
+      "variance_type": "fixed_small",
+      "clip_sample": true,
+      "prediction_type": "epsilon"
+    },
+    "ema": {
+      "update_after_step": 0,
+      "inv_gamma": 1.0,
+      "power": 0.75,
+      "min_value": 0.0,
+      "max_value": 0.9999
+    },
+    "optimizer": {
+      "lr": 0.0001,
+      "betas": [
+        0.95,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 1e-06
+    },
+    "lr_scheduler": "cosine",
+    "lr_warmup_steps": 500,
+    "num_epochs": 5000,
+    "batch_size": 256
+  },
+  "evaluation_worlds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "demonstration_worlds": [
+    250,
+    251,
+    252,
+    253,
+    254
+  ],
+  "aggregation_worlds": [
+    255,
+    256,
+    257,
+    258,
+    259
+  ],
+  "demonstrated_states": 483,
+  "aggregated_states": 803,
+  "demonstrated_chunks_not_committed_in_full": "114 of 483",
+  "demonstrated_chunks_not_committed_at_all": "75 of 483",
+  "gradient_steps": {
+    "demonstrations": 10000,
+    "aggregated": 30000
+  },
+  "last_epoch_loss": {
+    "demonstrations": 0.001108858094085008,
+    "aggregated": 0.006086339786027868
+  },
+  "parameters": 65337089,
+  "wall_clock_s": {
+    "stage1": 2272.5,
+    "training": 9671.9,
+    "evaluation": 2207.7
+  },
+  "inference_latency": "median 1460.86 ms, largest 1702.20 ms, 1475 calls",
+  "device": "cuda:0",
+  "checkout": {
+    "path": "C:\\Users\\<user>\\Downloads\\physical-ai-together-code-update-rev44\\physical-ai-together-code\\ch06\\published\\diffusion_policy",
+    "commit": "5ba07ac6661db573af695b419a7947ecb704690f",
+    "clean": true
+  },
+  "pinned_commit": "5ba07ac6661db573af695b419a7947ecb704690f",
+  "environment": {
+    "date_utc": "2026-10-29T23:12:47+00:00",
+    "argv": [
+      "train_diffusion.py",
+      "--diffusion-policy",
+      "diffusion_policy"
+    ],
+    "python": "3.11.18 | packaged by conda-forge | (main, Oct 26 2026, 11:29:07) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26100-SP0",
+    "machine": "AMD64",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "cpu_count": 20,
+    "gymnasium": "1.3.0",
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "diffusers": "0.36.0",
+      "einops": "0.8.1",
+      "zarr": "2.18.7",
+      "numpy": "1.26.4",
+      "huggingface-hub": "1.2.1",
+      "gymnasium": "1.3.0"
+    },
+    "checkouts": {},
+    "gpu": {
+      "torch": "2.7.1+cu128",
+      "torch_cuda": "12.8",
+      "cuda_available": true,
+      "gpus": [
+        "NVIDIA GeForce RTX 4060 Laptop GPU"
+      ],
+      "cudnn": 90701,
+      "nvidia_smi": [
+        "NVIDIA GeForce RTX 4060 Laptop GPU, 596.08, 8188 MiB"
+      ]
+    },
+    "pip_freeze": [
+      "annotated-doc==0.0.5",
+      "anyio==4.15.1",
+      "asciitree==1.0.0",
+      "certifi==2026.10.23",
+      "charset-normalizer==3.5.2",
+      "cloudpickle==3.1.2",
+      "colorama==0.4.6",
+      "Deprecated==1.3.1",
+      "diffusers==0.36.0",
+      "einops==0.8.1",
+      "Farama-Notifications==0.0.6",
+      "fasteners==0.20",
+      "filelock==4.2.4",
+      "fsspec==2026.9.0",
+      "gymnasium==1.3.0",
+      "h11==0.16.0",
+      "hf-xet==1.7.1",
+      "httpcore==1.0.9",
+      "httpx==0.28.1",
+      "huggingface_hub==1.2.1",
+      "idna==3.20",
+      "importlib_metadata==10.1.0",
+      "Jinja2==3.1.6",
+      "markdown-it-py==4.2.0",
+      "MarkupSafe==3.0.3",
+      "mdurl==0.1.2",
+      "mpmath==1.3.0",
+      "networkx==3.6.1",
+      "numcodecs==0.15.2",
+      "numpy==1.26.4",
+      "packaging @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_packaging_1785888127/work",
+      "pillow==13.0.0",
+      "Pygments==2.21.0",
+      "PyYAML==6.0.3",
+      "regex==2026.9.29",
+      "requests==2.34.2",
+      "rich==15.0.0",
+      "safetensors==0.8.0",
+      "shellingham==1.5.4",
+      "sympy==1.14.0",
+      "torch==2.7.1+cu128",
+      "tqdm==4.70.1",
+      "typer==0.27.3",
+      "typer-slim==0.24.0",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0",
+      "wrapt==2.5.1",
+      "zarr==2.18.7",
+      "zipp==4.1.2"
+    ]
+  }
+}

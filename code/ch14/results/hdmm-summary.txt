@@ -1,0 +1,56 @@
+[record]
+  MuJoCo = 3.16.0
+  NumPy, Python = 2.5.3, 3.13.17
+  time step [s]; integrator; friction cone = 0.001; implicitfast; elliptic
+  base: mass [kg]; centre of mass [m]; wheel contacts at x, y [m] = 3500; 0, 0, 0.75; +-1.1, +-0.85
+  arm: slew axis x, shoulder height [m]; boom, stick length [m]; mass [kg] = 0.6, 1.3; 2.4, 2; 350, 200
+  tool [kg]; largest payload [kg] = 100; 300
+  poses (slew, lift, tilt) [deg] = stowed 0, 60, -150; carry 0, 20, -70; reach 0, 0, 0
+  machine's mass with the largest payload [kg] = 4450
+  contacts' softness, MuJoCo's defaults: solref; solimp = 0.02, 1; 0.9, 0.95, 0.001, 0.5, 2
+  arm's ranges (ours): lift, tilt [deg]; the tool's centre above the ground [m] = 0 to 60, -150 to 0; at least 0.2
+  ground's friction (ours); in the simulated checks = 0.6; 1.5
+  contacts' ratio of frictional to normal impedance (ours; MuJoCo's default is 1) = 20
+[the machine]
+  stowed: the tool at x, z [m] = 1.800, 1.378
+  stowed, 0 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.227, 0.975; 8.78, 13.35, 8.55
+  stowed, 150 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.282, 0.989; 8.11, 13.70, 8.43
+  stowed, 300 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.333, 1.002; 7.51, 14.03, 8.32
+  carry: the tool at x, z [m] = 4.141, 0.589
+  carry, 0 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.403, 0.857; 7.98, 17.20, 9.73
+  carry, 150 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.533, 0.848; 6.56, 18.90, 9.84
+  carry, 300 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.655, 0.839; 5.20, 20.52, 9.94
+  reach: the tool at x, z [m] = 5.000, 1.300
+  reach, 0 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.452, 0.836; 7.60, 18.21, 9.97
+  reach, 150 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.610, 0.852; 5.63, 19.69, 9.78
+  reach, 300 kg: centre of mass x, z [m]; braking, accelerating, turning [m/s^2] at which wheels lift = 0.758, 0.867; 3.86, 21.02, 9.61
+  reach slewed to the left: centre of mass y [m], empty and with 300 kg = 0.358, 0.630
+  reach slewed to the left: the lateral acceleration [m/s^2] that tips it to the left, empty and with 300 kg; to the right with 300 kg = 5.77, 2.48; 16.74
+[the simulated machine]
+  reach, 300 kg, brake: the settled loads extrapolated to zero, the rigid machine [m/s^2] = 3.8625, 3.8630
+  reach, 300 kg, brake: tips over, the acceleration raised slowly and at once [m/s^2] = 3.8622, 3.8583
+  reach slewed left, 300 kg, left: the settled loads extrapolated to zero, the rigid machine [m/s^2] = 2.4833, 2.4843
+  reach slewed left, 300 kg, left: tips over, the acceleration raised slowly and at once [m/s^2] = 2.4830, 2.4781
+  the 10 cases (the nine braking points and the loaded, slewed turn): largest difference of the extrapolated loads from the rigid machine's = 0.037 %
+  the 10 cases: tips over from, as a fraction of the rigid threshold, the acceleration raised slowly: least, largest = 0.9995, 0.9999
+  the 10 cases: the same, the acceleration applied at once to the machine at rest: least, largest = 0.9975, 0.9991
+  the 10 cases: the same, applied at once, contacts four times stiffer (solref 0.005 s): least, largest = 0.9994, 0.9997
+  reach slewed left, 300 kg: the lateral acceleration at the centre of mass that tips it in a steady turn of radius 5 m and 10 m, and taken uniform [m/s^2] = 2.34, 2.41, 2.48
+[the base's braking]
+  stowed: braking limit on friction 0.6 [m/s^2], 0, 150, 300 kg = 5.89 (friction), 5.89 (friction), 5.89 (friction)
+  carry: braking limit on friction 0.6 [m/s^2], 0, 150, 300 kg = 5.89 (friction), 5.89 (friction), 5.20 (tipping)
+  reach: braking limit on friction 0.6 [m/s^2], 0, 150, 300 kg = 5.89 (friction), 5.63 (tipping), 3.86 (tipping)
+  stowed: the payload above which tipping limits the braking [kg] = none up to 300
+  carry: the payload above which tipping limits the braking [kg] = 223.4
+  reach: the payload above which tipping limits the braking [kg] = 129.9
+  the smallest of these, over the three poses and the three payloads [m/s^2]; its share of mu g = 3.86; 65.6 %
+  0 kg, the worst pose within the arm's ranges: braking at which the rear wheels lift [m/s^2]; lift, tilt [deg]; the tool at x, z [m] = 6.72; 34.4, 0.0; 4.23, 3.79
+  150 kg, the worst pose within the arm's ranges: braking at which the rear wheels lift [m/s^2]; lift, tilt [deg]; the tool at x, z [m] = 4.95; 26.8, 0.0; 4.53, 3.28
+  300 kg, the worst pose within the arm's ranges: braking at which the rear wheels lift [m/s^2]; lift, tilt [deg]; the tool at x, z [m] = 3.44; 19.3, 0.0; 4.75, 2.75
+  the braking that holds for every pose within the ranges and every payload [m/s^2]; its share of mu g = 3.44; 58.4 %
+[the arm's loads]
+  carry, 300 kg, at rest: slew, lift, tilt torque [kN m] = 0.00, 23.00, 6.18
+  carry, 300 kg, braking at 3 m/s^2: slew, lift, tilt torque [kN m] = 0.00, 22.62, 3.93
+  carry, 300 kg, turning at 2 m/s^2, tipping it to the left: slew, lift, tilt torque [kN m] = -4.69, 23.00, 6.18
+  carry, 300 kg, braking at 3 m/s^2: the tilt torque less than at rest = 36.4 %
+[check] 48 values, among them every value that Section 14.1 quotes: all as expected

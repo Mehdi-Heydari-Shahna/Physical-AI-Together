@@ -1,0 +1,201 @@
+{
+  "method": "TD-MPC2",
+  "seed": 2,
+  "budgets": {
+    "M": 40,
+    "L": 1000
+  },
+  "smoke": false,
+  "evaluation_worlds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "training_worlds": "100 s + i mod 40",
+  "environment_steps": 175539,
+  "updates": 175538,
+  "compile": false,
+  "discount": 0.975,
+  "parameters": 5461601,
+  "config": {
+    "defaults": [
+      {
+        "override hydra/launcher": "submitit_local"
+      }
+    ],
+    "task": "cart-governed",
+    "obs": "state",
+    "episodic": true,
+    "checkpoint": "???",
+    "eval_episodes": 10,
+    "eval_freq": 50000,
+    "steps": 200000,
+    "batch_size": 256,
+    "reward_coef": 0.1,
+    "value_coef": 0.1,
+    "termination_coef": 1,
+    "consistency_coef": 20,
+    "rho": 0.7,
+    "lr": 0.0003,
+    "enc_lr_scale": 0.3,
+    "grad_clip_norm": 20,
+    "tau": 0.01,
+    "discount_denom": 5,
+    "discount_min": 0.95,
+    "discount_max": 0.99,
+    "buffer_size": 1000000,
+    "exp_name": "physical-ai-together",
+    "data_dir": "???",
+    "mpc": true,
+    "iterations": 6,
+    "num_samples": 512,
+    "num_elites": 64,
+    "num_pi_trajs": 24,
+    "horizon": 3,
+    "min_std": 0.05,
+    "max_std": 2,
+    "temperature": 0.5,
+    "log_std_min": -10,
+    "log_std_max": 2,
+    "entropy_coef": 0.0001,
+    "num_bins": 101,
+    "vmin": -10,
+    "vmax": 10,
+    "model_size": 5,
+    "num_enc_layers": 2,
+    "enc_dim": 256,
+    "num_channels": 32,
+    "mlp_dim": 512,
+    "latent_dim": 512,
+    "task_dim": 0,
+    "num_q": 5,
+    "dropout": 0.01,
+    "simnorm_dim": 8,
+    "wandb_project": "???",
+    "wandb_entity": "???",
+    "wandb_silent": false,
+    "enable_wandb": false,
+    "save_csv": false,
+    "compile": false,
+    "save_video": false,
+    "save_agent": false,
+    "seed": 2,
+    "work_dir": "WindowsPath('C:/Users/<user>/Downloads/physical-ai-other-runs/physical-ai-together-gpu/code/ch06/published/results/tdmpc2/seed2/logs/cart-governed/2/physical-ai-together')",
+    "task_title": "Cart Governed",
+    "multitask": false,
+    "tasks": [
+      "cart-governed"
+    ],
+    "obs_shape": {
+      "state": [
+        9
+      ]
+    },
+    "action_dim": 1,
+    "episode_length": 200,
+    "obs_shapes": "???",
+    "action_dims": "???",
+    "episode_lengths": "???",
+    "seed_steps": 1000,
+    "bin_size": 0.2
+  },
+  "wall_clock_s": {
+    "training": 27029.8,
+    "evaluation": {
+      "M": 301.1,
+      "L": 296.9
+    }
+  },
+  "inference_latency": {
+    "M": "median 69.68 ms, largest 201.38 ms, 4000 calls",
+    "L": "median 69.66 ms, largest 148.49 ms, 4000 calls"
+  },
+  "checkout": {
+    "path": "C:\\Users\\<user>\\Downloads\\physical-ai-other-runs\\physical-ai-together-gpu\\code\\ch06\\published\\tdmpc2",
+    "commit": "332f19e4aba4bffe2dc736f45ea7f7bdc585903a",
+    "clean": true
+  },
+  "pinned_commit": "332f19e4aba4bffe2dc736f45ea7f7bdc585903a",
+  "environment": {
+    "date_utc": "2026-10-29T05:32:17+00:00",
+    "argv": [
+      "train_tdmpc2.py",
+      "--tdmpc2",
+      "C:\\Users\\<user>\\Downloads\\physical-ai-other-runs\\physical-ai-together-gpu\\code\\ch06\\published\\tdmpc2",
+      "--compile",
+      "off"
+    ],
+    "python": "3.11.18 | packaged by conda-forge | (main, Oct 26 2026, 11:29:07) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26100-SP0",
+    "machine": "AMD64",
+    "cpu": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "cpu_count": 20,
+    "gymnasium": "0.29.1",
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "tensordict": "0.8.3",
+      "torchrl": "0.8.1",
+      "hydra-core": "1.3.2",
+      "omegaconf": "2.3.0",
+      "numpy": "1.24.4",
+      "gymnasium": "0.29.1",
+      "termcolor": "2.4.0"
+    },
+    "checkouts": {},
+    "gpu": {
+      "torch": "2.7.1+cu128",
+      "torch_cuda": "12.8",
+      "cuda_available": true,
+      "gpus": [
+        "NVIDIA GeForce RTX 4060 Laptop GPU"
+      ],
+      "cudnn": 90701,
+      "nvidia_smi": [
+        "NVIDIA GeForce RTX 4060 Laptop GPU, 596.08, 8188 MiB"
+      ]
+    },
+    "pip_freeze": [
+      "antlr4-python3-runtime==4.9.3",
+      "cloudpickle==3.1.2",
+      "Farama-Notifications==0.0.6",
+      "filelock==3.32.3",
+      "fsspec==2026.7.0",
+      "gymnasium==0.29.1",
+      "hydra-core==1.3.2",
+      "importlib_metadata==10.1.0",
+      "Jinja2==3.1.6",
+      "MarkupSafe==3.0.3",
+      "mpmath==1.3.0",
+      "networkx==3.6.1",
+      "numpy==1.24.4",
+      "omegaconf==2.3.0",
+      "orjson==3.13.0",
+      "packaging @ file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_packaging_1785888127/work",
+      "PyYAML==6.0.3",
+      "sympy==1.14.0",
+      "tensordict==0.8.3",
+      "termcolor==2.4.0",
+      "torch==2.7.1+cu128",
+      "torchrl==0.8.1",
+      "typing_extensions==4.16.0",
+      "zipp==4.1.2"
+    ]
+  }
+}

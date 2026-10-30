@@ -1,0 +1,9 @@
+# Section 13.1: the Husky in MuJoCo (husky_mujoco.py)
+mujoco==3.16.0
+numpy>=2.0
+# Optional: only to expand husky/description/husky_a300.urdf.xacro again
+# (python3 -m husky.asset --expand); the expanded URDF is in the folder.
+# xacro==2.1.1
+# The video only (husky_video.py, with ../render): Pillow and SciPy, EGL and ffmpeg
+# pillow>=10
+# scipy>=1.10

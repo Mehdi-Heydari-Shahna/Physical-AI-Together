@@ -1,0 +1,107 @@
+A reproduction against the shipped results: the rerun in .../repro/code
+acceptable variation on another machine or operating system: every quoted value equal at its quoted precision, or within one unit of its last digit; and every period's error vector within 1 nm of the shipped one in double precision (about thirty times the largest change that the perturbations of the constraint solver produce, a choice) and within two spacings of the representable positions in single precision (the difference that the emulation of Newton in Section 12.2.2 left), the spacing taken at the farthest position of the run
+
+[mujoco]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 2; MuJoCo 3.16.0, NumPy 2.5.3, Python 3.13.16 -> MuJoCo 3.16.0, NumPy 2.5.4, Python 3.13.16; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 1e-09 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[genesis]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = no
+  values that differ at the stored precision = 68
+  largest difference of an error vector, norm of the state [m], period = 1e-13, 43
+  error vectors within 1e-09 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[genesis-defaults]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[genesis-mpr]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 1e-09 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-featherstone]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file = none in the shipped results or the rerun
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-mujoco-c]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-mujoco-c-gap]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-mujoco-c-hull64]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-mujoco-warp]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-semi-implicit]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file = none in the shipped results or the rerun
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes
+[newton-xpbd]
+  hardware of the shipped run = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  hardware of the rerun = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  lines of the record that differ = 1; Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz -> Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  per-period file identical, byte for byte = yes
+  values that differ at the stored precision = 0
+  largest difference of an error vector, norm of the state [m], period = 0, None
+  error vectors within 3.81e-06 m = yes
+  values of the summary that differ, times and versions aside = 0; beyond one unit of their last digit = 0
+  within the acceptable variation for another machine = yes

@@ -1,0 +1,9 @@
+# Section 14.1: the UR5e, the heavy-duty mobile manipulator and the
+# PC138US-8 in MuJoCo (arm_mujoco.py, hdmm_mujoco.py, excavator_mujoco.py)
+mujoco==3.16.0
+numpy>=2.0
+pyyaml>=6.0       # the UR5e's configuration files (arm/model.py)
+scipy>=1.10       # the excavator's fits (excavator/front.py, capacity.py)
+# The videos only (arm_video.py, hdmm_video.py, excavator_video.py, with
+# ../render): Pillow, EGL and ffmpeg
+# pillow>=10

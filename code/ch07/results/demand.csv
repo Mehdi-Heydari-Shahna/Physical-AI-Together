@@ -1,0 +1,15 @@
+case,met,overload,backaway,onset_position,holding_at_work_zone,alarm,violation,min_level
+as stated,yes,no,18,23.7,5.5,,no,0.5
+lead time 3 s,yes,no,18,23.7,5.5,,no,0.5
+lead time 2.1 s,yes,no,18,23.7,5.5,,no,0.5
+lead time 2 s,no,yes,18.1,23.71,5.6,,no,0.5
+lead time 1 s,no,yes,19.1,24.2975,6,,no,0.5
+lead time 0 s,no,yes,,24.5,6,,no,0.5
+level 1.2 m,no,yes,18.1,23.795,5.6,,no,0.5
+level 1.25 m,no,yes,18.2,23.74,5.7,,no,0.5
+level 1.4 m,yes,no,17.9,23.5975,5.4,,no,0.5
+level 1.6 m,yes,no,17.7,23.3775,5.2,,no,0.5
+onset -1 s,yes,no,17,23.7,4.5,,no,0.5
+onset -0.5 s,yes,no,17.5,23.7,5,,no,0.5
+onset +0.1 s,no,yes,18.1,23.71,5.6,,no,0.5
+onset +0.5 s,no,yes,18.5,23.9375,6,,no,0.5

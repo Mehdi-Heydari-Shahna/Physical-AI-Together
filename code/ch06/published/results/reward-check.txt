@@ -1,0 +1,23 @@
+What the rewards pay for (reward_check.py): exploratory, written after TD-MPC2's results; not a result under PROTOCOL.md or PROTOCOL-R2.md
+  registered reward a_k/1.875 - 0.5 c_k; time reward -1 - 0.5 c_k; both 0 after arrival. S: the sum of the interventions c_k before arrival. Returns from the first period; mean [smallest, largest] over the runs
+[reference policies through cart_env, the 20 evaluation worlds]
+  rule: runs 20; arrived 20; mean S 62.61; first term over the arriving runs from 2.67 to 2.87 (bound 3.27 for a run that does not stop on the way)
+      registered reward: undiscounted -28.49 [-31.38, -25.61]; discount 0.99 -6.86 [-8.35, -5.38]; discount 0.975 6.82 [6.03, 7.57]
+      time reward: undiscounted -126.76 [-134.25, -119.38]; discount 0.99 -78.49 [-81.57, -75.40]; discount 0.975 -43.39 [-44.28, -42.49]
+  braking curve: runs 20; arrived 20; mean S 23.49; first term over the arriving runs from 2.30 to 2.94 (bound 3.27 for a run that does not stop on the way)
+      registered reward: undiscounted -9.07 [-10.69, -7.59]; discount 0.99 2.34 [1.67, 2.98]; discount 0.975 9.86 [9.68, 9.96]
+      time reward: undiscounted -107.29 [-110.88, -103.00]; discount 0.99 -69.26 [-70.52, -67.71]; discount 0.975 -40.33 [-40.60, -40.00]
+  off-policy learner: runs 60; arrived 60; mean S 3.92; first term over the arriving runs from 2.30 to 2.95 (bound 3.27 for a run that does not stop on the way)
+      registered reward: undiscounted 0.74 [-1.20, 1.92]; discount 0.99 8.76 [7.41, 9.51]; discount 0.975 13.22 [12.32, 13.68]
+      time reward: undiscounted -98.44 [-106.00, -92.50]; discount 0.99 -63.19 [-66.49, -60.80]; discount 0.975 -37.02 [-38.11, -36.39]
+  at rest: runs 20; arrived 0; mean S 0.00
+      registered reward: undiscounted 0.00 [0.00, 0.00]; discount 0.99 0.00 [0.00, 0.00]; discount 0.975 0.00 [0.00, 0.00]
+      time reward: undiscounted -200.00 [-200.00, -200.00]; discount 0.99 -100.00 [-100.00, -100.00]; discount 0.975 -40.00 [-40.00, -40.00]
+  the runs: rule: as ../results/evaluation.csv; braking curve: as ../results/evaluation.csv; off-policy learner, seed 1: as ../results/evaluation.csv; off-policy learner, seed 2: as ../results/evaluation.csv; off-policy learner, seed 3: as ../results/evaluation.csv
+[published methods, from results/<method>/seed*/evaluation.csv: bounds on the undiscounted registered return of the runs that did not stop before arrival; the files do not record stops, and each stop can add up to 0.27]
+  SAC, M: runs 60; arrived 60; did not move 0; mean S 50.22; arriving runs, if none stopped on the way: undiscounted registered return at most -21.84 on average
+  SAC, L: runs 60; arrived 56; did not move 0; mean S 0.66; arriving runs, if none stopped on the way: undiscounted registered return at most 2.94 on average
+  TD-MPC2, M: runs 60; arrived 0; did not move 45; mean S 0.87; runs that did not move: exactly 0.00
+  TD-MPC2, L: runs 60; arrived 3; did not move 20; mean S 9.71; arriving runs, if none stopped on the way: undiscounted registered return at most -13.69 on average; runs that did not move: exactly 0.00
+  SAC, discount 0.5, M: runs 60; arrived 60; did not move 0; mean S 58.81; arriving runs, if none stopped on the way: undiscounted registered return at most -26.14 on average
+  SAC, discount 0.5, L: runs 60; arrived 60; did not move 0; mean S 45.58; arriving runs, if none stopped on the way: undiscounted registered return at most -19.52 on average

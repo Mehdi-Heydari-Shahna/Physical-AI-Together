@@ -1,0 +1,18 @@
+[record]
+  variant = mujoco-3.16.0
+  what = MuJoCo itself through the per-period comparison of Section 11.1, at 1 ms
+  version of mujoco = 3.16.0
+  version of numpy = 2.5.3
+  Python = 3.13.16
+  time of the comparison [s] = 3
+[the run of Chapter 3, period by period]
+  periods = 220
+  end of period: median, largest [m], period = 0.000163, 0.000388, 201
+[the renderer]
+  renderer = MuJoCo's OpenGL renderer through osmesa, 96 x 64 pixels, a camera tracking the chassis
+  frames, one after every step = 36000
+  mean pixel value of the frames = 24.2
+  every value of every period identical with and without rendering = yes
+  largest difference of the error vectors, norm of the state [m] = 0
+  time of the rendered comparison [s] = 94
+[check] against the shipped summary: all as shipped

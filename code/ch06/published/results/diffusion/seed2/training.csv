@@ -1,0 +1,11 @@
+learner,package,seed,episode,phase,world,arrival_s,mean_intervention,alarms,steps_outside,max_position,rest_position,periods_before_arrival,committed_in_full,fallbacks,mean_intervention_exact,max_position_exact,rest_position_exact
+diffusion policy,tube,2,0,demonstration,250,9.8,0.1633,0,0,24.4656,24.4656,98,78,0,8/49,24.465582309735165,24.465582309735165
+diffusion policy,tube,2,1,demonstration,251,9.7,0.1624,0,0,24.4364,24.4364,97,79,0,63/388,24.436368847190703,24.436368847190703
+diffusion policy,tube,2,2,demonstration,252,9.3,0.2419,0,0,24.4512,24.4512,93,67,0,15/62,24.451194797043456,24.451194797043456
+diffusion policy,tube,2,3,demonstration,253,9.7,0.2423,0,0,24.4383,24.4383,97,70,0,47/194,24.4383134487075,24.4383134487075
+diffusion policy,tube,2,4,demonstration,254,9.8,0.2015,0,0,24.4352,24.4352,98,75,0,79/392,24.435239532951158,24.435239532951158
+diffusion policy,tube,2,5,aggregation,255,10.1,0.4282,0,0,24.3990,24.3990,101,52,0,173/404,24.39896706903286,24.39896706903286
+diffusion policy,tube,2,6,aggregation,256,,0.1100,0,0,23.9617,none,200,173,0,11/100,23.96168025200082,none
+diffusion policy,tube,2,7,aggregation,257,,0.1575,0,0,23.9591,none,200,167,0,63/400,23.959074517759706,none
+diffusion policy,tube,2,8,aggregation,258,,0.1750,0,0,23.4938,none,200,164,0,7/40,23.493776344728907,none
+diffusion policy,tube,2,9,aggregation,259,10.2,0.3137,0,0,24.3520,24.3520,102,64,0,16/51,24.351982784527088,24.351982784527088

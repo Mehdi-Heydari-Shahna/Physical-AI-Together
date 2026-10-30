@@ -1,0 +1,86 @@
+{
+  "bounds": {
+    "w_bar": 0.06,
+    "d_bar": 1e-07,
+    "J": 0.0,
+    "varpi_p": 0.0016,
+    "varpi_v": 0.0031,
+    "varpi_l": 0.0007,
+    "e_l": 0.0003
+  },
+  "observed": {
+    "w": 0.046999067542888184,
+    "d": 4.2804372691078105e-08,
+    "n_p": 0.0012539432738969403,
+    "n_v": 0.002416604918994189,
+    "n_l": 0.0005094614603532273,
+    "l_err": 0.00021335615509701267,
+    "J": 0.0
+  },
+  "factor": 1.25,
+  "grids": {
+    "w_bar": 0.005,
+    "d_bar": 1e-07,
+    "J": 0.0005,
+    "varpi_p": 0.0001,
+    "varpi_v": 0.0001,
+    "varpi_l": 0.0001,
+    "e_l": 0.0001
+  },
+  "worlds": [
+    43001,
+    43040
+  ],
+  "runs": 280,
+  "periods": 89737,
+  "time": "2026-10-29T10:09:29.633183+00:00",
+  "hashes": {
+    "complete/PROTOCOL.md": "bffa1f7461bfd776c6917b9a4e3ef4b9124af7687c1173b844952569b5159fc6",
+    "complete/__init__.py": "93c1c6efb803d10e9dc7bd93454f1de1cb32c78ad8f3083e3df9463f1bf77cb0",
+    "complete/config.py": "ca6594c06b416bfdc4616305ce50cbf1e0a0cea4452784a2c84bed4e167aac9e",
+    "complete/model.py": "25142a22889891ad9b817ff63f3b31d2586cf2dd97673671e28eee743d160334",
+    "complete/modules.py": "b8a6b45cc8ba0dbe9b5662652d96ffe1b5777dec89d08ec0f640bdfa8833aec8",
+    "complete/packages.py": "ed0a9a61aa4259cd8b092cb9266e5676e4165f7cc98142a1bd8343b4c46e81f4",
+    "complete/plant.py": "561cefa76cce644fc4b8ef82a8575919e7ac843e0146039a81ada5f74b92c7c8",
+    "complete/realtime.py": "4c46598957ceec18ca29e83dcf01525eba1bef8d408ade825efbe778032c80bd",
+    "complete/worlds.py": "e498176c78f8408ef6d8fdaf6a80d0db54db7cfc747ca4afd87ad655df8a95ed",
+    "../ch10/allovi/__init__.py": "22a13fa21a6fa8201c4f95739299e8867687ddf54bcbf1edfdf7b2303ec4592a",
+    "../ch10/allovi/checks.py": "bc216de022e4009a27127f5d109d802a1e89600460c93b2fad195ea542f132c6",
+    "../ch10/allovi/contract.py": "ea4643ed508d102cb274882405ce59f00c2b12b1c3c0104fe5acd1e35903dd16",
+    "../ch10/allovi/governor.py": "d14b40c7c4c5b4e2f312662e1b2f940b4063c5f4932c9452c939c6b9ffe50cce",
+    "../ch10/allovi/levels.py": "8b4b81d04d4109f4421e4f245e378ed1cae1d6a0d333dfaf88288ea27c5ad8cd",
+    "../ch10/allovi/loop.py": "9a22c479685d72deb9f83a8aac3e9cb8ab56d6af78ceb44bb8dc54d14d6e8052",
+    "../ch10/allovi/model.py": "eb6e5c7c009b0e2f42c15b078f66da9720df0bd260ad8721fb1768af2c2dc702",
+    "../ch10/allovi/records.py": "10a06fecc514f4addb03fe0c96c83409e02b00000686175859345a3bdc439ea7",
+    "../ch10/allovi/registry.py": "48fc730b9fb4556fcb0e70c2784c81005b17b46c9220be7efec9107a73a7cb4d",
+    "../ch10/allovi/schema.py": "05ecb81be1de33997effbaa614c2c708d808932ba3ba74403576cbf73160b17b",
+    "../ch10/cart/__init__.py": "82514caa2d7f444098825ddca350e83d187c4becef1fa48ce0c236a6864de52e",
+    "../ch10/cart/control.py": "02870e3c37086dd71d3fa5f33d8c96ed54f2a6fccfeae92af04a62ee2824afb8",
+    "../ch10/cart/model.py": "848a2aa1fda9f13c4a40a303763760c22680965ad6c4b2c5d57cec9e15c39620",
+    "../ch10/cart/modules.py": "eaffaaf8530a0ea684df86d0dae58ece6b4615c8745e83f2b2733d89328efa26",
+    "../ch11/cart_mujoco/__init__.py": "3c4c178aaee9ff60de1193996cb3bc656ba7fe6856731e213a49a7977ad23ab8",
+    "../ch11/cart_mujoco/scene.py": "3b8b7df55f2d0c0229690257e37837526cbef7c44f675a54da6ce0c1c17fadff",
+    "../ch11/cart_mujoco/sim.py": "0cafbaf1453090959e378580e35592956c68c503ea7a53236780e49eece0f6aa",
+    "../ch11/cart_mujoco/track.py": "c3cf7bcf8743732c7a8c69f22a3c73a05d34cabe5f50d4e3ec641402fbb7e599",
+    "../ch11/cart_mujoco/world.py": "b8115398b76c376aad1b8c7fcf37885b5af524710c43b08192632f3319877b59",
+    "bench/__init__.py": "a508304bbd7174293d39042126d1e937d4d774961fca8515a6f760c7c2d1a611",
+    "bench/hypotheses.py": "5c27542fb81a22605163233d2e6e701216c69cd3d6977bcee15272edb1a5bb14",
+    "bench/modules.py": "b2a46ea9439e8bf4de6825f2974ff1e8951a44d70fd6312ff8e4f1b88d723711",
+    "bench/stats.py": "67162ac433b7c35c2b559338d98775ed882c693911e0c30418ac3d1a0066fa3c",
+    "bench/worlds.py": "0cec67be0ba8d8994dfd768b789d21edc7b14b30c4b581b630a6b16a66d8b2fc"
+  },
+  "scripts": {
+    "complete_identify.py": "85596b8e0dbc701b567523a56a6d64c02097e5754aa4e8bc4712a17d94314d42",
+    "complete_calibrate.py": "7abd18c69d42cf2d389f1fa8240e5bfa87aa675877689d9bab04f6bbc6145e22",
+    "complete_train.py": "f6f0e7e3baa6264bc86153e88afea8799062f36d0c2c11da870590d376ed0aa6",
+    "complete_evaluate.py": "7652501c4f5f1ae5bc9c74f8b5ac9471cf34f4da1a59e6bd3bf59971ca2abffd",
+    "complete_realtime.py": "dfbfbb5ca0f2585eea977a3072ced3b6d89eae7efce644d7f423b5bbaf8a0a99",
+    "complete_stress.py": "300bddff73e1e4e07e3ee716248e89ab99143fa60d02620eb5e16bfd822514cd"
+  },
+  "superseded": {
+    "../ch10/allovi/governor.py": {
+      "hash": "0b4ea4e83571fab4e411b4fd2357e3d354c7c0c58c2c0509b83f4c53d4846164",
+      "reason": "docstring of Guard corrected before the evaluation; see DEVIATIONS.md, item 2"
+    }
+  }
+}

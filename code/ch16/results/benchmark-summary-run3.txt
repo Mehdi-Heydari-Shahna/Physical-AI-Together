@@ -1,0 +1,247 @@
+[consistency with Chapter 8]
+  bench.constant-command with the proposals of Chapter 3 repeats the forecast-informed run's decision file of ../ch10/results, byte for byte; periods = yes; 250
+[the worlds]
+  worlds; valid; unreliable surveys = 100; 94; 20
+  the calibrated offset of Section 7.3 [m] = 0.40
+  the worlds that are not valid, and their surveys' errors [m] = 16042 (+0.42), 16043 (+0.50), 16059 (+0.50), 16064 (+0.44), 16077 (+0.54), 16100 (+0.49)
+  the survey's labels valid (the coverage of the calibrated offset, which claims a miscoverage of at most 5 %) = 94 of 100 (94 %; 87.3 to 97.8 %)
+  lead times of 21 periods or more; of 18 or fewer = 79; 18
+  onsets that slip later; earlier = 12; 21
+[the hypotheses]
+  A1 (the certificate): supported; cases; exceptions = yes; 1463; none
+  A2 (no demand channel): supported; cases; exceptions = yes; 282; none
+  A3 (preparation from the forecast): supported; cases; exceptions = yes; 256; none
+  A4 (fixed conservatism): supported; cases; exceptions = yes; 94; none
+  A5 (the capability forecast): supported; cases; exceptions = no; 382; world 16063: begun C6 218, C7 239
+  A6 (equal information): supported; cases; exceptions = no; 328; world 16002: C11 begun 225, arrival 90, in_work_zone 116; C6 begun 225, arrival 90, in_work_zone 125; world 16006: C11 begun 229, arrival 87, in_work_zone 136; C6 begun 229, arrival 87, in_work_zone 137; world 16009: C11 begun 204, arrival 85, in_work_zone 113; C6 begun 204, arrival 85, in_work_zone 115; world 16009: C14 begun 204, arrival 85, in_work_zone 115; C11 begun 204, arrival 85, in_work_zone 113; world 16010: C11 begun 229, arrival 88, in_work_zone 135; C6 begun 229, arrival 88, in_work_zone 136; world 16010: C14 begun 229, arrival 88, in_work_zone 137; C11 begun 229, arrival 88, in_work_zone 135; and 23 more
+  A7 (errors of the forecast): supported; cases; exceptions = yes; 98; none
+  A8 (the budget): supported; cases; exceptions = yes; 94; none
+[the hypotheses, by statement (reported since the first full run)]
+  A1.1 no alarm and a true clearance of at least the floor in every run whose executed labels are valid: cases; exceptions = 1463; 0
+  A2.1 C1 to C3 never begin the operation when the cart is in the work zone at the onset: cases; exceptions = 282; 0
+  A3.1 no slip, a lead time of 21 periods or more: C6, C7 and C8 on time: cases; exceptions = 156; 0
+  A3.2 no slip, a lead time of 18 periods or fewer: C6, C7 and C8 not on time: cases; exceptions = 36; 0
+  A3.3 no slip: C5 21 periods late when the cart is in the work zone at the onset: cases; exceptions = 64; 0
+  A4.1 C4 on time and never in the work zone: cases; exceptions = 94; 0
+  A5.1 C6 arrives before C7: cases; exceptions = 94; 0
+  A5.2 C8 arrives no later than C6: cases; exceptions = 94; 0
+  A5.3 C6 and C7 begin the operation in the same period: cases; exceptions = 94; 1; worlds 16063
+  A5.4 every world: C2 arrives in the same period as C1: cases; exceptions = 100; 0
+  A6.1 C11 as C6: the operation's period, the arrival, the time in the work zone: cases; exceptions = 94; 20; worlds 16002, 16006, 16009, 16010, 16011, 16012, 16017, 16020, 16022, 16023, 16026, 16031, 16047, 16066, 16070, 16078, 16079, 16083, 16092, 16095
+  A6.2 C14 as C11: the operation's period, the arrival, the time in the work zone: cases; exceptions = 94; 8; worlds 16009, 16010, 16023, 16026, 16031, 16079, 16092, 16095
+  A6.3 C13 begins the operation in the same period as C6: cases; exceptions = 94; 1; worlds 16070
+  A6.4 no slip and a lead time of 27 periods or more: C12 begins later than C6: cases; exceptions = 46; 0
+  A7.1 the true onset 21 periods or more after the announcement: C9 on time: cases; exceptions = 76; 0
+  A7.2 a lead time of 21 periods or more and a later onset: C6 on time, 0.1 s less in the work zone than C9 per period of slip: cases; exceptions = 9; 0
+  A7.3 a lead time of 21 periods or more and an earlier onset: C6 begins at the forecast onset: cases; exceptions = 13; 0
+  A8.1 C15 begins the operation in the same period as C6: cases; exceptions = 94; 0
+  A6: valid worlds in which C11 differs from C6 in the operation's period; the arrival; the time in the work zone = 1; 0; 20
+  A6: valid worlds in which C14 differs from C11 in the operation's period; the arrival; the time in the work zone = 0; 0; 8
+  A6: periods in the work zone, C6 less C11: value (valid worlds) = 0 (74), 1 (13), 2 (3), 8 (1), 9 (2), 20 (1)
+  A6: periods in the work zone, C14 less C11: value (valid worlds) = 0 (86), 2 (8)
+  A6: periods in the work zone, C14 less C6: value (valid worlds) = -20 (1), -9 (2), -8 (1), -1 (8), 0 (77), 1 (5)
+[C1, filter, fixed model]
+  valid worlds: the operation on time = 0 of 94 (0 %; 0.0 to 3.9 %)
+  valid worlds: the operation late, by [s] = none
+  valid worlds: the operation never begun = 94 of 94
+  valid worlds: arrival in the work zone [s] = 9.9 s (95 % interval 9.9 to 9.9; range 9.9 to 9.9; n = 94)
+  valid worlds: time in the work zone [s] = 22.1 s (95 % interval 22.1 to 22.1; range 22.1 to 22.1; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 12 (95 % interval 12 to 12; range 12 to 12; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 12 to 12; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 0; 0; 0; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.51
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 192000 of 192000; 0
+[C2, filter, measured model]
+  valid worlds: the operation on time = 0 of 94 (0 %; 0.0 to 3.9 %)
+  valid worlds: the operation late, by [s] = none
+  valid worlds: the operation never begun = 94 of 94
+  valid worlds: arrival in the work zone [s] = 9.9 s (95 % interval 9.9 to 9.9; range 9.9 to 9.9; n = 94)
+  valid worlds: time in the work zone [s] = 22.1 s (95 % interval 22.1 to 22.1; range 22.1 to 22.1; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 12 (95 % interval 12 to 12; range 12 to 12; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 12 to 12; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 0; 0; 0; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.51
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 192000 of 192000; 0
+[C3, filter, survey]
+  valid worlds: the operation on time = 0 of 94 (0 %; 0.0 to 3.9 %)
+  valid worlds: the operation late, by [s] = none
+  valid worlds: the operation never begun = 94 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 23.1 s (95 % interval 23.0 to 23.2; range 22.8 to 23.6; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C4, fixed conservatism]
+  valid worlds: the operation on time = 94 of 94 (100 %; 96.1 to 100.0 %)
+  valid worlds: the operation late, by [s] = none
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = none; never in 94
+  valid worlds: time in the work zone [s] = 0.0 s (95 % interval 0.0 to 0.0; range 0.0 to 0.0; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = none
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = none
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 3; 3; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 191220 of 191220; 0
+[C5, reactive preparation]
+  valid worlds: the operation on time = 0 of 94 (0 %; 0.0 to 3.9 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 2.1 to 2.1; range 2.1 to 2.1; n = 94)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 14.8 s (95 % interval 14.4 to 15.0; range 12.5 to 17.3; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 27 to 28; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 27 to 28; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C6, ALLOVI]
+  valid worlds: the operation on time = 62 of 94 (66 %; 55.4 to 75.5 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.6 to 2.1; range 0.1 to 2.8; n = 32)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 12.8 s (95 % interval 12.4 to 13.3; range 10.4 to 15.0; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C7, ALLOVI without the capability forecast]
+  valid worlds: the operation on time = 62 of 94 (66 %; 55.4 to 75.5 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.7 to 2.1; range 0.1 to 2.8; n = 32)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 9.9 s (95 % interval 9.9 to 9.9; range 9.9 to 9.9; n = 94)
+  valid worlds: time in the work zone [s] = 11.8 s (95 % interval 11.4 to 12.0; range 9.6 to 13.6; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 28 to 35; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 28 to 35; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 0; 0; 0; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.51
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 192000 of 192000; 0
+[C8, oracle capability (diagnostic)]
+  valid worlds: the operation on time = 62 of 94 (66 %; 55.4 to 75.5 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.7 to 2.1; range 0.1 to 2.8; n = 32)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.8 s (95 % interval 8.7 to 8.9; range 8.3 to 9.1; n = 94)
+  valid worlds: time in the work zone [s] = 12.8 s (95 % interval 12.4 to 13.3; range 10.5 to 15.1; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 0; 0; 0; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 192000 of 192000; 0
+[C9, oracle demand (diagnostic)]
+  valid worlds: the operation on time = 76 of 94 (81 %; 71.4 to 88.3 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 2.1 to 2.1; range 2.1 to 2.1; n = 18)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 12.7 s (95 % interval 12.5 to 13.0; range 10.4 to 15.2; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 27 to 36; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 27 to 36; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C10, both oracles (diagnostic)]
+  valid worlds: the operation on time = 76 of 94 (81 %; 71.4 to 88.3 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 2.1 to 2.1; range 2.1 to 2.1; n = 18)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.8 s (95 % interval 8.7 to 8.9; range 8.3 to 9.1; n = 94)
+  valid worlds: time in the work zone [s] = 12.8 s (95 % interval 12.5 to 13.1; range 10.4 to 15.3; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 27 to 35; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 0; 0; 0; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 192000 of 192000; 0
+[C11, filter, survey, preview planner]
+  valid worlds: the operation on time = 63 of 94 (67 %; 56.5 to 76.4 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.6 to 2.1; range 0.1 to 2.8; n = 31)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 12.7 s (95 % interval 12.3 to 13.1; range 10.4 to 15.0; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C12, filter, survey, late preview planner]
+  valid worlds: the operation on time = 4 of 94 (4 %; 1.1 to 10.6 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 2.1 to 2.1; range 2.1 to 3.0; n = 90)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 13.3 s (95 % interval 12.9 to 13.6; range 11.0 to 15.5; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 11 to 12; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C13, ALLOVI, late preview planner]
+  valid worlds: the operation on time = 63 of 94 (67 %; 56.5 to 76.4 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.6 to 2.1; range 0.1 to 2.8; n = 31)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 12.7 s (95 % interval 12.3 to 13.1; range 10.4 to 15.0; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 28 to 28; range 21 to 31; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 28 to 28; range 11 to 31; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C14, ALLOVI, preview planner]
+  valid worlds: the operation on time = 63 of 94 (67 %; 56.5 to 76.4 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.6 to 2.1; range 0.1 to 2.8; n = 31)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 8.9 s (95 % interval 8.8 to 9.0; range 8.4 to 9.2; n = 94)
+  valid worlds: time in the work zone [s] = 12.8 s (95 % interval 12.3 to 13.1; range 10.4 to 15.0; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 27 (95 % interval 27 to 27; range 21 to 28; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 12 (95 % interval 12 to 12; range 11 to 13; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 4; 4; 3; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 189540 of 189540; 0
+[C15, ALLOVI, one candidate per period]
+  valid worlds: the operation on time = 62 of 94 (66 %; 55.4 to 75.5 %)
+  valid worlds: the operation late, by [s] = 2.1 s (95 % interval 0.6 to 2.1; range 0.1 to 2.8; n = 32)
+  valid worlds: the operation never begun = 0 of 94
+  valid worlds: arrival in the work zone [s] = 9.0 s (95 % interval 9.0 to 9.1; range 8.3 to 9.4; n = 94)
+  valid worlds: time in the work zone [s] = 12.6 s (95 % interval 12.2 to 13.0; range 10.2 to 14.8; n = 94)
+  valid worlds: periods after arrival, before the operation, committed with an ambition below 1 = 28 (95 % interval 27 to 28; range 22 to 35; n = 94)
+  valid worlds: periods after arrival, before the operation, in which the executed command is not the proposed one = 28 (95 % interval 27 to 28; range 22 to 35; n = 94)
+  all worlds: runs with an invalid executed label; with an alarm; restarts; violations = 2; 1; 1; 0 of 100
+  all worlds: the least true clearance in runs whose executed labels are valid [m] = 0.50
+  all worlds: fresh candidates evaluated, of those offered; periods cut by the budget = 31953 of 191718; 31953
+[the failed runs]
+  C1: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 100; 100, 0; none; none
+  C2: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 100; 100, 0; none; none
+  C3: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 100; 100, 0; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C4: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 100; 2, 0; 16043, 16077, 16100; 16043, 16077, 16100
+  C5: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 100; 1, 99; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C6: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 37; 1, 34; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C7: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 35; 0, 35; none; none
+  C8: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 35; 0, 35; none; none
+  C9: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 23; 1, 20; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C10: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 20; 0, 20; none; none
+  C11: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 36; 1, 33; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C12: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 96; 1, 94; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C13: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 36; 1, 33; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C14: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 36; 1, 33; 16042, 16059, 16064, 16077; 16042, 16059, 16064, 16077
+  C15: failed runs; never begun, late; with invalid executed labels (worlds); with alarms (worlds) = 35; 0, 35; 16064, 16077; 16077
+[Figure 16.1]
+  worlds traced = 46
+[check] 204 values, every value of the summary but the timing: all as expected
+[timing, this machine; not checked]
+  C1 = median 0.27 ms, 99th percentile 18.52 ms, largest 114.91 ms over 32000 decisions
+  C2 = median 0.28 ms, 99th percentile 19.95 ms, largest 55.15 ms over 32000 decisions
+  C3 = median 0.27 ms, 99th percentile 13.50 ms, largest 39.81 ms over 31590 decisions
+  C4 = median 1.22 ms, 99th percentile 55.34 ms, largest 117.10 ms over 31870 decisions
+  C5 = median 0.29 ms, 99th percentile 21.91 ms, largest 65.36 ms over 31590 decisions
+  C6 = median 0.30 ms, 99th percentile 24.44 ms, largest 74.99 ms over 31590 decisions
+  C7 = median 0.37 ms, 99th percentile 27.23 ms, largest 70.45 ms over 32000 decisions
+  C8 = median 0.31 ms, 99th percentile 24.77 ms, largest 47.47 ms over 32000 decisions
+  C9 = median 0.31 ms, 99th percentile 25.18 ms, largest 64.33 ms over 31590 decisions
+  C10 = median 0.33 ms, 99th percentile 25.86 ms, largest 61.38 ms over 32000 decisions
+  C11 = median 0.29 ms, 99th percentile 13.66 ms, largest 39.08 ms over 31590 decisions
+  C12 = median 0.27 ms, 99th percentile 12.60 ms, largest 32.93 ms over 31590 decisions
+  C13 = median 0.34 ms, 99th percentile 25.72 ms, largest 67.39 ms over 31590 decisions
+  C14 = median 0.34 ms, 99th percentile 27.29 ms, largest 67.40 ms over 31590 decisions
+  C15 = median 0.17 ms, 99th percentile 24.09 ms, largest 74.86 ms over 31953 decisions
+[time] 844 s
+
+real	14m3.685s
+user	27m26.937s
+sys	0m1.139s

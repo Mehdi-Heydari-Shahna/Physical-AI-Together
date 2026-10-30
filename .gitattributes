@@ -1,9 +1,5 @@
-* text=auto eol=lf
-*.csv text eol=lf
-*.py text eol=lf
-*.md text eol=lf
-*.yml text eol=lf
-*.cff text eol=lf
-*.png binary
-*.pdf binary
-*.zip binary
+# Every file is kept byte for byte as it was written. The CSV files that
+# Python's csv module writes end their lines with CR LF, the logs of the runs
+# on Windows keep their own line endings, and a reproduction compares the
+# files that it writes with these byte for byte (REPRODUCING.md).
+* -text

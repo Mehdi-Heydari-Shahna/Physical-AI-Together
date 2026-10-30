@@ -1,0 +1,9 @@
+# Section 12.1, Newton: the releases with which the results in results/newton-*
+# were produced (Python 3.12.3, Linux x86-64, on the CPU); the complete
+# environment is listed in results/environment-newton.txt.
+newton[sim]==1.7.0
+warp-lang==1.18.0
+mujoco==3.15.0
+mujoco-warp==3.15.0
+numpy==2.5.4
+scipy==1.18.1

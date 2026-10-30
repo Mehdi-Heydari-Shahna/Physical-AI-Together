@@ -1,0 +1,454 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    endTimeCode = 1000000
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxSettingsParticleFieldAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:ambientOcclusion:denoiserMode = "none"
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:debug:view:pixelDebug:enableFixedTextPos = 1
+                token omni:rtx:directLighting:sampledLighting:denoisingTechnique = "None"
+                bool omni:rtx:dlss:frameGeneration = 0
+                bool omni:rtx:indirectDiffuse:denoiser:enabled = 0
+                bool omni:rtx:material:db:syncLoads = 1
+                token omni:rtx:post:dlss:execMode = "performance"
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                bool omni:rtx:pt:adaptiveSampling:filterError = 0
+                uint omni:rtx:pt:adaptiveSampling:fixedSppIterations = 2
+                int omni:rtx:pt:clampSpp = 64
+                uint omni:rtx:pt:limits:maxBounces = 3
+                uint omni:rtx:pt:limits:maxGlossyBounces = 3
+                uint omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                uint omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                int omni:rtx:pt:samplesPerIteration = 64
+                uint omni:rtx:pt:samplesPerPixel = 64
+                bool omni:rtx:reflections:denoiser:enabled = 0
+                token omni:rtx:rendermode = "RealTimePathTracing"
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                int omni:rtx:rt:sss:samples = 1
+                uint omni:rtx:rtpt:maxVolumeBounces = 15
+                float omni:rtx:rtpt:modulatingRoughnessThreshold = 0.08
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (1280, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars" (
+        hide_in_stage_window = true
+        no_delete = true
+    )
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+            uniform token sourceType = "raw"
+        }
+    }
+}
+
+over "OmniverseKit_Persp"
+{
+    float exposure:fStop = 5
+    float exposure:responsivity = 1.1026709
+    float exposure:time = 0.02
+}
+
+def Xform "World"
+{
+    def "materials"
+    {
+        def Material "ground" (
+            prepend apiSchemas = ["PhysicsMaterialAPI"]
+        )
+        {
+            float physics:dynamicFriction = 0.25
+            float physics:restitution = 0
+            float physics:staticFriction = 0.25
+        }
+
+        def Material "wheel" (
+            prepend apiSchemas = ["PhysicsMaterialAPI"]
+        )
+        {
+            float physics:dynamicFriction = 0.25
+            float physics:restitution = 0
+            float physics:staticFriction = 0.25
+        }
+    }
+
+    def Mesh "ground" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsMeshCollisionAPI", "MaterialBindingAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        int[] faceVertexCounts = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+        int[] faceVertexIndices = [0, 2, 3, 1, 2, 4, 5, 3, 4, 6, 7, 5, 6, 8, 9, 7, 8, 10, 11, 9, 10, 12, 13, 11, 12, 14, 15, 13, 14, 16, 17, 15, 16, 18, 19, 17, 18, 20, 21, 19, 20, 22, 23, 21, 22, 24, 25, 23, 24, 26, 27, 25, 26, 28, 29, 27, 28, 30, 31, 29, 30, 32, 33, 31, 32, 34, 35, 33, 34, 36, 37, 35, 36, 38, 39, 37, 38, 40, 41, 39, 40, 42, 43, 41, 42, 44, 45, 43, 44, 46, 47, 45, 46, 48, 49, 47, 48, 50, 51, 49, 50, 52, 53, 51, 52, 54, 55, 53, 54, 56, 57, 55, 56, 58, 59, 57, 58, 60, 61, 59, 60, 62, 63, 61, 62, 64, 65, 63, 64, 66, 67, 65, 66, 68, 69, 67, 68, 70, 71, 69, 70, 72, 73, 71, 72, 74, 75, 73, 74, 76, 77, 75, 76, 78, 79, 77, 78, 80, 81, 79, 80, 82, 83, 81, 82, 84, 85, 83, 84, 86, 87, 85, 86, 88, 89, 87, 88, 90, 91, 89, 90, 92, 93, 91, 92, 94, 95, 93, 94, 96, 97, 95, 96, 98, 99, 97, 98, 100, 101, 99, 100, 102, 103, 101, 102, 104, 105, 103, 104, 106, 107, 105, 106, 108, 109, 107, 108, 110, 111, 109, 110, 112, 113, 111, 112, 114, 115, 113, 114, 116, 117, 115, 116, 118, 119, 117, 118, 120, 121, 119, 120, 122, 123, 121, 122, 124, 125, 123, 124, 126, 127, 125, 126, 128, 129, 127, 128, 130, 131, 129, 130, 132, 133, 131, 132, 134, 135, 133, 134, 136, 137, 135, 136, 138, 139, 137, 138, 140, 141, 139, 140, 142, 143, 141, 142, 144, 145, 143, 144, 146, 147, 145, 146, 148, 149, 147, 148, 150, 151, 149, 150, 152, 153, 151, 152, 154, 155, 153, 154, 156, 157, 155, 156, 158, 159, 157, 158, 160, 161, 159, 160, 162, 163, 161, 162, 164, 165, 163, 164, 166, 167, 165, 166, 168, 169, 167, 168, 170, 171, 169, 170, 172, 173, 171, 172, 174, 175, 173, 174, 176, 177, 175, 176, 178, 179, 177, 178, 180, 181, 179, 180, 182, 183, 181, 182, 184, 185, 183, 184, 186, 187, 185, 186, 188, 189, 187, 188, 190, 191, 189, 190, 192, 193, 191, 192, 194, 195, 193, 194, 196, 197, 195, 196, 198, 199, 197, 198, 200, 201, 199, 200, 202, 203, 201, 202, 204, 205, 203, 204, 206, 207, 205, 206, 208, 209, 207, 208, 210, 211, 209, 210, 212, 213, 211, 212, 214, 215, 213, 214, 216, 217, 215, 216, 218, 219, 217, 218, 220, 221, 219, 220, 222, 223, 221, 222, 224, 225, 223, 224, 226, 227, 225, 226, 228, 229, 227, 228, 230, 231, 229, 230, 232, 233, 231, 232, 234, 235, 233, 234, 236, 237, 235, 236, 238, 239, 237, 238, 240, 241, 239, 240, 242, 243, 241, 242, 244, 245, 243, 244, 246, 247, 245, 246, 248, 249, 247, 248, 250, 251, 249, 250, 252, 253, 251, 252, 254, 255, 253, 254, 256, 257, 255, 256, 258, 259, 257, 258, 260, 261, 259, 260, 262, 263, 261, 262, 264, 265, 263, 264, 266, 267, 265, 266, 268, 269, 267, 268, 270, 271, 269, 270, 272, 273, 271, 272, 274, 275, 273, 274, 276, 277, 275, 276, 278, 279, 277, 278, 280, 281, 279, 280, 282, 283, 281, 282, 284, 285, 283, 284, 286, 287, 285, 286, 288, 289, 287, 288, 290, 291, 289, 290, 292, 293, 291, 292, 294, 295, 293, 294, 296, 297, 295, 296, 298, 299, 297, 298, 300, 301, 299, 300, 302, 303, 301, 302, 304, 305, 303, 304, 306, 307, 305, 306, 308, 309, 307, 308, 310, 311, 309, 310, 312, 313, 311, 312, 314, 315, 313, 314, 316, 317, 315, 316, 318, 319, 317, 318, 320, 321, 319, 320, 322, 323, 321, 322, 324, 325, 323, 324, 326, 327, 325, 326, 328, 329, 327, 328, 330, 331, 329, 330, 332, 333, 331, 332, 334, 335, 333, 334, 336, 337, 335]
+        rel material:binding:physics = </World/materials/ground> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        uniform token physics:approximation = "none"
+        rel physics:filteredPairs = [
+            </World/cart/chassis>,
+            </World/cart/tool>,
+        ]
+        float physxCollision:contactOffset = 0.02
+        float physxCollision:restOffset = 0
+        point3f[] points = [(-5, -1, 0), (-5, 1, 0), (20, -1, 0), (20, 1, 0), (20.009989, -1, -0.0000049883365), (20.009989, 1, -0.0000049883365), (20.019978, -1, -0.00001995334), (20.019978, 1, -0.00001995334), (20.029964, -1, -0.000044894998), (20.029964, 1, -0.000044894998), (20.039953, -1, -0.00007981328), (20.039953, 1, -0.00007981328), (20.049942, -1, -0.00012470817), (20.049942, 1, -0.00012470817), (20.059929, -1, -0.00017957958), (20.059929, 1, -0.00017957958), (20.069918, -1, -0.0002444275), (20.069918, 1, -0.0002444275), (20.079906, -1, -0.00031925185), (20.079906, 1, -0.00031925185), (20.089893, -1, -0.00040405255), (20.089893, 1, -0.00040405255), (20.099882, -1, -0.0004988295), (20.099882, 1, -0.0004988295), (20.109869, -1, -0.0006035827), (20.109869, 1, -0.0006035827), (20.119858, -1, -0.00071831193), (20.119858, 1, -0.00071831193), (20.129845, -1, -0.0008430171), (20.129845, 1, -0.0008430171), (20.139832, -1, -0.0009776981), (20.139832, 1, -0.0009776981), (20.149818, -1, -0.0011223548), (20.149818, 1, -0.0011223548), (20.159807, -1, -0.001276987), (20.159807, 1, -0.001276987), (20.169794, -1, -0.0014415947), (20.169794, 1, -0.0014415947), (20.179781, -1, -0.0016161776), (20.179781, 1, -0.0016161776), (20.189766, -1, -0.0018007356), (20.189766, 1, -0.0018007356), (20.199753, -1, -0.0019952683), (20.199753, 1, -0.0019952683), (20.20974, -1, -0.002199776), (20.20974, 1, -0.002199776), (20.219725, -1, -0.002414258), (20.219725, 1, -0.002414258), (20.229712, -1, -0.0026387142), (20.229712, 1, -0.0026387142), (20.239697, -1, -0.0028731443), (20.239697, 1, -0.0028731443), (20.249681, -1, -0.0031175485), (20.249681, 1, -0.0031175485), (20.259666, -1, -0.0033719263), (20.259666, 1, -0.0033719263), (20.269651, -1, -0.0036362773), (20.269651, 1, -0.0036362773), (20.279636, -1, -0.003910601), (20.279636, 1, -0.003910601), (20.289621, -1, -0.004194898), (20.289621, 1, -0.004194898), (20.299604, -1, -0.004489167), (20.299604, 1, -0.004489167), (20.30959, -1, -0.004793409), (20.30959, 1, -0.004793409), (20.319572, -1, -0.005107622), (20.319572, 1, -0.005107622), (20.329556, -1, -0.005431807), (20.329556, 1, -0.005431807), (20.339539, -1, -0.0057659633), (20.339539, 1, -0.0057659633), (20.34952, -1, -0.0061100903), (20.34952, 1, -0.0061100903), (20.359503, -1, -0.006464188), (20.359503, 1, -0.006464188), (20.369484, -1, -0.006828256), (20.369484, 1, -0.006828256), (20.379465, -1, -0.0072022937), (20.379465, 1, -0.0072022937), (20.389446, -1, -0.007586301), (20.389446, 1, -0.007586301), (20.399427, -1, -0.007980278), (20.399427, 1, -0.007980278), (20.409407, -1, -0.008384222), (20.409407, 1, -0.008384222), (20.419386, -1, -0.008798135), (20.419386, 1, -0.008798135), (20.429367, -1, -0.009222017), (20.429367, 1, -0.009222017), (20.439344, -1, -0.009655866), (20.439344, 1, -0.009655866), (20.449324, -1, -0.010099682), (20.449324, 1, -0.010099682), (20.459301, -1, -0.010553464), (20.459301, 1, -0.010553464), (20.469278, -1, -0.011017213), (20.469278, 1, -0.011017213), (20.479256, -1, -0.011490927), (20.479256, 1, -0.011490927), (20.489233, -1, -0.011974607), (20.489233, 1, -0.011974607), (20.499208, -1, -0.0124682505), (20.499208, 1, -0.0124682505), (20.509184, -1, -0.0129718585), (20.509184, 1, -0.0129718585), (20.51916, -1, -0.013485431), (20.51916, 1, -0.013485431), (20.529135, -1, -0.014008966), (20.529135, 1, -0.014008966), (20.539108, -1, -0.014542464), (20.539108, 1, -0.014542464), (20.549082, -1, -0.015085924), (20.549082, 1, -0.015085924), (20.559055, -1, -0.015639346), (20.559055, 1, -0.015639346), (20.569027, -1, -0.01620273), (20.569027, 1, -0.01620273), (20.578999, -1, -0.016776072), (20.578999, 1, -0.016776072), (20.58897, -1, -0.017359376), (20.58897, 1, -0.017359376), (20.598942, -1, -0.017952638), (20.598942, 1, -0.017952638), (20.608912, -1, -0.01855586), (20.608912, 1, -0.01855586), (20.618881, -1, -0.01916904), (20.618881, 1, -0.01916904), (20.628849, -1, -0.019792177), (20.628849, 1, -0.019792177), (20.638819, -1, -0.020425271), (20.638819, 1, -0.020425271), (20.648785, -1, -0.021068322), (20.648785, 1, -0.021068322), (20.658752, -1, -0.021721328), (20.658752, 1, -0.021721328), (20.668718, -1, -0.022384288), (20.668718, 1, -0.022384288), (20.678684, -1, -0.023057204), (20.678684, 1, -0.023057204), (20.68865, -1, -0.023740072), (20.68865, 1, -0.023740072), (20.698614, -1, -0.024432894), (20.698614, 1, -0.024432894), (20.708576, -1, -0.02513567), (20.708576, 1, -0.02513567), (20.71854, -1, -0.025848394), (20.71854, 1, -0.025848394), (20.728502, -1, -0.026571073), (20.728502, 1, -0.026571073), (20.738464, -1, -0.0273037), (20.738464, 1, -0.0273037), (20.748425, -1, -0.028046275), (20.748425, 1, -0.028046275), (20.758385, -1, -0.0287988), (20.758385, 1, -0.0287988), (20.768343, -1, -0.029561274), (20.768343, 1, -0.029561274), (20.778301, -1, -0.030333694), (20.778301, 1, -0.030333694), (20.78826, -1, -0.03111606), (20.78826, 1, -0.03111606), (20.798216, -1, -0.031908374), (20.798216, 1, -0.031908374), (20.808172, -1, -0.03271063), (20.808172, 1, -0.03271063), (20.818129, -1, -0.03352283), (20.818129, 1, -0.03352283), (20.828081, -1, -0.034344975), (20.828081, 1, -0.034344975), (20.838036, -1, -0.035177063), (20.838036, 1, -0.035177063), (20.847988, -1, -0.03601909), (20.847988, 1, -0.03601909), (20.85794, -1, -0.03687106), (20.85794, 1, -0.03687106), (20.867891, -1, -0.03773297), (20.867891, 1, -0.03773297), (20.877842, -1, -0.038604815), (20.877842, 1, -0.038604815), (20.88779, -1, -0.039486602), (20.88779, 1, -0.039486602), (20.89774, -1, -0.040378325), (20.89774, 1, -0.040378325), (20.907686, -1, -0.041279987), (20.907686, 1, -0.041279987), (20.917633, -1, -0.04219158), (20.917633, 1, -0.04219158), (20.92758, -1, -0.043113112), (20.92758, 1, -0.043113112), (20.937525, -1, -0.044044573), (20.937525, 1, -0.044044573), (20.947468, -1, -0.044985972), (20.947468, 1, -0.044985972), (20.95741, -1, -0.0459373), (20.95741, 1, -0.0459373), (20.967354, -1, -0.04689856), (20.967354, 1, -0.04689856), (20.977293, -1, -0.047869746), (20.977293, 1, -0.047869746), (20.987234, -1, -0.048850864), (20.987234, 1, -0.048850864), (20.997173, -1, -0.04984191), (20.997173, 1, -0.04984191), (21.00711, -1, -0.05084288), (21.00711, 1, -0.05084288), (21.017048, -1, -0.05185378), (21.017048, 1, -0.05185378), (21.026983, -1, -0.052874606), (21.026983, 1, -0.052874606), (21.036919, -1, -0.053905353), (21.036919, 1, -0.053905353), (21.046854, -1, -0.054946024), (21.046854, 1, -0.054946024), (21.056786, -1, -0.055996615), (21.056786, 1, -0.055996615), (21.066717, -1, -0.057057127), (21.066717, 1, -0.057057127), (21.076649, -1, -0.05812756), (21.076649, 1, -0.05812756), (21.086578, -1, -0.059207913), (21.086578, 1, -0.059207913), (21.096506, -1, -0.060298182), (21.096506, 1, -0.060298182), (21.106434, -1, -0.061398365), (21.106434, 1, -0.061398365), (21.116362, -1, -0.062508464), (21.116362, 1, -0.062508464), (21.126286, -1, -0.06362848), (21.126286, 1, -0.06362848), (21.136211, -1, -0.06475841), (21.136211, 1, -0.06475841), (21.146133, -1, -0.065898255), (21.146133, 1, -0.065898255), (21.156055, -1, -0.067048006), (21.156055, 1, -0.067048006), (21.165976, -1, -0.06820767), (21.165976, 1, -0.06820767), (21.175896, -1, -0.069377236), (21.175896, 1, -0.069377236), (21.185814, -1, -0.07055671), (21.185814, 1, -0.07055671), (21.195732, -1, -0.071746096), (21.195732, 1, -0.071746096), (21.205648, -1, -0.072945386), (21.205648, 1, -0.072945386), (21.215563, -1, -0.07415458), (21.215563, 1, -0.07415458), (21.225477, -1, -0.07537367), (21.225477, 1, -0.07537367), (21.23539, -1, -0.07660267), (21.23539, 1, -0.07660267), (21.2453, -1, -0.077841565), (21.2453, 1, -0.077841565), (21.255209, -1, -0.079090364), (21.255209, 1, -0.079090364), (21.26512, -1, -0.08034906), (21.26512, 1, -0.08034906), (21.275026, -1, -0.081617646), (21.275026, 1, -0.081617646), (21.284933, -1, -0.08289613), (21.284933, 1, -0.08289613), (21.294838, -1, -0.08418451), (21.294838, 1, -0.08418451), (21.30474, -1, -0.08548278), (21.30474, 1, -0.08548278), (21.314644, -1, -0.08679095), (21.314644, 1, -0.08679095), (21.324545, -1, -0.088109), (21.324545, 1, -0.088109), (21.334444, -1, -0.08943694), (21.334444, 1, -0.08943694), (21.344341, -1, -0.090774775), (21.344341, 1, -0.090774775), (21.354239, -1, -0.09212249), (21.354239, 1, -0.09212249), (21.364134, -1, -0.09348009), (21.364134, 1, -0.09348009), (21.37403, -1, -0.094847575), (21.37403, 1, -0.094847575), (21.383923, -1, -0.09622494), (21.383923, 1, -0.09622494), (21.393814, -1, -0.09761219), (21.393814, 1, -0.09761219), (21.403704, -1, -0.09900931), (21.403704, 1, -0.09900931), (21.413591, -1, -0.10041632), (21.413591, 1, -0.10041632), (21.42348, -1, -0.101833194), (21.42348, 1, -0.101833194), (21.433365, -1, -0.10325995), (21.433365, 1, -0.10325995), (21.44325, -1, -0.10469658), (21.44325, 1, -0.10469658), (21.453133, -1, -0.10614308), (21.453133, 1, -0.10614308), (21.463015, -1, -0.10759945), (21.463015, 1, -0.10759945), (21.472895, -1, -0.1090657), (21.472895, 1, -0.1090657), (21.482773, -1, -0.110541806), (21.482773, 1, -0.110541806), (21.492651, -1, -0.11202778), (21.492651, 1, -0.11202778), (21.502525, -1, -0.113523625), (21.502525, 1, -0.113523625), (21.5124, -1, -0.11502933), (21.5124, 1, -0.11502933), (21.522272, -1, -0.116544895), (21.522272, 1, -0.116544895), (21.532145, -1, -0.11807032), (21.532145, 1, -0.11807032), (21.542013, -1, -0.11960561), (21.542013, 1, -0.11960561), (21.551882, -1, -0.12115075), (21.551882, 1, -0.12115075), (21.561749, -1, -0.12270574), (21.561749, 1, -0.12270574), (21.571613, -1, -0.124270596), (21.571613, 1, -0.124270596), (21.581476, -1, -0.1258453), (21.581476, 1, -0.1258453), (21.59134, -1, -0.12742986), (21.59134, 1, -0.12742986), (21.601198, -1, -0.12902427), (21.601198, 1, -0.12902427), (21.611057, -1, -0.13062853), (21.611057, 1, -0.13062853), (21.620914, -1, -0.13224262), (21.620914, 1, -0.13224262), (21.63077, -1, -0.13386656), (21.63077, 1, -0.13386656), (21.640623, -1, -0.13550036), (21.640623, 1, -0.13550036), (21.650476, -1, -0.13714398), (21.650476, 1, -0.13714398), (29.54076, -1, -1.4575248), (29.54076, 1, -1.4575248)]
+        uniform token subdivisionScheme = "none"
+    }
+
+    def Cube "wall" (
+        prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = [
+            </World/cart/front>,
+            </World/cart/rear>,
+        ]
+        float physxCollision:contactOffset = 0.02
+        float physxCollision:restOffset = 0
+        double size = 1
+        quatf xformOp:orient = (0.9965655, 0, 0.082808204, 0)
+        float3 xformOp:scale = (0.1, 2, 1)
+        double3 xformOp:translate = (25.06206545911932, 0, -0.20109570676167177)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Xform "cart" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI", "PhysxArticulationAPI"]
+        customData = {
+            dictionary physai = {
+                string design = '{"ramp_start": 20.0, "wall": 25.0, "slope_deg": 9.5, "crest_radius": 10.0, "crest_facets": 166, "friction": 0.25, "chassis_mass": 80.0, "wheel_mass": 5.0, "tool_mass": 0.1, "half_length": 0.35, "wheel_offset": 0.25, "wheel_drop": 0.05, "wheel_radius": 0.1, "reach": 0.8, "drive_limit": 40.0, "speed_gain": 100.0, "servo_gain": 45.5, "tool_kp": 1000.0, "tool_kv": 20.0, "tool_force": 100.0, "timestep": 0.001, "integrator": "implicitfast", "solver": "Newton", "cone": "elliptic", "iterations": 100, "tolerance": 1e-08}'
+                string settings = '{"timestep": 0.001, "solver": "TGS", "position_iterations": 32, "velocity_iterations": 1, "gpu_dynamics": false, "broadphase": "MBP", "friction_type": "patch", "contact_offset": 0.02, "rest_offset": 0.0, "damping": 0.0, "aux_mass": 0.001, "aux_inertia": 1e-06}'
+                string variant = ""
+            }
+        }
+    )
+    {
+        bool physxArticulation:enabledSelfCollisions = 0
+        float physxArticulation:sleepThreshold = 0
+        int physxArticulation:solverPositionIterationCount = 32
+        int physxArticulation:solverVelocityIterationCount = 1
+        float physxArticulation:stabilizationThreshold = 0
+
+        def Xform "base" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (0.000001, 0.000001, 0.000001)
+            float physics:mass = 0.001
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (0, 0, 0)
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (-0.3499999940395355, 0, 0.15000000596046448)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Xform "slider_x" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (0.000001, 0.000001, 0.000001)
+            float physics:mass = 0.001
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (9.120036e-9, 0, 0)
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (4.650000095367432, 0, 0.15000000596046448)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Xform "slider_z" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (0, 0, 0)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (0.000001, 0.000001, 0.000001)
+            float physics:mass = 0.001
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (9.119608e-9, 0, 2.1567953e-10)
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (4.650000095367432, 0, 0.15000000596046448)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Xform "chassis" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (2.1547498e-14, 1.8914665e-7, 0)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (1.8373333, 3.4373333, 4.9333334)
+            float physics:mass = 80
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (9.119608e-9, 0, 2.1567953e-10)
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, -0, -0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (4.650000095367432, 0, 0.15000000596046448)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cube "collider" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.02
+                float physxCollision:restOffset = 0
+                double size = 1
+                float3 xformOp:scale = (0.7, 0.5, 0.16)
+                uniform token[] xformOpOrder = ["xformOp:scale"]
+            }
+        }
+
+        def Xform "front" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (-6.3986997e-12, -0.000053680145, 0)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (0.02, 0.02, 0.02)
+            float physics:mass = 5
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (8.934348e-9, 1.8865263e-17, 1.8356444e-10)
+            float physxContactReport:threshold = 0
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, 4.867995e-14, 4.0835707e-7, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (4.900000095367432, -9.317362419797304e-17, 0.10000000894069672)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Sphere "collider" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </World/materials/wheel> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                float physxCollision:contactOffset = 0.02
+                float physxCollision:restOffset = 0
+                double radius = 0.1
+            }
+        }
+
+        def Xform "rear" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (6.300443e-12, 0.000052854564, 7.2317447e-31)
+            point3f physics:centerOfMass = (0, 0, 0)
+            float3 physics:diagonalInertia = (0.02, 0.02, 0.02)
+            float physics:mass = 5
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (8.934348e-9, 1.8865263e-17, 1.2185093e-9)
+            float physxContactReport:threshold = 0
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, -1.1512107e-14, -9.657056e-8, -6.293982e-30)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (4.400000095367432, -9.31729889232626e-17, 0.10000000894069672)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Sphere "collider" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI", "MaterialBindingAPI"]
+            )
+            {
+                rel material:binding:physics = </World/materials/wheel> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                float physxCollision:contactOffset = 0.02
+                float physxCollision:restOffset = 0
+                double radius = 0.1
+            }
+        }
+
+        def Xform "tool" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysxRigidBodyAPI"]
+        )
+        {
+            vector3f physics:angularVelocity = (2.1547498e-14, 1.8914665e-7, 0)
+            point3f physics:centerOfMass = (-0.05, 0, 0)
+            float3 physics:diagonalInertia = (0.000026666667, 0.00009666667, 0.00009666667)
+            float physics:mass = 0.1
+            quatf physics:principalAxes = (1, 0, 0, 0)
+            vector3f physics:velocity = (-4.9772417e-8, 3.952077e-29, 3.35445e-10)
+            float physxRigidBody:angularDamping = 0
+            float physxRigidBody:linearDamping = 0
+            quatf xformOp:orient = (1, -0, -0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (5.000000476837158, 5.097633763464925e-24, 0.15000000596046448)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cube "collider" (
+                prepend apiSchemas = ["PhysicsCollisionAPI", "PhysxCollisionAPI"]
+            )
+            {
+                float physxCollision:contactOffset = 0.02
+                float physxCollision:restOffset = 0
+                double size = 1
+                float3 xformOp:scale = (0.1, 0.04, 0.04)
+                double3 xformOp:translate = (-0.05, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+            }
+        }
+
+        def "joints"
+        {
+            def PhysicsFixedJoint "root"
+            {
+                rel physics:body1 = </World/cart/base>
+                point3f physics:localPos0 = (-0.35, 0, 0.15)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsPrismaticJoint "x"
+            {
+                uniform token physics:axis = "X"
+                rel physics:body0 = </World/cart/base>
+                rel physics:body1 = </World/cart/slider_x>
+                point3f physics:localPos0 = (0, 0, 0)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsPrismaticJoint "z"
+            {
+                uniform token physics:axis = "Z"
+                rel physics:body0 = </World/cart/slider_x>
+                rel physics:body1 = </World/cart/slider_z>
+                point3f physics:localPos0 = (0, 0, 0)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsRevoluteJoint "pitch"
+            {
+                uniform token physics:axis = "Y"
+                rel physics:body0 = </World/cart/slider_z>
+                rel physics:body1 = </World/cart/chassis>
+                point3f physics:localPos0 = (0, 0, 0)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsRevoluteJoint "front"
+            {
+                uniform token physics:axis = "Y"
+                rel physics:body0 = </World/cart/chassis>
+                rel physics:body1 = </World/cart/front>
+                point3f physics:localPos0 = (0.25, 0, -0.05)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsRevoluteJoint "rear"
+            {
+                uniform token physics:axis = "Y"
+                rel physics:body0 = </World/cart/chassis>
+                rel physics:body1 = </World/cart/rear>
+                point3f physics:localPos0 = (-0.25, 0, -0.05)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+            }
+
+            def PhysicsPrismaticJoint "reach" (
+                prepend apiSchemas = ["PhysicsDriveAPI:linear"]
+            )
+            {
+                float drive:linear:physics:damping = 20
+                float drive:linear:physics:maxForce = 100
+                float drive:linear:physics:stiffness = 1000
+                float drive:linear:physics:targetPosition = 0
+                uniform token drive:linear:physics:type = "force"
+                uniform token physics:axis = "X"
+                rel physics:body0 = </World/cart/chassis>
+                rel physics:body1 = </World/cart/tool>
+                point3f physics:localPos0 = (0.35, 0, 0)
+                point3f physics:localPos1 = (0, 0, 0)
+                quatf physics:localRot0 = (1, 0, 0, 0)
+                quatf physics:localRot1 = (1, 0, 0, 0)
+                float physics:lowerLimit = 0
+                float physics:upperLimit = 0.8
+            }
+        }
+    }
+}
+
+def PhysicsScene "PhysicsScene" (
+    prepend apiSchemas = ["NewtonSceneAPI", "PhysxSceneAPI"]
+)
+{
+    vector3f physics:gravityDirection = (0, 0, -1)
+    float physics:gravityMagnitude = 9.81
+    uniform token physxScene:broadphaseType = "MBP"
+    bool physxScene:enableCCD = 0
+    bool physxScene:enableGPUDynamics = 0
+    bool physxScene:enableStabilization = 0
+    uniform token physxScene:frictionType = "patch"
+    uniform token physxScene:solverType = "TGS"
+    uint physxScene:timeStepsPerSecond = 1000
+}
+

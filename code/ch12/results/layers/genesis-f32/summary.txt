@@ -1,0 +1,16 @@
+[record]
+  variant = genesis-f32
+  what = Genesis, the options of the MJCF text, single precision
+  version of genesis-world = 1.4.4
+  version of quadrants = 1.3.3
+  version of torch = 2.14.1
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  settings = mujoco-f32
+  state precision = float32
+  rigid options: integrator, constraint solver, cone, iterations, tolerance = implicitfast, Newton, elliptic, 100, 1e-08
+  time of the comparison [s] = 55
+[the run of Chapter 3, period by period]
+  periods = 220
+  end of period: median, largest [m], period = 0.000163, 0.000478, 201
+[check] against the shipped summary: all as shipped

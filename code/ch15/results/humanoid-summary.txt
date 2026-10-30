@@ -1,0 +1,29 @@
+[the run]
+  the robot; the beam, its length [m] and mass [kg] = one Apptronik Apollo (MuJoCo Menagerie's model, the repository's copy); aluminium, the HEA 200 section, 1.2, 17.46
+  the beam's weight [N]; the payload reported for the Apollo [kg] = 171.3; 25
+  completed; simulated time [s]; failure = True; 91.06; none
+  gait cycles: to the beam, carrying, back; their length [m] = 2, 4, 1; 0.25
+  lift-offs; touchdowns; grasps closed and opened = 14; 14; 1, 1
+  the phases' starts [s]: walking, reaching, taking the weight, lifting, carrying, setting down, letting go, stepping back = 0.81, 20.86, 25.72, 29.22, 31.62, 71.70, 76.90, 80.10
+  wall time [s]; the QP's solver = 200; humanoid/qp.py (NNLS)
+[single support]
+  samples every 10 ms, unloaded; carrying = 809; 1087
+  the stance sole's centre of pressure, least distance inside its edges, unloaded [mm]; when [s]; phase = 11.0; 81.72; back1-step-l
+  the same, carrying [mm]; when [s]; phase = -0.1; 33.89; carry1-step-l
+  the sole's half length and half width [mm] = 100, 42.5
+  carrying: each step's least distance [mm], the stance foot in brackets = carry1-step-l (r) -0.1; carry1-step-r (l) 20.0; carry2-step-l (r) 4.9; carry2-step-r (l) 19.2; carry3-step-l (r) 4.9; carry3-step-r (l) 19.4; carry4-step-l (r) 3.9; carry4-step-r (l) 19.5
+  carrying: samples within 0.1 mm of an edge; from, to [s] = 34; 33.67, 34.05
+  carrying: the edge that they were at (the sole's x axis forward); the other samples from the first to the last of them, and their largest distance inside the edges [mm] = front; 5, 2.3
+[touchdowns]
+  count; the sole's speed at the first contact, largest [m/s]; the largest force in the 50 ms after it [N] = 14; 0.060; 305
+  the first contact before the mode's switch, longest [ms] = 4
+  each: foot, first contact [s], speed [m/s], largest force in 50 ms [N] = l 3.672 0.052 196; r 9.027 0.058 209; l 13.698 0.053 198; r 19.051 0.058 287; l 34.471 0.056 238; r 39.824 0.058 215; l 44.491 0.054 237; r 49.843 0.058 228; l 54.513 0.054 235; r 59.861 0.059 222; l 64.527 0.054 242; r 69.886 0.058 217; l 82.914 0.060 297; r 88.257 0.058 305
+[actuators]
+  largest share of a torque limit; joint; when [s]; phase = 0.962; r_ankle_pd; 33.93; carry1-step-l
+  largest share while carrying = 0.962
+[the beam]
+  carried: largest distance from its reference [mm] = 11.4
+  carried: the palms' normal forces as a share of its weight, least, largest = 0.919, 1.035
+  set down: its centre from the trestles' middle, along the beam, across, height [mm] = -2.7, -3.3, -0.5
+  internal-wrench error while grasped (the repository's metric), RMS and median [N] = 2.52, 0.41
+[check] 22 values: all as expected

@@ -1,0 +1,74 @@
+[record]
+  MuJoCo = 3.16.0
+  NumPy, PyYAML, Python = 2.5.3, 6.0.3, 3.13.17
+  description = ur_description 3.6.0, https://github.com/UniversalRobots/Universal_Robots_ROS2_Description, commit 7ce98d8c3512b9d0239da93b75de68ea64f61bd6 (22 October 2026), BSD 3-Clause
+  ur_description's version in package.xml = 3.6.0
+  time step [s]; integrator = 0.0005; implicitfast
+  bodies, joints, actuators, geoms = 8, 6, 6, 9
+  torque limits [N m] = 150, 150, 150, 28, 28, 28
+  speed limit [deg/s] = 180, 180, 180, 180, 180, 180
+  joint ranges [deg] = +-360, +-360, +-180, +-360, +-360, +-360
+  controller: rate [Hz], KP [1/s^2], KD [1/s] = 1000, 900, 60
+  payload: box side, centre of mass from the flange [m] = 0.1, 0.05
+[the description]
+  tool0 against UR's DH table, 200 random poses: largest error of position [m], of rotation = 2.0e-10, 6.0e-10
+  links' centres of mass against UR's table: largest distance [m] = 2.1e-10
+  links' masses [kg], shoulder to wrist 3 = 3.761, 8.058, 2.846, 1.37, 1.3, 0.365
+  links' masses equal to UR's table = True
+  base's mass [kg] (the description: 'This mass might be incorrect') = 4
+  total [kg]; the datasheet, with cable [kg] = 21.70; 20.6
+  MuJoCo Menagerie's UR5e (commit f3b6013): masses [kg], base to wrist 3; total = 4, 3.7, 8.393, 2.275, 1.219, 1.219, 0.1889; 20.99
+  the description's elbow range [deg]; the datasheet's = +-180; +-360
+  inertia tensors: in the description; in UR's table = measured, nonzero (pull request 256, April 2025); 'negligible', zero for links 1 to 5
+[the task]
+  carry pose [deg], base to wrist 3 = -15.46, -81.00, 117.39, -126.39, -90.00, -15.46
+  carry pose: residual of the inverse kinematics = 5e-14
+  the base joint's angle less the task's angle in the carry pose [deg] = -15.46
+  empty: first contact with the post at the angle [deg]; clearance at the place [m] = none; 0.1022
+  empty: least clearance from the place to 10 deg past the post's centre [m] = 0.0499
+  5 kg payload: first contact with the post at the angle [deg]; clearance at the place [m] = -67.32; 0.0578
+  5 kg payload: angle from the place to the contact [deg] = 7.32
+[the capability]
+  0 kg: base's inertia M00 [kg m^2]; largest deceleration from 180 deg/s [rad/s^2]; the bound = 1.0490; 142.99; shoulder_pan_joint at the start
+  0 kg: the stop's angle [deg]; tool0's arc [m] = 1.977; 0.0173
+  1 kg: base's inertia M00 [kg m^2]; largest deceleration from 180 deg/s [rad/s^2]; the bound = 1.3007; 115.33; shoulder_pan_joint at the start
+  1 kg: the stop's angle [deg]; tool0's arc [m] = 2.452; 0.0214
+  2.5 kg: base's inertia M00 [kg m^2]; largest deceleration from 180 deg/s [rad/s^2]; the bound = 1.6782; 89.38; shoulder_pan_joint at the start
+  2.5 kg: the stop's angle [deg]; tool0's arc [m] = 3.163; 0.0276
+  5 kg: base's inertia M00 [kg m^2]; largest deceleration from 180 deg/s [rad/s^2]; the bound = 2.3073; 65.01; shoulder_pan_joint at the start
+  5 kg: the stop's angle [deg]; tool0's arc [m] = 4.349; 0.0380
+  5 kg: each joint's own bound [rad/s^2], base to wrist 3 = 65.01 (start), 320.07 (start), 471.11 (start), 287.76 (start), 72.18 (end), 3259.27 (start)
+  5 kg, centre of mass 0.1 m from the flange: largest deceleration [rad/s^2]; the bound = 55.07; wrist_2_joint at the end
+  5 kg, centre of mass 0.15 m from the flange: largest deceleration [rad/s^2]; the bound = 44.52; wrist_2_joint at the end
+  0 kg with Menagerie's armature 0.1 kg m^2: largest deceleration [rad/s^2]; the bound = 130.55; shoulder_pan_joint at the start
+  5 kg with Menagerie's armature 0.1 kg m^2: largest deceleration [rad/s^2]; the bound = 62.31; shoulder_pan_joint at the start
+[the stops]
+  5 kg from the place at 180 deg/s, at 1 x its largest deceleration: farthest angle [deg]; beyond the commanded rest [deg]; least clearance [m] = -64.349; 0.000; 0.0235
+  5 kg from the place at 180 deg/s, at 1 x its largest deceleration: largest torque asked over its limit, base and second wrist; updates clipped, base and second wrist = 1.000, 0.898; 0, 0
+  5 kg from the place at 180 deg/s, at 1 x its largest deceleration: largest error of the base [deg]; largest departure of the second and third wrists from the carry pose [deg]; their largest speeds [deg/s] = 0.056; 0.00, 0.00; 0.0, 0.0
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration: farthest angle [deg]; beyond the commanded rest [deg]; least clearance [m] = -65.341; 1.717; 0.0263
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration: largest torque asked over its limit, base and second wrist; updates clipped, base and second wrist = 1.812, 1.296; 41, 41
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration: largest error of the base [deg]; largest departure of the second and third wrists from the carry pose [deg]; their largest speeds [deg/s] = 1.717; 4.52, 1.79; 150.8, 61.4
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration: the base's torque last clipped [s]; the farthest angle reached [s]; the overrun of the commanded rest if the base braked at its limit to rest with the pose held [deg] = 0.041; 0.060; 0.725
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration, the other joints held in the pose (the base alone, our controller, integrated exactly): overrun of the commanded rest [deg]; farthest angle [deg]; least clearance [m] = 0.843; -64.467; 0.0225
+  5 kg from the place at 180 deg/s, at 1.2 x its largest deceleration: the base's speed when its torque was last clipped, simulated and with the pose held [rad/s] = 1.011, 0.476
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration: farthest angle [deg]; beyond the commanded rest [deg]; least clearance [m] = -65.411; 3.236; 0.0255
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration: largest torque asked over its limit, base and second wrist; updates clipped, base and second wrist = 3.699, 3.140; 40, 32
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration: largest error of the base [deg]; largest departure of the second and third wrists from the carry pose [deg]; their largest speeds [deg/s] = 3.236; 4.64, 3.36; 145.4, 129.4
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration: the base's torque last clipped [s]; the farthest angle reached [s]; the overrun of the commanded rest if the base braked at its limit to rest with the pose held [deg] = 0.040; 0.052; 2.175
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration, the other joints held in the pose (the base alone, our controller, integrated exactly): overrun of the commanded rest [deg]; farthest angle [deg]; least clearance [m] = 2.197; -64.372; 0.0233
+  5 kg from the place at 180 deg/s, at 2 x its largest deceleration: the base's speed when its torque was last clipped, simulated and with the pose held [rad/s] = 0.947, 0.541
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2): farthest angle [deg]; beyond the commanded rest [deg]; least clearance [m] = -65.443; 3.466; 0.0255
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2): largest torque asked over its limit, base and second wrist; updates clipped, base and second wrist = 3.954, 3.392; 41, 33
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2): largest error of the base [deg]; largest departure of the second and third wrists from the carry pose [deg]; their largest speeds [deg/s] = 3.466; 4.80, 3.51; 142.2, 133.9
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2): the base's torque last clipped [s]; the farthest angle reached [s]; the overrun of the commanded rest if the base braked at its limit to rest with the pose held [deg] = 0.041; 0.052; 2.372
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2), the other joints held in the pose (the base alone, our controller, integrated exactly): overrun of the commanded rest [deg]; farthest angle [deg]; least clearance [m] = 2.387; -64.365; 0.0233
+  5 kg at the empty arm's largest deceleration (142.99 rad/s^2): the base's speed when its torque was last clipped, simulated and with the pose held [rad/s] = 0.859, 0.476
+  empty at its largest deceleration: farthest angle [deg]; beyond the commanded rest [deg]; least clearance [m] = -61.977; 0.000; 0.0889
+  empty at its largest deceleration: largest torque asked over its limit, base and second wrist; updates clipped, base and second wrist = 1.000, 0.140; 1, 0
+  empty at its largest deceleration: largest error of the base [deg]; largest departure of the second and third wrists from the carry pose [deg]; their largest speeds [deg/s] = 0.042; 0.00, 0.00; 0.0, 0.0
+  these five stops: each joint's largest speed after the start [deg/s], base to wrist 3 = 177.9, 30.6, 31.4, 27.5, 150.8, 133.9
+[time steps]
+  5 kg at 1.2 x from the place, at 1, 0.5, 0.25 ms: beyond the commanded rest [deg] = 1.6753, 1.7168, 1.7377
+  the same: observed order of convergence; extrapolated to a zero time step [deg] = 0.99; 1.759
+[check] 65 values, among them every value that Section 14.1 quotes: all as expected

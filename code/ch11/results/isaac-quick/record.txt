@@ -1,0 +1,30 @@
+Record of the experiment of Section 11.2: the configuration of Chapter 3 with the simulator adapter cart.isaac
+
+model and asset provenance
+  USD stage written by cart_isaac/stage.py from the design of Section 11.1 (cart.usda); no external assets; stage text SHA-256 0e401f23395ee388...
+  design (SI units): ramp_start = 20.0, wall = 25.0, slope_deg = 9.5, crest_radius = 10.0, crest_facets = 166, friction = 0.25, chassis_mass = 80.0, wheel_mass = 5.0, tool_mass = 0.1, half_length = 0.35, wheel_offset = 0.25, wheel_drop = 0.05, wheel_radius = 0.1, reach = 0.8, drive_limit = 40.0, speed_gain = 100.0, servo_gain = 45.5, tool_kp = 1000.0, tool_kv = 20.0, tool_force = 100.0, timestep = 0.001, integrator = implicitfast, solver = Newton, cone = elliptic, iterations = 100, tolerance = 1e-08
+  Isaac Sim settings: timestep = 0.001, solver = TGS, position_iterations = 32, velocity_iterations = 1, gpu_dynamics = False, broadphase = MBP, friction_type = patch, contact_offset = 0.02, rest_offset = 0.0, damping = 0.0, aux_mass = 0.001, aux_inertia = 1e-06
+simulator and solver
+  Isaac Sim 6.2.0-rc.14, Kit 110.4.0+feature.386251.187cf21b.gl, omni.physx-110.4.4, Python and NumPy 3.12.15, 2.3.1
+  PhysX TGS, 32 position and 1 velocity iterations, GPU dynamics False, broadphase MBP, friction patch; contact offset 0.02 m, rest offset 0.0 m
+time steps
+  physics 0.001 s; governor period 0.1 s = 100 steps, counted; drive loop at every step; the comparison repeated at 0.5 and 0.25 ms
+actuators and sensors
+  each wheel: joint effort, limit 40 N m; drive loop: feedforward and speed feedback (gain 100 1/s), shared by measured load; tool: linear drive stiffness 1000 N/m, damping 20 N s/m, limit 100 N
+  sensors: link poses and velocities, joint positions and velocities, contact forces of the wheels with the ground, a ray cast from the tool tip as rangefinder
+frames and units
+  SI units, metersPerUnit 1, kilogramsPerUnit 1, z up; state (p, v, l) as in Section 11.1
+uncertainty bounds
+  labels of cart.forecasting: braking of at least 2 m/s^2 on regions before 20 m, 0.5 m/s^2 elsewhere; measurement bound 0
+constraints
+  p + l <= 25 m; |u_a| <= 2 m/s^2; u_l in {0, 0.8} m; in the simulator: contacts, the tool's limits 0 to 0.8 m
+terminal behaviour
+  rest feedback after an alarm, as in Section 11.1
+training and evaluation split
+  none: no module of this configuration learns
+seeds
+  none: the configuration uses no random numbers
+hardware
+  Windows 11, AMD64, Intel64 Family 6 Model 186 Stepping 2, GenuineIntel; GPU NVIDIA GeForce RTX 4060 Laptop GPU, 596.08, 8188 MiB (physics on the CPU)
+guarantee status
+  first alarm at 0.1 s, raised by a distance of 1.72e-09; restarts: 0; least clearance 25 m

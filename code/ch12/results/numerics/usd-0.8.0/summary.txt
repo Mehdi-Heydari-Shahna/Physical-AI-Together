@@ -1,0 +1,11 @@
+[record]
+  part = usd-0.8.0
+  hardware = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  version of mujoco-usd-converter = 0.8.0
+  version of mujoco = 3.16.0
+  Python = 3.12.3
+[failures]
+  F10: converting the MJCF text of Section 11.1: error = Mesh ground has no file
+  F10: exit status of the converter; files it leaves, their bytes = 1; 3, 1241
+  F10: prims in those files; prims with children or properties = 3; 0
+[check] against the shipped summary and per-period files: all as shipped

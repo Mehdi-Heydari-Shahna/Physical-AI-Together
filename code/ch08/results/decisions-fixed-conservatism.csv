@@ -1,0 +1,251 @@
+k,t,p,v,p_init,v_init,mode,proposed,req,onset,candidates,admitted,selected,ambition,level,onset_level,reason
+0,0,0,0,0,0,accelerate,2,1.3,0,7,7,1,1,24.98,24.98,demand: the most ambitious of the candidates with the highest first key
+1,0.1,0,0,0.01,0.2,accelerate,2,1.3,0,7,7,1,1,24.92,24.92,demand: the most ambitious of the candidates with the highest first key
+2,0.2,0.01,0.2,0.04,0.4,accelerate,2,1.3,0,7,7,1,1,24.82,24.82,demand: the most ambitious of the candidates with the highest first key
+3,0.3,0.04,0.4,0.09,0.6,accelerate,2,1.3,0,7,7,1,1,24.68,24.68,demand: the most ambitious of the candidates with the highest first key
+4,0.4,0.09,0.6,0.16,0.8,accelerate,2,1.3,0,7,7,1,1,24.5,24.5,demand: the most ambitious of the candidates with the highest first key
+5,0.5,0.16,0.8,0.25,1,accelerate,2,1.3,0,7,7,1,1,24.28,24.28,demand: the most ambitious of the candidates with the highest first key
+6,0.6,0.25,1,0.36,1.2,accelerate,2,1.3,0,7,7,1,1,24.02,24.02,demand: the most ambitious of the candidates with the highest first key
+7,0.7,0.36,1.2,0.49,1.4,accelerate,2,1.3,0,7,7,1,1,23.72,23.72,demand: the most ambitious of the candidates with the highest first key
+8,0.8,0.49,1.4,0.64,1.6,accelerate,2,1.3,0,7,7,1,1,23.38,23.38,demand: the most ambitious of the candidates with the highest first key
+9,0.9,0.64,1.6,0.81,1.8,accelerate,2,1.3,0,7,7,1,1,23,23,demand: the most ambitious of the candidates with the highest first key
+10,1,0.81,1.8,1,2,accelerate,2,1.3,0,7,7,1,1,22.58,22.58,demand: the most ambitious of the candidates with the highest first key
+11,1.1,1,2,1.21,2.2,accelerate,2,1.3,0,7,7,1,1,22.12,22.12,demand: the most ambitious of the candidates with the highest first key
+12,1.2,1.21,2.2,1.44,2.4,accelerate,2,1.3,0,7,7,1,1,21.62,21.62,demand: the most ambitious of the candidates with the highest first key
+13,1.3,1.44,2.4,1.69,2.6,accelerate,2,1.3,0,7,7,1,1,21.08,21.08,demand: the most ambitious of the candidates with the highest first key
+14,1.4,1.69,2.6,1.96,2.8,accelerate,2,1.3,0,7,7,1,1,20.5,20.5,demand: the most ambitious of the candidates with the highest first key
+15,1.5,1.96,2.8,2.25,3,accelerate,2,1.3,0,7,7,1,1,19.88,19.88,demand: the most ambitious of the candidates with the highest first key
+16,1.6,2.25,3,2.56,3.2,accelerate,2,1.3,0,7,7,1,1,19.22,19.22,demand: the most ambitious of the candidates with the highest first key
+17,1.7,2.56,3.2,2.89,3.4,accelerate,2,1.3,0,7,7,1,1,18.52,18.52,demand: the most ambitious of the candidates with the highest first key
+18,1.8,2.89,3.4,3.24,3.6,accelerate,2,1.3,0,7,7,1,1,17.78,17.78,demand: the most ambitious of the candidates with the highest first key
+19,1.9,3.24,3.6,3.61,3.8,accelerate,2,1.3,0,7,7,1,1,17,17,demand: the most ambitious of the candidates with the highest first key
+20,2,3.61,3.8,4,4,accelerate,2,1.3,0,7,7,1,1,16.18,16.18,demand: the most ambitious of the candidates with the highest first key
+21,2.1,4,4,4.41,4.2,accelerate,2,1.3,0,7,7,1,1,15.32,15.32,demand: the most ambitious of the candidates with the highest first key
+22,2.2,4.41,4.2,4.84,4.4,accelerate,2,1.3,0,7,7,1,1,14.42,14.42,demand: the most ambitious of the candidates with the highest first key
+23,2.3,4.84,4.4,5.29,4.6,accelerate,2,1.3,0,7,7,1,1,13.48,13.48,demand: the most ambitious of the candidates with the highest first key
+24,2.4,5.29,4.6,5.76,4.8,accelerate,2,1.3,0,7,7,1,1,12.5,12.5,demand: the most ambitious of the candidates with the highest first key
+25,2.5,5.76,4.8,6.25,5,accelerate,2,1.3,0,7,7,1,1,11.48,11.48,demand: the most ambitious of the candidates with the highest first key
+26,2.6,6.25,5,6.76,5.2,accelerate,2,1.3,0,7,7,1,1,10.42,10.42,demand: the most ambitious of the candidates with the highest first key
+27,2.7,6.76,5.2,7.29,5.4,accelerate,2,1.3,0,7,7,1,1,9.32,9.32,demand: the most ambitious of the candidates with the highest first key
+28,2.8,7.29,5.4,7.84,5.6,accelerate,2,1.3,0,7,7,1,1,8.18,8.18,demand: the most ambitious of the candidates with the highest first key
+29,2.9,7.84,5.6,8.41,5.8,accelerate,2,1.3,0,7,7,1,1,7,7,demand: the most ambitious of the candidates with the highest first key
+30,3,8.41,5.8,9,6,accelerate,2,1.3,0,7,7,1,1,5.78,5.78,demand: the most ambitious of the candidates with the highest first key
+31,3.1,9,6,9.61,6.2,accelerate,2,1.3,0,7,7,1,1,3.05,3.05,demand: the most ambitious of the candidates with the highest first key
+32,3.2,9.61,6.2,10.24,6.4,accelerate,2,1.3,0,7,4,4,0.25,1.49,1.49,demand: the most ambitious of the candidates with the highest first key
+33,3.3,10.24,6.4,10.875,6.3,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+34,3.4,10.875,6.3,11.495,6.1,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+35,3.5,11.495,6.1,12.095,5.9,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+36,3.6,12.095,5.9,12.675,5.7,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+37,3.7,12.675,5.7,13.235,5.5,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+38,3.8,13.235,5.5,13.775,5.3,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+39,3.9,13.775,5.3,14.295,5.1,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+40,4,14.295,5.1,14.795,4.9,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+41,4.1,14.795,4.9,15.275,4.7,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+42,4.2,15.275,4.7,15.735,4.5,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+43,4.3,15.735,4.5,16.175,4.3,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+44,4.4,16.175,4.3,16.595,4.1,accelerate,2,1.3,0,7,3,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+45,4.5,16.595,4.1,16.995,3.9,accelerate,2,1.3,0,7,4,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+46,4.6,16.995,3.9,17.375,3.7,accelerate,2,1.3,0,7,4,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+47,4.7,17.375,3.7,17.735,3.5,accelerate,2,1.3,0,7,4,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+48,4.8,17.735,3.5,18.075,3.3,accelerate,2,1.3,0,7,4,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+49,4.9,18.075,3.3,18.395,3.1,accelerate,2,1.3,0,7,4,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+50,5,18.395,3.1,18.695,2.9,accelerate,2,1.3,0,7,5,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+51,5.1,18.695,2.9,18.975,2.7,accelerate,2,1.3,0,7,5,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+52,5.2,18.975,2.7,19.235,2.5,accelerate,2,1.3,0,7,5,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+53,5.3,19.235,2.5,19.475,2.3,accelerate,2,1.3,0,7,5,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+54,5.4,19.475,2.3,19.695,2.1,accelerate,2,1.3,0,7,5,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+55,5.5,19.695,2.1,19.895,1.9,accelerate,2,1.3,0,7,6,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+56,5.6,19.895,1.9,20.0825,1.85,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+57,5.7,20.0825,1.85,20.265,1.8,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+58,5.8,20.265,1.8,20.4425,1.75,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+59,5.9,20.4425,1.75,20.615,1.7,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+60,6,20.615,1.7,20.7825,1.65,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+61,6.1,20.7825,1.65,20.945,1.6,accelerate,2,1.3,0,7,7,5,0,1.49,1.49,"demand: highest first key and ambition, tie broken for a fresh candidate"
+62,6.2,20.945,1.6,21.1025,1.55,accelerate,2,1.3,0,7,7,4,0.25,1.3,1.3,demand: the most ambitious of the candidates with the highest first key
+63,6.3,21.1025,1.55,21.258125,1.5625,accelerate,2,1.3,0,7,6,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+64,6.4,21.258125,1.5625,21.411875,1.5125,accelerate,2,1.3,0,7,6,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+65,6.5,21.411875,1.5125,21.560625,1.4625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+66,6.6,21.560625,1.4625,21.704375,1.4125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+67,6.7,21.704375,1.4125,21.843125,1.3625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+68,6.8,21.843125,1.3625,21.976875,1.3125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+69,6.9,21.976875,1.3125,22.105625,1.2625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+70,7,22.105625,1.2625,22.229375,1.2125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+71,7.1,22.229375,1.2125,22.348125,1.1625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+72,7.2,22.348125,1.1625,22.461875,1.1125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+73,7.3,22.461875,1.1125,22.570625,1.0625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+74,7.4,22.570625,1.0625,22.674375,1.0125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+75,7.5,22.674375,1.0125,22.773125,0.9625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+76,7.6,22.773125,0.9625,22.866875,0.9125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+77,7.7,22.866875,0.9125,22.955625,0.8625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+78,7.8,22.955625,0.8625,23.039375,0.8125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+79,7.9,23.039375,0.8125,23.118125,0.7625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+80,8,23.118125,0.7625,23.191875,0.7125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+81,8.1,23.191875,0.7125,23.260625,0.6625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+82,8.2,23.260625,0.6625,23.324375,0.6125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+83,8.3,23.324375,0.6125,23.383125,0.5625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+84,8.4,23.383125,0.5625,23.436875,0.5125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+85,8.5,23.436875,0.5125,23.485625,0.4625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+86,8.6,23.485625,0.4625,23.529375,0.4125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+87,8.7,23.529375,0.4125,23.568125,0.3625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+88,8.8,23.568125,0.3625,23.601875,0.3125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+89,8.9,23.601875,0.3125,23.630625,0.2625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+90,9,23.630625,0.2625,23.654375,0.2125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+91,9.1,23.654375,0.2125,23.673125,0.1625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+92,9.2,23.673125,0.1625,23.686875,0.1125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+93,9.3,23.686875,0.1125,23.695625,0.0625,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+94,9.4,23.695625,0.0625,23.699375,0.0125,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+95,9.5,23.699375,0.0125,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+96,9.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+97,9.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+98,9.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+99,9.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+100,10,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+101,10.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+102,10.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+103,10.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+104,10.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+105,10.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+106,10.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+107,10.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+108,10.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+109,10.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+110,11,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+111,11.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+112,11.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+113,11.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+114,11.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+115,11.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+116,11.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+117,11.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+118,11.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+119,11.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+120,12,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+121,12.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+122,12.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+123,12.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+124,12.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+125,12.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+126,12.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+127,12.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+128,12.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+129,12.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+130,13,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+131,13.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+132,13.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+133,13.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+134,13.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+135,13.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+136,13.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+137,13.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+138,13.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+139,13.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+140,14,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+141,14.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+142,14.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+143,14.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+144,14.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+145,14.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+146,14.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+147,14.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+148,14.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+149,14.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+150,15,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+151,15.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+152,15.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+153,15.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+154,15.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+155,15.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+156,15.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+157,15.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+158,15.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+159,15.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+160,16,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+161,16.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+162,16.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+163,16.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+164,16.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+165,16.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+166,16.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+167,16.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+168,16.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+169,16.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+170,17,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+171,17.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+172,17.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+173,17.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+174,17.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+175,17.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+176,17.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+177,17.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+178,17.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+179,17.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+180,18,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+181,18.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+182,18.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+183,18.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+184,18.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+185,18.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+186,18.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+187,18.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+188,18.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+189,18.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+190,19,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+191,19.1,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+192,19.2,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+193,19.3,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+194,19.4,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+195,19.5,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+196,19.6,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+197,19.7,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+198,19.8,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+199,19.9,23.7,0,23.7,0,accelerate,2,1.3,0,7,7,5,0,1.3,1.3,"demand: highest first key and ambition, tie broken for a fresh candidate"
+200,20,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+201,20.1,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+202,20.2,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+203,20.3,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+204,20.4,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+205,20.5,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+206,20.6,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+207,20.7,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+208,20.8,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+209,20.9,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+210,21,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+211,21.1,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+212,21.2,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+213,21.3,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+214,21.4,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+215,21.5,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+216,21.6,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+217,21.7,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+218,21.8,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+219,21.9,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+220,22,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+221,22.1,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+222,22.2,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+223,22.3,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+224,22.4,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+225,22.5,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+226,22.6,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+227,22.7,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+228,22.8,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+229,22.9,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+230,23,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+231,23.1,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+232,23.2,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+233,23.3,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+234,23.4,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+235,23.5,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+236,23.6,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+237,23.7,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+238,23.8,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+239,23.9,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+240,24,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+241,24.1,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+242,24.2,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+243,24.3,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+244,24.4,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+245,24.5,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+246,24.6,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+247,24.7,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+248,24.8,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate
+249,24.9,23.7,0,23.7,0,accelerate,2,0.5,0,7,3,5,0,0.5,0.5,no demand: the most ambitious admitted candidate

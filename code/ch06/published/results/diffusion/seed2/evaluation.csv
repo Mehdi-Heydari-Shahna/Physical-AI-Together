@@ -1,0 +1,21 @@
+policy,package,seed,budget,world,arrival_s,mean_intervention,fallbacks,alarms,steps_outside,max_position,rest_position,periods_before_arrival,committed_in_full,passed_unchanged,at_largest_acceleration,mean_intervention_exact,max_position_exact,rest_position_exact,operation
+diffusion policy,tube,2,demonstrations,1000,9.7,0.4510,0,0,0,24.4418,24.4418,97,50,not applicable,not applicable,175/388,24.441807060104825,24.441807060104825,not applicable
+diffusion policy,tube,2,demonstrations,1001,9.8,0.4515,0,0,0,24.4637,24.4637,98,50,not applicable,not applicable,177/392,24.46374356956184,24.46374356956184,not applicable
+diffusion policy,tube,2,demonstrations,1002,9.8,0.3852,0,0,0,24.4636,24.4636,98,53,not applicable,not applicable,151/392,24.463582395678827,24.463582395678827,not applicable
+diffusion policy,tube,2,demonstrations,1003,9.7,0.3119,0,0,0,24.4682,24.4682,97,55,not applicable,not applicable,121/388,24.46820477181927,24.46820477181927,not applicable
+diffusion policy,tube,2,demonstrations,1004,9.6,0.5182,0,0,0,24.4735,24.4735,96,40,not applicable,not applicable,199/384,24.473500776255975,24.473500776255975,not applicable
+diffusion policy,tube,2,demonstrations,1005,9.7,0.4536,0,0,0,24.4270,24.4270,97,45,not applicable,not applicable,44/97,24.426972148533338,24.426972148533338,not applicable
+diffusion policy,tube,2,demonstrations,1006,9.9,0.3005,0,0,0,24.4401,24.4401,99,63,not applicable,not applicable,119/396,24.440064189668355,24.440064189668355,not applicable
+diffusion policy,tube,2,demonstrations,1007,9.3,0.3387,0,0,0,24.4555,24.4555,93,54,not applicable,not applicable,21/62,24.45553768328321,24.45553768328321,not applicable
+diffusion policy,tube,2,demonstrations,1008,9.8,0.4668,0,0,0,24.4733,24.4733,98,42,not applicable,not applicable,183/392,24.473313875534433,24.473313875534433,not applicable
+diffusion policy,tube,2,demonstrations,1009,9.8,0.5689,0,0,0,24.4709,24.4709,98,35,not applicable,not applicable,223/392,24.470901385980476,24.470901385980476,not applicable
+diffusion policy,tube,2,demonstrations,1010,9.4,0.5106,0,0,0,24.4647,24.4647,94,42,not applicable,not applicable,24/47,24.464683580317406,24.464683580317406,not applicable
+diffusion policy,tube,2,demonstrations,1011,9.9,0.3838,0,0,0,24.4696,24.4696,99,54,not applicable,not applicable,38/99,24.46960057005171,24.46960057005171,not applicable
+diffusion policy,tube,2,demonstrations,1012,9.9,0.3990,0,0,0,24.4496,24.4496,99,53,not applicable,not applicable,79/198,24.449563511949613,24.449563511949613,not applicable
+diffusion policy,tube,2,demonstrations,1013,9.5,0.3474,0,0,0,24.4672,24.4672,95,57,not applicable,not applicable,33/95,24.46720608730309,24.46720608730309,not applicable
+diffusion policy,tube,2,demonstrations,1014,9.9,0.2702,0,0,0,24.4676,24.4676,99,69,not applicable,not applicable,107/396,24.46756777163705,24.46756777163705,not applicable
+diffusion policy,tube,2,demonstrations,1015,10.2,0.3480,0,0,0,24.4377,24.4377,102,55,not applicable,not applicable,71/204,24.437683224603635,24.437683224603635,not applicable
+diffusion policy,tube,2,demonstrations,1016,9.9,0.2399,0,0,0,24.4629,24.4629,99,68,not applicable,not applicable,95/396,24.462865066566312,24.462865066566312,not applicable
+diffusion policy,tube,2,demonstrations,1017,9.8,0.4235,0,0,0,24.4647,24.4647,98,47,not applicable,not applicable,83/196,24.464740842559145,24.464740842559145,not applicable
+diffusion policy,tube,2,demonstrations,1018,9.9,0.3434,0,0,0,24.4674,24.4674,99,59,not applicable,not applicable,34/99,24.467386368206558,24.467386368206558,not applicable
+diffusion policy,tube,2,demonstrations,1019,10.3,0.3277,0,0,0,24.4487,24.4487,103,61,not applicable,not applicable,135/412,24.448653495461606,24.448653495461606,not applicable

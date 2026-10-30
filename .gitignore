@@ -1,18 +1,36 @@
+# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 .venv/
+.venv-*/
 venv/
-.idea/
-.vscode/
+venv-*/
+*.egg-info/
+
+# Videos: attached to the releases, not kept in the history
+*.mp4
+
+# Checkouts and trained policies of the published learners (code/ch06/published)
+code/ch06/published/tdmpc2/
+code/ch06/published/diffusion_policy/
+code/ch06/published/results/smoke/
+code/ch06/published/results/**/*.pt
+code/ch06/published/results/**/*.zip
+
+# The path tracer's work folder (code/render/cycles/run_all.py)
+cycles-work/
+
+# Editors and systems
 .DS_Store
 Thumbs.db
 Desktop.ini
-*.log
+.idea/
+.vscode/
+*.swp
 *.tmp
 *.bak
 .env
 .env.*
-!.env.example

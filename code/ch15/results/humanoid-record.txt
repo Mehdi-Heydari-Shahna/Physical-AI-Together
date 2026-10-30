@@ -1,0 +1,26 @@
+Record of the experiment of Section 15.3: one Apollo carries a beam
+
+model and asset provenance
+  the Team-Impedance-Control repository (Heydari Shahna, 2026), commit eb530ea40ee1a8dbec96a7c80df36d976403606d, no project-wide licence (LICENSE.md): its package teamimp unchanged, with its copy of MuJoCo Menagerie's Apptronik Apollo (Apache License 2.0, visual meshes decimated by the repository); one robot's station, the beam of the HEA 200 section in aluminium, the loaded pelvis's shift and the beam's reference following it ours (humanoid/one_robot.py)
+simulator and solver
+  MuJoCo 3.16.0; NumPy, SciPy and Python 2.5.3, 1.18.1, 3.13.17; the repository's options: implicitfast, elliptic cones, impratio 20, 60 solver and 4 noslip iterations; the load-sharing QP solved by humanoid/qp.py (SciPy's NNLS, the same QP as daqp's)
+time steps
+  the simulation 1 ms; the controller every 2 ms; the load sharing every 10 control steps
+actuators and sensors
+  the 32 joints' torque actuators of the repository's model, within their limits; the palms' and soles' contact wrenches from the simulator, without noise
+frames and units
+  SI units; world x along the beam, y the direction of walking, z up
+uncertainty bounds
+  none: the controller's model is the plant's, without contacts
+constraints
+  the actuators' torque limits; the palms' and soles' contact-wrench cones as the repository's load sharing weighs them
+terminal behaviour
+  standing on both feet after the step back; no rest is certified
+training and evaluation split
+  none: no learned module
+seeds
+  none: no random numbers
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  none: an empirical demonstration in simulation; the repository's decoupling and decay certificates concern a fixed mode of its model, and every touchdown is a contact made, which no certificate of this book covers; no physical robot

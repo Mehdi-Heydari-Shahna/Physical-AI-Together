@@ -1,0 +1,221 @@
+k,t,p,v,governor,mode,proposed,req,onset,candidates,evaluated,admitted,selected,ambition,level,onset_level,reason
+0,0,0,0,normal,accelerate,2,0.5,0,7,1,2,1,1,24.98,24.98,no demand: the most ambitious admitted candidate
+1,0.1,0,0,normal,accelerate,2,0.5,0,7,1,2,1,1,24.92,24.92,no demand: the most ambitious admitted candidate
+2,0.2,0.01,0.2,normal,accelerate,2,0.5,0,7,1,2,1,1,24.82,24.82,no demand: the most ambitious admitted candidate
+3,0.3,0.04,0.4,normal,accelerate,2,0.5,0,7,1,2,1,1,24.68,24.68,no demand: the most ambitious admitted candidate
+4,0.4,0.09,0.6,normal,accelerate,2,0.5,0,7,1,2,1,1,24.5,24.5,no demand: the most ambitious admitted candidate
+5,0.5,0.16,0.8,normal,accelerate,2,0.5,0,7,1,2,1,1,24.28,24.28,no demand: the most ambitious admitted candidate
+6,0.6,0.25,1,normal,accelerate,2,0.5,0,7,1,2,1,1,24.02,24.02,no demand: the most ambitious admitted candidate
+7,0.7,0.36,1.2,normal,accelerate,2,0.5,0,7,1,2,1,1,23.72,23.72,no demand: the most ambitious admitted candidate
+8,0.8,0.49,1.4,normal,accelerate,2,0.5,0,7,1,2,1,1,23.38,23.38,no demand: the most ambitious admitted candidate
+9,0.9,0.64,1.6,normal,accelerate,2,0.5,0,7,1,2,1,1,23,23,no demand: the most ambitious admitted candidate
+10,1,0.81,1.8,normal,accelerate,2,0.5,0,7,1,2,1,1,22.58,22.58,no demand: the most ambitious admitted candidate
+11,1.1,1,2,normal,accelerate,2,0.5,0,7,1,2,1,1,22.12,22.12,no demand: the most ambitious admitted candidate
+12,1.2,1.21,2.2,normal,accelerate,2,0.5,0,7,1,2,1,1,21.62,21.62,no demand: the most ambitious admitted candidate
+13,1.3,1.44,2.4,normal,accelerate,2,0.5,0,7,1,2,1,1,21.08,21.08,no demand: the most ambitious admitted candidate
+14,1.4,1.69,2.6,normal,accelerate,2,0.5,0,7,1,2,1,1,20.5,20.5,no demand: the most ambitious admitted candidate
+15,1.5,1.96,2.8,normal,accelerate,2,0.5,0,7,1,2,1,1,19.88,19.88,no demand: the most ambitious admitted candidate
+16,1.6,2.25,3,normal,accelerate,2,0.5,0,7,1,2,1,1,19.22,19.22,no demand: the most ambitious admitted candidate
+17,1.7,2.56,3.2,normal,accelerate,2,0.5,0,7,1,2,1,1,18.52,18.52,no demand: the most ambitious admitted candidate
+18,1.8,2.89,3.4,normal,accelerate,2,0.5,0,7,1,2,1,1,17.78,17.78,no demand: the most ambitious admitted candidate
+19,1.9,3.24,3.6,normal,accelerate,2,0.5,0,7,1,2,1,1,17,17,no demand: the most ambitious admitted candidate
+20,2,3.61,3.8,normal,accelerate,2,0.5,0,7,1,2,1,1,16.18,16.18,no demand: the most ambitious admitted candidate
+21,2.1,4,4,normal,accelerate,2,0.5,0,7,1,2,1,1,15.32,15.32,no demand: the most ambitious admitted candidate
+22,2.2,4.41,4.2,normal,accelerate,2,0.5,0,7,1,2,1,1,14.42,14.42,no demand: the most ambitious admitted candidate
+23,2.3,4.84,4.4,normal,accelerate,2,0.5,0,7,1,2,1,1,13.48,13.48,no demand: the most ambitious admitted candidate
+24,2.4,5.29,4.6,normal,accelerate,2,0.5,0,7,1,2,1,1,12.5,12.5,no demand: the most ambitious admitted candidate
+25,2.5,5.76,4.8,normal,accelerate,2,0.5,0,7,1,2,1,1,11.48,11.48,no demand: the most ambitious admitted candidate
+26,2.6,6.25,5,normal,accelerate,2,0.5,0,7,1,2,1,1,10.42,10.42,no demand: the most ambitious admitted candidate
+27,2.7,6.76,5.2,normal,accelerate,2,0.5,0,7,1,2,1,1,9.32,9.32,no demand: the most ambitious admitted candidate
+28,2.8,7.29,5.4,normal,accelerate,2,0.5,0,7,1,2,1,1,8.18,8.18,no demand: the most ambitious admitted candidate
+29,2.9,7.84,5.6,normal,accelerate,2,0.5,0,7,1,2,1,1,7,7,no demand: the most ambitious admitted candidate
+30,3,8.41,5.8,normal,accelerate,2,0.5,0,7,1,2,1,1,5.78,5.78,no demand: the most ambitious admitted candidate
+31,3.1,9,6,normal,accelerate,2,0.5,0,7,1,2,1,1,3.05,3.05,no demand: the most ambitious admitted candidate
+32,3.2,9.61,6.2,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+33,3.3,10.24,6.4,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+34,3.4,10.87,6.2,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+35,3.5,11.48,6,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+36,3.6,12.07,5.8,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+37,3.7,12.64,5.6,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+38,3.8,13.19,5.4,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+39,3.9,13.72,5.2,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+40,4,14.23,5,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+41,4.1,14.72,4.8,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+42,4.2,15.19,4.6,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+43,4.3,15.64,4.4,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+44,4.4,16.07,4.2,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+45,4.5,16.48,4,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+46,4.6,16.87,3.8,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+47,4.7,17.24,3.6,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+48,4.8,17.59,3.4,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+49,4.9,17.92,3.2,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+50,5,18.23,3,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+51,5.1,18.52,2.8,normal,accelerate,2,0.5,0,7,1,1,0,0,3.05,3.05,fallback: the only admitted candidate
+52,5.2,18.79,2.6,normal,accelerate,2,0.5,0,7,1,2,1,1,1.02,1.02,no demand: the most ambitious admitted candidate
+53,5.3,19.04,2.4,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+54,5.4,19.29,2.6,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+55,5.5,19.54,2.4,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+56,5.6,19.77,2.2,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+57,5.7,19.98,2,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+58,5.8,20.1775,1.95,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+59,5.9,20.37,1.9,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+60,6,20.5575,1.85,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+61,6.1,20.74,1.8,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+62,6.2,20.9175,1.75,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+63,6.3,21.09,1.7,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+64,6.4,21.2575,1.65,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+65,6.5,21.42,1.6,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+66,6.6,21.5775,1.55,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+67,6.7,21.73,1.5,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+68,6.8,21.8775,1.45,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+69,6.9,22.02,1.4,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+70,7,22.1575,1.35,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+71,7.1,22.29,1.3,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+72,7.2,22.4175,1.25,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+73,7.3,22.54,1.2,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+74,7.4,22.6575,1.15,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+75,7.5,22.77,1.1,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+76,7.6,22.8775,1.05,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+77,7.7,22.98,1,normal,accelerate,2,0.5,0,7,1,1,0,0,1.02,1.02,fallback: the only admitted candidate
+78,7.8,23.0775,0.95,normal,accelerate,2,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+79,7.9,23.17,0.9,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+80,8,23.27,1.1,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+81,8.1,23.3775,1.05,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+82,8.2,23.48,1,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+83,8.3,23.5775,0.95,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+84,8.4,23.67,0.9,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+85,8.5,23.7575,0.85,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+86,8.6,23.84,0.8,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+87,8.7,23.9175,0.75,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+88,8.8,23.99,0.7,normal,accelerate,2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+89,8.9,24.0575,0.65,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+90,9,24.12,0.6,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+91,9.1,24.1775,0.55,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+92,9.2,24.23,0.5,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+93,9.3,24.2775,0.45,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+94,9.4,24.32,0.4,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+95,9.5,24.3575,0.35,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+96,9.6,24.39,0.3,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+97,9.7,24.4175,0.25,normal,hold,-2,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+98,9.8,24.44,0.2,normal,hold,-1.5,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+99,9.9,24.4575,0.15,normal,hold,-1,0.5,0,7,1,1,0,0,0.52,0.52,fallback: the only admitted candidate
+100,10,24.47,0.1,normal,hold,-0.5,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+101,10.1,24.4775,0.05,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+102,10.2,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+103,10.3,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+104,10.4,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+105,10.5,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+106,10.6,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+107,10.7,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+108,10.8,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+109,10.9,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+110,11,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+111,11.1,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+112,11.2,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+113,11.3,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+114,11.4,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+115,11.5,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+116,11.6,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+117,11.7,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+118,11.8,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+119,11.9,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+120,12,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+121,12.1,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+122,12.2,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+123,12.3,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+124,12.4,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+125,12.5,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+126,12.6,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+127,12.7,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+128,12.8,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+129,12.9,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+130,13,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+131,13.1,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+132,13.2,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+133,13.3,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+134,13.4,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+135,13.5,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+136,13.6,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+137,13.7,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+138,13.8,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+139,13.9,24.48,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+140,14,24.48,0,normal,hold,0,1.3,59,7,1,2,1,1,0.52,1.32,demand: the only candidate with the highest first key
+141,14.1,24.48,0,normal,hold,0,1.3,58,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+142,14.2,24.48,0,normal,hold,0,1.3,57,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+143,14.3,24.48,0,normal,hold,0,1.3,56,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+144,14.4,24.48,0,normal,hold,0,1.3,55,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+145,14.5,24.48,0,normal,hold,0,1.3,54,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+146,14.6,24.48,0,normal,hold,0,1.3,53,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+147,14.7,24.48,0,normal,hold,0,1.3,52,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+148,14.8,24.48,0,normal,hold,0,1.3,51,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+149,14.9,24.48,0,normal,hold,0,1.3,50,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+150,15,24.48,0,normal,hold,0,1.3,49,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+151,15.1,24.48,0,normal,hold,0,1.3,48,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+152,15.2,24.48,0,normal,hold,0,1.3,47,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+153,15.3,24.48,0,normal,hold,0,1.3,46,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+154,15.4,24.48,0,normal,hold,0,1.3,45,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+155,15.5,24.48,0,normal,hold,0,1.3,44,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+156,15.6,24.48,0,normal,hold,0,1.3,43,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+157,15.7,24.48,0,normal,hold,0,1.3,42,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+158,15.8,24.48,0,normal,hold,0,1.3,41,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+159,15.9,24.48,0,normal,hold,0,1.3,40,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+160,16,24.48,0,normal,hold,0,1.3,39,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+161,16.1,24.48,0,normal,hold,0,1.3,38,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+162,16.2,24.48,0,normal,hold,0,1.3,37,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+163,16.3,24.48,0,normal,hold,0,1.3,36,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+164,16.4,24.48,0,normal,hold,0,1.3,35,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+165,16.5,24.48,0,normal,hold,0,1.3,34,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+166,16.6,24.48,0,normal,hold,0,1.3,33,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+167,16.7,24.48,0,normal,hold,0,1.3,32,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+168,16.8,24.48,0,normal,hold,0,1.3,31,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+169,16.9,24.48,0,normal,hold,0,1.3,30,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+170,17,24.48,0,normal,hold,0,1.3,29,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+171,17.1,24.48,0,normal,hold,0,1.3,28,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+172,17.2,24.48,0,normal,hold,0,1.3,27,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+173,17.3,24.48,0,normal,hold,0,1.3,26,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+174,17.4,24.48,0,normal,hold,0,1.3,25,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+175,17.5,24.48,0,normal,hold,0,1.3,24,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+176,17.6,24.48,0,normal,hold,0,1.3,23,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+177,17.7,24.48,0,normal,hold,0,1.3,22,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+178,17.8,24.48,0,normal,hold,0,1.3,21,7,1,2,1,1,0.52,1.32,demand: the most ambitious of the candidates with the highest first key
+179,17.9,24.48,0,normal,hold,0,1.3,20,7,1,2,1,1,0.52,1.31,demand: the most ambitious of the candidates with the highest first key
+180,18,24.48,0,normal,hold,0,1.3,19,7,1,2,0,0,0.52,1.31,fallback: the only candidate with the highest first key
+181,18.1,24.48,0,normal,hold,0.5,1.3,18,7,1,2,0,0,0.52,1.31,fallback: the only candidate with the highest first key
+182,18.2,24.4775,-0.05,normal,hold,1,1.3,17,7,1,2,0,0,0.53,1.31,fallback: the only candidate with the highest first key
+183,18.3,24.47,-0.1,normal,hold,1.5,1.3,16,7,1,2,0,0,0.54,1.31,fallback: the only candidate with the highest first key
+184,18.4,24.4575,-0.15,normal,hold,2,1.3,15,7,1,2,0,0,0.56,1.31,fallback: the only candidate with the highest first key
+185,18.5,24.44,-0.2,normal,hold,2,1.3,14,7,1,2,0,0,0.58,1.31,fallback: the only candidate with the highest first key
+186,18.6,24.4175,-0.25,normal,hold,2,1.3,13,7,1,2,0,0,0.61,1.31,fallback: the only candidate with the highest first key
+187,18.7,24.39,-0.3,normal,hold,2,1.3,12,7,1,2,0,0,0.64,1.31,fallback: the only candidate with the highest first key
+188,18.8,24.3575,-0.35,normal,hold,2,1.3,11,7,1,2,0,0,0.68,1.31,fallback: the only candidate with the highest first key
+189,18.9,24.32,-0.4,normal,hold,2,1.3,10,7,1,2,0,0,0.72,1.31,fallback: the only candidate with the highest first key
+190,19,24.2775,-0.45,normal,hold,2,1.3,9,7,1,2,0,0,0.77,1.31,fallback: the only candidate with the highest first key
+191,19.1,24.23,-0.5,normal,hold,2,1.3,8,7,1,2,0,0,0.82,1.31,fallback: the only candidate with the highest first key
+192,19.2,24.1775,-0.55,normal,hold,2,1.3,7,7,1,2,0,0,0.88,1.31,fallback: the only candidate with the highest first key
+193,19.3,24.12,-0.6,normal,hold,2,1.3,6,7,1,2,0,0,0.94,1.31,fallback: the only candidate with the highest first key
+194,19.4,24.0575,-0.65,normal,hold,2,1.3,5,7,1,2,0,0,1.01,1.31,fallback: the only candidate with the highest first key
+195,19.5,23.99,-0.7,normal,hold,2,1.3,4,7,1,2,0,0,1.08,1.31,fallback: the only candidate with the highest first key
+196,19.6,23.9175,-0.75,normal,hold,2,1.3,3,7,1,2,1,1,1.16,1.31,demand: the most ambitious of the candidates with the highest first key
+197,19.7,23.84,-0.8,normal,hold,2,1.3,2,7,1,2,1,1,1.23,1.31,demand: the most ambitious of the candidates with the highest first key
+198,19.8,23.77,-0.6,normal,hold,2,1.3,1,7,1,2,1,1,1.28,1.31,demand: the most ambitious of the candidates with the highest first key
+199,19.9,23.72,-0.4,normal,hold,2,1.3,0,7,1,2,1,1,1.31,1.31,demand: the most ambitious of the candidates with the highest first key
+200,20,23.69,-0.2,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+201,20.1,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+202,20.2,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+203,20.3,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+204,20.4,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+205,20.5,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+206,20.6,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+207,20.7,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+208,20.8,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+209,20.9,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+210,21,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+211,21.1,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+212,21.2,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+213,21.3,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+214,21.4,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+215,21.5,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+216,21.6,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+217,21.7,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+218,21.8,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate
+219,21.9,23.68,0,normal,hold,0,0.5,0,7,1,2,1,1,0.52,0.52,no demand: the most ambitious admitted candidate

@@ -1,0 +1,6 @@
+[diffusion policy seed 1] arrived = 20 of 20; arrival = 9.75 s; arrival_range = 9.2 to 10.2 s; mean_intervention = 0.285; alarms = 0; largest_position_all = 24.474 m
+[diffusion policy seed 1] 470 + 690 records; 10000 + 25000 gradient steps; training 7832 s
+[diffusion policy seed 2] arrived = 20 of 20; arrival = 9.79 s; arrival_range = 9.3 to 10.3 s; mean_intervention = 0.392; alarms = 0; largest_position_all = 24.474 m
+[diffusion policy seed 2] 483 + 803 records; 10000 + 30000 gradient steps; training 9672 s
+[diffusion policy seed 3] arrived = 20 of 20; arrival = 9.74 s; arrival_range = 9.3 to 10.2 s; mean_intervention = 0.378; alarms = 0; largest_position_all = 24.472 m
+[diffusion policy seed 3] 475 + 505 records; 10000 + 20000 gradient steps; training 7259 s

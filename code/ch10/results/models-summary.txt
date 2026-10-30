@@ -1,0 +1,45 @@
+[the cart's model]
+  items provided = 6
+  items of the boundary = 6
+  model check: sample states, inputs = 5, 6
+  model check: problems = 0
+  declarations of robot, world and control vs model: problems = 0
+  motion of the track vs model: cases = 26
+  motion of the track vs model: differences = 0
+[a simulator adapter that reports millimetres]
+  configuration built = yes
+  declarations vs model: problems = 0
+  motion vs model: differences = 21 of 26
+  motion vs model: first difference = from (0, 0, 0) under (2, 0): the model gives (0.01, 0.2, 0), the simulator adapter (10, 200, 0)
+  motion vs model: differences in which it raised = 6
+  motion vs model: cases that agree = 5, all with u_a = 0 and u_l = 0
+  run: first alarm = 0.2 s
+  check suite of Section 10.3 = 7 passed, 1 failed, 5 not applicable
+  check suite: first failure = outputs of the contracted kinds: period 2: world.step raised NotImplementedError('this simulator adapter realizes the rest feedback only while it brakes a forward motion on the ramp, as after every alarm of the book'); it has no default
+[the export of RoboCompiler (six-UPS Stewart platform)]
+  bodies = 21
+  joints = 25
+  joints by type = 12 revolute, 6 prismatic, 6 spherical, 1 fixed
+  actuators = 6
+  actuator units = N
+  physical cycles = 5
+  point closures = 5
+  tree coordinates = 21
+  independent coordinates = 6
+  independent coordinate joints = prismatic
+  strokes of the independent coordinates = 0.5 to 0.91 m
+  point residual rows = 15
+  augmented coordinates = 36
+  augmented residual rows = 30
+  declared actuators = 6
+  dimensional mobility = 6
+  state components = 12
+  state units = m, m/s
+  item: coordinates = provided
+  item: kinematics = elsewhere
+  item: dynamics = elsewhere
+  item: actuation = elsewhere
+  item: norm = missing
+  item: hold and meaning = missing
+  model check = kinematics: elsewhere; dynamics: elsewhere; actuation: elsewhere; norm: missing; hold and meaning: missing
+[check] 41 values quoted in Section 10.4: all as quoted

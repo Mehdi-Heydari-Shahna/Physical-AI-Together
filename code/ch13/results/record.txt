@@ -1,0 +1,35 @@
+Record of the experiment of Section 13.1: the Husky A300 in MuJoCo, its contacts and its capability on the grounds of the yard
+
+model and asset provenance
+  clearpath_common, https://github.com/clearpathrobotics/clearpath_common, commit 78e3677412f1fed881f6436cdaf404f04f28ee4f (19 October 2026), clearpath_platform_description and clearpath_control 2.9.18, BSD 3-Clause
+  expanded by xacro 2.1.1 into description/husky_a300.urdf (options: a300 control=diff_4wd front_wheels=outdoor rear_wheels=outdoor, front and rear bumpers)
+  loaded as asset.urdf_text gives it: visual elements and the collision meshes of massless links removed; the right beam's wheel mounts mirrored (track 0.5658 m, published 0.5468 m); SHA-256 of the text d7b2542c25c84fed...
+  added by husky/model.py: free joint, no inferred bumper mass, wheel actuators, sensors, contact pairs, the yard
+simulator and solver
+  MuJoCo 3.16.0, NumPy and Python 2.5.3, 3.13.17
+  integrator = implicitfast; solver = Newton; friction cone = elliptic; iterations, tolerance = 100, 1e-08; impratio, noslip iterations = 100, 0
+  wheel-ground pairs: solref, solimp, solreffriction = 0.008 1; 0.05 0.05 0.001 0.5 2; -0 -3 (friction damping 60 1/s)
+  other contacts: MuJoCo's defaults (solref 0.02 1, solimp 0.9 0.95 0.001 0.5 2)
+  settings that differ from MuJoCo's defaults: time step, integrator, friction cone, impratio (defaults: 0.002 s, euler, pyramidal, 1)
+time steps
+  simulator 0.0005 s; drive controller at 50 Hz, one every 40 steps; drivers' speed loops at every step; the stops, spins and turns repeated at 1 and 0.25 ms
+actuators and sensors
+  drive controller: diff_drive_controller (ros2_controllers, jazzy, d71703b) as ported in husky/drive.py, configuration diff_4wd.yaml: 50, 0.562 x 1.75, 0.1625
+  drivers (ours): speed loop, proportional gain, integral time and torque limit 40, 0.1, 30
+  sensors: four wheel encoders (positions, speeds), a 6-axis IMU at the chassis' centre (ours: the description places none); the chassis pose from the simulator
+frames and units
+  SI units; world x east, y north, z up, ground at z = 0; base_link x forward, y left; route arc length s, lateral offset d positive to the left
+uncertainty bounds
+  frictions of the grounds (the simulator's, not measured): asphalt 0.8, gravel 0.6, wet grass 0.35; no labels yet (Section 13.2)
+constraints
+  lane 1.4 m wide centred on the route, to hold the robot's footprint (0.990 m x 0.698 m); pallets 0.1 m outside its edges; the dock's face at s = 25 m; speed at most 1 m/s on the route; controller limits 2, 2, 4
+terminal behaviour
+  a stop commanded through the controller (deceleration limit 4 m/s^2)
+training and evaluation split
+  none: nothing learns in Section 13.1
+seeds
+  none: no random numbers
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+guarantee status
+  none: Section 13.1 states the task and measures the simulated robot; no plan is certified

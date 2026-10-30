@@ -1,0 +1,38 @@
+Record of the experiment of Section 14.3: the heavy-duty mobile manipulator governed through a lift and two turns
+
+model and asset provenance
+  the synthetic mobile manipulator of Section 14.1 (hdmm/model.py), every number ours; its labels, limits, floors, lift and allowance of 0.005 m with the arm held those of Section 14.2 (hdmm/labels.py); the yard, its grounds and survey, the task, the modules, the allowance of 0.01 m before a lift's end and the runs ours (hdmm/route.py, hdmm/governed.py, hdmm_governed.py); no parameter identified from a machine
+simulator and solver
+  MuJoCo 3.16.0; NumPy and Python 2.5.3, 3.13.17; implicitfast, elliptic cones, MuJoCo's default contact softness, the ratio of frictional to normal impedance 20; each wheel's contact on the friction of the ground under it; the machine held in the base's frame, which turns with the route, every body feeling that frame's forces (hdmm/sim.py)
+time steps
+  the simulation 1 ms; the governor's period 0.6 s; 100 periods, the machine settled 2 s at rest before the first
+actuators and sensors
+  those of Section 14.2: brakes 4 and drive 1.5 m/s^2, top speed 3 m/s, each change of the acceleration along a half-cosine over a period, within +-0.5 m/s^2 in a turn; slew, lift, tilt 8, 30, 12 kN m, the motion's share counted 1.2 times; position servos of 2e6 N m/rad offset against gravity for the payload believed; the measurement the simulated state, exact
+frames and units
+  SI units; the state's arc length along the route of the base's middle; the base's x forward, y left, z up
+uncertainty bounds
+  the labels' payload intervals and frictions (hdmm/governed.py's predictors); the funnel's bounds: the creep 0.001 m; the arm held, slew, lift and tilt within 0.005, 0.002, 0.002 rad of its planned pose; lifting, within those of a pose on the lift's path at most 0.04 of the path behind the planned pose and 0.001 ahead of it; the norms, weighting the arc length [m/m], the speed [s], the acceleration [s^2], the slew, the lift and the tilt [m/rad] by 1.5, 1, 0.25, 0.85, 1, 0.4 for the margin against tipping over and 1, 1, 0.25, 4.4, 4.4, 2 for the clearance, each weight at least the constant of Lemma 14.1 that bounds how far a change of that component moves the family's point; the state's norm, of the measurement and the alarm check, the larger of the two (Section 14.3)
+constraints
+  the tipping reserve and the clearance at the stop line, floors 0.10 m, the allowances 0.005, 0.01 m with the arm held and before a lift's end, levels on whole centimetres; the drop zone 0.5 m
+terminal behaviour
+  the recovery of hdmm/governed.py, then rest on the brakes; after an alarm the rest feedback at the global capability's limits and a restart at rest
+configurations
+  reference: the site's survey, the lift announced, cruise, hdmm.route-arm
+  fixed: the fixed predictor: the global capability
+  old-map: a map without the wet patch
+  oracle: the true frictions (a diagnostic)
+  reactive: the lift not announced
+  always: the lift's requirement from the start
+  route-aware: the route-aware proposal
+  gentle: a recovery braking at 1.5 m/s^2 at most
+  gentle-reactive: that recovery, the lift not announced
+  misdeclared: 200 kg +- 10 % declared, 290 kg held
+  ungoverned: the cruise proposal at the actuators' limits, without the governor
+training and evaluation split
+  none: the route-aware proposal is a fixed stand-in for a learner, nothing learns
+seeds
+  none: no random numbers
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  the levels are reserves of the margin against tipping over, and the floor one of the clearance, in the sense of Definition 4.4, for the rigid machine in its norms (Proposition 14.2); the funnel's bounds and the allowances' cover of what the rigid machine leaves out (Assumption 14.3) are assumptions of the package, tested in MuJoCo in the runs and in every plan executed unchanged, not proved; no physical machine

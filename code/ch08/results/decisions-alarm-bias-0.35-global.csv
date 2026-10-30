@@ -1,0 +1,221 @@
+k,t,p,v,governor,mode,proposed,req,onset,candidates,evaluated,admitted,selected,ambition,level,onset_level,reason
+0,0,0,0,normal,accelerate,2,0.5,0,7,6,7,1,1,24.98,24.98,no demand: the most ambitious admitted candidate
+1,0.1,0,0,normal,accelerate,2,0.5,0,7,6,7,1,1,24.92,24.92,no demand: the most ambitious admitted candidate
+2,0.2,0.01,0.2,normal,accelerate,2,0.5,0,7,6,7,1,1,24.82,24.82,no demand: the most ambitious admitted candidate
+3,0.3,0.04,0.4,normal,accelerate,2,0.5,0,7,6,7,1,1,24.68,24.68,no demand: the most ambitious admitted candidate
+4,0.4,0.09,0.6,normal,accelerate,2,0.5,0,7,6,7,1,1,24.5,24.5,no demand: the most ambitious admitted candidate
+5,0.5,0.16,0.8,normal,accelerate,2,0.5,0,7,6,7,1,1,24.28,24.28,no demand: the most ambitious admitted candidate
+6,0.6,0.25,1,normal,accelerate,2,0.5,0,7,6,7,1,1,24.02,24.02,no demand: the most ambitious admitted candidate
+7,0.7,0.36,1.2,normal,accelerate,2,0.5,0,7,6,7,1,1,23.72,23.72,no demand: the most ambitious admitted candidate
+8,0.8,0.49,1.4,normal,accelerate,2,0.5,0,7,6,7,1,1,23.38,23.38,no demand: the most ambitious admitted candidate
+9,0.9,0.64,1.6,normal,accelerate,2,0.5,0,7,6,7,1,1,23,23,no demand: the most ambitious admitted candidate
+10,1,0.81,1.8,normal,accelerate,2,0.5,0,7,6,7,1,1,22.58,22.58,no demand: the most ambitious admitted candidate
+11,1.1,1,2,normal,accelerate,2,0.5,0,7,6,7,1,1,22.12,22.12,no demand: the most ambitious admitted candidate
+12,1.2,1.21,2.2,normal,accelerate,2,0.5,0,7,6,7,1,1,21.62,21.62,no demand: the most ambitious admitted candidate
+13,1.3,1.44,2.4,normal,accelerate,2,0.5,0,7,6,7,1,1,21.08,21.08,no demand: the most ambitious admitted candidate
+14,1.4,1.69,2.6,normal,accelerate,2,0.5,0,7,6,7,1,1,20.5,20.5,no demand: the most ambitious admitted candidate
+15,1.5,1.96,2.8,normal,accelerate,2,0.5,0,7,6,7,1,1,19.88,19.88,no demand: the most ambitious admitted candidate
+16,1.6,2.25,3,normal,accelerate,2,0.5,0,7,6,7,1,1,19.22,19.22,no demand: the most ambitious admitted candidate
+17,1.7,2.56,3.2,normal,accelerate,2,0.5,0,7,6,7,1,1,18.52,18.52,no demand: the most ambitious admitted candidate
+18,1.8,2.89,3.4,normal,accelerate,2,0.5,0,7,6,7,1,1,17.78,17.78,no demand: the most ambitious admitted candidate
+19,1.9,3.24,3.6,normal,accelerate,2,0.5,0,7,6,7,1,1,17,17,no demand: the most ambitious admitted candidate
+20,2,3.61,3.8,normal,accelerate,2,0.5,0,7,6,7,1,1,16.18,16.18,no demand: the most ambitious admitted candidate
+21,2.1,4,4,normal,accelerate,2,0.5,0,7,6,7,1,1,15.32,15.32,no demand: the most ambitious admitted candidate
+22,2.2,4.41,4.2,normal,accelerate,2,0.5,0,7,6,7,1,1,14.42,14.42,no demand: the most ambitious admitted candidate
+23,2.3,4.84,4.4,normal,accelerate,2,0.5,0,7,6,7,1,1,13.48,13.48,no demand: the most ambitious admitted candidate
+24,2.4,5.29,4.6,normal,accelerate,2,0.5,0,7,6,7,1,1,12.5,12.5,no demand: the most ambitious admitted candidate
+25,2.5,5.76,4.8,normal,accelerate,2,0.5,0,7,6,7,1,1,11.48,11.48,no demand: the most ambitious admitted candidate
+26,2.6,6.25,5,normal,accelerate,2,0.5,0,7,6,7,1,1,10.42,10.42,no demand: the most ambitious admitted candidate
+27,2.7,6.76,5.2,normal,accelerate,2,0.5,0,7,6,7,1,1,9.32,9.32,no demand: the most ambitious admitted candidate
+28,2.8,7.29,5.4,normal,accelerate,2,0.5,0,7,6,7,1,1,8.18,8.18,no demand: the most ambitious admitted candidate
+29,2.9,7.84,5.6,normal,accelerate,2,0.5,0,7,6,7,1,1,7,7,no demand: the most ambitious admitted candidate
+30,3,8.41,5.8,normal,accelerate,2,0.5,0,7,6,7,1,1,5.78,5.78,no demand: the most ambitious admitted candidate
+31,3.1,9,6,normal,accelerate,2,0.5,0,7,6,7,1,1,4.04,4.04,no demand: the most ambitious admitted candidate
+32,3.2,9.61,6.2,normal,accelerate,2,0.5,0,7,6,5,3,0.5,1.45,1.45,no demand: the most ambitious admitted candidate
+33,3.3,10.24,6.4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+34,3.4,10.88,6.4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+35,3.5,11.51,6.2,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+36,3.6,12.12,6,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+37,3.7,12.71,5.8,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+38,3.8,13.28,5.6,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+39,3.9,13.83,5.4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+40,4,14.36,5.2,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+41,4.1,14.87,5,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+42,4.2,15.36,4.8,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+43,4.3,15.83,4.6,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+44,4.4,16.28,4.4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+45,4.5,16.71,4.2,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+46,4.6,17.12,4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+47,4.7,17.51,3.8,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+48,4.8,17.88,3.6,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+49,4.9,18.23,3.4,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+50,5,18.56,3.2,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+51,5.1,18.87,3,normal,accelerate,2,0.5,0,7,6,3,5,0,1.45,1.45,no demand: the most ambitious admitted candidate
+52,5.2,19.16,2.8,normal,accelerate,2,0.5,0,7,6,4,4,0.25,1.04,1.04,no demand: the most ambitious admitted candidate
+53,5.3,19.43,2.6,normal,accelerate,2,0.5,0,7,6,3,5,0,1.04,1.04,no demand: the most ambitious admitted candidate
+54,5.4,19.685,2.5,normal,accelerate,2,0.5,0,7,6,3,5,0,1.04,1.04,no demand: the most ambitious admitted candidate
+55,5.5,19.925,2.3,normal,accelerate,2,0.5,0,7,6,3,5,0,1.04,1.04,no demand: the most ambitious admitted candidate
+56,5.6,20.148358,2.200373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+57,5.7,20.365896,2.150373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+58,5.8,20.578433,2.100373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+59,5.9,20.78597,2.050373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+60,6,20.988507,2.000373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+61,6.1,21.186045,1.950373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+62,6.2,21.378582,1.900373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+63,6.3,21.566119,1.850373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+64,6.4,21.748657,1.800373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+65,6.5,21.926194,1.750373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+66,6.6,22.098731,1.700373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+67,6.7,22.266269,1.650373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+68,6.8,22.428806,1.600373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+69,6.9,22.586343,1.550373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+70,7,22.738881,1.500373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+71,7.1,22.886418,1.450373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+72,7.2,23.028955,1.400373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+73,7.3,23.166493,1.350373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+74,7.4,23.29903,1.300373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+75,7.5,23.426567,1.250373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+76,7.6,23.549104,1.200373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+77,7.7,23.666642,1.150373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+78,7.8,23.779179,1.100373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+79,7.9,23.886716,1.050373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+80,8,23.989254,1.000373,rest feedback,accelerate,2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+81,8.1,24.086791,0.950373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+82,8.2,24.179328,0.900373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+83,8.3,24.266866,0.850373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+84,8.4,24.349403,0.800373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+85,8.5,24.42694,0.750373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+86,8.6,24.499478,0.700373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+87,8.7,24.567015,0.650373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+88,8.8,24.629552,0.600373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+89,8.9,24.687089,0.550373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+90,9,24.739627,0.500373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+91,9.1,24.787164,0.450373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+92,9.2,24.829701,0.400373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+93,9.3,24.867239,0.350373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+94,9.4,24.899776,0.300373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+95,9.5,24.927313,0.250373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+96,9.6,24.949851,0.200373,rest feedback,hold,-2,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+97,9.7,24.967388,0.150373,rest feedback,hold,-1.503731,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+98,9.8,24.979925,0.100373,rest feedback,hold,-1.003731,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+99,9.9,24.987463,0.050373,rest feedback,hold,-0.503731,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.009981 m at the rest point 24.990019 m, below the floor"
+100,10,24.99,0.000373,rest feedback,hold,-0.003731,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+101,10.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+102,10.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+103,10.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+104,10.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+105,10.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+106,10.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+107,10.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+108,10.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+109,10.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+110,11,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+111,11.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+112,11.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+113,11.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+114,11.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+115,11.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+116,11.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+117,11.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+118,11.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+119,11.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+120,12,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+121,12.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+122,12.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+123,12.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+124,12.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+125,12.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+126,12.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+127,12.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+128,12.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+129,12.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+130,13,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+131,13.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+132,13.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+133,13.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+134,13.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+135,13.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+136,13.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+137,13.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+138,13.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+139,13.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+140,14,24.99,0,rest feedback,hold,0,1.3,59,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+141,14.1,24.99,0,rest feedback,hold,0,1.3,58,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+142,14.2,24.99,0,rest feedback,hold,0,1.3,57,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+143,14.3,24.99,0,rest feedback,hold,0,1.3,56,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+144,14.4,24.99,0,rest feedback,hold,0,1.3,55,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+145,14.5,24.99,0,rest feedback,hold,0,1.3,54,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+146,14.6,24.99,0,rest feedback,hold,0,1.3,53,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+147,14.7,24.99,0,rest feedback,hold,0,1.3,52,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+148,14.8,24.99,0,rest feedback,hold,0,1.3,51,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+149,14.9,24.99,0,rest feedback,hold,0,1.3,50,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+150,15,24.99,0,rest feedback,hold,0,1.3,49,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+151,15.1,24.99,0,rest feedback,hold,0,1.3,48,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+152,15.2,24.99,0,rest feedback,hold,0,1.3,47,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+153,15.3,24.99,0,rest feedback,hold,0,1.3,46,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+154,15.4,24.99,0,rest feedback,hold,0,1.3,45,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+155,15.5,24.99,0,rest feedback,hold,0,1.3,44,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+156,15.6,24.99,0,rest feedback,hold,0,1.3,43,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+157,15.7,24.99,0,rest feedback,hold,0,1.3,42,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+158,15.8,24.99,0,rest feedback,hold,0,1.3,41,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+159,15.9,24.99,0,rest feedback,hold,0,1.3,40,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+160,16,24.99,0,rest feedback,hold,0,1.3,39,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+161,16.1,24.99,0,rest feedback,hold,0,1.3,38,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+162,16.2,24.99,0,rest feedback,hold,0,1.3,37,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+163,16.3,24.99,0,rest feedback,hold,0,1.3,36,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+164,16.4,24.99,0,rest feedback,hold,0,1.3,35,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+165,16.5,24.99,0,rest feedback,hold,0,1.3,34,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+166,16.6,24.99,0,rest feedback,hold,0,1.3,33,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+167,16.7,24.99,0,rest feedback,hold,0,1.3,32,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+168,16.8,24.99,0,rest feedback,hold,0,1.3,31,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+169,16.9,24.99,0,rest feedback,hold,0,1.3,30,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+170,17,24.99,0,rest feedback,hold,0,1.3,29,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+171,17.1,24.99,0,rest feedback,hold,0,1.3,28,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+172,17.2,24.99,0,rest feedback,hold,0,1.3,27,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+173,17.3,24.99,0,rest feedback,hold,0,1.3,26,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+174,17.4,24.99,0,rest feedback,hold,0,1.3,25,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+175,17.5,24.99,0,rest feedback,hold,0,1.3,24,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+176,17.6,24.99,0,rest feedback,hold,0,1.3,23,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+177,17.7,24.99,0,rest feedback,hold,0,1.3,22,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+178,17.8,24.99,0,rest feedback,hold,0,1.3,21,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+179,17.9,24.99,0,rest feedback,hold,0,1.3,20,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+180,18,24.99,0,rest feedback,hold,0,1.3,19,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+181,18.1,24.99,0,rest feedback,hold,0,1.3,18,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+182,18.2,24.99,0,rest feedback,hold,0,1.3,17,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+183,18.3,24.99,0,rest feedback,hold,0,1.3,16,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+184,18.4,24.99,0,rest feedback,hold,0,1.3,15,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+185,18.5,24.99,0,rest feedback,hold,0,1.3,14,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+186,18.6,24.99,0,rest feedback,hold,0,1.3,13,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+187,18.7,24.99,0,rest feedback,hold,0,1.3,12,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+188,18.8,24.99,0,rest feedback,hold,0,1.3,11,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+189,18.9,24.99,0,rest feedback,hold,0,1.3,10,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+190,19,24.99,0,rest feedback,hold,0,1.3,9,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+191,19.1,24.99,0,rest feedback,hold,0,1.3,8,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+192,19.2,24.99,0,rest feedback,hold,0,1.3,7,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+193,19.3,24.99,0,rest feedback,hold,0,1.3,6,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+194,19.4,24.99,0,rest feedback,hold,0,1.3,5,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+195,19.5,24.99,0,rest feedback,hold,0,1.3,4,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+196,19.6,24.99,0,rest feedback,hold,0,1.3,3,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+197,19.7,24.99,0,rest feedback,hold,0,1.3,2,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+198,19.8,24.99,0,rest feedback,hold,0,1.3,1,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+199,19.9,24.99,0,rest feedback,hold,0,1.3,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at pair 0, up to 24.99 m, below the floor"
+200,20,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+201,20.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+202,20.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+203,20.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+204,20.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+205,20.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+206,20.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+207,20.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+208,20.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+209,20.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+210,21,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+211,21.1,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+212,21.2,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+213,21.3,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+214,21.4,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+215,21.5,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+216,21.6,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+217,21.7,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+218,21.8,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"
+219,21.9,24.99,0,rest feedback,hold,0,0.5,0,6,6,0,,0,,,"no restart candidate admitted: clearance 0.01 m at the rest point 24.99 m, below the floor"

@@ -1,0 +1,42 @@
+Record of the anticipation benchmark of Chapter 16
+
+model and asset provenance
+  the cart of Chapter 3 (../ch03/cart_example.py), its modules of Chapter 10 (../ch10/cart), the survey's calibration of Section 7.3 (../ch07/cart_forecasts.py); the benchmark's modules ours (bench/)
+simulator and solver
+  none: the motion is computed in exact rational arithmetic; Python 3.13.17
+time steps
+  the governor's period 0.1 s; 320 periods
+actuators and sensors
+  the command bound 2 m/s^2; the measurement exact
+frames and units
+  SI units; the position along the track from the start
+uncertainty bounds
+  the global capability, braking of 0.5 m/s^2; the survey's offset, calibrated in Section 7.3
+constraints
+  p + l <= 25 m, the reserve floor 0.5 m; the operation's reserve 1.3 m
+terminal behaviour
+  the rest at standstill, the brakes engaged; after an alarm, maximal braking and a restart at rest
+configurations
+  C1: filter, fixed model
+  C2: filter, measured model
+  C3: filter, survey
+  C4: fixed conservatism
+  C5: reactive preparation
+  C6: ALLOVI
+  C7: ALLOVI without the capability forecast
+  C8: oracle capability (diagnostic)
+  C9: oracle demand (diagnostic)
+  C10: both oracles (diagnostic)
+  C11: filter, survey, preview planner
+  C12: filter, survey, late preview planner
+  C13: ALLOVI, late preview planner
+  C14: ALLOVI, preview planner
+  C15: ALLOVI, one candidate per period
+training and evaluation split
+  none: no learned module; the calibration worlds of Section 7.3 (seeds 1001-1100) set the survey's offset, and the benchmark's worlds are used for nothing else
+seeds
+  the worlds 16001 to 16100, through random.Random(seed)
+hardware
+  x86_64, Linux
+guarantee status
+  hypothesis A1 tests the safety theorem of Chapter 9 under its assumption, valid executed labels, assessed by the world's oracle; the other hypotheses concern useful performance and are measured, not guaranteed

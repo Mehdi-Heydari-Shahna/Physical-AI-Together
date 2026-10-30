@@ -1,0 +1,28 @@
+Record of the experiment of Section 14.1: the UR5e in MuJoCo, its swing towards a post and its stop
+
+model and asset provenance
+  ur_description 3.6.0, https://github.com/UniversalRobots/Universal_Robots_ROS2_Description, commit 7ce98d8c3512b9d0239da93b75de68ea64f61bd6 (22 October 2026), BSD 3-Clause; the configuration files and collision meshes copied (description/NOTICE.md); the mapping of UR's macro done by arm/model.py, without xacro
+  added by arm/model.py (ours): torque actuators at the joints' limits, the payload (box of 0.1 m, centre of mass 0.05 m from the flange), the post and the table
+simulator and solver
+  MuJoCo 3.16.0; NumPy, PyYAML and Python 2.5.3, 6.0.3, 3.13.17; time step and integrator 0.0005; implicitfast
+time steps
+  simulator 0.5 ms; controller at 1000 Hz; one stop repeated at 1 and 0.25 ms
+actuators and sensors
+  torque at each joint, limits 150, 150, 150, 28, 28, 28 N m (joint_limits.yaml); no friction, damping or rotor inertia (the description's); the state from the simulator
+  controller (ours): computed torque, KP 900 1/s^2, KD 60 1/s, torques clipped at the limits
+frames and units
+  SI units; base_link x forward, z up, the table at z = 0; the task's angles those of tool0 about the base's axis
+uncertainty bounds
+  none: the model is nominal, and the capabilities found carry no margin for its errors
+constraints
+  no contact with the post; the joints within the ranges of joint_limits.yaml (MuJoCo's joint limits), their speeds within 180 deg/s (not enforced; the summary gives the largest) and their torques within its limits (clipped by the controller)
+terminal behaviour
+  the commanded stop of the base joint at a constant deceleration
+training and evaluation split
+  none: nothing learns in Section 14.1
+seeds
+  14, for the random poses of the kinematic check
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  none: Section 14.1 states the task and measures the simulated arm; no plan is certified

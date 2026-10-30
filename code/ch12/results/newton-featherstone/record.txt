@@ -1,0 +1,18 @@
+Record of the experiment of Section 12.1: newton-featherstone
+
+model and asset provenance
+  the MJCF text of Section 11.1 (../ch11/results/cart.xml), SHA-256 -..., read by the simulator's own importer
+simulator and solver
+  newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0, numpy 2.5.4, scipy 1.18.1; Python 3.12.3; adapter cart.newton, solver = featherstone, device = cpu
+time steps
+  0.001 s; governor period 0.1 s = 100 steps, counted; drive loop at every step
+actuators and sensors
+  the drive loop of Section 11.1; wheel torques and the tool's servo target; the wheels' loads from the simulator's contact forces
+frames and units
+  as in Section 11.1: SI units, x towards the wall, z up; state (p, v, l)
+uncertainty bounds, constraints, terminal behaviour, training split, seeds
+  as in Section 11.1
+hardware
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+guarantee status
+  the configuration was not run

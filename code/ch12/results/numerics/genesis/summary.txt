@@ -1,0 +1,23 @@
+[record]
+  part = genesis
+  hardware = Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
+  version of genesis-world = 1.4.4
+  version of quadrants = 1.3.3
+  version of torch = 2.14.1
+  version of numpy = 2.5.4
+  Python = 3.12.3
+  time of the part [s] = 220
+[collision detection]
+  GJK, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.39e-08, 3.43e-09, 6.97e-09
+  GJK, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 2800; 1.95e-07, 3.02e-05, 3.02e-06
+  GJK, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.87e-08, 3e-08, 9.82e-09
+  GJK: verdict = pass
+  MPR, the firm ground, 1 m/s from 5 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.39e-08, 3.44e-09, 9.97e-05
+  MPR, the crest, braking at 0.5 m/s^2 from 2.12 m/s at 20 m for 1.4 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 1335; 0.903, 1.41, 0.377
+  MPR, the slope, 1 m/s from 23 m for 0.3 s: contacts of the wheels; largest difference from the exact geometry: distance [m], normal [rad], point [m] = 600; 1.87e-08, 3e-08, 0.000116
+  MPR: verdict = fail
+[arithmetic]
+  the options of the text, double precision: one period at 1 m/s from 5 m, at 1, 0.5, 0.25 ms: dp [m] = -5.19e-07, -5.19e-07, -5.19e-07
+[failures]
+  F1: MPR: steps with a wheel unloaded, of steps on the crest; deepest below the wheel's radius [mm] = 292 of 658; 809
+[check] against the shipped summary and per-period files: all as shipped

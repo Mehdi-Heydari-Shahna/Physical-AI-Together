@@ -1,0 +1,13 @@
+[real time]
+  runs = 200 (20 worlds, 10 configurations), 1 at a time; periods = 64000
+  periods whose plan arrived after the boundary (fallback executed) = 10
+  periods whose evaluation the deadline cut = 23
+  proposals later than the cutoff = 2
+  runs identical to the offline run, period by period = 186 of 200
+  decision, median and largest [ms] = 1.114, 133.149
+  slack before the boundary, least [ms] = -205.808
+  measurement received after the boundary, median and largest [ms] = 0.964, 275.019
+  plant: computation of a period, median and largest [ms] = 7.935, 98.647
+  plant: publication after the boundary, largest [ms] = 274.039
+  decision, 99th and 99.9th percentile [ms] = 17.481, 26.132
+  H6 (no plan late, no evaluation cut, every run identical to its offline run): FAILED

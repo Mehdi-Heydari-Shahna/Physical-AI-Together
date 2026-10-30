@@ -1,0 +1,108 @@
+Failures of the declared experiment found in Chapters 11 and 12, and what reproduces them (Section 12.3)
+
+[F1]
+  what = a wheel sinks into the crest of the ground
+  where = Genesis 1.4.4, MPR collision detection (its default)
+  kind = mistake of conversion: the computation of the contacts; a numerical failure of the algorithm that detects them
+  caught = the check of the crest (Section 12.1.3)
+  reproduction = python numerics.py genesis (the Genesis environment)
+  signature (genesis) = MPR: steps with a wheel unloaded, of steps on the crest; deepest below the wheel's radius [mm]: 292 of 658; 809
+[F2]
+  what = the state stops being a number while the cart settles at rest
+  where = Newton 1.7.0, Featherstone, Newton's contacts with the importer's defaults
+  kind = another model of contact, whose parameters the text does not carry; the integration diverges
+  caught = every port check (Section 12.1.2)
+  reproduction = python numerics.py newton (the Newton environment)
+  signature (newton) = featherstone: steps until the state stops being a number: 2587
+[F3]
+  what = the state stops being a number while the cart settles at rest
+  where = Newton 1.7.0, semi-implicit solver, Newton's contacts with the importer's defaults
+  kind = the same as F2
+  caught = every port check (Section 12.1.2)
+  reproduction = python numerics.py newton (the Newton environment)
+  signature (newton) = semi-implicit: steps until the state stops being a number: 23
+[F4]
+  what = a wheel loses its load on the crest
+  where = Newton 1.7.0 on MuJoCo's C library, the importer's hull of 64 vertices
+  kind = mistake of conversion: the ground of the physical model
+  caught = the check of the crest (Section 12.1.3)
+  reproduction = python numerics.py newton (the Newton environment)
+  signature (newton) = the importer's hull: steps with a wheel unloaded, of steps on the crest; deepest below the wheel's radius [mm]: 3 of 1213; 1.44
+[F5]
+  what = the contacts on the crest are computed differently, and in one period the disturbance of the front axle exceeds the bound
+  where = Newton 1.7.0 on MuJoCo's C library, Newton's gap of 0.1 m
+  kind = mistake of conversion: the computation of the contacts (numerical model)
+  caught = the comparison with MuJoCo and the bound of Chapter 5, not the port checks
+  reproduction = python numerics.py newton (the Newton environment)
+  signature (newton) = Newton's gap: period 36, axle disturbance [m/s^2]; period 59, difference from MuJoCo [m]: 0.0881; 7.16e-05
+[F6]
+  what = the drive loop sustains almost no braking
+  where = Newton 1.7.0, XPBD with Newton's contacts and the importer's defaults
+  kind = another model of contact and friction
+  caught = the check of friction
+  reproduction = python numerics.py newton (the Newton environment)
+  signature (newton) = XPBD: braking on firm ground from 4 m/s [m/s^2]: 0.0684
+[F7]
+  what = too little braking, and a wheel loses its load on the crest
+  where = Genesis 1.4.4 with its own defaults
+  kind = another model of contact and friction (among others, a pyramidal cone and a contact time constant of 0.01 s), with MPR, whose share the comparison does not separate
+  caught = the checks of friction and of the crest
+  reproduction = python numerics.py genesis-defaults (the Genesis environment, a process of its own)
+  signature (genesis-defaults) = its defaults: braking on firm ground from 4 m/s [m/s^2]; crest, steps with a wheel unloaded, of steps on the crest: 1.01; 97 of 1212
+[F8]
+  what = the contacts on the crest are wrong by up to a millimetre in distance, the loads there by a sixth, and the disturbance exceeds the bound
+  where = MuJoCo 3.16.0, the libccd pipeline (MPR) instead of the native one
+  kind = numerical failure: the algorithm that detects the contacts
+  caught = the check of collision detection (Section 12.3), the comparison with the native pipeline and the bound of Chapter 5, not the port checks
+  reproduction = python numerics.py mujoco (the environment of ../ch11)
+  signature (mujoco) = crest, braking at the label: load difference from the rigid cart's [%]: 18.1
+[F9]
+  what = a wheel leaves the ground on the crest while the cart rolls freely at 3 m/s
+  where = MuJoCo 3.16.0
+  kind = MuJoCo's law of contact, by our reading of Section 11.1.3, at a speed that the certified plans do not reach; the time step does not change it
+  caught = the diagnostics of Section 11.1.3
+  reproduction = python numerics.py mujoco (the environment of ../ch11)
+  signature (mujoco) = crest, rolling freely from 3 m/s: steps with a wheel without contact, at 1, 0.5, 0.25 ms: 39, 76, 155
+  signature (mujoco) = the same, as time [ms]: 39, 38, 38.75
+[F10]
+  what = the MJCF importer fails on the mesh of the ground, written in the text
+  where = mujoco-usd-converter 0.6.1 (Isaac Sim 6.2.0) and 0.8.0
+  kind = import failure: inline meshes are not supported
+  caught = the import itself (Section 11.2.1)
+  reproduction = python numerics.py usd (an environment with mujoco-usd-converter)
+  signature (usd-0.6.1) = converting the MJCF text of Section 11.1: error: Mesh ground has no file
+  signature (usd-0.6.1) = exit status of the converter; files it leaves, their bytes: 1; 3, 1241
+  signature (usd-0.6.1) = prims in those files; prims with children or properties: 3; 0
+  signature (usd-0.8.0) = converting the MJCF text of Section 11.1: error: Mesh ground has no file
+  signature (usd-0.8.0) = exit status of the converter; files it leaves, their bytes: 1; 3, 1241
+  signature (usd-0.8.0) = prims in those files; prims with children or properties: 3; 0
+[F11]
+  what = the reported speed is not the rate of the position
+  where = Isaac Sim 6.2.0, PhysX (Section 11.2)
+  kind = numerical failure: PhysX advances the positions in single precision at each of the 32 substeps of TGS and rounds every advance, by up to half a spacing, so that the cart moves faster or slower than the velocity that it adds; traced on the firm ground and on the slope, where 35 of the 41 periods lie, and over ten steps the rate of the position stayed within that bound of the reported speed (Section 11.2.5); with PGS, one advance per step, no period ended beyond the reported speed by more than 0.01 mm
+  caught = the test of the speed signal (Section 11.2.3), and the port checks of one period and of braking (Section 12.1.3)
+  reproduction = Isaac Sim 6.2.0 on a machine with an RTX GPU: python isaac_cart.py (../ch11); observed in the two runs of Section 11.2, on one machine, whose per-period tables are identical, byte for byte; traced on the firm ground and on the slope, and its variants run, with python isaac_trace.py (../ch11), on the same machine; the crest not traced
+  signature (isaac) = periods beyond the reported speed by more than 0.01, 0.1, 1 mm: 41, 31, 1
+  signature (isaac) = traced from 5 m at 1 m/s: steps; spacings per step, from, to; steps with 32 x 66; departure from whole spacings: 300; 2110, 2114; 254; 0.021
+  signature (isaac) = the same, with one rounding per step: spacings per step, from, to; steps with 2097: 2096, 2098; 256
+  signature (isaac) = traced in period 83, on the slope: pitch [rad]; rate of the position less reported speed, mean, RMS; less the rounding, mean, RMS [mm/s]: 0.1658; -13.3, 13.8; 0.00073, 1.13
+  signature (isaac) = with PGS: position updates per step; periods beyond by more than 0.01 mm; largest [mm]: 1; 0; 0.00227
+[F12]
+  what = the loads at rest exceed the weight, and on the crest a wheel reports no load in single steps
+  where = Isaac Sim 6.2.0, PhysX (Section 11.2)
+  kind = at rest, a signal: the contact forces of single steps scatter about the loads of a rigid cart from step to step, the excess at rest is the reading of one step, and over 200 steps the mean is the weight (Section 11.2.5); on the crest, not classified: the unloaded steps were not traced, and their cause is unresolved
+  caught = the port checks of the loads at rest and of the crest (Section 12.1.3)
+  reproduction = Isaac Sim 6.2.0 on a machine with an RTX GPU: python isaac_cart.py (../ch11); observed in the two runs of Section 11.2, on one machine; the loads at rest traced with python isaac_trace.py (../ch11), on the same machine; the crest not traced
+  signature (isaac) = loads at rest less the weight [N], [%]: 2.613, 0.296
+  signature (isaac) = crest, braking at the label from 2.12 m/s: least penetration -0.00379 mm; steps with a wheel unloaded 7; load within 86.8 % of M(g cos - v^2/(R+r))
+  signature (isaac) = traced at rest on the firm ground: steps; first step's loads [N]; total from, to, mean [N]; mean less the weight [%]: 200; 442.54, 443.96; 867.4, 910.2, 883.921; 0.0034
+[F13]
+  what = the encoders' reading of the speed changes with the time step
+  where = Isaac Sim 6.2.0, PhysX (Section 11.2)
+  kind = numerical failure: a signal that the time step does not settle; at 1 ms the encoders follow the motion of the rounded positions of F11, and the readings at 1 and 0.5 ms lie within the bounds of that rounding, the reading at 0.25 ms 1.9 mm/s beyond its bound (Section 11.2.5)
+  caught = the criterion of the check of friction (Section 12.3), applied to the diagnostic of Section 11.2.3, the check itself not run in Isaac Sim
+  reproduction = Isaac Sim 6.2.0 on a machine with an RTX GPU: python isaac_cart.py (../ch11); observed at 1 ms in the two runs of Section 11.2, on one machine; at 0.5 and 0.25 ms in the second run only; traced at 1 ms only, with python isaac_trace.py (../ch11), on the same machine
+  signature (isaac) = encoders less the cart's speed at 2 m/s^2, at 1 ms [mm/s]: 2.57
+  signature (isaac) = the same at 0.5 and 0.25 ms [mm/s]: 4.42, 17.2
+  signature (isaac) = traced from 5 m at 1 ms: encoder less reported speed, mean; over 10 steps, encoder less rate of the position, RMS; per step, RMS [mm/s]: 7.11; 0.662; 1.97
+  signature (isaac) = bounds of the rounding at 2.25 m at 1, 0.5 and 0.25 ms [mm/s]: 3.81, 7.63, 15.3

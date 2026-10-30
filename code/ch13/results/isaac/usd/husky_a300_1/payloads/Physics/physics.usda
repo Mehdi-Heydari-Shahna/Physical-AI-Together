@@ -1,0 +1,162 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "URDF USD Converter v0.3.2"
+    }
+    defaultPrim = "husky_a300"
+    endTimeCode = 1000000
+    kilogramsPerUnit = 1
+    metersPerUnit = 1
+    startTimeCode = 0
+    upAxis = "Z"
+)
+
+over "husky_a300"
+{
+    over "Geometry"
+    {
+        over "base_link" (
+            prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsArticulationRootAPI", "NewtonArticulationRootAPI", "PhysicsMassAPI", "NewtonMassAPI"]
+        )
+        {
+            double[] newton:inertia = [1.140891118, 4.621734451, 5.147823333, 0, 0, 0]
+            bool newton:selfCollisionEnabled = 0
+            point3f physics:centerOfMass = (0, 0, 0.1147795)
+            float3 physics:diagonalInertia = (1.1408911, 4.6217346, 5.1478233)
+            float physics:mass = 70
+            quatf physics:principalAxes = (1, 0, 0, 0)
+
+            over "front_left_wheel_link" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "NewtonMassAPI"]
+            )
+            {
+                double[] newton:inertia = [0.019758025, 0.0340725125, 0.019758025, 0, 0, 0]
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.019758025, 0.03407251)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (-0.70710677, 0.70710677, 0, 0)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["NewtonCollisionAPI"]
+                )
+                {
+                }
+            }
+
+            over "front_right_wheel_link" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "NewtonMassAPI"]
+            )
+            {
+                double[] newton:inertia = [0.019758025, 0.0340725125, 0.019758025, 0, 0, 0]
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.019758025, 0.03407251)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (-0.70710677, 0.70710677, 0, 0)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["NewtonCollisionAPI"]
+                )
+                {
+                }
+            }
+
+            over "rear_left_wheel_link" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "NewtonMassAPI"]
+            )
+            {
+                double[] newton:inertia = [0.019758025, 0.0340725125, 0.019758025, 0, 0, 0]
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.019758025, 0.03407251)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (-0.70710677, 0.70710677, 0, 0)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["NewtonCollisionAPI"]
+                )
+                {
+                }
+            }
+
+            over "rear_right_wheel_link" (
+                prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "NewtonMassAPI"]
+            )
+            {
+                double[] newton:inertia = [0.019758025, 0.0340725125, 0.019758025, 0, 0, 0]
+                point3f physics:centerOfMass = (0, 0, 0)
+                float3 physics:diagonalInertia = (0.019758025, 0.019758025, 0.03407251)
+                float physics:mass = 2.5
+                quatf physics:principalAxes = (-0.70710677, 0.70710677, 0, 0)
+
+                over "cylinder" (
+                    prepend apiSchemas = ["NewtonCollisionAPI"]
+                )
+                {
+                }
+            }
+        }
+    }
+
+    over "Physics"
+    {
+        def PhysicsRevoluteJoint "front_left_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0
+            append rel physics:body0 = </husky_a300/Geometry/base_link>
+            custom rel physics:body1
+            append rel physics:body1 = </husky_a300/Geometry/base_link/front_left_wheel_link>
+            point3f physics:localPos0 = (0.256, 0.2829, 0.02913)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsRevoluteJoint "front_right_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0
+            append rel physics:body0 = </husky_a300/Geometry/base_link>
+            custom rel physics:body1
+            append rel physics:body1 = </husky_a300/Geometry/base_link/front_right_wheel_link>
+            point3f physics:localPos0 = (0.256, -0.2829, 0.02913)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsRevoluteJoint "rear_left_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0
+            append rel physics:body0 = </husky_a300/Geometry/base_link>
+            custom rel physics:body1
+            append rel physics:body1 = </husky_a300/Geometry/base_link/rear_left_wheel_link>
+            point3f physics:localPos0 = (-0.256, 0.2829, 0.02913)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+
+        def PhysicsRevoluteJoint "rear_right_wheel_joint" (
+            prepend apiSchemas = ["PhysicsDriveAPI:angular", "PhysicsJointStateAPI:angular"]
+        )
+        {
+            uniform token physics:axis = "Y"
+            custom rel physics:body0
+            append rel physics:body0 = </husky_a300/Geometry/base_link>
+            custom rel physics:body1
+            append rel physics:body1 = </husky_a300/Geometry/base_link/rear_right_wheel_link>
+            point3f physics:localPos0 = (-0.256, -0.2829, 0.02913)
+            point3f physics:localPos1 = (0, 0, 0)
+            quatf physics:localRot0 = (1, 0, 0, 0)
+            quatf physics:localRot1 = (1, 0, 0, 0)
+        }
+    }
+}
+
