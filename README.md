@@ -71,7 +71,7 @@ The videos of the simulated runs in Chapters 13 to 15 are not stored in the repo
 
 ## Reproducibility, releases and citation
 
-`REPRODUCING.md` says how to reproduce every chapter's results from a fresh copy and how to report a reproduction; `CONTRIBUTING.md` says how to contribute a module, and `code/ch10/templates/HELPERS.md` documents the helpers of the cart's code that a contribution may reuse. `code/RELEASES.md` states how an experiment is identified across versions of this code. `CITATION.cff` gives the citation of the book and its code. Cite the release that produced the results you use, v1.0 for the book's version of 31 October 2026, or the commit.
+`REPRODUCING.md` says how to reproduce every chapter's results from a fresh copy and how to report a reproduction; `CONTRIBUTING.md` says how to contribute a module, and `code/ch10/templates/HELPERS.md` documents the helpers of the cart's code that a contribution may reuse. `code/RELEASES.md` states how an experiment is identified across versions of this code. `CITATION.cff` gives the citation of the book and its code. Cite the release that produced the results you use, v1.0 for the book's version of 31 October 2026, or the commit. Release v1.0 is archived at Zenodo: DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947).
 
 ## Licence
 

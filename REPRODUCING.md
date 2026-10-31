@@ -15,7 +15,7 @@ No run that this repository records was made outside the team that produced the 
 
 ## Before you start
 
-- **A fresh copy.** Clone the repository (`git clone https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git`) and check out the release or commit that you reproduce (`git checkout v1.0`), or unzip its archive, into a new folder. Note the commit (`git rev-parse HEAD`) or the archive's identifier for your report.
+- **A fresh copy.** Clone the repository (`git clone https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git`) and check out the release or commit that you reproduce (`git checkout v1.0`), or unzip its archive, into a new folder; the archive of v1.0 is at Zenodo, DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947). Note the commit (`git rev-parse HEAD`) or the archive's identifier for your report.
 - **A copy of the shipped results.** Each script overwrites the files that it writes in its folder's `results/`, so keep a copy of the shipped ones before you run anything, and compare afterwards (see "Comparing the files" below):
 
   ```

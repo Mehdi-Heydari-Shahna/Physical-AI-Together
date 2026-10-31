@@ -25,8 +25,8 @@ A module or script that is to be removed is marked deprecated, in its docstring 
 
 ## Citations
 
-Cite the release that produced the results, by its version and, once one is assigned, its archive identifier; for a contributed module, cite also its method card. `../CITATION.cff` gives the citation of the book and its code.
+Cite the release that produced the results, by its version and its archive identifier (for v1.0, the DOI below); for a contributed module, cite also its method card. `../CITATION.cff` gives the citation of the book and its code.
 
 ## Releases
 
-- **v1.0**: the code and the results of the book's version of 31 October 2026, with the online supplement, and the videos of Chapters 13 to 15 attached to the release. It has no archive identifier yet; one will be added here when it is assigned.
+- **v1.0**: the code and the results of the book's version of 31 October 2026, with the online supplement, and the videos of Chapters 13 to 15 attached to the release. Archived at Zenodo, without the videos, on 31 October 2026: DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947), the file `Physical-AI-Together-1.0.zip`, whose MD5 checksum the record lists as `ad669a6af7fc2f514c8c43182628e717`. The DOI [10.5281/zenodo.23823946](https://doi.org/10.5281/zenodo.23823946) names every version of the archive and resolves to the latest one.

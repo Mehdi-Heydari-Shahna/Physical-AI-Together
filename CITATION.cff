@@ -8,6 +8,15 @@ authors:
   - family-names: "Heydari Shahna"
     given-names: "Mehdi"
 version: "v1.0"
+date-released: "2026-10-31"
+doi: "10.5281/zenodo.23823947"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23823947"
+    description: "Release v1.0, archived at Zenodo"
+  - type: doi
+    value: "10.5281/zenodo.23823946"
+    description: "Every version of the archive; resolves to the latest one"
 license: MIT
 repository-code: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
 url: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
