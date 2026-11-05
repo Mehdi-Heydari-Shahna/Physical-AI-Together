@@ -1,0 +1,9 @@
+Rerun of the evaluation of the complete case with the files of this release, outside the protocol, against the records of release v1.0
+
+[record]
+  date (UTC) = 2026-11-04 20:24
+  Python 3.13.18, MuJoCo 3.16.0, NumPy 2.5.4; Linux x86_64
+  frozen files that differ from complete/FROZEN.json = complete/realtime.py, ../ch10/allovi/loop.py
+  wall time [s] = 3325
+
+[runs that differ: 0 of 1000]

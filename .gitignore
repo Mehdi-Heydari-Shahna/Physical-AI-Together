@@ -34,3 +34,5 @@ Desktop.ini
 *.bak
 .env
 .env.*
+# a failed --check of Chapter 12 writes its summary beside the shipped one
+*.txt.new

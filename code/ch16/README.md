@@ -6,6 +6,7 @@ Two benchmarks, each with its hypotheses written down before its first full run 
 python3 cart_benchmark.py --check       # results/benchmark-*
 python3 cart_substitution.py --check    # results/substitution-*
 python3 cart_diagnosis.py --check       # results/diagnosis-summary.txt
+python3 paired_statistics.py            # prints the paired tests of Section 16.2.2 (results/paired-statistics.txt)
 ```
 
 Python 3.8 or later; no other packages. `cart_benchmark.py` imports the core and the cart of Chapter 10 (`../ch10`), and the calibration of Section 7.3 (`../ch07/cart_forecasts.py`), which recomputes the survey's offset, 0.40 m, from its 100 calibration worlds; `cart_substitution.py` imports the protocol of Chapter 6 (`../ch06/cart_learning.py`) and, through it, the control packages of Chapter 5. With `--check`, each script compares every value of its summary with its `EXPECTED` and exits with an error if one differs; `cart_benchmark.py` does not compare the wall-clock times of the decisions, which belong to the machine. All three use up to two processes (`--jobs`); their results do not depend on the number. On the machine that wrote the shipped results (x86_64, two processors, CPython 3.13.17), `cart_benchmark.py` takes 14 to 17 minutes with two processes, `cart_substitution.py` about 40 minutes with one, and `cart_diagnosis.py` about 10 minutes with one.
@@ -75,6 +76,22 @@ python3 complete_diagnose.py            # exploratory, after the runs (about 3 m
 python3 complete_figure.py              # prints the coordinates of Figure 16.4 from results/complete-runs.csv
 ```
 
+Since release v1.1 changed two files that `complete/FROZEN.json` names (`../ch10/allovi/loop.py` and `complete/realtime.py`, deviation 9 of `complete/DEVIATIONS.md`), the scripts of the complete case run from tag v1.0, in a copy, so that the shipped results are not overwritten. `complete_compare.py RERUN` then compares the records that a rerun of the evaluation wrote into its folder `RERUN` with the shipped ones, every value but the decisions' wall-clock times and the record of the run, and exits with an error if one differs:
+
+```
+git clone --branch v1.0 https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git rerun
+cd rerun/code/ch16
+python3 complete_evaluate.py            # about 35 minutes with two processes
+python3 <this repository>/code/ch16/complete_compare.py results
+```
+
+Outside the protocol, `complete_recheck.py` reruns the offline phases with the files of this release, whose frozen check therefore fails, with the frozen bounds and the calibrated offset and trained learners of `results/`, and compares every run with the records of release v1.0, every column but the wall-clock times; it writes only its own file in `results/`:
+
+```
+python3 complete_recheck.py --stress       # S1 to S3, 180 runs: results/complete-recheck-stress.txt
+python3 complete_recheck.py --evaluation   # the 1000 runs: results/complete-recheck-evaluation.txt
+```
+
 Each script with `--worlds n` (or `--episodes n` for the training) runs a smoke test on development worlds with provisional values and writes nothing. On the machine that wrote the shipped results (x86_64, two processors, CPython 3.13.17), the identification took about 15 minutes, the training about 15, the evaluation 35 with two processes, each half of the real-time phase about an hour, and the stress tests about half an hour.
 
 | File | Content |
@@ -97,3 +114,5 @@ Each script with `--worlds n` (or `--episodes n` for the training) runs a smoke 
 | `complete-realtime-*.csv`, `complete-realtime-summary.txt` | One row per real-time run and per period, the timing distributions and the verdict of H6. |
 | `complete-stress.csv`, `complete-stress-summary.txt` | The stress tests S1 to S5 and the verdicts of H7 and H8. |
 | `complete-diagnosis.txt` | The exploratory diagnosis, written after the runs: H3, H4 and the paired differences (offline reruns), the real-time periods whose plan was late or whose evaluation was cut (from the records), and the stress test S1 (offline reruns). |
+| `complete-recheck-stress.txt`, `complete-recheck-evaluation.txt` | Written by `complete_recheck.py` (release v1.1), outside the protocol: the offline phases rerun with the files of release v1.1, against the records of release v1.0, run by run. |
+| `paired-statistics.txt` | What `paired_statistics.py` prints from `benchmark-runs.csv`: the exact McNemar tests and the sign test of Section 16.2.2 (Listing S16.1 of the supplement). |

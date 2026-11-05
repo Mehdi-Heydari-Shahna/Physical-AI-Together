@@ -1,6 +1,6 @@
 # Physical AI, Together: code and data
 
-This repository holds the code and data of the book *Physical AI, Together: The ALLOVI Governor: Contracts and Conditional Guarantees* by Mehdi Heydari Shahna, with the book's online supplement. Every number that the book quotes from a computation is produced by a script here, and the results that it quotes are shipped in each chapter's `results/` folder. Most scripts have a `--check` option that compares what they compute with the values that the book quotes.
+This repository holds the code and data of the book *Physical AI, Together: The ALLOVI Governor: Contracts and Conditional Guarantees* by Mehdi Heydari Shahna, Soyi Jung, Soohyun Park, Joongheon Kim and Jouni Mattila, with the book's online supplement. Every number that the book quotes from a computation is produced by a script here, and the results that it quotes are shipped in each chapter's `results/` folder. Most scripts have a `--check` option that compares what they compute with the values that the book quotes.
 
 The book's file paths, such as `code/ch03/cart_example.py`, are paths in this repository.
 
@@ -25,7 +25,7 @@ The book's file paths, such as `code/ch03/cart_example.py`, are paths in this re
 | `code/render` | The videos and stills of the MuJoCo runs (Chapters 1, 11 and 13 to 15), and their path-traced versions (`render/cycles`, Blender Cycles on a GPU) | Pillow, SciPy, EGL and ffmpeg besides each chapter's requirements; Blender 4.2 or later for `render/cycles` |
 | `docs` | The online supplement (PDF) | |
 
-Chapters 1, 2, 4 and 18 have no code of their own. Each folder's `README.md` says what its scripts compute, how long they take, what they write into `results/`, and with which versions the shipped results were produced. `code/NUMBERING.md` lists the few files that cite the book's sections, tables and figures by an earlier numbering, with the current number of each item.
+Chapters 1, 2, 4 and 18 have no code of their own. Each folder's `README.md` says what its scripts compute, how long they take, what they write into `results/`, and with which versions the shipped results were produced. The comments, docstrings, READMEs and printed results of the code cite the book's sections, tables and figures as the book's version of 31 October 2026 numbers them; `code/NUMBERING.md` gives the current number of every item whose number has changed since.
 
 ## Running a chapter
 
@@ -42,6 +42,13 @@ The examples of Chapters 3 to 10, 16 and 17 run with Python alone:
 cd code/ch03
 python3 cart_example.py            # writes results/
 python3 cart_example.py --check    # also compares every value with the book
+```
+
+The tests of the core's alarm and restart checks run with Python alone:
+
+```
+cd code/ch10
+python3 -m unittest discover -s tests -v
 ```
 
 The simulator chapters use one virtual environment each:
@@ -67,11 +74,11 @@ The videos of the simulated runs in Chapters 13 to 15 are not stored in the repo
 
 ## The supplement
 
-`docs/Physical_AI_Together_supplement.pdf` is the book's online supplement: detailed run records, provenance, release-specific software instructions, diagnostic tables and implementation examples (its chapters, sections, tables and figures are numbered with an `S`, Chapter S13 extending Chapter 13). The instructor's manual, with the solutions of the book's exercises, is distributed to instructors separately.
+`docs/Physical_AI_Together_supplement.pdf` is the book's online supplement, in the book's version of 31 October 2026, whose numbering the code cites (`code/NUMBERING.md`): detailed run records, provenance, release-specific software instructions, diagnostic tables and implementation examples (its chapters, sections, tables and figures are numbered with an `S`, Chapter S13 extending Chapter 13). It is part of the book and is published with it; it is not part of the code's archive (`.gitattributes`). The instructor's manual, with the solutions of the book's exercises, is distributed to instructors separately.
 
 ## Reproducibility, releases and citation
 
-`REPRODUCING.md` says how to reproduce every chapter's results from a fresh copy and how to report a reproduction; `CONTRIBUTING.md` says how to contribute a module, and `code/ch10/templates/HELPERS.md` documents the helpers of the cart's code that a contribution may reuse. `code/RELEASES.md` states how an experiment is identified across versions of this code. `CITATION.cff` gives the citation of the book and its code. Cite the release that produced the results you use, v1.0 for the book's version of 31 October 2026, or the commit. Release v1.0 is archived at Zenodo: DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947).
+`REPRODUCING.md` says how to reproduce every chapter's results from a fresh copy and how to report a reproduction; `CONTRIBUTING.md` says how to contribute a module, and `code/ch10/templates/HELPERS.md` documents the helpers of the cart's code that a contribution may reuse. `code/RELEASES.md` states how an experiment is identified across versions of this code. `CITATION.cff` gives the citation of the book and its code. Cite the release that produced the results you use, or the commit. The book reports the results of release v1.0, archived at Zenodo: DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947). Release v1.1 adds the two checks that the book lists as known issues of v1.0, a test of each, and scripts and documentation. With them, one result of the code changes: the run of Chapter 3 in Newton's XPBD port admits none of the restarts that v1.0 admitted (`code/ch12/README.md`). The complete case of Chapter 16, whose frozen record names the files of v1.0, runs from tag v1.0 (`code/RELEASES.md`, `REPRODUCING.md`).
 
 ## Licence
 

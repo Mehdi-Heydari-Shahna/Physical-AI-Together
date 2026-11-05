@@ -15,7 +15,7 @@ No run that this repository records was made outside the team that produced the 
 
 ## Before you start
 
-- **A fresh copy.** Clone the repository (`git clone https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git`) and check out the release or commit that you reproduce (`git checkout v1.0`), or unzip its archive, into a new folder; the archive of v1.0 is at Zenodo, DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947). Note the commit (`git rev-parse HEAD`) or the archive's identifier for your report.
+- **A fresh copy.** Clone the repository (`git clone https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together.git`) and check out the release or commit that you reproduce (`git checkout v1.0`), or unzip its archive, into a new folder; the archive of v1.0 is at Zenodo, DOI [10.5281/zenodo.23823947](https://doi.org/10.5281/zenodo.23823947). Note the commit (`git rev-parse HEAD`) or the archive's identifier for your report. The book reports the results of release v1.0. With release v1.1, the checks below give the values of v1.0 but one, `ch12/portability.py newton-xpbd`, whose shipped results are those of v1.1 (`code/ch12/README.md`); the complete case of Chapter 16 runs from tag v1.0 (below).
 - **A copy of the shipped results.** Each script overwrites the files that it writes in its folder's `results/`, so keep a copy of the shipped ones before you run anything, and compare afterwards (see "Comparing the files" below):
 
   ```
@@ -48,10 +48,12 @@ cd ../ch10
 python3 cart_allovi.py --check
 python3 cart_checks.py --check
 python3 model_providers.py --check
+python3 -m unittest discover -s tests -v   # release v1.1 and later
 cd ../ch16
 python3 cart_benchmark.py --check
 python3 cart_substitution.py --check
 python3 cart_diagnosis.py --check
+python3 paired_statistics.py               # release v1.1 and later
 cd ../ch17
 python3 contribute.py --check
 python3 contribute_diagnosis.py --check
@@ -74,6 +76,8 @@ python3 contribute_diagnosis.py --check
 | `ch16` | `python3 cart_diagnosis.py --check` | about 10 min with one process | `[check] 49 values: all as expected` | `results/diagnosis-summary.txt` |
 | `ch17` | `python3 contribute.py --check` | about 7 min with one process | `[check] 45 values: all as expected` | `results/contribution-summary.txt` |
 | `ch17` | `python3 contribute_diagnosis.py --check` | about 4 min with two processes | `[check] 34 values: all as expected` | `results/contribution-diagnosis.txt` |
+
+From release v1.1, the tests in `ch10/tests` check the core's alarm and restart checks in about ten seconds and end with `OK`, and `ch16/paired_statistics.py`, Listing S16.1 of the supplement, prints the paired tests of Section 16.2.2, which `ch16/results/paired-statistics.txt` holds as shipped.
 
 Some steps of Chapters 6, 11 and 12 also need Python alone, because they read results that were written elsewhere and are shipped:
 
@@ -170,7 +174,7 @@ In Chapter 15, `DIR` is a checkout of the Team-Impedance-Control repository at c
 
 The checks of `ch12/layers.py` and `ch12/portability.py` compare the record of a summary too. With another release of Python than the record's, `layers.py VARIANT --check` prints `DIFFERENT: record.Python: shipped '3.13.16', now ...` and exits with an error even when every computed value is as shipped; a line that names only the record is not a difference of the book's values. MuJoCo computes in double precision, and with another processor, operating system or release of MuJoCo its last digits may differ; the check then lists every value that differs at the precision printed, and Section S12.8 of the supplement states the variation that a reproduction may show. `numerics.py --compare-with PATH` compares a rerun of Chapters 11 and 12 in a copy of `code` at PATH with the shipped results, under that variation (`code/ch12/README.md`).
 
-**The complete case of Chapter 16** (`code/ch16/README.md`): the cart in MuJoCo under the full contract, run in phases under the protocol `code/ch16/complete/PROTOCOL.md`, with MuJoCo 3.16.0 and NumPy (the environment of `code/ch11`). It has no `--check`: the identification freezes the bounds and the hashes of the modules in `complete/FROZEN.json`, the later phases refuse to run if a frozen file has changed, and the shipped files under `code/ch16/results/complete-*` are the record of the runs. Its real-time phase measures the wall clock and asks for a machine with nothing else running; its README gives the order of the phases and their times, and `complete/DEVIATIONS.md` every departure from the protocol.
+**The complete case of Chapter 16** (`code/ch16/README.md`): the cart in MuJoCo under the full contract, run in phases under the protocol `code/ch16/complete/PROTOCOL.md`, with MuJoCo 3.16.0 and NumPy (the environment of `code/ch11`). It has no `--check`: the identification freezes the bounds and the hashes of the modules in `complete/FROZEN.json`, the later phases refuse to run if a frozen file has changed, and the shipped files under `code/ch16/results/complete-*` are the record of the runs. Its real-time phase measures the wall clock and asks for a machine with nothing else running; its README gives the order of the phases and their times, and `complete/DEVIATIONS.md` every departure from the protocol. Its scripts refuse to run if a file that `complete/FROZEN.json` names has changed, and release v1.1 changes two of them, `ch10/allovi/loop.py` and `ch16/complete/realtime.py`; run the complete case from tag v1.0, in a copy, and compare a rerun of its evaluation with the shipped records with `ch16/complete_compare.py` of release v1.1. Outside the protocol, `ch16/complete_recheck.py` of release v1.1 reruns the offline phases with the files of that release and compares every run with the records of v1.0 (`code/ch16/README.md`).
 
 ## What needs a GPU
 
@@ -198,6 +202,8 @@ and the same for each folder. A few lines record the machine, the environment or
 - in the simulator chapters, the records (`record.txt` and the like) and the environment files, which name the versions, the processor and the operating system.
 
 On 30 October 2026 the commands of this file that need neither a GPU nor Isaac Sim, Newton, Genesis, the USD converter, Blender or MuJoCo's renderer were run again from a copy of this code, on an x86-64 Linux machine with two processors, under CPython 3.13.17 with MuJoCo 3.16.0, NumPy 2.5.3, SciPy 1.18.1 and PyYAML 6.0.3: the Python-only chapters, the Python-only steps of Chapters 6, 11 and 12, `numerics.py mujoco` and `layers.py mujoco-gap` of Chapter 12, and the MuJoCo scripts of Chapters 11 and 13 to 15 (`quad_model.py` without `--menagerie`); the phases of the complete case of Chapter 16 were not run again. Every check reported every value as quoted, as expected or as shipped, `layers.py mujoco-gap` with the difference of the record's Python release described above, and every file that the runs wrote was identical to the shipped one but for the lines listed above and the line of `ch15/results/model-summary.txt` that needs `--menagerie`.
+
+On 4 November 2026, release v1.1 was checked on an x86-64 Linux machine with two processors, under CPython 3.13.18 with MuJoCo 3.16.0, NumPy 2.5.4, SciPy 1.18.1 and PyYAML 6.0.3, and for Newton in the environment of `code/ch12/requirements-newton.txt` under CPython 3.12.3. Its tests ran, and so did the checks of every script that runs the core's loop and needs neither a GPU nor Genesis: those of Chapter 10, `mujoco_cart.py`, the seven configurations of Newton, `husky_route.py`, `husky_variants.py`, `hdmm_governed.py`, `quad_governed.py`, `cart_benchmark.py`, `cart_diagnosis.py` and those of Chapter 17; and, among the scripts that use the core otherwise, `layers.py mujoco`, `mujoco-gap` and `mujoco-newton-changes` in Newton's environment, `layers.py mujoco-gap` in that of Chapter 11, and `numerics.py mujoco`. Every check reported every value as with v1.0, but `portability.py newton-xpbd` (`code/ch12/README.md`), and `layers.py mujoco-gap` in the environment of Chapter 11 printed, as described above, only the difference of the record's Python release (`3.13.18` against `3.13.16`); `layers.py` ran with `MUJOCO_GL` and `PYOPENGL_PLATFORM` set to `egl`, since the machine has no OSMesa. Apart from the new scripts of Chapter 16, the scripts that do not import the core are those of release v1.0.
 
 ## Reporting
 

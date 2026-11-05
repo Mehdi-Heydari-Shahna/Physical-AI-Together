@@ -12,8 +12,10 @@ Within period k (Figure 4.1), the core:
      world execute the head of the plan in force, measures at t_{k+1} and
      checks for an alarm; after an alarm: asks the control package for the
      set that the rest feedback can reach, searches for a restart plan on it
-     (governor.choose_restart), lets the world execute the rest feedback and
-     measures at t_{k+1};
+     (governor.choose_restart), lets the world execute the rest feedback,
+     measures at t_{k+1} and, if a restart plan was found, checks the
+     measurement against that set, the restart plan's initial set, before
+     the plan takes over;
   5. reports the measurements of the period to the capability predictor.
 The clock is the period index; times are k * period. This loop does not
 measure time: a time budget is expressed as the number of fresh candidates
@@ -27,6 +29,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Callable, List, Optional
 
+import math
 import numbers
 
 from .contract import Observation, Requirement, Step
@@ -34,6 +37,16 @@ from .governor import (Decision, Guard, ImplementationCheckFailed, ModuleError,
                        choose_restart, decide, labelling_problem, profile_problem,
                        reach_problem, requirement_problem)
 from .levels import NEG_INF
+
+
+def within_bound(dist, bound) -> bool:
+    """The alarm check of Algorithm 8.1: True if the distance of the
+    measurement from the initial set is a finite number at most the
+    measurement bound. A distance that is not a finite number, such as NaN,
+    fails the check and raises the alarm."""
+    if isinstance(dist, numbers.Rational):        # int, Fraction: always finite
+        return dist <= bound
+    return math.isfinite(dist) and dist <= bound
 
 
 class NoCertifiedInitialPlan(RuntimeError):
@@ -193,7 +206,7 @@ def _run(c, periods, strict, diagnostics, where):
             if not isinstance(dist, numbers.Real):
                 raise ModuleError(f"period {k}: distance returned a "
                                   f"{type(dist).__name__}, not a number; it has no default")
-            alarm = dist > bound
+            alarm = not within_bound(dist, bound)
             rec.periods.append(PeriodRecord(k, t, "normal", x, measured, q, req, op,
                                             source, in_force, plan, initial, dec,
                                             alarm=alarm, defaults=tuple(defaults)))
@@ -222,15 +235,30 @@ def _run(c, periods, strict, diagnostics, where):
             x_next = c.world.step(x, law)
             where[1] = "robot.measure"
             m_next = c.robot.measure(x_next)
+            found = dec is not None and dec.plan is not None
+            restart_alarm = False
+            if found:
+                # the restart plan is certified on the reach set: the measurement
+                # at t_{k+1} is checked against it like any other (Algorithm 8.1)
+                where[1] = "control.distance"
+                dist = c.control.distance(m_next, reach)
+                if not isinstance(dist, numbers.Real):
+                    raise ModuleError(f"period {k}: distance returned a "
+                                      f"{type(dist).__name__}, not a number; it has no default")
+                restart_alarm = not within_bound(dist, bound)
             rec.periods.append(PeriodRecord(k, t, "rest feedback", x, measured, q, req,
                                             op, "global", in_force, None, None, dec, reach,
-                                            why, defaults=tuple(defaults)))
-            if dec is not None and dec.plan is not None:
-                plan, profile, ambition = dec.plan, dec.profile, dec.ambition
+                                            why, alarm=restart_alarm,
+                                            defaults=tuple(defaults)))
+            # the ambition of an admitted restart is committed at t_{k+1}, before
+            # the check (Algorithm 8.1); without one it is zero
+            ambition = dec.ambition if found else 0
+            if found and not restart_alarm:
+                plan, profile = dec.plan, dec.profile
                 mode, restarted = "normal", True
                 rec.restarts.append(k + 1)
-            else:
-                ambition = 0
+            elif restart_alarm:
+                rec.alarms.append(k + 1)
         if c.capability is not None:
             guard.call(k, "observe", c.capability.observe, k, measured, m_next)
         x, measured = x_next, m_next

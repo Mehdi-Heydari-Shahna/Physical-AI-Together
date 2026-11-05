@@ -1,0 +1,9 @@
+valid worlds: 94
+C6 v C11: both 62, neither 31, only C6 0, only C11 1 [16070]
+  exact McNemar p = 1
+C14 v C11: both 63, neither 31, only C14 0, only C11 0 []
+  exact McNemar p = 1
+C6 v C12: both 3, neither 31, only C6 59, only C12 1 [16070]
+  exact McNemar p = 1.1e-16
+in_work_zone, C6 - C11: positive 20, zero 74, negative 0
+  exact sign test p = 1.9e-06; mean 0.69 periods

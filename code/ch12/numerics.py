@@ -266,10 +266,13 @@ def write_summary(path, facts, check):
         lines.append("[check] against the shipped summary and per-period files: " +
                      ("all as shipped" if not failures else "DIFFERENT: " + "; ".join(failures)))
     os.makedirs(os.path.dirname(path), exist_ok=True)
+    if failures:                       # keep the shipped summary
+        path += ".new"
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
     print("\n".join(lines))
     if failures:
+        print(f"[check] the shipped summary is unchanged; this run's summary is {path}")
         raise SystemExit(1)
 
 

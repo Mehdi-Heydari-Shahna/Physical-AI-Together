@@ -13,6 +13,6 @@ frames and units
 uncertainty bounds, constraints, terminal behaviour, training split, seeds
   as in Section 11.1
 hardware
-  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.10GHz
+  Linux x86_64, Intel(R) Xeon(R) Processor @ 2.80GHz
 guarantee status
-  first alarm at 0.1 s; restarts 71; least clearance 23.6 m
+  first alarm at 0.1 s; restarts 0; least clearance 25 m

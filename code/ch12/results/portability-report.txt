@@ -1,6 +1,6 @@
 Portability report of the declared experiment of Chapter 11
 Physical AI, Together, Chapter 12
-code of Chapters 10 to 12, SHA-256 29649ad55bfe5f9528dcf7bdab8276594dd4a1fd829ca894491265a986033e13
+code of Chapters 10 to 12, SHA-256 39095ed74780f531712cf94d284ac82d82143a075d73aeef5e3ad515fdf0ebd1
 
 == The support matrix (Section 12.1)
 Support matrix of Section 12.1: the declared experiment of Chapter 11 in each configuration
@@ -69,8 +69,8 @@ newton-xpbd
   axle disturbance, largest [m/s^2]; periods above 0.05: 7.35; 197 of 201
   against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 0.000423, 0.00338
   cases of Section 10.4 beyond 1 mm: 17 of 26
-  configuration of Chapter 3: alarms, restarts, least clearance [m]: 72, 71, 23.6
-  time per step on this machine, indicative [ms]: 3.19
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 220, 0, 25
+  time per step on this machine, indicative [ms]: 8.13
 newton-featherstone
   what: Newton, SolverFeatherstone with Newton's contacts and defaults
   versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0

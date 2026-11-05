@@ -3,3 +3,7 @@
 # on Windows keep their own line endings, and a reproduction compares the
 # files that it writes with these byte for byte (REPRODUCING.md).
 * -text
+# The book's online supplement is part of the book, not of the code's
+# archive: git archive, and with it the release's zip file that the archive
+# at Zenodo holds, leaves it out.
+docs/ export-ignore

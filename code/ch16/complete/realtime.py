@@ -11,7 +11,9 @@ governor. At each period boundary t_k = t_0 + k T (time.monotonic) it
      at t_k against the initial set on which that plan was certified (the
      set sent with it, or, for the fallback, the end of the executed funnel)
      and, on an alarm, applies the rest feedback instead; after an alarm it
-     applies the rest feedback until a restart plan arrives in time;
+     applies the rest feedback until a restart plan arrives in time and the
+     measurement passes the check against the set on which that plan was
+     certified, which the governor sends with it;
   3. publishes the measurement at t_k with what period k executes;
   4. simulates the period (about 4 ms of computation) and sleeps until
      t_{k+1}.
@@ -39,7 +41,7 @@ from allovi import NEG_INF
 from allovi.contract import Observation, Requirement, Step
 from allovi.governor import (Guard, choose_restart, decide, labelling_problem,
                              profile_problem, requirement_problem)
-from allovi.loop import PeriodRecord, RunRecord
+from allovi.loop import PeriodRecord, RunRecord, within_bound
 
 from . import config
 from . import model as md
@@ -85,7 +87,7 @@ def plant_main(conn, spec):
             elif msg[0] == "commit":
                 commits[msg[1]] = (msg[2], time.monotonic())
             elif msg[0] == "restart":
-                restarts[msg[1]] = (msg[2], time.monotonic())
+                restarts[msg[1]] = (msg[2], time.monotonic(), msg[3])
         if k == periods:
             conn.send(("meas", k, m, x, None, False, t_b, time.monotonic()))
             break
@@ -102,13 +104,17 @@ def plant_main(conn, spec):
                         control.initial_set(prev, None, None)
                     plan = prev.shift()
                     source = "fallback"
-                alarm = control.distance(m, aset) > bound
+                alarm = not within_bound(control.distance(m, aset), bound)
                 if alarm:
                     mode, source = "rest", "rest"
             else:
                 if k in restarts:
-                    plan = restarts.pop(k)[0]
-                    mode, source = "normal", "restart"
+                    rplan, _, rset = restarts.pop(k)
+                    if within_bound(control.distance(m, rset), bound):
+                        plan = rplan
+                        mode, source = "normal", "restart"
+                    else:                     # the restart plan's check fails
+                        alarm, source = True, "rest"
                 else:
                     source = "rest"
         law = control.law(plan) if mode == "normal" else control.rest_law(m)
@@ -212,6 +218,7 @@ def _govern(conn, spec, strict, allowance, wrap_proposal, wrap_control):
                 rec.periods[-1].alarm = True
                 rec.alarms.append(k)
                 mode, plan, profile = "rest feedback", None, None
+                restart_sent.pop(k, None)
             elif source == "commit":
                 plan, profile, _amb = pending.pop(k)
             elif source == "fallback":
@@ -282,7 +289,7 @@ def _govern(conn, spec, strict, allowance, wrap_proposal, wrap_control):
                                      deadline=deadline, allowance=allowance)
             t_d1 = time.monotonic()
             if dec is not None and dec.plan is not None:
-                conn.send(("restart", k + 1, dec.plan))
+                conn.send(("restart", k + 1, dec.plan, reach))
                 restart_sent[k + 1] = (dec.plan, dec.profile, dec.ambition)
             t_sent = time.monotonic()
             rec.periods.append(PeriodRecord(k, t, "rest feedback", x, measured, q, req, op,

@@ -212,11 +212,15 @@ def write_outputs(name, out_dir, facts, args):
     if args.check:
         lines.append(f"[check] against the shipped summary: " +
                      ("all as shipped" if not failures else "DIFFERENT: " + "; ".join(failures)))
+    if failures:                       # keep the shipped summary and record
+        path += ".new"
     with open(path, "w", encoding="utf-8") as fh:
         fh.write("\n".join(lines) + "\n")
-    write_record(name, out_dir, facts)
+    if not failures:
+        write_record(name, out_dir, facts)
     print("\n".join(lines))
     if failures:
+        print(f"[check] the shipped summary is unchanged; this run's summary is {path}")
         raise SystemExit(1)
 
 

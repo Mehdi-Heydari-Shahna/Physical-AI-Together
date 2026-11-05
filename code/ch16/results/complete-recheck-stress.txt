@@ -1,0 +1,38 @@
+Rerun of the stress tests S1 to S3 of the complete case with the files of this release, outside the protocol, against the records of release v1.0
+
+[record]
+  date (UTC) = 2026-11-04 19:29
+  Python 3.13.18, MuJoCo 3.16.0, NumPy 2.5.4; Linux x86_64
+  frozen files that differ from complete/FROZEN.json = complete/realtime.py, ../ch10/allovi/loop.py
+  wall time [s] = 1248
+
+[by test and package: release v1.0 -> this release]
+  S1 tube: runs 30; runs with an alarm 0 -> 0; restarts 0 -> 0; violations 0 -> 0; least clearance [m] 0.533 -> 0.533; arrived 30 -> 30
+  S1 mpc: runs 30; runs with an alarm 30 -> 30; restarts 47 -> 11; violations 0 -> 0; least clearance [m] 0.485 -> 0.036; arrived 30 -> 30
+  S2 tube: runs 30; runs with an alarm 0 -> 0; restarts 0 -> 0; violations 0 -> 0; least clearance [m] 0.533 -> 0.533; arrived 30 -> 30
+  S2 mpc: runs 30; runs with an alarm 0 -> 0; restarts 0 -> 0; violations 0 -> 0; least clearance [m] 0.521 -> 0.521; arrived 30 -> 30
+  S3 tube: runs 30; runs with an alarm 0 -> 0; restarts 0 -> 0; violations 0 -> 0; least clearance [m] 0.533 -> 0.533; arrived 30 -> 30
+  S3 mpc: runs 30; runs with an alarm 0 -> 0; restarts 0 -> 0; violations 0 -> 0; least clearance [m] 0.522 -> 0.522; arrived 30 -> 30
+
+[runs that differ: 21 of 180]
+  S1, mpc, 46001: alarms 2 -> 3; least_clearance 0.566867 -> 0.568611; departure_periods 677 -> 717; max_w 1619.486 -> 1841.0343; max_ratio 17.4356 -> 3.1259
+  S1, mpc, 46002: restarts 1 -> 0; least_clearance 0.694233 -> 0.49062; rest_feedback 246 -> 247; departure_periods 660 -> 242; dep_w 253 -> 108; dep_tube 6 -> 5; max_w 1728.8061 -> 1321.4299; max_ratio 24.6442 -> 2.3025
+  S1, mpc, 46003: alarms 3 -> 2; restarts 2 -> 0; least_clearance 0.6994 -> 0.699319; rest_feedback 251 -> 253; departure_periods 680 -> 698; dep_tube 4 -> 2; max_w 1800.1237 -> 1630.409; max_ratio 7.6125 -> 1.8465
+  S1, mpc, 46006: alarms 2 -> 4; restarts 1 -> 0; least_clearance 0.582181 -> 0.580228; rest_feedback 235 -> 236; departure_periods 584 -> 436; dep_w 205 -> 220; dep_tube 5 -> 4; max_w 270.3249 -> 1228.4332; max_ratio 10.8542 -> 2.2756
+  S1, mpc, 46007: alarms 4 -> 5; restarts 3 -> 0; least_clearance 0.533175 -> 0.532946; rest_feedback 248 -> 251; departure_periods 661 -> 716; dep_tube 5 -> 2; max_w 1699.6044 -> 1375.3501; max_ratio 4.5293 -> 1.5126
+  S1, mpc, 46008: alarms 3 -> 4; restarts 2 -> 0; least_clearance 0.572669 -> 0.568551; rest_feedback 243 -> 245; departure_periods 625 -> 669; dep_w 249 -> 239; dep_tube 5 -> 3; max_w 1358.9585 -> 389.7865; max_ratio 9.1362 -> 1.7452
+  S1, mpc, 46009: alarms 3 -> 2; restarts 2 -> 0; least_clearance 0.5475 -> 0.547478; rest_feedback 244 -> 246; departure_periods 709 -> 672; dep_tube 6 -> 4; max_w 1955.266 -> 1614.0423; max_ratio 10.8594 -> 2.9562
+  S1, mpc, 46010: alarms 3 -> 4; restarts 3 -> 0; least_clearance 0.605622 -> 0.604244; begun 287 -> ; rest_feedback 187 -> 239; departure_periods 238 -> 560; dep_w 93 -> 201; dep_tube 5 -> 3; max_w 267.0295 -> 274.0125; max_ratio 5.7414 -> 2.5421
+  S1, mpc, 46013: restarts 3 -> 1; least_clearance 0.487731 -> 0.493309; begun  -> 270; rest_feedback 240 -> 177; departure_periods 237 -> 336; dep_w 114 -> 135; dep_tube 4 -> 1; max_w 877.7048 -> 1100.4027; max_ratio 9.0125 -> 1.699
+  S1, mpc, 46014: restarts 1 -> 0; rest_feedback 240 -> 241; departure_periods 477 -> 655; dep_w 181 -> 238; dep_tube 5 -> 4; max_w 282.3191 -> 370.6459; max_ratio 5.8811 -> 1.8848
+  S1, mpc, 46019: alarms 3 -> 2; restarts 2 -> 1; least_clearance 0.499131 -> 0.499253; begun  -> 269; rest_feedback 234 -> 185; departure_periods 556 -> 258; dep_w 198 -> 99; dep_tube 7 -> 5; max_w 270.746 -> 257.0396; max_ratio 6.648 -> 2.3644
+  S1, mpc, 46020: restarts 2 -> 0; begun 277 -> ; rest_feedback 184 -> 246; departure_periods 287 -> 708; dep_w 110 -> 250; dep_tube 5 -> 4; max_w 1713.9074 -> 2515.9426; max_ratio 52.4783 -> 2.3104
+  S1, mpc, 46021: alarms 2 -> 3; least_clearance 0.562145 -> 0.561135; begun  -> 261; rest_feedback 234 -> 164; departure_periods 556 -> 210; dep_w 195 -> 87; dep_tube 5 -> 4; max_w 242.7904 -> 995.8655; max_ratio 6.2586 -> 2.4906
+  S1, mpc, 46022: alarms 4 -> 2; restarts 3 -> 0; least_clearance 0.580818 -> 0.58043; rest_feedback 240 -> 243; departure_periods 646 -> 654; dep_w 246 -> 233; dep_tube 5 -> 2; max_w 1398.7126 -> 356.3609; max_ratio 65.1244 -> 1.6928
+  S1, mpc, 46023: restarts 2 -> 0; least_clearance 0.69814 -> 0.704694; rest_feedback 250 -> 252; departure_periods 704 -> 505; dep_w 256 -> 238; dep_tube 5 -> 3; max_w 2036.0387 -> 1690.0741; max_ratio 9.3962 -> 2.3682
+  S1, mpc, 46024: alarms 2 -> 3; restarts 2 -> 0; least_clearance 0.772765 -> 0.48326; begun 290 -> ; rest_feedback 203 -> 249; departure_periods 320 -> 313; dep_w 120 -> 151; dep_tube 3 -> 2; max_w 1650.3392 -> 1337.9188; max_ratio 6.694 -> 1.5739
+  S1, mpc, 46026: restarts 2 -> 0; least_clearance 0.55816 -> 0.558363; rest_feedback 235 -> 237; departure_periods 436 -> 482; dep_w 214 -> 205; dep_tube 4 -> 2; max_w 756.404 -> 1188.6256; max_ratio 11.6839 -> 1.729
+  S1, mpc, 46027: restarts 3 -> 1; least_clearance 0.548647 -> 0.035513; rest_feedback 246 -> 248; departure_periods 714 -> 610; dep_tube 6 -> 4; max_w 456.1273 -> 1573.8106; max_ratio 9.5659 -> 8.6373
+  S1, mpc, 46028: alarms 2 -> 4; restarts 1 -> 0; least_clearance 0.574713 -> 0.56194; rest_feedback 249 -> 250; departure_periods 722 -> 621; dep_tube 4 -> 3; max_w 1448.0225 -> 1281.587; max_ratio 14.5255 -> 2.0005
+  S1, mpc, 46029: restarts 1 -> 0; least_clearance 0.486242 -> 0.485329; rest_feedback 245 -> 246; dep_tube 4 -> 3; max_ratio 4.8085 -> 2.3889
+  S1, mpc, 46030: alarms 4 -> 6; restarts 3 -> 0; least_clearance 0.529615 -> 0.529423; rest_feedback 234 -> 237; departure_periods 520 -> 633; dep_tube 6 -> 3; max_w 1504.9978 -> 1178.1672; max_ratio 5.9428 -> 2.4085

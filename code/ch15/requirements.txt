@@ -2,8 +2,12 @@
 # Apollo carrying a beam (humanoid_carry.py, which also needs a checkout of
 # Team-Impedance-Control at commit eb530ea)
 mujoco==3.16.0
-numpy>=2.0
-scipy>=1.10       # the recovery's fastest motion (quad/governed.py, linprog)
+# NumPy and SciPy at the versions of the records, with which the humanoid's
+# checks give the recorded values; they need CPython 3.12 or later
+numpy==2.5.3; python_version >= "3.12"
+numpy>=2.0; python_version < "3.12"
+scipy==1.18.1; python_version >= "3.12"    # the recovery's fastest motion (quad/governed.py, linprog)
+scipy>=1.10; python_version < "3.12"
 # humanoid_carry.py --qp daqp only: the repository's QP solver
 # daqp==0.7.2
 # The videos only (quad_video.py, humanoid_video.py, with ../render): Pillow,

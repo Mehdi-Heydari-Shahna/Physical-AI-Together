@@ -1,0 +1,123 @@
+Support matrix of Section 12.1: the declared experiment of Chapter 11 in each configuration
+
+mujoco
+  what: MuJoCo itself, the reference of Section 11.1
+  versions: mujoco 3.16.0
+  precision: float64
+  port checks: loads, timing, friction, crest: pass, pass, pass, pass
+  end of period, median and largest [m]: 0.000163, 0.000388
+  axle disturbance, largest [m/s^2]; periods above 0.05: 0.0339; 0 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: -
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: -
+newton-mujoco-warp
+  what: Newton, SolverMuJoCo on MuJoCo Warp, as the port sets it
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, pass, pass
+  end of period, median and largest [m]: 0.000163, 0.000387
+  axle disturbance, largest [m/s^2]; periods above 0.05: 0.0343; 0 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 1.08e-06, 4.14e-06
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 10.4
+newton-mujoco-c
+  what: Newton, SolverMuJoCo on MuJoCo's C library, as the port sets it
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, pass, pass
+  end of period, median and largest [m]: 0.000163, 0.000388
+  axle disturbance, largest [m/s^2]; periods above 0.05: 0.0339; 0 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 9.43e-07, 4.19e-06
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 0.699
+newton-mujoco-c-hull64
+  what: the same with the importer's hull of 64 vertices (a mistake)
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, pass, fail
+  end of period, median and largest [m]: 0.000162, 0.00071
+  axle disturbance, largest [m/s^2]; periods above 0.05: 1.75; 10 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 9.38e-07, 0.00057
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 0.656
+newton-mujoco-c-gap
+  what: the same with Newton's gap of 0.1 m passed to MuJoCo (a mistake)
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, pass, pass
+  end of period, median and largest [m]: 0.000163, 0.000388
+  axle disturbance, largest [m/s^2]; periods above 0.05: 0.0881; 1 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 1.72e-06, 7.16e-05
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 0.723
+newton-xpbd
+  what: Newton, SolverXPBD with Newton's contacts and defaults
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, fail, pass
+  end of period, median and largest [m]: 0.000439, 0.00337
+  axle disturbance, largest [m/s^2]; periods above 0.05: 7.35; 197 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 0.000423, 0.00338
+  cases of Section 10.4 beyond 1 mm: 17 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 72, 71, 23.6
+  time per step on this machine, indicative [ms]: 3.19
+newton-featherstone
+  what: Newton, SolverFeatherstone with Newton's contacts and defaults
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: fail, fail, fail, fail
+  end of period, median and largest [m]: not run
+  axle disturbance, largest [m/s^2]; periods above 0.05: not run
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: not run
+  cases of Section 10.4 beyond 1 mm: not run
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: not run
+  time per step on this machine, indicative [ms]: -
+newton-semi-implicit
+  what: Newton, SolverSemiImplicit with Newton's contacts and defaults
+  versions: newton 1.7.0, warp-lang 1.18.0, mujoco 3.15.0, mujoco-warp 3.15.0
+  precision: float32
+  port checks: loads, timing, friction, crest: fail, fail, fail, fail
+  end of period, median and largest [m]: not run
+  axle disturbance, largest [m/s^2]; periods above 0.05: not run
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: not run
+  cases of Section 10.4 beyond 1 mm: not run
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: not run
+  time per step on this machine, indicative [ms]: -
+genesis
+  what: Genesis, the options of the MJCF text, as the port sets it
+  versions: genesis-world 1.4.4, quadrants 1.3.3, mujoco 3.16.0
+  precision: float64
+  port checks: loads, timing, friction, crest: pass, pass, pass, pass
+  end of period, median and largest [m]: 0.000163, 0.000477
+  axle disturbance, largest [m/s^2]; periods above 0.05: 0.0339; 0 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 8.68e-11, 0.000174
+  cases of Section 10.4 beyond 1 mm: 0 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 1.5
+genesis-mpr
+  what: the same with Genesis's MPR collision detection (its default)
+  versions: genesis-world 1.4.4, quadrants 1.3.3, mujoco 3.16.0
+  precision: float64
+  port checks: loads, timing, friction, crest: pass, pass, pass, fail
+  end of period, median and largest [m]: 0.000163, 0.108
+  axle disturbance, largest [m/s^2]; periods above 0.05: 24.6; 14 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 1.9e-05, 0.108
+  cases of Section 10.4 beyond 1 mm: 6 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 1
+genesis-defaults
+  what: Genesis, its own defaults
+  versions: genesis-world 1.4.4, quadrants 1.3.3, mujoco 3.16.0
+  precision: float32
+  port checks: loads, timing, friction, crest: pass, pass, fail, fail
+  end of period, median and largest [m]: 0.000983, 0.00883
+  axle disturbance, largest [m/s^2]; periods above 0.05: 2.59; 201 of 201
+  against MuJoCo: per period, the error vector less MuJoCo's, norm, median and largest [m]: 0.000968, 0.00903
+  cases of Section 10.4 beyond 1 mm: 21 of 26
+  configuration of Chapter 3: alarms, restarts, least clearance [m]: 1, 0, 25
+  time per step on this machine, indicative [ms]: 1.33
