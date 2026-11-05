@@ -9,13 +9,20 @@ authors:
     given-names: "Mehdi"
 version: "v1.1"
 date-released: "2026-11-05"
+doi: "10.5281/zenodo.23974830"
 identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23974830"
+    description: "Release v1.1, archived at Zenodo"
+  - type: doi
+    value: "10.5281/zenodo.23974829"
+    description: "Every version of the Zenodo record of release v1.1; resolves to the latest one"
   - type: doi
     value: "10.5281/zenodo.23823947"
     description: "Release v1.0, archived at Zenodo: the results that the book reports"
   - type: doi
     value: "10.5281/zenodo.23823946"
-    description: "Every version of the archive; resolves to the latest one"
+    description: "Every version of the Zenodo record of release v1.0"
 license: MIT
 repository-code: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
 url: "https://github.com/Mehdi-Heydari-Shahna/Physical-AI-Together"
